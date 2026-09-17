@@ -506,7 +506,7 @@
       <defaults>
         
     
-        <default field="id" expression="" applyOnUpdate="0"/>
+        <default field="id" expression="coalesce(maximum(&quot;id&quot;) + 1, count(1) + 1)" applyOnUpdate="0"/>
         
     
         <default field="type" expression="'restriction'" applyOnUpdate="0"/>
@@ -19556,10 +19556,10 @@
       <defaults>
         
     
-        <default field="id" expression="" applyOnUpdate="0"/>
+        <default field="id" expression="coalesce(maximum(&quot;id&quot;) + 1, count(1) + 1)" applyOnUpdate="0"/>
         
     
-        <default field="ref_id" expression="" applyOnUpdate="0"/>
+        <default field="ref_id" expression="'R_' || lpad(coalesce(maximum(to_int(replace(&quot;ref_id&quot;, 'R_', ''))) + 1, count(1) + 1), 4, '0')" applyOnUpdate="0"/>
         
     
         <default field="highway" expression="" applyOnUpdate="0"/>
@@ -20144,10 +20144,10 @@
       <defaults>
         
     
-        <default field="id" expression="" applyOnUpdate="0"/>
+        <default field="id" expression="coalesce(maximum(&quot;id&quot;) + 1, count(1) + 1)" applyOnUpdate="0"/>
         
     
-        <default field="ref_id" expression="" applyOnUpdate="0"/>
+        <default field="ref_id" expression="'T_' || lpad(coalesce(maximum(to_int(replace(&quot;ref_id&quot;, 'T_', ''))) + 1, count(1) + 1), 4, '0')" applyOnUpdate="0"/>
         
     
         <default field="railway" expression="" applyOnUpdate="0"/>
@@ -20686,7 +20686,7 @@
       <defaults>
         
     
-        <default field="id" expression="" applyOnUpdate="0"/>
+        <default field="id" expression="coalesce(maximum(&quot;id&quot;) + 1, count(1) + 1)" applyOnUpdate="0"/>
         
     
         <default field="name" expression="" applyOnUpdate="0"/>
@@ -22479,10 +22479,10 @@
       <defaults>
         
     
-        <default field="id" expression="" applyOnUpdate="0"/>
+        <default field="id" expression="coalesce(maximum(&quot;id&quot;) + 1, count(1) + 1)" applyOnUpdate="0"/>
         
     
-        <default field="ref_id" expression="" applyOnUpdate="0"/>
+        <default field="ref_id" expression="'A_' || lpad(coalesce(maximum(to_int(replace(&quot;ref_id&quot;, 'A_', ''))) + 1, count(1) + 1), 4, '0')" applyOnUpdate="0"/>
         
     
         <default field="name" expression="" applyOnUpdate="0"/>

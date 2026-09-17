@@ -121,8 +121,8 @@
     <alias field="layer" index="7" name="Z-Level Stacking (-1 tunnel, 0 ground, 1 bridge)"/>
   </aliases>
   <defaults>
-    <default field="id" expression="" applyOnUpdate="0"/>
-    <default field="ref_id" expression="" applyOnUpdate="0"/>
+    <default field="id" expression="coalesce(maximum(&quot;id&quot;) + 1, count(1) + 1)" applyOnUpdate="0"/>
+    <default field="ref_id" expression="'T_' || lpad(coalesce(maximum(to_int(replace(&quot;ref_id&quot;, 'T_', ''))) + 1, count(1) + 1), 4, '0')" applyOnUpdate="0"/>
     <default field="railway" expression="" applyOnUpdate="0"/>
     <default field="name" expression="" applyOnUpdate="0"/>
     <default field="service" expression="" applyOnUpdate="0"/>

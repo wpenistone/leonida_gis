@@ -14,8 +14,9 @@ def setup_hooks():
     try:
         res = subprocess.run(["git", "config", "core.hooksPath", ".githooks"], capture_output=True, text=True)
         if res.returncode == 0:
-            print("Git pre-commit hooks activated via '.githooks/'.")
-            print("scripts/format.py will run automatically on git commit.")
+            print("Git hooks successfully activated via '.githooks/'.")
+            print("  - pre-commit: auto-formats GeoJSON work layers & validates schema")
+            print("  - pre-push:   runs strict validation and headless plugin test suite")
         else:
             print(f"[ERROR] Failed to set core.hooksPath: {res.stderr}")
     except Exception as e:

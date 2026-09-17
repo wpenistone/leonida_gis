@@ -539,8 +539,8 @@
     <alias field="amenity" index="6" name="Civic Amenity"/>
   </aliases>
   <defaults>
-    <default field="id" expression="" applyOnUpdate="0"/>
-    <default field="ref_id" expression="" applyOnUpdate="0"/>
+    <default field="id" expression="coalesce(maximum(&quot;id&quot;) + 1, count(1) + 1)" applyOnUpdate="0"/>
+    <default field="ref_id" expression="'A_' || lpad(coalesce(maximum(to_int(replace(&quot;ref_id&quot;, 'A_', ''))) + 1, count(1) + 1), 4, '0')" applyOnUpdate="0"/>
     <default field="name" expression="" applyOnUpdate="0"/>
     <default field="landuse" expression="" applyOnUpdate="0"/>
     <default field="leisure" expression="" applyOnUpdate="0"/>

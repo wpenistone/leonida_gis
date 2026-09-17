@@ -7,9 +7,11 @@
 - [ ] `layers/roads.geojson`
 - [ ] `layers/rail.geojson`
 - [ ] `layers/landmarks.geojson`
-- [ ] `layers/water.geojson`
-- [ ] `layers/sections.geojson`
 - [ ] `layers/restrictions.geojson`
+- [ ] `layers/waterways.geojson`
+- [ ] `layers/areas.geojson`
+- [ ] `layers/sections.geojson`
+- [ ] `layers/water.geojson`
 
 ## County / Region Affected
 
@@ -22,7 +24,9 @@
 ## Pre-Submission Checklist
 
 - [ ] **Saved Layer Edits**: Layer edits committed to disk in QGIS (`Ctrl + E` -> Save, not only Project Save).
-- [ ] **Formatted Layers**: Ran `python scripts/format.py` (coordinates clamped to 1 cm, 1 line per feature, dynamic county tags derived).
+- [ ] **Formatted Layers**: Ran `python scripts/format.py` (coordinates clamped to 1 cm, 1 line per feature, clean sequential IDs, pure OSM schema).
+- [ ] **Strict Semantic Validation**: Ran `python scripts/validate.py --strict` with **0 errors and 0 warnings**.
+- [ ] **Headless Plugin Verification**: Ran `python qgis_plugin/test_store_headless.py` (all tests passed).
 - [ ] **Topology Verified**: Followed rules in `MAPPING_GUIDE.md` (at-grade junctions snapped, bridges vertically separated, no lines cut at county lines).
-- [ ] **Clean Git Diff**: Checked `git diff` to ensure only intended features are modified.
-- [ ] **Scope Limited**: No generated release files (`publication/`, `derived/`) or binary files (`.gpkg`, `.shp`) committed.
+- [ ] **Clean Git Diff**: Checked `git diff` to ensure only intended features and attributes are modified.
+- [ ] **Scope Limited**: Pure source layers in `layers/` only. No auto-derived attributes or build binaries committed.

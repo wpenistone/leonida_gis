@@ -119,7 +119,7 @@
     <alias field="except" index="5" name="Exception Tag (e.g. bus, emergency)"/>
   </aliases>
   <defaults>
-    <default field="id" expression="" applyOnUpdate="0"/>
+    <default field="id" expression="coalesce(maximum(&quot;id&quot;) + 1, count(1) + 1)" applyOnUpdate="0"/>
     <default field="type" expression="'restriction'" applyOnUpdate="0"/>
     <default field="restriction" expression="" applyOnUpdate="0"/>
     <default field="from_way" expression="" applyOnUpdate="0"/>

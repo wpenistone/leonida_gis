@@ -1,0 +1,18 @@
+#!/bin/sh
+# Pre-push hook for State of Leonida GIS
+# Runs strict semantic layer validation and headless plugin tests before pushing upstream.
+
+echo ">>> [Pre-push] Validating layer semantics in strict mode..."
+python scripts/validate.py --strict || {
+  echo "[FAIL] Strict validation failed! Push rejected. Resolve all errors and warnings before pushing."
+  exit 1
+}
+
+echo ">>> [Pre-push] Verifying Turn Restrictions plugin headless suite..."
+python qgis_plugin/test_store_headless.py || {
+  echo "[FAIL] Plugin test suite failed! Push rejected."
+  exit 1
+}
+
+echo ">>> [Pre-push] All validation checks passed. Proceeding with push."
+exit 0

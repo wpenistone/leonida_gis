@@ -192,8 +192,31 @@ python scripts/sync_sources.py --gtadb     # Sync GTADB landmarks only
 python scripts/sync_sources.py --heightmap # Sync heightmap DEM only
 ```
 
+### Quick Launcher & Project Sync
+Run the launcher to check upstream sync, format layers, and launch QGIS in one step:
+```bash
+# Graphical Launcher (double-click in Windows Explorer, zero-console window):
+pythonw launch.pyw
+
+# Or Command-Line Launcher:
+python launch.py
+```
+
+### Install Turn Restrictions Plugin into QGIS
+One-click installer creates a live NTFS junction into your local QGIS 3 user profile so changes are instantly reflected in QGIS:
+```bash
+python scripts/install_plugin.py
+```
+After running, open QGIS and enable **Leonida Turn Restrictions** in `Plugins -> Manage and Install Plugins... -> Installed`.
+
+### Setup Git Pre-Commit and Pre-Push Hooks
+Ensures every commit and push is automatically formatted and validated:
+```bash
+python scripts/setup_hooks.py
+```
+
 ### Format and Lint Layers
-Formats canonical layers:
+Formats canonical layers (1 feature per line, sorted keys, 2 decimal places, pure schema):
 ```bash
 python scripts/format.py
 ```

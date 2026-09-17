@@ -131,7 +131,7 @@
     <alias field="width" index="5" name="Channel Width (m)"/>
   </aliases>
   <defaults>
-    <default field="id" expression="" applyOnUpdate="0"/>
+    <default field="id" expression="coalesce(maximum(&quot;id&quot;) + 1, count(1) + 1)" applyOnUpdate="0"/>
     <default field="name" expression="" applyOnUpdate="0"/>
     <default field="waterway" expression="" applyOnUpdate="0"/>
     <default field="tunnel" expression="" applyOnUpdate="0"/>

@@ -5752,8 +5752,8 @@
     <field name="junction" editable="1"/>
   </editable>
   <defaults>
-    <default field="id" expression="" applyOnUpdate="0"/>
-    <default field="ref_id" expression="" applyOnUpdate="0"/>
+    <default field="id" expression="coalesce(maximum(&quot;id&quot;) + 1, count(1) + 1)" applyOnUpdate="0"/>
+    <default field="ref_id" expression="'R_' || lpad(coalesce(maximum(to_int(replace(&quot;ref_id&quot;, 'R_', ''))) + 1, count(1) + 1), 4, '0')" applyOnUpdate="0"/>
     <default field="highway" expression="" applyOnUpdate="0"/>
     <default field="name" expression="" applyOnUpdate="0"/>
     <default field="ref" expression="" applyOnUpdate="0"/>
