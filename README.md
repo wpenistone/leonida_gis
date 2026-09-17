@@ -196,7 +196,7 @@ python scripts/sync_sources.py --heightmap # Sync heightmap DEM only
 Run the launcher to check upstream sync, format layers, and launch QGIS in one step:
 ```bash
 # Graphical Launcher (double-click in Windows Explorer, zero-console window):
-pythonw launch.pyw
+pythonw launch_gui.pyw
 
 # Or Command-Line Launcher:
 python launch.py

@@ -4,7 +4,7 @@ State of Leonida GIS - Launcher Core Engine
 ===========================================
 Shared utility module providing Git repository inspection,
 upstream status synchronization, layer formatting, validation,
-and QGIS project launching for launch.py and launch.pyw.
+and QGIS project launching for launch.py and launch_gui.pyw.
 """
 
 import os

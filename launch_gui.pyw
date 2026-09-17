@@ -6,7 +6,7 @@ Native Windows interface built with PyQt6 without custom styling.
 Provides repository status inspection, upstream synchronization,
 layer formatting and validation, plugin installation, and QGIS project launch.
 
-Launch by double-clicking 'launch.pyw' in Windows Explorer.
+Launch by double-clicking 'launch_gui.pyw' in Windows Explorer.
 """
 
 import os

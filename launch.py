@@ -69,7 +69,7 @@ def run_cli():
     print("  3. Format and validate layers")
     print("  4. Install or link QGIS plugin")
     print("  5. Run build pipeline")
-    print("  6. Open graphical interface (PyQt6)")
+    print("  6. Open graphical interface (launch_gui.pyw)")
     print("  0. Exit")
     print("----------------------------------------")
 
@@ -122,7 +122,7 @@ def run_cli():
         if rc_pipe == 0:
             print("Pipeline completed successfully.")
     elif choice == "6":
-        pyw_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "launch.pyw")
+        pyw_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "launch_gui.pyw")
         if os.path.exists(pyw_path):
             import subprocess
             subprocess.Popen([sys.executable, pyw_path])
@@ -143,7 +143,7 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     if args.gui:
-        pyw_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "launch.pyw")
+        pyw_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "launch_gui.pyw")
         import subprocess
         subprocess.Popen([sys.executable, pyw_path])
         sys.exit(0)
