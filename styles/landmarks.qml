@@ -391,4 +391,111 @@
     </symbols>
   </renderer-v2>
   <labeling type="simple"/>
+  <fieldConfiguration>
+    <field name="id" configurationFlags="None">
+      <editWidget type="TextEdit"><config><Option type="Map"><Option type="bool" name="IsMultiline" value="false"/><Option type="bool" name="UseHtml" value="false"/></Option></config></editWidget>
+    </field>
+    <field name="name" configurationFlags="None">
+      <editWidget type="TextEdit"><config><Option type="Map"><Option type="bool" name="IsMultiline" value="false"/><Option type="bool" name="UseHtml" value="false"/></Option></config></editWidget>
+    </field>
+    <field name="category" configurationFlags="None">
+      <editWidget type="ValueMap">
+        <config>
+          <Option type="Map">
+            <Option type="List" name="map">
+              <Option type="Map"><Option type="QString" name="Amenity" value="amenity"/></Option>
+              <Option type="Map"><Option type="QString" name="Tourism" value="tourism"/></Option>
+              <Option type="Map"><Option type="QString" name="Shop" value="shop"/></Option>
+              <Option type="Map"><Option type="QString" name="Leisure" value="leisure"/></Option>
+              <Option type="Map"><Option type="QString" name="Emergency" value="emergency"/></Option>
+            </Option>
+          </Option>
+        </config>
+      </editWidget>
+    </field>
+    <field name="osm_type" configurationFlags="None">
+      <editWidget type="ValueMap">
+        <config>
+          <Option type="Map">
+            <Option type="List" name="map">
+              <Option type="Map"><Option type="QString" name="amenity" value="amenity"/></Option>
+              <Option type="Map"><Option type="QString" name="tourism" value="tourism"/></Option>
+              <Option type="Map"><Option type="QString" name="shop" value="shop"/></Option>
+              <Option type="Map"><Option type="QString" name="leisure" value="leisure"/></Option>
+            </Option>
+          </Option>
+        </config>
+      </editWidget>
+    </field>
+    <field name="osm_value" configurationFlags="None">
+      <editWidget type="ValueMap">
+        <config>
+          <Option type="Map">
+            <Option type="List" name="map">
+              <Option type="Map"><Option type="QString" name="Gas / Fuel Station" value="fuel"/></Option>
+              <Option type="Map"><Option type="QString" name="Police Station" value="police"/></Option>
+              <Option type="Map"><Option type="QString" name="Fire Station" value="fire_station"/></Option>
+              <Option type="Map"><Option type="QString" name="Hospital / Clinic" value="hospital"/></Option>
+              <Option type="Map"><Option type="QString" name="Restaurant" value="restaurant"/></Option>
+              <Option type="Map"><Option type="QString" name="Bar / Pub" value="bar"/></Option>
+              <Option type="Map"><Option type="QString" name="Fast Food" value="fast_food"/></Option>
+              <Option type="Map"><Option type="QString" name="Convenience Store" value="convenience"/></Option>
+              <Option type="Map"><Option type="QString" name="Car Repair / Tuning" value="car_repair"/></Option>
+              <Option type="Map"><Option type="QString" name="Hotel / Motel" value="hotel"/></Option>
+              <Option type="Map"><Option type="QString" name="Attraction / Sight" value="attraction"/></Option>
+              <Option type="Map"><Option type="QString" name="Viewpoint" value="viewpoint"/></Option>
+              <Option type="Map"><Option type="QString" name="Bank / ATM" value="bank"/></Option>
+              <Option type="Map"><Option type="QString" name="Pharmacy" value="pharmacy"/></Option>
+            </Option>
+          </Option>
+        </config>
+      </editWidget>
+    </field>
+    <field name="neighborhood" configurationFlags="None">
+      <editWidget type="TextEdit"><config><Option type="Map"><Option type="bool" name="IsMultiline" value="false"/><Option type="bool" name="UseHtml" value="false"/></Option></config></editWidget>
+    </field>
+    <field name="location_city" configurationFlags="None">
+      <editWidget type="TextEdit"><config><Option type="Map"><Option type="bool" name="IsMultiline" value="false"/><Option type="bool" name="UseHtml" value="false"/></Option></config></editWidget>
+    </field>
+  </fieldConfiguration>
+  <aliases>
+    <alias field="id" index="0" name="POI Identifier"/>
+    <alias field="name" index="1" name="Landmark Name"/>
+    <alias field="category" index="2" name="Broad Category"/>
+    <alias field="osm_type" index="3" name="OSM Key"/>
+    <alias field="osm_value" index="4" name="OSM Tag Value"/>
+    <alias field="neighborhood" index="5" name="Neighborhood / Suburb"/>
+    <alias field="location_city" index="6" name="City / Municipality"/>
+  </aliases>
+  <defaults>
+    <default field="id" expression="" applyOnUpdate="0"/>
+    <default field="name" expression="" applyOnUpdate="0"/>
+    <default field="category" expression="" applyOnUpdate="0"/>
+    <default field="osm_type" expression="" applyOnUpdate="0"/>
+    <default field="osm_value" expression="" applyOnUpdate="0"/>
+    <default field="neighborhood" expression="" applyOnUpdate="0"/>
+    <default field="location_city" expression="" applyOnUpdate="0"/>
+  </defaults>
+  <constraints>
+    <constraint field="id" constraints="0" exp_strength="0" notnull_strength="0" unique_strength="0"/>
+    <constraint field="name" constraints="0" exp_strength="0" notnull_strength="0" unique_strength="0"/>
+    <constraint field="category" constraints="0" exp_strength="0" notnull_strength="0" unique_strength="0"/>
+    <constraint field="osm_type" constraints="0" exp_strength="0" notnull_strength="0" unique_strength="0"/>
+    <constraint field="osm_value" constraints="0" exp_strength="0" notnull_strength="0" unique_strength="0"/>
+    <constraint field="neighborhood" constraints="0" exp_strength="0" notnull_strength="0" unique_strength="0"/>
+    <constraint field="location_city" constraints="0" exp_strength="0" notnull_strength="0" unique_strength="0"/>
+  </constraints>
+  <editforminit/>
+  <editforminitcodesource>0</editforminitcodesource>
+  <featformsuppress>0</featformsuppress>
+  <editorlayout>generatedlayout</editorlayout>
+  <editable>
+    <field name="id" editable="1"/>
+    <field name="name" editable="1"/>
+    <field name="category" editable="1"/>
+    <field name="osm_type" editable="1"/>
+    <field name="osm_value" editable="1"/>
+    <field name="neighborhood" editable="1"/>
+    <field name="location_city" editable="1"/>
+  </editable>
 </qgis>

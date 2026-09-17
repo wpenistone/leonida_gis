@@ -54,7 +54,7 @@
         <config>
           <Option type="Map">
             <Option type="List" name="map">
-              <Option type="Map"><Option type="QString" name="Heavy Rail (Main Line &amp; Freight)" value="rail"/></Option>
+              <Option type="Map"><Option type="QString" name="Heavy Rail (Main Line / Freight)" value="rail"/></Option>
               <Option type="Map"><Option type="QString" name="Light Rail / Tram" value="light_rail"/></Option>
               <Option type="Map"><Option type="QString" name="Subway / Metro" value="subway"/></Option>
               <Option type="Map"><Option type="QString" name="Monorail" value="monorail"/></Option>
@@ -71,7 +71,7 @@
         <config>
           <Option type="Map">
             <Option type="List" name="map">
-              <Option type="Map"><Option type="QString" name="Mainline (Regular Track)" value=""/></Option>
+              <Option type="Map"><Option type="QString" name="Mainline (None)" value=""/></Option>
               <Option type="Map"><Option type="QString" name="Rail Yard (Storage/Switching)" value="yard"/></Option>
               <Option type="Map"><Option type="QString" name="Siding" value="siding"/></Option>
               <Option type="Map"><Option type="QString" name="Industrial Spur" value="spur"/></Option>
@@ -107,19 +107,39 @@
       </editWidget>
     </field>
     <field name="layer" configurationFlags="None">
-      <editWidget type="Range"><config><Option type="Map"><Option type="bool" name="AllowNull" value="false"/><Option type="int" name="Max" value="5"/><Option type="int" name="Min" value="-5"/><Option type="int" name="Step" value="1"/></Option></config></editWidget>
+      <editWidget type="Range"><config><Option type="Map"><Option type="bool" name="AllowNull" value="true"/><Option type="int" name="Max" value="5"/><Option type="int" name="Min" value="-5"/><Option type="int" name="Step" value="1"/></Option></config></editWidget>
     </field>
   </fieldConfiguration>
   <aliases>
     <alias field="id" index="0" name="Feature ID"/>
     <alias field="ref_id" index="1" name="Transit Ref ID (e.g. T_0001)"/>
-    <alias field="railway" index="2" name="Railway Type (rail / light_rail / subway)"/>
+    <alias field="railway" index="2" name="Railway Type"/>
     <alias field="name" index="3" name="Line / Corridor Name"/>
-    <alias field="service" index="4" name="Track Service (mainline / yard / siding / spur)"/>
+    <alias field="service" index="4" name="Track Service"/>
     <alias field="bridge" index="5" name="Bridge Structure"/>
     <alias field="tunnel" index="6" name="Tunnel Structure"/>
     <alias field="layer" index="7" name="Z-Level Stacking (-1 tunnel, 0 ground, 1 bridge)"/>
   </aliases>
+  <defaults>
+    <default field="id" expression="" applyOnUpdate="0"/>
+    <default field="ref_id" expression="" applyOnUpdate="0"/>
+    <default field="railway" expression="" applyOnUpdate="0"/>
+    <default field="name" expression="" applyOnUpdate="0"/>
+    <default field="service" expression="" applyOnUpdate="0"/>
+    <default field="bridge" expression="" applyOnUpdate="0"/>
+    <default field="tunnel" expression="" applyOnUpdate="0"/>
+    <default field="layer" expression="CASE WHEN &quot;bridge&quot; IN ('yes', 'viaduct') THEN 1 WHEN &quot;tunnel&quot; IN ('yes') THEN -1 ELSE NULL END" applyOnUpdate="1"/>
+  </defaults>
+  <constraints>
+    <constraint field="id" constraints="0" exp_strength="0" notnull_strength="0" unique_strength="0"/>
+    <constraint field="ref_id" constraints="0" exp_strength="0" notnull_strength="0" unique_strength="0"/>
+    <constraint field="railway" constraints="0" exp_strength="0" notnull_strength="0" unique_strength="0"/>
+    <constraint field="name" constraints="0" exp_strength="0" notnull_strength="0" unique_strength="0"/>
+    <constraint field="service" constraints="0" exp_strength="0" notnull_strength="0" unique_strength="0"/>
+    <constraint field="bridge" constraints="0" exp_strength="0" notnull_strength="0" unique_strength="0"/>
+    <constraint field="tunnel" constraints="0" exp_strength="0" notnull_strength="0" unique_strength="0"/>
+    <constraint field="layer" constraints="0" exp_strength="0" notnull_strength="0" unique_strength="0"/>
+  </constraints>
   <editforminit/>
   <editforminitcodesource>0</editforminitcodesource>
   <featformsuppress>0</featformsuppress>

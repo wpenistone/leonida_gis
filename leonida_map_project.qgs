@@ -459,6 +459,22 @@
     
         </field>
         
+    
+        <field name="except" configurationFlags="None">
+          
+      
+          <editWidget type="TextEdit">
+            <config>
+              <Option type="Map">
+                <Option type="bool" name="IsMultiline" value="false"/>
+                <Option type="bool" name="UseHtml" value="false"/>
+              </Option>
+            </config>
+          </editWidget>
+          
+    
+        </field>
+        
   
       </fieldConfiguration>
       
@@ -469,10 +485,10 @@
         <alias field="id" index="0" name="Feature ID"/>
         
     
-        <alias field="type" index="1" name="Relation Type (restriction)"/>
+        <alias field="type" index="1" name="Relation Type"/>
         
     
-        <alias field="restriction" index="2" name="Turn Restriction Type"/>
+        <alias field="restriction" index="2" name="Turn Restriction"/>
         
     
         <alias field="from_way" index="3" name="Incoming Road Ref ID (e.g. R_0012)"/>
@@ -480,8 +496,59 @@
     
         <alias field="to_way" index="4" name="Target Road Ref ID (e.g. R_0015)"/>
         
+    
+        <alias field="except" index="5" name="Exception Tag (e.g. bus, emergency)"/>
+        
   
       </aliases>
+      
+  
+      <defaults>
+        
+    
+        <default field="id" expression="" applyOnUpdate="0"/>
+        
+    
+        <default field="type" expression="'restriction'" applyOnUpdate="0"/>
+        
+    
+        <default field="restriction" expression="" applyOnUpdate="0"/>
+        
+    
+        <default field="from_way" expression="" applyOnUpdate="0"/>
+        
+    
+        <default field="to_way" expression="" applyOnUpdate="0"/>
+        
+    
+        <default field="except" expression="" applyOnUpdate="0"/>
+        
+  
+      </defaults>
+      
+  
+      <constraints>
+        
+    
+        <constraint field="id" constraints="0" exp_strength="0" notnull_strength="0" unique_strength="0"/>
+        
+    
+        <constraint field="type" constraints="0" exp_strength="0" notnull_strength="0" unique_strength="0"/>
+        
+    
+        <constraint field="restriction" constraints="0" exp_strength="0" notnull_strength="0" unique_strength="0"/>
+        
+    
+        <constraint field="from_way" constraints="0" exp_strength="0" notnull_strength="0" unique_strength="0"/>
+        
+    
+        <constraint field="to_way" constraints="0" exp_strength="0" notnull_strength="0" unique_strength="0"/>
+        
+    
+        <constraint field="except" constraints="0" exp_strength="0" notnull_strength="0" unique_strength="0"/>
+        
+  
+      </constraints>
       
   
       <editforminit/>
@@ -512,6 +579,9 @@
         
     
         <field name="to_way" editable="1"/>
+        
+    
+        <field name="except" editable="1"/>
         
   
       </editable>
@@ -1727,6 +1797,401 @@
       </renderer-v2>
       
   
+      <fieldConfiguration>
+        
+    
+        <field name="id" configurationFlags="None">
+          
+      
+          <editWidget type="TextEdit">
+            <config>
+              <Option type="Map">
+                <Option type="bool" name="IsMultiline" value="false"/>
+                <Option type="bool" name="UseHtml" value="false"/>
+              </Option>
+            </config>
+          </editWidget>
+          
+    
+        </field>
+        
+    
+        <field name="name" configurationFlags="None">
+          
+      
+          <editWidget type="TextEdit">
+            <config>
+              <Option type="Map">
+                <Option type="bool" name="IsMultiline" value="false"/>
+                <Option type="bool" name="UseHtml" value="false"/>
+              </Option>
+            </config>
+          </editWidget>
+          
+    
+        </field>
+        
+    
+        <field name="category" configurationFlags="None">
+          
+      
+          <editWidget type="ValueMap">
+            
+        
+            <config>
+              
+          
+              <Option type="Map">
+                
+            
+                <Option type="List" name="map">
+                  
+              
+                  <Option type="Map">
+                    <Option type="QString" name="Amenity" value="amenity"/>
+                  </Option>
+                  
+              
+                  <Option type="Map">
+                    <Option type="QString" name="Tourism" value="tourism"/>
+                  </Option>
+                  
+              
+                  <Option type="Map">
+                    <Option type="QString" name="Shop" value="shop"/>
+                  </Option>
+                  
+              
+                  <Option type="Map">
+                    <Option type="QString" name="Leisure" value="leisure"/>
+                  </Option>
+                  
+              
+                  <Option type="Map">
+                    <Option type="QString" name="Emergency" value="emergency"/>
+                  </Option>
+                  
+            
+                </Option>
+                
+          
+              </Option>
+              
+        
+            </config>
+            
+      
+          </editWidget>
+          
+    
+        </field>
+        
+    
+        <field name="osm_type" configurationFlags="None">
+          
+      
+          <editWidget type="ValueMap">
+            
+        
+            <config>
+              
+          
+              <Option type="Map">
+                
+            
+                <Option type="List" name="map">
+                  
+              
+                  <Option type="Map">
+                    <Option type="QString" name="amenity" value="amenity"/>
+                  </Option>
+                  
+              
+                  <Option type="Map">
+                    <Option type="QString" name="tourism" value="tourism"/>
+                  </Option>
+                  
+              
+                  <Option type="Map">
+                    <Option type="QString" name="shop" value="shop"/>
+                  </Option>
+                  
+              
+                  <Option type="Map">
+                    <Option type="QString" name="leisure" value="leisure"/>
+                  </Option>
+                  
+            
+                </Option>
+                
+          
+              </Option>
+              
+        
+            </config>
+            
+      
+          </editWidget>
+          
+    
+        </field>
+        
+    
+        <field name="osm_value" configurationFlags="None">
+          
+      
+          <editWidget type="ValueMap">
+            
+        
+            <config>
+              
+          
+              <Option type="Map">
+                
+            
+                <Option type="List" name="map">
+                  
+              
+                  <Option type="Map">
+                    <Option type="QString" name="Gas / Fuel Station" value="fuel"/>
+                  </Option>
+                  
+              
+                  <Option type="Map">
+                    <Option type="QString" name="Police Station" value="police"/>
+                  </Option>
+                  
+              
+                  <Option type="Map">
+                    <Option type="QString" name="Fire Station" value="fire_station"/>
+                  </Option>
+                  
+              
+                  <Option type="Map">
+                    <Option type="QString" name="Hospital / Clinic" value="hospital"/>
+                  </Option>
+                  
+              
+                  <Option type="Map">
+                    <Option type="QString" name="Restaurant" value="restaurant"/>
+                  </Option>
+                  
+              
+                  <Option type="Map">
+                    <Option type="QString" name="Bar / Pub" value="bar"/>
+                  </Option>
+                  
+              
+                  <Option type="Map">
+                    <Option type="QString" name="Fast Food" value="fast_food"/>
+                  </Option>
+                  
+              
+                  <Option type="Map">
+                    <Option type="QString" name="Convenience Store" value="convenience"/>
+                  </Option>
+                  
+              
+                  <Option type="Map">
+                    <Option type="QString" name="Car Repair / Tuning" value="car_repair"/>
+                  </Option>
+                  
+              
+                  <Option type="Map">
+                    <Option type="QString" name="Hotel / Motel" value="hotel"/>
+                  </Option>
+                  
+              
+                  <Option type="Map">
+                    <Option type="QString" name="Attraction / Sight" value="attraction"/>
+                  </Option>
+                  
+              
+                  <Option type="Map">
+                    <Option type="QString" name="Viewpoint" value="viewpoint"/>
+                  </Option>
+                  
+              
+                  <Option type="Map">
+                    <Option type="QString" name="Bank / ATM" value="bank"/>
+                  </Option>
+                  
+              
+                  <Option type="Map">
+                    <Option type="QString" name="Pharmacy" value="pharmacy"/>
+                  </Option>
+                  
+            
+                </Option>
+                
+          
+              </Option>
+              
+        
+            </config>
+            
+      
+          </editWidget>
+          
+    
+        </field>
+        
+    
+        <field name="neighborhood" configurationFlags="None">
+          
+      
+          <editWidget type="TextEdit">
+            <config>
+              <Option type="Map">
+                <Option type="bool" name="IsMultiline" value="false"/>
+                <Option type="bool" name="UseHtml" value="false"/>
+              </Option>
+            </config>
+          </editWidget>
+          
+    
+        </field>
+        
+    
+        <field name="location_city" configurationFlags="None">
+          
+      
+          <editWidget type="TextEdit">
+            <config>
+              <Option type="Map">
+                <Option type="bool" name="IsMultiline" value="false"/>
+                <Option type="bool" name="UseHtml" value="false"/>
+              </Option>
+            </config>
+          </editWidget>
+          
+    
+        </field>
+        
+  
+      </fieldConfiguration>
+      
+  
+      <aliases>
+        
+    
+        <alias field="id" index="0" name="POI Identifier"/>
+        
+    
+        <alias field="name" index="1" name="Landmark Name"/>
+        
+    
+        <alias field="category" index="2" name="Broad Category"/>
+        
+    
+        <alias field="osm_type" index="3" name="OSM Key"/>
+        
+    
+        <alias field="osm_value" index="4" name="OSM Tag Value"/>
+        
+    
+        <alias field="neighborhood" index="5" name="Neighborhood / Suburb"/>
+        
+    
+        <alias field="location_city" index="6" name="City / Municipality"/>
+        
+  
+      </aliases>
+      
+  
+      <defaults>
+        
+    
+        <default field="id" expression="" applyOnUpdate="0"/>
+        
+    
+        <default field="name" expression="" applyOnUpdate="0"/>
+        
+    
+        <default field="category" expression="" applyOnUpdate="0"/>
+        
+    
+        <default field="osm_type" expression="" applyOnUpdate="0"/>
+        
+    
+        <default field="osm_value" expression="" applyOnUpdate="0"/>
+        
+    
+        <default field="neighborhood" expression="" applyOnUpdate="0"/>
+        
+    
+        <default field="location_city" expression="" applyOnUpdate="0"/>
+        
+  
+      </defaults>
+      
+  
+      <constraints>
+        
+    
+        <constraint field="id" constraints="0" exp_strength="0" notnull_strength="0" unique_strength="0"/>
+        
+    
+        <constraint field="name" constraints="0" exp_strength="0" notnull_strength="0" unique_strength="0"/>
+        
+    
+        <constraint field="category" constraints="0" exp_strength="0" notnull_strength="0" unique_strength="0"/>
+        
+    
+        <constraint field="osm_type" constraints="0" exp_strength="0" notnull_strength="0" unique_strength="0"/>
+        
+    
+        <constraint field="osm_value" constraints="0" exp_strength="0" notnull_strength="0" unique_strength="0"/>
+        
+    
+        <constraint field="neighborhood" constraints="0" exp_strength="0" notnull_strength="0" unique_strength="0"/>
+        
+    
+        <constraint field="location_city" constraints="0" exp_strength="0" notnull_strength="0" unique_strength="0"/>
+        
+  
+      </constraints>
+      
+  
+      <editforminit/>
+      
+  
+      <editforminitcodesource>0</editforminitcodesource>
+      
+  
+      <featformsuppress>0</featformsuppress>
+      
+  
+      <editorlayout>generatedlayout</editorlayout>
+      
+  
+      <editable>
+        
+    
+        <field name="id" editable="1"/>
+        
+    
+        <field name="name" editable="1"/>
+        
+    
+        <field name="category" editable="1"/>
+        
+    
+        <field name="osm_type" editable="1"/>
+        
+    
+        <field name="osm_value" editable="1"/>
+        
+    
+        <field name="neighborhood" editable="1"/>
+        
+    
+        <field name="location_city" editable="1"/>
+        
+  
+      </editable>
+      
+
       <labeling type="simple">
         <settings calloutType="simpleRect">
           <text-style fontFamily="Segoe UI" fontSize="8.0" fontSizeUnit="Point" fontBold="0" fontItalic="0" fontUnderline="0" fontStrikeout="0" textColor="80,40,0,255" fieldName="coalesce(&quot;name&quot;, &quot;real_name&quot;)" isExpression="1" textOrientation="horizontal" blendMode="0" multilineHeight="1" useSubstitutions="0" fontCapitals="0" previewBkgrdColor="255,255,255,255">
@@ -19435,7 +19900,7 @@
                   
               
                   <Option type="Map">
-                    <Option type="QString" name="Heavy Rail (Main Line &amp; Freight)" value="rail"/>
+                    <Option type="QString" name="Heavy Rail (Main Line / Freight)" value="rail"/>
                   </Option>
                   
               
@@ -19501,7 +19966,7 @@
                   
               
                   <Option type="Map">
-                    <Option type="QString" name="Mainline (Regular Track)" value=""/>
+                    <Option type="QString" name="Mainline (None)" value=""/>
                   </Option>
                   
               
@@ -19631,7 +20096,7 @@
           <editWidget type="Range">
             <config>
               <Option type="Map">
-                <Option type="bool" name="AllowNull" value="false"/>
+                <Option type="bool" name="AllowNull" value="true"/>
                 <Option type="int" name="Max" value="5"/>
                 <Option type="int" name="Min" value="-5"/>
                 <Option type="int" name="Step" value="1"/>
@@ -19655,13 +20120,13 @@
         <alias field="ref_id" index="1" name="Transit Ref ID (e.g. T_0001)"/>
         
     
-        <alias field="railway" index="2" name="Railway Type (rail / light_rail / subway)"/>
+        <alias field="railway" index="2" name="Railway Type"/>
         
     
         <alias field="name" index="3" name="Line / Corridor Name"/>
         
     
-        <alias field="service" index="4" name="Track Service (mainline / yard / siding / spur)"/>
+        <alias field="service" index="4" name="Track Service"/>
         
     
         <alias field="bridge" index="5" name="Bridge Structure"/>
@@ -19674,6 +20139,66 @@
         
   
       </aliases>
+      
+  
+      <defaults>
+        
+    
+        <default field="id" expression="" applyOnUpdate="0"/>
+        
+    
+        <default field="ref_id" expression="" applyOnUpdate="0"/>
+        
+    
+        <default field="railway" expression="" applyOnUpdate="0"/>
+        
+    
+        <default field="name" expression="" applyOnUpdate="0"/>
+        
+    
+        <default field="service" expression="" applyOnUpdate="0"/>
+        
+    
+        <default field="bridge" expression="" applyOnUpdate="0"/>
+        
+    
+        <default field="tunnel" expression="" applyOnUpdate="0"/>
+        
+    
+        <default field="layer" expression="CASE WHEN &quot;bridge&quot; IN ('yes', 'viaduct') THEN 1 WHEN &quot;tunnel&quot; IN ('yes') THEN -1 ELSE NULL END" applyOnUpdate="1"/>
+        
+  
+      </defaults>
+      
+  
+      <constraints>
+        
+    
+        <constraint field="id" constraints="0" exp_strength="0" notnull_strength="0" unique_strength="0"/>
+        
+    
+        <constraint field="ref_id" constraints="0" exp_strength="0" notnull_strength="0" unique_strength="0"/>
+        
+    
+        <constraint field="railway" constraints="0" exp_strength="0" notnull_strength="0" unique_strength="0"/>
+        
+    
+        <constraint field="name" constraints="0" exp_strength="0" notnull_strength="0" unique_strength="0"/>
+        
+    
+        <constraint field="service" constraints="0" exp_strength="0" notnull_strength="0" unique_strength="0"/>
+        
+    
+        <constraint field="bridge" constraints="0" exp_strength="0" notnull_strength="0" unique_strength="0"/>
+        
+    
+        <constraint field="tunnel" constraints="0" exp_strength="0" notnull_strength="0" unique_strength="0"/>
+        
+    
+        <constraint field="layer" constraints="0" exp_strength="0" notnull_strength="0" unique_strength="0"/>
+        
+  
+      </constraints>
       
   
       <editforminit/>
@@ -19963,6 +20488,285 @@
       </renderer-v2>
       
   
+      <fieldConfiguration>
+        
+    
+        <field name="id" configurationFlags="None">
+          
+      
+          <editWidget type="Range">
+            <config>
+              <Option type="Map">
+                <Option type="bool" name="AllowNull" value="false"/>
+                <Option type="int" name="Max" value="2147483647"/>
+                <Option type="int" name="Min" value="1"/>
+                <Option type="int" name="Step" value="1"/>
+              </Option>
+            </config>
+          </editWidget>
+          
+    
+        </field>
+        
+    
+        <field name="name" configurationFlags="None">
+          
+      
+          <editWidget type="TextEdit">
+            <config>
+              <Option type="Map">
+                <Option type="bool" name="IsMultiline" value="false"/>
+                <Option type="bool" name="UseHtml" value="false"/>
+              </Option>
+            </config>
+          </editWidget>
+          
+    
+        </field>
+        
+    
+        <field name="waterway" configurationFlags="None">
+          
+      
+          <editWidget type="ValueMap">
+            
+        
+            <config>
+              
+          
+              <Option type="Map">
+                
+            
+                <Option type="List" name="map">
+                  
+              
+                  <Option type="Map">
+                    <Option type="QString" name="River (Major Navigable Waterway)" value="river"/>
+                  </Option>
+                  
+              
+                  <Option type="Map">
+                    <Option type="QString" name="Canal (Artificial Waterway)" value="canal"/>
+                  </Option>
+                  
+              
+                  <Option type="Map">
+                    <Option type="QString" name="Stream (Natural Watercourse)" value="stream"/>
+                  </Option>
+                  
+              
+                  <Option type="Map">
+                    <Option type="QString" name="Drain / Ditch" value="drain"/>
+                  </Option>
+                  
+            
+                </Option>
+                
+          
+              </Option>
+              
+        
+            </config>
+            
+      
+          </editWidget>
+          
+    
+        </field>
+        
+    
+        <field name="tunnel" configurationFlags="None">
+          
+      
+          <editWidget type="ValueMap">
+            
+        
+            <config>
+              
+          
+              <Option type="Map">
+                
+            
+                <Option type="List" name="map">
+                  
+              
+                  <Option type="Map">
+                    <Option type="QString" name="None (Open Water)" value=""/>
+                  </Option>
+                  
+              
+                  <Option type="Map">
+                    <Option type="QString" name="Culvert (Underground Pipe/Box)" value="culvert"/>
+                  </Option>
+                  
+              
+                  <Option type="Map">
+                    <Option type="QString" name="Tunnel (Covered Canal)" value="yes"/>
+                  </Option>
+                  
+            
+                </Option>
+                
+          
+              </Option>
+              
+        
+            </config>
+            
+      
+          </editWidget>
+          
+    
+        </field>
+        
+    
+        <field name="layer" configurationFlags="None">
+          
+      
+          <editWidget type="Range">
+            <config>
+              <Option type="Map">
+                <Option type="bool" name="AllowNull" value="true"/>
+                <Option type="int" name="Max" value="5"/>
+                <Option type="int" name="Min" value="-5"/>
+                <Option type="int" name="Step" value="1"/>
+              </Option>
+            </config>
+          </editWidget>
+          
+    
+        </field>
+        
+    
+        <field name="width" configurationFlags="None">
+          
+      
+          <editWidget type="Range">
+            <config>
+              <Option type="Map">
+                <Option type="bool" name="AllowNull" value="true"/>
+                <Option type="int" name="Max" value="500"/>
+                <Option type="int" name="Min" value="1"/>
+                <Option type="int" name="Step" value="1"/>
+              </Option>
+            </config>
+          </editWidget>
+          
+    
+        </field>
+        
+  
+      </fieldConfiguration>
+      
+  
+      <aliases>
+        
+    
+        <alias field="id" index="0" name="Feature ID"/>
+        
+    
+        <alias field="name" index="1" name="Waterway Name"/>
+        
+    
+        <alias field="waterway" index="2" name="Waterway Type"/>
+        
+    
+        <alias field="tunnel" index="3" name="Tunnel / Culvert"/>
+        
+    
+        <alias field="layer" index="4" name="Z-Level Stacking (-1 culvert, 0 surface)"/>
+        
+    
+        <alias field="width" index="5" name="Channel Width (m)"/>
+        
+  
+      </aliases>
+      
+  
+      <defaults>
+        
+    
+        <default field="id" expression="" applyOnUpdate="0"/>
+        
+    
+        <default field="name" expression="" applyOnUpdate="0"/>
+        
+    
+        <default field="waterway" expression="" applyOnUpdate="0"/>
+        
+    
+        <default field="tunnel" expression="" applyOnUpdate="0"/>
+        
+    
+        <default field="layer" expression="CASE WHEN &quot;tunnel&quot; IN ('yes', 'culvert') THEN -1 ELSE NULL END" applyOnUpdate="1"/>
+        
+    
+        <default field="width" expression="" applyOnUpdate="0"/>
+        
+  
+      </defaults>
+      
+  
+      <constraints>
+        
+    
+        <constraint field="id" constraints="0" exp_strength="0" notnull_strength="0" unique_strength="0"/>
+        
+    
+        <constraint field="name" constraints="0" exp_strength="0" notnull_strength="0" unique_strength="0"/>
+        
+    
+        <constraint field="waterway" constraints="0" exp_strength="0" notnull_strength="0" unique_strength="0"/>
+        
+    
+        <constraint field="tunnel" constraints="0" exp_strength="0" notnull_strength="0" unique_strength="0"/>
+        
+    
+        <constraint field="layer" constraints="0" exp_strength="0" notnull_strength="0" unique_strength="0"/>
+        
+    
+        <constraint field="width" constraints="0" exp_strength="0" notnull_strength="0" unique_strength="0"/>
+        
+  
+      </constraints>
+      
+  
+      <editforminit/>
+      
+  
+      <editforminitcodesource>0</editforminitcodesource>
+      
+  
+      <featformsuppress>0</featformsuppress>
+      
+  
+      <editorlayout>generatedlayout</editorlayout>
+      
+  
+      <editable>
+        
+    
+        <field name="id" editable="1"/>
+        
+    
+        <field name="name" editable="1"/>
+        
+    
+        <field name="waterway" editable="1"/>
+        
+    
+        <field name="tunnel" editable="1"/>
+        
+    
+        <field name="layer" editable="1"/>
+        
+    
+        <field name="width" editable="1"/>
+        
+  
+      </editable>
+      
+
       <labeling type="simple">
         <settings calloutType="simpleRect">
           <text-style fontFamily="Segoe UI" fontSize="8.0" fontSizeUnit="Point" fontBold="0" fontItalic="0" fontUnderline="0" fontStrikeout="0" textColor="20,60,120,255" fieldName="name" isExpression="0" textOrientation="horizontal" blendMode="0" multilineHeight="1" useSubstitutions="0" fontCapitals="0" previewBkgrdColor="255,255,255,255">
@@ -21314,6 +22118,457 @@
       </renderer-v2>
       
   
+      <fieldConfiguration>
+        
+    
+        <field name="id" configurationFlags="None">
+          
+      
+          <editWidget type="Range">
+            <config>
+              <Option type="Map">
+                <Option type="bool" name="AllowNull" value="false"/>
+                <Option type="int" name="Max" value="2147483647"/>
+                <Option type="int" name="Min" value="1"/>
+                <Option type="int" name="Step" value="1"/>
+              </Option>
+            </config>
+          </editWidget>
+          
+    
+        </field>
+        
+    
+        <field name="ref_id" configurationFlags="None">
+          
+      
+          <editWidget type="TextEdit">
+            <config>
+              <Option type="Map">
+                <Option type="bool" name="IsMultiline" value="false"/>
+                <Option type="bool" name="UseHtml" value="false"/>
+              </Option>
+            </config>
+          </editWidget>
+          
+    
+        </field>
+        
+    
+        <field name="name" configurationFlags="None">
+          
+      
+          <editWidget type="TextEdit">
+            <config>
+              <Option type="Map">
+                <Option type="bool" name="IsMultiline" value="false"/>
+                <Option type="bool" name="UseHtml" value="false"/>
+              </Option>
+            </config>
+          </editWidget>
+          
+    
+        </field>
+        
+    
+        <field name="landuse" configurationFlags="None">
+          
+      
+          <editWidget type="ValueMap">
+            
+        
+            <config>
+              
+          
+              <Option type="Map">
+                
+            
+                <Option type="List" name="map">
+                  
+              
+                  <Option type="Map">
+                    <Option type="QString" name="None / Unset" value=""/>
+                  </Option>
+                  
+              
+                  <Option type="Map">
+                    <Option type="QString" name="Commercial" value="commercial"/>
+                  </Option>
+                  
+              
+                  <Option type="Map">
+                    <Option type="QString" name="Residential" value="residential"/>
+                  </Option>
+                  
+              
+                  <Option type="Map">
+                    <Option type="QString" name="Industrial" value="industrial"/>
+                  </Option>
+                  
+              
+                  <Option type="Map">
+                    <Option type="QString" name="Retail" value="retail"/>
+                  </Option>
+                  
+              
+                  <Option type="Map">
+                    <Option type="QString" name="Harbour / Port" value="harbour"/>
+                  </Option>
+                  
+              
+                  <Option type="Map">
+                    <Option type="QString" name="Military" value="military"/>
+                  </Option>
+                  
+              
+                  <Option type="Map">
+                    <Option type="QString" name="Forest / Woods" value="forest"/>
+                  </Option>
+                  
+              
+                  <Option type="Map">
+                    <Option type="QString" name="Grass / Meadow" value="grass"/>
+                  </Option>
+                  
+              
+                  <Option type="Map">
+                    <Option type="QString" name="Farmland / Agricultural" value="farmland"/>
+                  </Option>
+                  
+              
+                  <Option type="Map">
+                    <Option type="QString" name="Cemetery" value="cemetery"/>
+                  </Option>
+                  
+              
+                  <Option type="Map">
+                    <Option type="QString" name="Construction" value="construction"/>
+                  </Option>
+                  
+            
+                </Option>
+                
+          
+              </Option>
+              
+        
+            </config>
+            
+      
+          </editWidget>
+          
+    
+        </field>
+        
+    
+        <field name="leisure" configurationFlags="None">
+          
+      
+          <editWidget type="ValueMap">
+            
+        
+            <config>
+              
+          
+              <Option type="Map">
+                
+            
+                <Option type="List" name="map">
+                  
+              
+                  <Option type="Map">
+                    <Option type="QString" name="None / Unset" value=""/>
+                  </Option>
+                  
+              
+                  <Option type="Map">
+                    <Option type="QString" name="Park" value="park"/>
+                  </Option>
+                  
+              
+                  <Option type="Map">
+                    <Option type="QString" name="Golf Course" value="golf_course"/>
+                  </Option>
+                  
+              
+                  <Option type="Map">
+                    <Option type="QString" name="Pitch / Sports Field" value="pitch"/>
+                  </Option>
+                  
+              
+                  <Option type="Map">
+                    <Option type="QString" name="Stadium" value="stadium"/>
+                  </Option>
+                  
+              
+                  <Option type="Map">
+                    <Option type="QString" name="Marina" value="marina"/>
+                  </Option>
+                  
+              
+                  <Option type="Map">
+                    <Option type="QString" name="Nature Reserve" value="nature_reserve"/>
+                  </Option>
+                  
+            
+                </Option>
+                
+          
+              </Option>
+              
+        
+            </config>
+            
+      
+          </editWidget>
+          
+    
+        </field>
+        
+    
+        <field name="aeroway" configurationFlags="None">
+          
+      
+          <editWidget type="ValueMap">
+            
+        
+            <config>
+              
+          
+              <Option type="Map">
+                
+            
+                <Option type="List" name="map">
+                  
+              
+                  <Option type="Map">
+                    <Option type="QString" name="None / Unset" value=""/>
+                  </Option>
+                  
+              
+                  <Option type="Map">
+                    <Option type="QString" name="Aerodrome / Airport" value="aerodrome"/>
+                  </Option>
+                  
+              
+                  <Option type="Map">
+                    <Option type="QString" name="Helipad" value="helipad"/>
+                  </Option>
+                  
+              
+                  <Option type="Map">
+                    <Option type="QString" name="Terminal" value="terminal"/>
+                  </Option>
+                  
+              
+                  <Option type="Map">
+                    <Option type="QString" name="Apron" value="apron"/>
+                  </Option>
+                  
+              
+                  <Option type="Map">
+                    <Option type="QString" name="Runway" value="runway"/>
+                  </Option>
+                  
+              
+                  <Option type="Map">
+                    <Option type="QString" name="Taxiway" value="taxiway"/>
+                  </Option>
+                  
+            
+                </Option>
+                
+          
+              </Option>
+              
+        
+            </config>
+            
+      
+          </editWidget>
+          
+    
+        </field>
+        
+    
+        <field name="amenity" configurationFlags="None">
+          
+      
+          <editWidget type="ValueMap">
+            
+        
+            <config>
+              
+          
+              <Option type="Map">
+                
+            
+                <Option type="List" name="map">
+                  
+              
+                  <Option type="Map">
+                    <Option type="QString" name="None / Unset" value=""/>
+                  </Option>
+                  
+              
+                  <Option type="Map">
+                    <Option type="QString" name="University / College" value="university"/>
+                  </Option>
+                  
+              
+                  <Option type="Map">
+                    <Option type="QString" name="School" value="school"/>
+                  </Option>
+                  
+              
+                  <Option type="Map">
+                    <Option type="QString" name="Hospital" value="hospital"/>
+                  </Option>
+                  
+              
+                  <Option type="Map">
+                    <Option type="QString" name="Parking" value="parking"/>
+                  </Option>
+                  
+            
+                </Option>
+                
+          
+              </Option>
+              
+        
+            </config>
+            
+      
+          </editWidget>
+          
+    
+        </field>
+        
+  
+      </fieldConfiguration>
+      
+  
+      <aliases>
+        
+    
+        <alias field="id" index="0" name="Feature ID"/>
+        
+    
+        <alias field="ref_id" index="1" name="Area Ref ID (e.g. A_0001)"/>
+        
+    
+        <alias field="name" index="2" name="Area / Facility Name"/>
+        
+    
+        <alias field="landuse" index="3" name="Landuse Zoning"/>
+        
+    
+        <alias field="leisure" index="4" name="Leisure / Recreation"/>
+        
+    
+        <alias field="aeroway" index="5" name="Aviation / Aeroway"/>
+        
+    
+        <alias field="amenity" index="6" name="Civic Amenity"/>
+        
+  
+      </aliases>
+      
+  
+      <defaults>
+        
+    
+        <default field="id" expression="" applyOnUpdate="0"/>
+        
+    
+        <default field="ref_id" expression="" applyOnUpdate="0"/>
+        
+    
+        <default field="name" expression="" applyOnUpdate="0"/>
+        
+    
+        <default field="landuse" expression="" applyOnUpdate="0"/>
+        
+    
+        <default field="leisure" expression="" applyOnUpdate="0"/>
+        
+    
+        <default field="aeroway" expression="" applyOnUpdate="0"/>
+        
+    
+        <default field="amenity" expression="" applyOnUpdate="0"/>
+        
+  
+      </defaults>
+      
+  
+      <constraints>
+        
+    
+        <constraint field="id" constraints="0" exp_strength="0" notnull_strength="0" unique_strength="0"/>
+        
+    
+        <constraint field="ref_id" constraints="0" exp_strength="0" notnull_strength="0" unique_strength="0"/>
+        
+    
+        <constraint field="name" constraints="0" exp_strength="0" notnull_strength="0" unique_strength="0"/>
+        
+    
+        <constraint field="landuse" constraints="0" exp_strength="0" notnull_strength="0" unique_strength="0"/>
+        
+    
+        <constraint field="leisure" constraints="0" exp_strength="0" notnull_strength="0" unique_strength="0"/>
+        
+    
+        <constraint field="aeroway" constraints="0" exp_strength="0" notnull_strength="0" unique_strength="0"/>
+        
+    
+        <constraint field="amenity" constraints="0" exp_strength="0" notnull_strength="0" unique_strength="0"/>
+        
+  
+      </constraints>
+      
+  
+      <editforminit/>
+      
+  
+      <editforminitcodesource>0</editforminitcodesource>
+      
+  
+      <featformsuppress>0</featformsuppress>
+      
+  
+      <editorlayout>generatedlayout</editorlayout>
+      
+  
+      <editable>
+        
+    
+        <field name="id" editable="1"/>
+        
+    
+        <field name="ref_id" editable="1"/>
+        
+    
+        <field name="name" editable="1"/>
+        
+    
+        <field name="landuse" editable="1"/>
+        
+    
+        <field name="leisure" editable="1"/>
+        
+    
+        <field name="aeroway" editable="1"/>
+        
+    
+        <field name="amenity" editable="1"/>
+        
+  
+      </editable>
+      
+
       <labeling type="simple">
         <settings calloutType="simpleRect">
           <text-style fontFamily="Segoe UI" fontSize="8.0" fontSizeUnit="Point" fontBold="0" fontItalic="0" fontUnderline="0" fontStrikeout="0" textColor="70,90,60,255" fieldName="name" isExpression="0" textOrientation="horizontal" blendMode="0" multilineHeight="1" useSubstitutions="0" fontCapitals="0" previewBkgrdColor="255,255,255,255">
@@ -21918,6 +23173,392 @@
       </renderer-v2>
       
   
+      <fieldConfiguration>
+        
+    
+        <field name="id" configurationFlags="None">
+          
+      
+          <editWidget type="Range">
+            <config>
+              <Option type="Map">
+                <Option type="bool" name="AllowNull" value="false"/>
+                <Option type="int" name="Max" value="2147483647"/>
+                <Option type="int" name="Min" value="1"/>
+                <Option type="int" name="Step" value="1"/>
+              </Option>
+            </config>
+          </editWidget>
+          
+    
+        </field>
+        
+    
+        <field name="name" configurationFlags="None">
+          
+      
+          <editWidget type="TextEdit">
+            <config>
+              <Option type="Map">
+                <Option type="bool" name="IsMultiline" value="false"/>
+                <Option type="bool" name="UseHtml" value="false"/>
+              </Option>
+            </config>
+          </editWidget>
+          
+    
+        </field>
+        
+    
+        <field name="county" configurationFlags="None">
+          
+      
+          <editWidget type="ValueMap">
+            
+        
+            <config>
+              
+          
+              <Option type="Map">
+                
+            
+                <Option type="List" name="map">
+                  
+              
+                  <Option type="Map">
+                    <Option type="QString" name="Vice-Dale County" value="Vice-Dale County"/>
+                  </Option>
+                  
+              
+                  <Option type="Map">
+                    <Option type="QString" name="Kelly County" value="Kelly County"/>
+                  </Option>
+                  
+              
+                  <Option type="Map">
+                    <Option type="QString" name="Leonard County" value="Leonard County"/>
+                  </Option>
+                  
+              
+                  <Option type="Map">
+                    <Option type="QString" name="Lummox County" value="Lummox County"/>
+                  </Option>
+                  
+              
+                  <Option type="Map">
+                    <Option type="QString" name="Mariana County" value="Mariana County"/>
+                  </Option>
+                  
+            
+                </Option>
+                
+          
+              </Option>
+              
+        
+            </config>
+            
+      
+          </editWidget>
+          
+    
+        </field>
+        
+    
+        <field name="county_slug" configurationFlags="None">
+          
+      
+          <editWidget type="ValueMap">
+            
+        
+            <config>
+              
+          
+              <Option type="Map">
+                
+            
+                <Option type="List" name="map">
+                  
+              
+                  <Option type="Map">
+                    <Option type="QString" name="vice_dale" value="vice_dale"/>
+                  </Option>
+                  
+              
+                  <Option type="Map">
+                    <Option type="QString" name="kelly" value="kelly"/>
+                  </Option>
+                  
+              
+                  <Option type="Map">
+                    <Option type="QString" name="leonard" value="leonard"/>
+                  </Option>
+                  
+              
+                  <Option type="Map">
+                    <Option type="QString" name="lummox" value="lummox"/>
+                  </Option>
+                  
+              
+                  <Option type="Map">
+                    <Option type="QString" name="mariana" value="mariana"/>
+                  </Option>
+                  
+            
+                </Option>
+                
+          
+              </Option>
+              
+        
+            </config>
+            
+      
+          </editWidget>
+          
+    
+        </field>
+        
+    
+        <field name="admin_level" configurationFlags="None">
+          
+      
+          <editWidget type="ValueMap">
+            
+        
+            <config>
+              
+          
+              <Option type="Map">
+                
+            
+                <Option type="List" name="map">
+                  
+              
+                  <Option type="Map">
+                    <Option type="QString" name="County (Level 6)" value="6"/>
+                  </Option>
+                  
+              
+                  <Option type="Map">
+                    <Option type="QString" name="City / Municipality (Level 8)" value="8"/>
+                  </Option>
+                  
+              
+                  <Option type="Map">
+                    <Option type="QString" name="Locality / Neighborhood (Level 10)" value="10"/>
+                  </Option>
+                  
+            
+                </Option>
+                
+          
+              </Option>
+              
+        
+            </config>
+            
+      
+          </editWidget>
+          
+    
+        </field>
+        
+    
+        <field name="place" configurationFlags="None">
+          
+      
+          <editWidget type="ValueMap">
+            
+        
+            <config>
+              
+          
+              <Option type="Map">
+                
+            
+                <Option type="List" name="map">
+                  
+              
+                  <Option type="Map">
+                    <Option type="QString" name="Suburb" value="suburb"/>
+                  </Option>
+                  
+              
+                  <Option type="Map">
+                    <Option type="QString" name="Neighbourhood" value="neighbourhood"/>
+                  </Option>
+                  
+              
+                  <Option type="Map">
+                    <Option type="QString" name="Locality" value="locality"/>
+                  </Option>
+                  
+              
+                  <Option type="Map">
+                    <Option type="QString" name="Island" value="island"/>
+                  </Option>
+                  
+              
+                  <Option type="Map">
+                    <Option type="QString" name="Islet" value="islet"/>
+                  </Option>
+                  
+            
+                </Option>
+                
+          
+              </Option>
+              
+        
+            </config>
+            
+      
+          </editWidget>
+          
+    
+        </field>
+        
+    
+        <field name="municipality" configurationFlags="None">
+          
+      
+          <editWidget type="TextEdit">
+            <config>
+              <Option type="Map">
+                <Option type="bool" name="IsMultiline" value="false"/>
+                <Option type="bool" name="UseHtml" value="false"/>
+              </Option>
+            </config>
+          </editWidget>
+          
+    
+        </field>
+        
+  
+      </fieldConfiguration>
+      
+  
+      <aliases>
+        
+    
+        <alias field="id" index="0" name="Section ID"/>
+        
+    
+        <alias field="name" index="1" name="Section / Neighborhood Name"/>
+        
+    
+        <alias field="county" index="2" name="Official County"/>
+        
+    
+        <alias field="county_slug" index="3" name="County Slug Identifier"/>
+        
+    
+        <alias field="admin_level" index="4" name="OSM Admin Level (6=County, 8=City, 10=Sub-locality)"/>
+        
+    
+        <alias field="place" index="5" name="Place Hierarchy Type"/>
+        
+    
+        <alias field="municipality" index="6" name="Municipality / City"/>
+        
+  
+      </aliases>
+      
+  
+      <defaults>
+        
+    
+        <default field="id" expression="" applyOnUpdate="0"/>
+        
+    
+        <default field="name" expression="" applyOnUpdate="0"/>
+        
+    
+        <default field="county" expression="" applyOnUpdate="0"/>
+        
+    
+        <default field="county_slug" expression="lower(replace(&quot;county&quot;, ' County', ''))" applyOnUpdate="1"/>
+        
+    
+        <default field="admin_level" expression="10" applyOnUpdate="0"/>
+        
+    
+        <default field="place" expression="" applyOnUpdate="0"/>
+        
+    
+        <default field="municipality" expression="" applyOnUpdate="0"/>
+        
+  
+      </defaults>
+      
+  
+      <constraints>
+        
+    
+        <constraint field="id" constraints="0" exp_strength="0" notnull_strength="0" unique_strength="0"/>
+        
+    
+        <constraint field="name" constraints="0" exp_strength="0" notnull_strength="0" unique_strength="0"/>
+        
+    
+        <constraint field="county" constraints="0" exp_strength="0" notnull_strength="0" unique_strength="0"/>
+        
+    
+        <constraint field="county_slug" constraints="0" exp_strength="0" notnull_strength="0" unique_strength="0"/>
+        
+    
+        <constraint field="admin_level" constraints="0" exp_strength="0" notnull_strength="0" unique_strength="0"/>
+        
+    
+        <constraint field="place" constraints="0" exp_strength="0" notnull_strength="0" unique_strength="0"/>
+        
+    
+        <constraint field="municipality" constraints="0" exp_strength="0" notnull_strength="0" unique_strength="0"/>
+        
+  
+      </constraints>
+      
+  
+      <editforminit/>
+      
+  
+      <editforminitcodesource>0</editforminitcodesource>
+      
+  
+      <featformsuppress>0</featformsuppress>
+      
+  
+      <editorlayout>generatedlayout</editorlayout>
+      
+  
+      <editable>
+        
+    
+        <field name="id" editable="1"/>
+        
+    
+        <field name="name" editable="1"/>
+        
+    
+        <field name="county" editable="1"/>
+        
+    
+        <field name="county_slug" editable="1"/>
+        
+    
+        <field name="admin_level" editable="1"/>
+        
+    
+        <field name="place" editable="1"/>
+        
+    
+        <field name="municipality" editable="1"/>
+        
+  
+      </editable>
+      
+
       <labeling type="simple">
         <settings calloutType="simpleRect">
           <text-style fontFamily="Segoe UI" fontSize="9.0" fontSizeUnit="Point" fontBold="1" fontItalic="0" fontUnderline="0" fontStrikeout="0" textColor="25,25,25,255" fieldName="name" isExpression="0" textOrientation="horizontal" blendMode="0" multilineHeight="1" useSubstitutions="0" fontCapitals="0" previewBkgrdColor="255,255,255,255">
@@ -22288,6 +23929,292 @@
       </renderer-v2>
       
   
+      <fieldConfiguration>
+        
+    
+        <field name="id" configurationFlags="None">
+          
+      
+          <editWidget type="Range">
+            <config>
+              <Option type="Map">
+                <Option type="bool" name="AllowNull" value="false"/>
+                <Option type="int" name="Max" value="2147483647"/>
+                <Option type="int" name="Min" value="1"/>
+                <Option type="int" name="Step" value="1"/>
+              </Option>
+            </config>
+          </editWidget>
+          
+    
+        </field>
+        
+    
+        <field name="name" configurationFlags="None">
+          
+      
+          <editWidget type="TextEdit">
+            <config>
+              <Option type="Map">
+                <Option type="bool" name="IsMultiline" value="false"/>
+                <Option type="bool" name="UseHtml" value="false"/>
+              </Option>
+            </config>
+          </editWidget>
+          
+    
+        </field>
+        
+    
+        <field name="natural" configurationFlags="None">
+          
+      
+          <editWidget type="ValueMap">
+            
+        
+            <config>
+              
+          
+              <Option type="Map">
+                
+            
+                <Option type="List" name="map">
+                  
+              
+                  <Option type="Map">
+                    <Option type="QString" name="Water Body (water)" value="water"/>
+                  </Option>
+                  
+              
+                  <Option type="Map">
+                    <Option type="QString" name="Coastline / Bay (bay)" value="bay"/>
+                  </Option>
+                  
+              
+                  <Option type="Map">
+                    <Option type="QString" name="Wetland" value="wetland"/>
+                  </Option>
+                  
+            
+                </Option>
+                
+          
+              </Option>
+              
+        
+            </config>
+            
+      
+          </editWidget>
+          
+    
+        </field>
+        
+    
+        <field name="water" configurationFlags="None">
+          
+      
+          <editWidget type="ValueMap">
+            
+        
+            <config>
+              
+          
+              <Option type="Map">
+                
+            
+                <Option type="List" name="map">
+                  
+              
+                  <Option type="Map">
+                    <Option type="QString" name="Lake" value="lake"/>
+                  </Option>
+                  
+              
+                  <Option type="Map">
+                    <Option type="QString" name="Pond" value="pond"/>
+                  </Option>
+                  
+              
+                  <Option type="Map">
+                    <Option type="QString" name="River / Estuary" value="river"/>
+                  </Option>
+                  
+              
+                  <Option type="Map">
+                    <Option type="QString" name="Canal" value="canal"/>
+                  </Option>
+                  
+              
+                  <Option type="Map">
+                    <Option type="QString" name="Sea / Ocean" value="sea"/>
+                  </Option>
+                  
+              
+                  <Option type="Map">
+                    <Option type="QString" name="Lagoon" value="lagoon"/>
+                  </Option>
+                  
+              
+                  <Option type="Map">
+                    <Option type="QString" name="Reservoir" value="reservoir"/>
+                  </Option>
+                  
+            
+                </Option>
+                
+          
+              </Option>
+              
+        
+            </config>
+            
+      
+          </editWidget>
+          
+    
+        </field>
+        
+    
+        <field name="tidal" configurationFlags="None">
+          
+      
+          <editWidget type="ValueMap">
+            
+        
+            <config>
+              
+          
+              <Option type="Map">
+                
+            
+                <Option type="List" name="map">
+                  
+              
+                  <Option type="Map">
+                    <Option type="QString" name="No" value="no"/>
+                  </Option>
+                  
+              
+                  <Option type="Map">
+                    <Option type="QString" name="Yes (Tidal Waters)" value="yes"/>
+                  </Option>
+                  
+            
+                </Option>
+                
+          
+              </Option>
+              
+        
+            </config>
+            
+      
+          </editWidget>
+          
+    
+        </field>
+        
+  
+      </fieldConfiguration>
+      
+  
+      <aliases>
+        
+    
+        <alias field="id" index="0" name="Feature ID"/>
+        
+    
+        <alias field="name" index="1" name="Water Body Name"/>
+        
+    
+        <alias field="natural" index="2" name="Natural Feature Type"/>
+        
+    
+        <alias field="water" index="3" name="Water Classification"/>
+        
+    
+        <alias field="tidal" index="4" name="Tidal Influence"/>
+        
+  
+      </aliases>
+      
+  
+      <defaults>
+        
+    
+        <default field="id" expression="" applyOnUpdate="0"/>
+        
+    
+        <default field="name" expression="" applyOnUpdate="0"/>
+        
+    
+        <default field="natural" expression="" applyOnUpdate="0"/>
+        
+    
+        <default field="water" expression="" applyOnUpdate="0"/>
+        
+    
+        <default field="tidal" expression="" applyOnUpdate="0"/>
+        
+  
+      </defaults>
+      
+  
+      <constraints>
+        
+    
+        <constraint field="id" constraints="0" exp_strength="0" notnull_strength="0" unique_strength="0"/>
+        
+    
+        <constraint field="name" constraints="0" exp_strength="0" notnull_strength="0" unique_strength="0"/>
+        
+    
+        <constraint field="natural" constraints="0" exp_strength="0" notnull_strength="0" unique_strength="0"/>
+        
+    
+        <constraint field="water" constraints="0" exp_strength="0" notnull_strength="0" unique_strength="0"/>
+        
+    
+        <constraint field="tidal" constraints="0" exp_strength="0" notnull_strength="0" unique_strength="0"/>
+        
+  
+      </constraints>
+      
+  
+      <editforminit/>
+      
+  
+      <editforminitcodesource>0</editforminitcodesource>
+      
+  
+      <featformsuppress>0</featformsuppress>
+      
+  
+      <editorlayout>generatedlayout</editorlayout>
+      
+  
+      <editable>
+        
+    
+        <field name="id" editable="1"/>
+        
+    
+        <field name="name" editable="1"/>
+        
+    
+        <field name="natural" editable="1"/>
+        
+    
+        <field name="water" editable="1"/>
+        
+    
+        <field name="tidal" editable="1"/>
+        
+  
+      </editable>
+      
+
       <labeling type="simple">
         <settings calloutType="simpleRect">
           <text-style fontFamily="Segoe UI" fontSize="10.0" fontSizeUnit="Point" fontBold="1" fontItalic="0" fontUnderline="0" fontStrikeout="0" textColor="20,60,120,255" fieldName="name" isExpression="0" textOrientation="horizontal" blendMode="0" multilineHeight="1" useSubstitutions="0" fontCapitals="0" previewBkgrdColor="255,255,255,255">

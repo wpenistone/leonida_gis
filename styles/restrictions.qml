@@ -106,14 +106,34 @@
     <field name="to_way" configurationFlags="None">
       <editWidget type="TextEdit"><config><Option type="Map"><Option type="bool" name="IsMultiline" value="false"/><Option type="bool" name="UseHtml" value="false"/></Option></config></editWidget>
     </field>
+    <field name="except" configurationFlags="None">
+      <editWidget type="TextEdit"><config><Option type="Map"><Option type="bool" name="IsMultiline" value="false"/><Option type="bool" name="UseHtml" value="false"/></Option></config></editWidget>
+    </field>
   </fieldConfiguration>
   <aliases>
     <alias field="id" index="0" name="Feature ID"/>
-    <alias field="type" index="1" name="Relation Type (restriction)"/>
-    <alias field="restriction" index="2" name="Turn Restriction Type"/>
+    <alias field="type" index="1" name="Relation Type"/>
+    <alias field="restriction" index="2" name="Turn Restriction"/>
     <alias field="from_way" index="3" name="Incoming Road Ref ID (e.g. R_0012)"/>
     <alias field="to_way" index="4" name="Target Road Ref ID (e.g. R_0015)"/>
+    <alias field="except" index="5" name="Exception Tag (e.g. bus, emergency)"/>
   </aliases>
+  <defaults>
+    <default field="id" expression="" applyOnUpdate="0"/>
+    <default field="type" expression="'restriction'" applyOnUpdate="0"/>
+    <default field="restriction" expression="" applyOnUpdate="0"/>
+    <default field="from_way" expression="" applyOnUpdate="0"/>
+    <default field="to_way" expression="" applyOnUpdate="0"/>
+    <default field="except" expression="" applyOnUpdate="0"/>
+  </defaults>
+  <constraints>
+    <constraint field="id" constraints="0" exp_strength="0" notnull_strength="0" unique_strength="0"/>
+    <constraint field="type" constraints="0" exp_strength="0" notnull_strength="0" unique_strength="0"/>
+    <constraint field="restriction" constraints="0" exp_strength="0" notnull_strength="0" unique_strength="0"/>
+    <constraint field="from_way" constraints="0" exp_strength="0" notnull_strength="0" unique_strength="0"/>
+    <constraint field="to_way" constraints="0" exp_strength="0" notnull_strength="0" unique_strength="0"/>
+    <constraint field="except" constraints="0" exp_strength="0" notnull_strength="0" unique_strength="0"/>
+  </constraints>
   <editforminit/>
   <editforminitcodesource>0</editforminitcodesource>
   <featformsuppress>0</featformsuppress>
@@ -124,5 +144,6 @@
     <field name="restriction" editable="1"/>
     <field name="from_way" editable="1"/>
     <field name="to_way" editable="1"/>
+    <field name="except" editable="1"/>
   </editable>
 </qgis>

@@ -117,4 +117,113 @@
       <rendering scaleVisibility="1" scaleMin="1" scaleMax="150000" obstacle="0"/>
     </settings>
   </labeling>
+  <fieldConfiguration>
+    <field name="id" configurationFlags="None">
+      <editWidget type="Range"><config><Option type="Map"><Option type="bool" name="AllowNull" value="false"/><Option type="int" name="Max" value="2147483647"/><Option type="int" name="Min" value="1"/><Option type="int" name="Step" value="1"/></Option></config></editWidget>
+    </field>
+    <field name="name" configurationFlags="None">
+      <editWidget type="TextEdit"><config><Option type="Map"><Option type="bool" name="IsMultiline" value="false"/><Option type="bool" name="UseHtml" value="false"/></Option></config></editWidget>
+    </field>
+    <field name="county" configurationFlags="None">
+      <editWidget type="ValueMap">
+        <config>
+          <Option type="Map">
+            <Option type="List" name="map">
+              <Option type="Map"><Option type="QString" name="Vice-Dale County" value="Vice-Dale County"/></Option>
+              <Option type="Map"><Option type="QString" name="Kelly County" value="Kelly County"/></Option>
+              <Option type="Map"><Option type="QString" name="Leonard County" value="Leonard County"/></Option>
+              <Option type="Map"><Option type="QString" name="Lummox County" value="Lummox County"/></Option>
+              <Option type="Map"><Option type="QString" name="Mariana County" value="Mariana County"/></Option>
+            </Option>
+          </Option>
+        </config>
+      </editWidget>
+    </field>
+    <field name="county_slug" configurationFlags="None">
+      <editWidget type="ValueMap">
+        <config>
+          <Option type="Map">
+            <Option type="List" name="map">
+              <Option type="Map"><Option type="QString" name="vice_dale" value="vice_dale"/></Option>
+              <Option type="Map"><Option type="QString" name="kelly" value="kelly"/></Option>
+              <Option type="Map"><Option type="QString" name="leonard" value="leonard"/></Option>
+              <Option type="Map"><Option type="QString" name="lummox" value="lummox"/></Option>
+              <Option type="Map"><Option type="QString" name="mariana" value="mariana"/></Option>
+            </Option>
+          </Option>
+        </config>
+      </editWidget>
+    </field>
+    <field name="admin_level" configurationFlags="None">
+      <editWidget type="ValueMap">
+        <config>
+          <Option type="Map">
+            <Option type="List" name="map">
+              <Option type="Map"><Option type="QString" name="County (Level 6)" value="6"/></Option>
+              <Option type="Map"><Option type="QString" name="City / Municipality (Level 8)" value="8"/></Option>
+              <Option type="Map"><Option type="QString" name="Locality / Neighborhood (Level 10)" value="10"/></Option>
+            </Option>
+          </Option>
+        </config>
+      </editWidget>
+    </field>
+    <field name="place" configurationFlags="None">
+      <editWidget type="ValueMap">
+        <config>
+          <Option type="Map">
+            <Option type="List" name="map">
+              <Option type="Map"><Option type="QString" name="Suburb" value="suburb"/></Option>
+              <Option type="Map"><Option type="QString" name="Neighbourhood" value="neighbourhood"/></Option>
+              <Option type="Map"><Option type="QString" name="Locality" value="locality"/></Option>
+              <Option type="Map"><Option type="QString" name="Island" value="island"/></Option>
+              <Option type="Map"><Option type="QString" name="Islet" value="islet"/></Option>
+            </Option>
+          </Option>
+        </config>
+      </editWidget>
+    </field>
+    <field name="municipality" configurationFlags="None">
+      <editWidget type="TextEdit"><config><Option type="Map"><Option type="bool" name="IsMultiline" value="false"/><Option type="bool" name="UseHtml" value="false"/></Option></config></editWidget>
+    </field>
+  </fieldConfiguration>
+  <aliases>
+    <alias field="id" index="0" name="Section ID"/>
+    <alias field="name" index="1" name="Section / Neighborhood Name"/>
+    <alias field="county" index="2" name="Official County"/>
+    <alias field="county_slug" index="3" name="County Slug Identifier"/>
+    <alias field="admin_level" index="4" name="OSM Admin Level (6=County, 8=City, 10=Sub-locality)"/>
+    <alias field="place" index="5" name="Place Hierarchy Type"/>
+    <alias field="municipality" index="6" name="Municipality / City"/>
+  </aliases>
+  <defaults>
+    <default field="id" expression="" applyOnUpdate="0"/>
+    <default field="name" expression="" applyOnUpdate="0"/>
+    <default field="county" expression="" applyOnUpdate="0"/>
+    <default field="county_slug" expression="lower(replace(&quot;county&quot;, ' County', ''))" applyOnUpdate="1"/>
+    <default field="admin_level" expression="10" applyOnUpdate="0"/>
+    <default field="place" expression="" applyOnUpdate="0"/>
+    <default field="municipality" expression="" applyOnUpdate="0"/>
+  </defaults>
+  <constraints>
+    <constraint field="id" constraints="0" exp_strength="0" notnull_strength="0" unique_strength="0"/>
+    <constraint field="name" constraints="0" exp_strength="0" notnull_strength="0" unique_strength="0"/>
+    <constraint field="county" constraints="0" exp_strength="0" notnull_strength="0" unique_strength="0"/>
+    <constraint field="county_slug" constraints="0" exp_strength="0" notnull_strength="0" unique_strength="0"/>
+    <constraint field="admin_level" constraints="0" exp_strength="0" notnull_strength="0" unique_strength="0"/>
+    <constraint field="place" constraints="0" exp_strength="0" notnull_strength="0" unique_strength="0"/>
+    <constraint field="municipality" constraints="0" exp_strength="0" notnull_strength="0" unique_strength="0"/>
+  </constraints>
+  <editforminit/>
+  <editforminitcodesource>0</editforminitcodesource>
+  <featformsuppress>0</featformsuppress>
+  <editorlayout>generatedlayout</editorlayout>
+  <editable>
+    <field name="id" editable="1"/>
+    <field name="name" editable="1"/>
+    <field name="county" editable="1"/>
+    <field name="county_slug" editable="1"/>
+    <field name="admin_level" editable="1"/>
+    <field name="place" editable="1"/>
+    <field name="municipality" editable="1"/>
+  </editable>
 </qgis>

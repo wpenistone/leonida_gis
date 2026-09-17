@@ -447,4 +447,126 @@
       <rendering scaleVisibility="1" scaleMin="1" scaleMax="40000" obstacle="0"/>
     </settings>
   </labeling>
+  <fieldConfiguration>
+    <field name="id" configurationFlags="None">
+      <editWidget type="Range"><config><Option type="Map"><Option type="bool" name="AllowNull" value="false"/><Option type="int" name="Max" value="2147483647"/><Option type="int" name="Min" value="1"/><Option type="int" name="Step" value="1"/></Option></config></editWidget>
+    </field>
+    <field name="ref_id" configurationFlags="None">
+      <editWidget type="TextEdit"><config><Option type="Map"><Option type="bool" name="IsMultiline" value="false"/><Option type="bool" name="UseHtml" value="false"/></Option></config></editWidget>
+    </field>
+    <field name="name" configurationFlags="None">
+      <editWidget type="TextEdit"><config><Option type="Map"><Option type="bool" name="IsMultiline" value="false"/><Option type="bool" name="UseHtml" value="false"/></Option></config></editWidget>
+    </field>
+    <field name="landuse" configurationFlags="None">
+      <editWidget type="ValueMap">
+        <config>
+          <Option type="Map">
+            <Option type="List" name="map">
+              <Option type="Map"><Option type="QString" name="None / Unset" value=""/></Option>
+              <Option type="Map"><Option type="QString" name="Commercial" value="commercial"/></Option>
+              <Option type="Map"><Option type="QString" name="Residential" value="residential"/></Option>
+              <Option type="Map"><Option type="QString" name="Industrial" value="industrial"/></Option>
+              <Option type="Map"><Option type="QString" name="Retail" value="retail"/></Option>
+              <Option type="Map"><Option type="QString" name="Harbour / Port" value="harbour"/></Option>
+              <Option type="Map"><Option type="QString" name="Military" value="military"/></Option>
+              <Option type="Map"><Option type="QString" name="Forest / Woods" value="forest"/></Option>
+              <Option type="Map"><Option type="QString" name="Grass / Meadow" value="grass"/></Option>
+              <Option type="Map"><Option type="QString" name="Farmland / Agricultural" value="farmland"/></Option>
+              <Option type="Map"><Option type="QString" name="Cemetery" value="cemetery"/></Option>
+              <Option type="Map"><Option type="QString" name="Construction" value="construction"/></Option>
+            </Option>
+          </Option>
+        </config>
+      </editWidget>
+    </field>
+    <field name="leisure" configurationFlags="None">
+      <editWidget type="ValueMap">
+        <config>
+          <Option type="Map">
+            <Option type="List" name="map">
+              <Option type="Map"><Option type="QString" name="None / Unset" value=""/></Option>
+              <Option type="Map"><Option type="QString" name="Park" value="park"/></Option>
+              <Option type="Map"><Option type="QString" name="Golf Course" value="golf_course"/></Option>
+              <Option type="Map"><Option type="QString" name="Pitch / Sports Field" value="pitch"/></Option>
+              <Option type="Map"><Option type="QString" name="Stadium" value="stadium"/></Option>
+              <Option type="Map"><Option type="QString" name="Marina" value="marina"/></Option>
+              <Option type="Map"><Option type="QString" name="Nature Reserve" value="nature_reserve"/></Option>
+            </Option>
+          </Option>
+        </config>
+      </editWidget>
+    </field>
+    <field name="aeroway" configurationFlags="None">
+      <editWidget type="ValueMap">
+        <config>
+          <Option type="Map">
+            <Option type="List" name="map">
+              <Option type="Map"><Option type="QString" name="None / Unset" value=""/></Option>
+              <Option type="Map"><Option type="QString" name="Aerodrome / Airport" value="aerodrome"/></Option>
+              <Option type="Map"><Option type="QString" name="Helipad" value="helipad"/></Option>
+              <Option type="Map"><Option type="QString" name="Terminal" value="terminal"/></Option>
+              <Option type="Map"><Option type="QString" name="Apron" value="apron"/></Option>
+              <Option type="Map"><Option type="QString" name="Runway" value="runway"/></Option>
+              <Option type="Map"><Option type="QString" name="Taxiway" value="taxiway"/></Option>
+            </Option>
+          </Option>
+        </config>
+      </editWidget>
+    </field>
+    <field name="amenity" configurationFlags="None">
+      <editWidget type="ValueMap">
+        <config>
+          <Option type="Map">
+            <Option type="List" name="map">
+              <Option type="Map"><Option type="QString" name="None / Unset" value=""/></Option>
+              <Option type="Map"><Option type="QString" name="University / College" value="university"/></Option>
+              <Option type="Map"><Option type="QString" name="School" value="school"/></Option>
+              <Option type="Map"><Option type="QString" name="Hospital" value="hospital"/></Option>
+              <Option type="Map"><Option type="QString" name="Parking" value="parking"/></Option>
+            </Option>
+          </Option>
+        </config>
+      </editWidget>
+    </field>
+  </fieldConfiguration>
+  <aliases>
+    <alias field="id" index="0" name="Feature ID"/>
+    <alias field="ref_id" index="1" name="Area Ref ID (e.g. A_0001)"/>
+    <alias field="name" index="2" name="Area / Facility Name"/>
+    <alias field="landuse" index="3" name="Landuse Zoning"/>
+    <alias field="leisure" index="4" name="Leisure / Recreation"/>
+    <alias field="aeroway" index="5" name="Aviation / Aeroway"/>
+    <alias field="amenity" index="6" name="Civic Amenity"/>
+  </aliases>
+  <defaults>
+    <default field="id" expression="" applyOnUpdate="0"/>
+    <default field="ref_id" expression="" applyOnUpdate="0"/>
+    <default field="name" expression="" applyOnUpdate="0"/>
+    <default field="landuse" expression="" applyOnUpdate="0"/>
+    <default field="leisure" expression="" applyOnUpdate="0"/>
+    <default field="aeroway" expression="" applyOnUpdate="0"/>
+    <default field="amenity" expression="" applyOnUpdate="0"/>
+  </defaults>
+  <constraints>
+    <constraint field="id" constraints="0" exp_strength="0" notnull_strength="0" unique_strength="0"/>
+    <constraint field="ref_id" constraints="0" exp_strength="0" notnull_strength="0" unique_strength="0"/>
+    <constraint field="name" constraints="0" exp_strength="0" notnull_strength="0" unique_strength="0"/>
+    <constraint field="landuse" constraints="0" exp_strength="0" notnull_strength="0" unique_strength="0"/>
+    <constraint field="leisure" constraints="0" exp_strength="0" notnull_strength="0" unique_strength="0"/>
+    <constraint field="aeroway" constraints="0" exp_strength="0" notnull_strength="0" unique_strength="0"/>
+    <constraint field="amenity" constraints="0" exp_strength="0" notnull_strength="0" unique_strength="0"/>
+  </constraints>
+  <editforminit/>
+  <editforminitcodesource>0</editforminitcodesource>
+  <featformsuppress>0</featformsuppress>
+  <editorlayout>generatedlayout</editorlayout>
+  <editable>
+    <field name="id" editable="1"/>
+    <field name="ref_id" editable="1"/>
+    <field name="name" editable="1"/>
+    <field name="landuse" editable="1"/>
+    <field name="leisure" editable="1"/>
+    <field name="aeroway" editable="1"/>
+    <field name="amenity" editable="1"/>
+  </editable>
 </qgis>

@@ -81,4 +81,81 @@
       <rendering scaleVisibility="1" scaleMin="1" scaleMax="60000" obstacle="0"/>
     </settings>
   </labeling>
+  <fieldConfiguration>
+    <field name="id" configurationFlags="None">
+      <editWidget type="Range"><config><Option type="Map"><Option type="bool" name="AllowNull" value="false"/><Option type="int" name="Max" value="2147483647"/><Option type="int" name="Min" value="1"/><Option type="int" name="Step" value="1"/></Option></config></editWidget>
+    </field>
+    <field name="name" configurationFlags="None">
+      <editWidget type="TextEdit"><config><Option type="Map"><Option type="bool" name="IsMultiline" value="false"/><Option type="bool" name="UseHtml" value="false"/></Option></config></editWidget>
+    </field>
+    <field name="waterway" configurationFlags="None">
+      <editWidget type="ValueMap">
+        <config>
+          <Option type="Map">
+            <Option type="List" name="map">
+              <Option type="Map"><Option type="QString" name="River (Major Navigable Waterway)" value="river"/></Option>
+              <Option type="Map"><Option type="QString" name="Canal (Artificial Waterway)" value="canal"/></Option>
+              <Option type="Map"><Option type="QString" name="Stream (Natural Watercourse)" value="stream"/></Option>
+              <Option type="Map"><Option type="QString" name="Drain / Ditch" value="drain"/></Option>
+            </Option>
+          </Option>
+        </config>
+      </editWidget>
+    </field>
+    <field name="tunnel" configurationFlags="None">
+      <editWidget type="ValueMap">
+        <config>
+          <Option type="Map">
+            <Option type="List" name="map">
+              <Option type="Map"><Option type="QString" name="None (Open Water)" value=""/></Option>
+              <Option type="Map"><Option type="QString" name="Culvert (Underground Pipe/Box)" value="culvert"/></Option>
+              <Option type="Map"><Option type="QString" name="Tunnel (Covered Canal)" value="yes"/></Option>
+            </Option>
+          </Option>
+        </config>
+      </editWidget>
+    </field>
+    <field name="layer" configurationFlags="None">
+      <editWidget type="Range"><config><Option type="Map"><Option type="bool" name="AllowNull" value="true"/><Option type="int" name="Max" value="5"/><Option type="int" name="Min" value="-5"/><Option type="int" name="Step" value="1"/></Option></config></editWidget>
+    </field>
+    <field name="width" configurationFlags="None">
+      <editWidget type="Range"><config><Option type="Map"><Option type="bool" name="AllowNull" value="true"/><Option type="int" name="Max" value="500"/><Option type="int" name="Min" value="1"/><Option type="int" name="Step" value="1"/></Option></config></editWidget>
+    </field>
+  </fieldConfiguration>
+  <aliases>
+    <alias field="id" index="0" name="Feature ID"/>
+    <alias field="name" index="1" name="Waterway Name"/>
+    <alias field="waterway" index="2" name="Waterway Type"/>
+    <alias field="tunnel" index="3" name="Tunnel / Culvert"/>
+    <alias field="layer" index="4" name="Z-Level Stacking (-1 culvert, 0 surface)"/>
+    <alias field="width" index="5" name="Channel Width (m)"/>
+  </aliases>
+  <defaults>
+    <default field="id" expression="" applyOnUpdate="0"/>
+    <default field="name" expression="" applyOnUpdate="0"/>
+    <default field="waterway" expression="" applyOnUpdate="0"/>
+    <default field="tunnel" expression="" applyOnUpdate="0"/>
+    <default field="layer" expression="CASE WHEN &quot;tunnel&quot; IN ('yes', 'culvert') THEN -1 ELSE NULL END" applyOnUpdate="1"/>
+    <default field="width" expression="" applyOnUpdate="0"/>
+  </defaults>
+  <constraints>
+    <constraint field="id" constraints="0" exp_strength="0" notnull_strength="0" unique_strength="0"/>
+    <constraint field="name" constraints="0" exp_strength="0" notnull_strength="0" unique_strength="0"/>
+    <constraint field="waterway" constraints="0" exp_strength="0" notnull_strength="0" unique_strength="0"/>
+    <constraint field="tunnel" constraints="0" exp_strength="0" notnull_strength="0" unique_strength="0"/>
+    <constraint field="layer" constraints="0" exp_strength="0" notnull_strength="0" unique_strength="0"/>
+    <constraint field="width" constraints="0" exp_strength="0" notnull_strength="0" unique_strength="0"/>
+  </constraints>
+  <editforminit/>
+  <editforminitcodesource>0</editforminitcodesource>
+  <featformsuppress>0</featformsuppress>
+  <editorlayout>generatedlayout</editorlayout>
+  <editable>
+    <field name="id" editable="1"/>
+    <field name="name" editable="1"/>
+    <field name="waterway" editable="1"/>
+    <field name="tunnel" editable="1"/>
+    <field name="layer" editable="1"/>
+    <field name="width" editable="1"/>
+  </editable>
 </qgis>
