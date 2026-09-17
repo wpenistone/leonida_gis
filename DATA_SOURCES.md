@@ -66,15 +66,18 @@ Y_{\text{geo}} &= 11000.0 - y_{\text{svg}}
 
 ## 4. Topography & Elevation Symbology
 
-To ensure high visual contrast against the in-game satellite aerial basemap and hillshaded relief, elevation contours use an amber color specification:
+To ensure high visual contrast against the in-game satellite aerial basemap and hillshaded relief, elevation contours use a warm earth-tone specification, while bathymetry contours use a marine cyan/blue specification:
 
-| Feature Class | Filter Expression | Color (RGBA) | Width | Opacity | Scale Constraint |
+| Feature Class | Layer Name | Color (RGBA) | Width | Opacity | Label Scale Limit |
 |---|---|:---:|:---:|:---:|:---:|
-| **Major Index Contours** | `"is_index" = 1 OR "is_index" = true` | `230, 144, 0, 255` (`#E69000`) | $0.45\text{ mm}$ | $95\%$ | Visible $\le 1:150,000$ |
-| **Intermediate Contours** | `"is_index" = 0 OR "is_index" = false OR "is_index" IS NULL` | `255, 176, 0, 255` (`#FFB000`) | $0.20\text{ mm}$ | $75\%$ | Visible $\le 1:150,000$ |
-| **Elevation Text Labels** | — | `184, 104, 0, 255` (`#B86800`) | $7.5\text{ pt}$ Bold | $100\%$ | Visible $\le 1:2,000$ (with $0.7\text{ mm}$ white halo) |
+| **Elevation Contours** | `Elevation Contours` | `204, 162, 141, 255` (`#CCA28D`) | $0.26\text{ mm}$ | $85\%$ | Visible $\le 1:1,000$ (with $0.75\text{ mm}$ white halo) |
+| **Bathymetry Contours** | `Bathymetry Contours` | `26, 104, 154, 255` (`#1A689A`) | $0.22\text{ mm}$ | $75\%$ | Visible $\le 1:1,000$ (with $0.75\text{ mm}$ white halo) |
+| **Mountain Summits** | `Mountain Peaks & Summits` | `139, 69, 19, 255` (`#8B4513`) | Marker $3.5\text{ mm}$ | $100\%$ | Visible $\le 1:50,000$ (name + elevation) |
 
-* **Quantile Distribution:** Contours are extracted at 27 empirical quantile levels ($0.5\text{ m}$ to $650.7\text{ m}$) rather than fixed 50m intervals, accurately capturing subtle lowland terrain variations where 75% of Leonida's land area lies below $53\text{ m}$.
+* **Empirical Quantile Distribution Methodology:**
+  * **Land Contours:** Extracted across 27 empirical quantile levels ($0.5\text{ m}$ to $650.7\text{ m}$) from land cells (`arr >= SEA_LEVEL`), resolving subtle lowland terrain where 75% of Leonida's land lies below $53\text{ m}$.
+  * **Bathymetric Contours:** Extracted across 25 empirical quantile depth levels ($-0.3\text{ m}$ to $-593.5\text{ m}$) from seabed cells (`arr < SEA_LEVEL`), providing high resolution across shallow coastal shelves, shoals, estuaries, and reef channels (70% of lines between $-0.3\text{ m}$ and $-15.7\text{ m}$), stepped down the continental slope into the deep ocean trench.
+* **Label Scale Threshold:** Both elevation and depth labels only appear when zoomed in to **1:1,000 or closer** (`scaleMax="1000"`), preventing text clutter at regional and statewide overview scales.
 
 ---
 

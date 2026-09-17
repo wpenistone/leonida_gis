@@ -188,9 +188,9 @@ def build_qgis_project():
         ("carto_coastal_shelf", "Coastal Shelf Extent", "./derived/coastal_shelf.geojson", "./styles/coastal_shelf.qml", "0", "Base Cartography", "ogr"),
 
         # --- 4. Topography & Elevation (Vector) ---
-        ("topo_peaks_summits", "Mountain Peaks & Summits (37 Summits)", "./derived/elevation_peaks.geojson", "./styles/elevation_peaks.qml", "1", "Topography & Elevation", "ogr"),
-        ("topo_contours", "Elevation Contours (Quantile Hypsometric)", "./derived/contours.gpkg|layername=contours", "./styles/contours.qml", "1", "Topography & Elevation", "ogr"),
-        ("topo_bathymetry", "Bathymetry & Underwater Contours (Negative Elevation)", "./derived/bathymetry.gpkg|layername=bathymetry", "./styles/bathymetry.qml", "0", "Topography & Elevation", "ogr"),
+        ("topo_peaks_summits", "Mountain Peaks & Summits", "./derived/elevation_peaks.geojson", "./styles/elevation_peaks.qml", "1", "Topography & Elevation", "ogr"),
+        ("topo_contours", "Elevation Contours", "./derived/contours.gpkg|layername=contours", "./styles/contours.qml", "1", "Topography & Elevation", "ogr"),
+        ("topo_bathymetry", "Bathymetry Contours", "./derived/bathymetry.gpkg|layername=bathymetry", "./styles/bathymetry.qml", "0", "Topography & Elevation", "ogr"),
         ("topo_coastline", "Coastline Shoreline", "./derived/coastline.geojson", "./styles/coastline.qml", "0", "Topography & Elevation", "ogr"),
 
         # --- 5. Basemaps & Rasters ---

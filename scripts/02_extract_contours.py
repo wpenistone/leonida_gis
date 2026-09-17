@@ -171,13 +171,17 @@ def build_contours():
     print(f"  Saved {len(contour_features)} quantile contour line segments (27 levels, 0.5m-650.7m) -> {out_contours_main} & {out_gpkg}")
 
     # -------------------------------------------------------------------------
-    # 1.5 Extract Negative / Underwater Bathymetric Contours (Submarine Hydrology)
+    # 1.5 Extract Empirical Quantile Bathymetric Contours (Submarine Hydrology)
     # -------------------------------------------------------------------------
-    # Depths ascending from deep ocean abyssal trench up to shallow nearshore
-    bathy_depths_m = [
-        -580.0, -450.0, -320.0, -220.0, -150.0, -100.0, -75.0, -50.0,
-        -35.0, -25.0, -18.0, -12.0, -8.0, -5.0, -2.5, -1.0
+    # Non-linear quantile distribution derived empirically from 16-bit DEM seabed values
+    # Dense coverage on shallow coastal shelf / shoals and stepped coverage down abyssal slope
+    underwater = (arr[arr < SEA_LEVEL] - SEA_LEVEL) / SCALE_M
+    shelf = underwater[underwater > -600.0]
+    bathy_percentiles = [
+        2.5, 5.0, 7.5, 10.0, 14.0, 18.0, 22.0, 26.0, 30.0, 35.0, 40.0, 45.0,
+        50.0, 55.0, 60.0, 65.0, 70.0, 75.0, 80.0, 85.0, 90.0, 93.0, 95.0, 97.0, 98.5
     ]
+    bathy_depths_m = sorted(list(set([round(float(v), 1) for v in np.percentile(shelf, bathy_percentiles) if v <= -0.25])))
     bathy_contour_levels = [SEA_LEVEL + d * SCALE_M for d in bathy_depths_m]
 
     fig_b, ax_b = plt.subplots()
@@ -199,7 +203,7 @@ def build_contours():
                             "elevation_m": round(d_m, 1),
                             "depth_m": round(abs(d_m), 1),
                             "length_m": round(line.length, 1),
-                            "source": "16-bit DEM Bathymetric Contours"
+                            "source": "16-bit DEM Empirical Quantile Bathymetry"
                         },
                         "geometry": mapping(line)
                     })

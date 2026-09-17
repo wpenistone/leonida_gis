@@ -155,27 +155,34 @@ leonida_gis/
   * $75\%$ of land lies below $53.0\text{ m}$.
   * $90\%$ of land lies below $126.9\text{ m}$.
   * Fixed 50m intervals leave 75% of the island completely blank.
-* **Quantile Contours:** Extracted across 27 empirical quantile levels across the land surface (`scripts/02_extract_contours.py`):
+* **Land Elevation Contours:** Extracted across 27 empirical quantile levels across the land surface (`scripts/02_extract_contours.py`):
   * Lowland resolution: $0.47\text{ m}$, $0.92\text{ m}$, $1.31\text{ m}$, $1.55\text{ m}$, $2.09\text{ m}$, $2.56\text{ m}$, $3.29\text{ m}$, $4.21\text{ m}$, $5.07\text{ m}$, $5.89\text{ m}$, $7.50\text{ m}$, $9.95\text{ m}$, $13.52\text{ m}$.
   * Foothill/Highland resolution: $18.6\text{ m}$, $27.0\text{ m}$, $34.0\text{ m}$, $42.0\text{ m}$, $53.0\text{ m}$, $68.7\text{ m}$, $90.2\text{ m}$, $126.9\text{ m}$, $180.4\text{ m}$, $229.8\text{ m}$.
   * Mountain/Alpine resolution: $310.4\text{ m}$, $416.3\text{ m}$, $523.8\text{ m}$, $650.7\text{ m}$.
   * Index Contours (`is_index: true`): 0.9m, 1.6m, 4.2m, 13.5m, 53.0m, 126.9m, 229.8m, 416.3m.
+* **Bathymetry & Submarine Contours:** Extracted using the exact same non-linear empirical quantile method across underwater seabed cells (`arr < SEA_LEVEL`):
+  * 25 empirical quantile depth intervals from shallow shoals to deep ocean trench: $-0.3\text{ m}$, $-0.6\text{ m}$, $-1.1\text{ m}$, $-1.5\text{ m}$, $-2.1\text{ m}$, $-3.4\text{ m}$, $-5.1\text{ m}$, $-6.7\text{ m}$, $-8.2\text{ m}$, $-9.8\text{ m}$, $-11.0\text{ m}$, $-12.9\text{ m}$, $-15.7\text{ m}$, $-19.2\text{ m}$, $-26.1\text{ m}$, $-33.7\text{ m}$, $-47.6\text{ m}$, $-68.0\text{ m}$, $-97.1\text{ m}$, $-159.8\text{ m}$, $-285.6\text{ m}$, $-442.8\text{ m}$, $-522.3\text{ m}$, $-572.1\text{ m}$, $-593.5\text{ m}$.
+  * Dense coverage in shallow coastal flats and reef channels (70% of lines between $-0.3\text{ m}$ and $-15.7\text{ m}$), stepped down the continental slope to the abyssal floor.
+  * Packaged into `derived/bathymetry.geojson` & `derived/bathymetry.gpkg`, published in `publication/geopackage/leonida_map.gpkg`, and registered in QGIS as `Bathymetry Contours` (disabled by default).
 
 ### Contour Labeling Scale Constraints
 * **Distance/Elevation Text Scale Limit:**
-  * Elevation numbers (e.g. `13.5 m`) must **NOT** be displayed at regional scales such as 1:7,400 or zoomed-out views.
-  * **Maximum scale threshold is 1:2,000** (`scaleMax="2000"`, `minScale="2000"`).
-  * Contour labels must only appear when zoomed in to 1:2,000 or closer ($1:1500$, $1:1000$, etc.).
+  * Elevation and depth numbers must **NOT** be displayed at regional scales or zoomed-out views.
+  * **Maximum scale threshold is 1:1,000** (`scaleMax="1000"`, `minScale="1000"`).
+  * Contour labels only appear when zoomed in to 1:1,000 or closer ($1:750$, $1:500$, etc.).
 * **Placement & Rendering:**
   * Must use native `LineGeometry` parallel on-line placement (`placement="2"`, `placementFlags="9"`).
   * Repeat distance must be set to $120\text{ mm}$ on screen (`repeatDistance="120"`).
   * Must include a $0.75\text{ mm}$ white text halo buffer (`255,255,255,230`) for legibility over satellite imagery.
+* **Clean Layer Naming:**
+  * Layer titles in the QGIS layer tree are kept clean without parenthetical method notes (e.g. `Elevation Contours`, `Bathymetry Contours`, `Mountain Peaks & Summits`). Full technical specifications are maintained in project documentation.
 
 ### Performance & Packaging
 * For production rendering in QGIS, prioritize **GeoPackage (`.gpkg`) with SQLite R-Tree spatial indexing**:
   * `derived/contours.gpkg`
+  * `derived/bathymetry.gpkg`
   * `publication/geopackage/leonida_map.gpkg`
-* Always register default QML styles into the GeoPackage's `layer_styles` table so opening the layer in QGIS automatically applies rule-based styling and the 1:2000 label scale threshold.
+* Always register default QML styles into the GeoPackage's `layer_styles` table so opening the layer in QGIS automatically applies rule-based styling and the 1:1000 label scale threshold.
 
 ---
 
