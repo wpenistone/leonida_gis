@@ -1,308 +1,204 @@
 #!/usr/bin/env pythonw
 """
-State of Leonida GIS - Desktop Graphical Launcher (GUI)
-======================================================
-Zero-console GUI launcher for Windows and desktop environments.
-Provides live status, upstream sync, layer formatting/validation,
-plugin installation, and one-click project launch.
+State of Leonida GIS - PyQt6 Graphical Launcher
+===============================================
+Native Windows interface built with PyQt6 without custom styling.
+Provides repository status inspection, upstream synchronization,
+layer formatting and validation, plugin installation, and QGIS project launch.
 
-Launch by double-clicking 'launch.pyw' in File Explorer.
+Launch by double-clicking 'launch.pyw' in Windows Explorer.
 """
 
 import os
 import sys
 import threading
-import tkinter as tk
-from tkinter import ttk, messagebox
 
-# Add scripts directory to path
+from PyQt6.QtWidgets import (
+    QApplication, QMainWindow, QWidget, QVBoxLayout, QHBoxLayout,
+    QLabel, QPushButton, QTextEdit, QGroupBox, QMessageBox
+)
+from PyQt6.QtCore import Qt, pyqtSignal, QObject
+
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "scripts"))
 import launcher_core
 
 
-class LeonidaLauncherGUI(tk.Tk):
+class LogSignaler(QObject):
+    log_signal = pyqtSignal(str)
+    status_signal = pyqtSignal(dict)
+
+
+class LeonidaLauncherWindow(QMainWindow):
     def __init__(self):
         super().__init__()
-        self.title("State of Leonida GIS — Launcher")
-        self.geometry("700x580")
-        self.minsize(620, 500)
+        self.setWindowTitle("State of Leonida GIS Launcher")
+        self.resize(650, 520)
 
-        # Style configuration
-        self.configure(bg="#1a1b22")
-        self._setup_styles()
-        self._build_ui()
+        self.signaler = LogSignaler()
+        self.signaler.log_signal.connect(self.append_log)
+        self.signaler.status_signal.connect(self.update_status_ui)
 
-        # Initial status check in background thread
+        self._init_ui()
         self.refresh_status()
 
-    def _setup_styles(self):
-        self.style = ttk.Style(self)
-        try:
-            self.style.theme_use("clam")
-        except Exception:
-            pass
+    def _init_ui(self):
+        central_widget = QWidget(self)
+        self.setCentralWidget(central_widget)
+        main_layout = QVBoxLayout(central_widget)
+        main_layout.setContentsMargins(12, 12, 12, 12)
+        main_layout.setSpacing(8)
 
-        # Configure generic colors
-        self.style.configure(".", background="#1a1b22", foreground="#e2e8f0", font=("Segoe UI", 9))
-        self.style.configure("TFrame", background="#1a1b22")
-        self.style.configure("Card.TFrame", background="#23242e", relief="flat")
-        self.style.configure("Header.TLabel", font=("Segoe UI", 14, "bold"), foreground="#00e5ff", background="#1a1b22")
-        self.style.configure("SubHeader.TLabel", font=("Segoe UI", 9), foreground="#94a3b8", background="#1a1b22")
-        self.style.configure("StatusText.TLabel", font=("Segoe UI", 10, "bold"), background="#23242e")
+        # 1. Status Group
+        grp_status = QGroupBox("Repository Status", self)
+        status_layout = QVBoxLayout(grp_status)
 
-    def _build_ui(self):
-        # 1. Header Frame
-        header_frame = ttk.Frame(self, padding=(16, 12, 16, 8))
-        header_frame.pack(fill="x")
+        self.lbl_status_main = QLabel("Checking status...", grp_status)
+        self.lbl_status_details = QLabel("Branch: checking... | Upstream: checking...", grp_status)
 
-        ttk.Label(header_frame, text="STATE OF LEONIDA GIS", style="Header.TLabel").pack(anchor="w")
-        ttk.Label(
-            header_frame,
-            text="OpenStreetMap Cartographic Stack • Equirectangular Metric Grid (EPSG:4087)",
-            style="SubHeader.TLabel"
-        ).pack(anchor="w", pady=(2, 0))
+        status_layout.addWidget(self.lbl_status_main)
+        status_layout.addWidget(self.lbl_status_details)
+        main_layout.addWidget(grp_status)
 
-        # 2. Status Card
-        self.card_frame = ttk.Frame(self, style="Card.TFrame", padding=(16, 12, 16, 12))
-        self.card_frame.pack(fill="x", padx=16, pady=8)
+        # 2. Actions Group
+        grp_actions = QGroupBox("Actions", self)
+        actions_layout = QVBoxLayout(grp_actions)
 
-        self.lbl_status_badge = tk.Label(
-            self.card_frame,
-            text="● Checking repository status...",
-            font=("Segoe UI", 11, "bold"),
-            bg="#23242e",
-            fg="#94a3b8",
-            anchor="w"
-        )
-        self.lbl_status_badge.pack(fill="x")
+        # Primary Launch Button
+        self.btn_launch = QPushButton("Launch QGIS Project (leonida_map_project.qgz)", grp_actions)
+        self.btn_launch.clicked.connect(self.action_launch_qgis)
+        actions_layout.addWidget(self.btn_launch)
 
-        self.lbl_status_details = tk.Label(
-            self.card_frame,
-            text="Branch: detecting... • Upstream: checking...",
-            font=("Segoe UI", 9),
-            bg="#23242e",
-            fg="#cbd5e1",
-            anchor="w"
-        )
-        self.lbl_status_details.pack(fill="x", pady=(4, 0))
+        # Secondary Actions
+        row1_layout = QHBoxLayout()
+        self.btn_sync = QPushButton("Pull Upstream (Rebase)", grp_actions)
+        self.btn_sync.clicked.connect(lambda: self._run_async("Pulling upstream...", self._do_sync))
+        row1_layout.addWidget(self.btn_sync)
 
-        # 3. Main Launch Button (Primary CTA)
-        btn_frame = ttk.Frame(self, padding=(16, 4, 16, 8))
-        btn_frame.pack(fill="x")
+        self.btn_format = QPushButton("Format and Validate Layers", grp_actions)
+        self.btn_format.clicked.connect(lambda: self._run_async("Formatting and validating...", self._do_format_validate))
+        row1_layout.addWidget(self.btn_format)
+        actions_layout.addLayout(row1_layout)
 
-        self.btn_launch = tk.Button(
-            btn_frame,
-            text="🚀  LAUNCH QGIS PROJECT (leonida_map_project.qgz)",
-            font=("Segoe UI", 11, "bold"),
-            bg="#059669",
-            fg="#ffffff",
-            activebackground="#10b981",
-            activeforeground="#ffffff",
-            relief="flat",
-            cursor="hand2",
-            padx=12,
-            pady=10,
-            command=self.action_launch_qgis
-        )
-        self.btn_launch.pack(fill="x")
+        row2_layout = QHBoxLayout()
+        self.btn_plugin = QPushButton("Install or Link QGIS Plugin", grp_actions)
+        self.btn_plugin.clicked.connect(lambda: self._run_async("Installing plugin...", self._do_install_plugin))
+        row2_layout.addWidget(self.btn_plugin)
 
-        # 4. Action Buttons Grid
-        actions_frame = ttk.Frame(self, padding=(16, 4, 16, 4))
-        actions_frame.pack(fill="x")
+        self.btn_pipeline = QPushButton("Run Build Pipeline", grp_actions)
+        self.btn_pipeline.clicked.connect(lambda: self._run_async("Running pipeline...", self._do_pipeline))
+        row2_layout.addWidget(self.btn_pipeline)
 
-        # Row 1
-        btn_row1 = ttk.Frame(actions_frame)
-        btn_row1.pack(fill="x", pady=2)
+        self.btn_refresh = QPushButton("Refresh Status", grp_actions)
+        self.btn_refresh.clicked.connect(self.refresh_status)
+        row2_layout.addWidget(self.btn_refresh)
+        actions_layout.addLayout(row2_layout)
 
-        self.btn_sync = tk.Button(
-            btn_row1,
-            text="🔄  Pull Upstream (Rebase)",
-            font=("Segoe UI", 9, "bold"),
-            bg="#334155",
-            fg="#f8fafc",
-            activebackground="#475569",
-            relief="flat",
-            cursor="hand2",
-            pady=6,
-            command=lambda: self._run_async("Pulling from upstream...", self._do_sync)
-        )
-        self.btn_sync.pack(side="left", fill="x", expand=True, padx=(0, 4))
+        main_layout.addWidget(grp_actions)
 
-        self.btn_format = tk.Button(
-            btn_row1,
-            text="🧹  Format & Validate Layers",
-            font=("Segoe UI", 9, "bold"),
-            bg="#334155",
-            fg="#f8fafc",
-            activebackground="#475569",
-            relief="flat",
-            cursor="hand2",
-            pady=6,
-            command=lambda: self._run_async("Formatting and validating layers...", self._do_format_validate)
-        )
-        self.btn_format.pack(side="left", fill="x", expand=True, padx=(4, 0))
+        # 3. Console Output Group
+        grp_log = QGroupBox("Output Log", self)
+        log_layout = QVBoxLayout(grp_log)
+        self.txt_log = QTextEdit(grp_log)
+        self.txt_log.setReadOnly(True)
+        log_layout.addWidget(self.txt_log)
+        main_layout.addWidget(grp_log)
 
-        # Row 2
-        btn_row2 = ttk.Frame(actions_frame)
-        btn_row2.pack(fill="x", pady=4)
+    def append_log(self, text):
+        self.txt_log.append(text)
+        self.txt_log.ensureCursorVisible()
 
-        self.btn_plugin = tk.Button(
-            btn_row2,
-            text="🔌  Install / Link QGIS Plugin",
-            font=("Segoe UI", 9, "bold"),
-            bg="#334155",
-            fg="#f8fafc",
-            activebackground="#475569",
-            relief="flat",
-            cursor="hand2",
-            pady=6,
-            command=lambda: self._run_async("Installing QGIS plugin...", self._do_install_plugin)
-        )
-        self.btn_plugin.pack(side="left", fill="x", expand=True, padx=(0, 4))
+    def _run_async(self, label, func):
+        self.append_log(f">>> {label}")
+        self._set_buttons_enabled(False)
 
-        self.btn_pipeline = tk.Button(
-            btn_row2,
-            text="⚙️  Rebuild Full GIS Pipeline",
-            font=("Segoe UI", 9, "bold"),
-            bg="#334155",
-            fg="#f8fafc",
-            activebackground="#475569",
-            relief="flat",
-            cursor="hand2",
-            pady=6,
-            command=lambda: self._run_async("Running full GIS build pipeline...", self._do_pipeline)
-        )
-        self.btn_pipeline.pack(side="left", fill="x", expand=True, padx=(4, 0))
-
-        # 5. Output Console
-        log_frame = ttk.Frame(self, padding=(16, 8, 16, 12))
-        log_frame.pack(fill="both", expand=True)
-
-        lbl_console = ttk.Label(log_frame, text="Activity & Output Log:", font=("Segoe UI", 8, "bold"), foreground="#64748b")
-        lbl_console.pack(anchor="w", pady=(0, 2))
-
-        self.txt_log = tk.Text(
-            log_frame,
-            bg="#111217",
-            fg="#a7f3d0",
-            insertbackground="#ffffff",
-            font=("Consolas", 8),
-            wrap="word",
-            relief="flat",
-            padx=8,
-            pady=6
-        )
-        scrollbar = ttk.Scrollbar(log_frame, orient="vertical", command=self.txt_log.yview)
-        self.txt_log.configure(yscrollcommand=scrollbar.set)
-        scrollbar.pack(side="right", fill="y")
-        self.txt_log.pack(side="left", fill="both", expand=True)
-
-    def log(self, text):
-        """Append text to output log safely from any thread."""
-        def _append():
-            self.txt_log.insert("end", text + "\n")
-            self.txt_log.see("end")
-        self.after(0, _append)
-
-    def _run_async(self, label, target_fn):
-        """Execute a task in a background daemon thread to keep UI reactive."""
-        self.log(f"\n>>> {label}")
         def worker():
             try:
-                target_fn()
+                func()
             except Exception as e:
-                self.log(f"[ERROR] {e}")
+                self.signaler.log_signal.emit(f"Error: {e}")
             finally:
                 self.refresh_status()
-        t = threading.Thread(target=worker, daemon=True)
-        t.start()
+
+        threading.Thread(target=worker, daemon=True).start()
+
+    def _set_buttons_enabled(self, enabled):
+        self.btn_launch.setEnabled(enabled)
+        self.btn_sync.setEnabled(enabled)
+        self.btn_format.setEnabled(enabled)
+        self.btn_plugin.setEnabled(enabled)
+        self.btn_pipeline.setEnabled(enabled)
+        self.btn_refresh.setEnabled(enabled)
 
     def refresh_status(self):
-        """Check repository status in background."""
-        def check():
+        def worker():
             status = launcher_core.check_repo_status()
-            def update_ui():
-                branch = status.get("branch", "unknown")
-                behind = status.get("behind", 0)
-                ahead = status.get("ahead", 0)
-                clean = status.get("clean", False)
-                modified = status.get("modified_layers", [])
+            self.signaler.status_signal.emit(status)
 
-                if clean and behind == 0:
-                    self.lbl_status_badge.config(
-                        text="✨  Everything is up to date. You can now launch QGIS!",
-                        fg="#22c55e"
-                    )
-                    self.btn_launch.config(bg="#059669", activebackground="#10b981")
-                elif behind > 0:
-                    self.lbl_status_badge.config(
-                        text=f"⚠️  Upstream has {behind} new commit(s). Pull to sync before editing.",
-                        fg="#f59e0b"
-                    )
-                    self.btn_launch.config(bg="#d97706", activebackground="#f59e0b")
-                elif not clean:
-                    self.lbl_status_badge.config(
-                        text=f"✏️  Local changes detected in {len(modified)} layer(s).",
-                        fg="#38bdf8"
-                    )
-                else:
-                    self.lbl_status_badge.config(
-                        text="Ready to launch.",
-                        fg="#22c55e"
-                    )
+        threading.Thread(target=worker, daemon=True).start()
 
-                details = f"Branch: {branch}  •  "
-                if behind > 0:
-                    details += f"{behind} behind  •  "
-                if ahead > 0:
-                    details += f"{ahead} ahead  •  "
-                details += "Working tree: " + ("Clean" if clean else "Modified")
-                self.lbl_status_details.config(text=details)
+    def update_status_ui(self, status):
+        self._set_buttons_enabled(True)
 
-            self.after(0, update_ui)
+        branch = status.get("branch", "unknown")
+        behind = status.get("behind", 0)
+        ahead = status.get("ahead", 0)
+        clean = status.get("clean", False)
+        modified = status.get("modified_layers", [])
 
-        threading.Thread(target=check, daemon=True).start()
+        if clean and behind == 0:
+            self.lbl_status_main.setText("Status: Up to date. Ready to launch QGIS.")
+        elif behind > 0:
+            self.lbl_status_main.setText(f"Status: Upstream has {behind} new commit(s). Pull to sync before editing.")
+        elif not clean:
+            self.lbl_status_main.setText(f"Status: Local changes detected in {len(modified)} layer(s).")
+        else:
+            self.lbl_status_main.setText("Status: Ready.")
+
+        details = f"Branch: {branch} | "
+        if behind > 0:
+            details += f"{behind} behind | "
+        if ahead > 0:
+            details += f"{ahead} ahead | "
+        details += "Working tree: " + ("Clean" if clean else "Modified")
+        self.lbl_status_details.setText(details)
 
     def action_launch_qgis(self):
         ok, msg = launcher_core.launch_qgis()
-        self.log(f"\n[LAUNCH] {msg}")
+        self.append_log(f"[Launch] {msg}")
 
     def _do_sync(self):
-        self.log("Running git pull --rebase origin master...")
         rc, out, err = launcher_core.pull_upstream()
-        if out: self.log(out)
-        if err: self.log(err)
-
-        self.log("Formatting work layers...")
+        if out: self.signaler.log_signal.emit(out)
+        if err: self.signaler.log_signal.emit(err)
         launcher_core.format_layers()
-
-        self.log("Validating layer semantics...")
         rc_v, out_v, _ = launcher_core.validate_layers(strict=False)
-        if out_v: self.log(out_v)
-        self.log("Upstream sync complete. Ready to launch QGIS.")
+        if out_v: self.signaler.log_signal.emit(out_v)
+        self.signaler.log_signal.emit("Upstream synchronization complete.")
 
     def _do_format_validate(self):
         rc_f, out_f, _ = launcher_core.format_layers()
-        if out_f: self.log(out_f)
+        if out_f: self.signaler.log_signal.emit(out_f)
         rc_v, out_v, _ = launcher_core.validate_layers(strict=True)
-        if out_v: self.log(out_v)
+        if out_v: self.signaler.log_signal.emit(out_v)
         if rc_v == 0:
-            self.log("[PASS] Strict layer validation passed with 0 errors.")
+            self.signaler.log_signal.emit("Validation passed.")
 
     def _do_install_plugin(self):
         rc, out, err = launcher_core.install_plugin()
-        if out: self.log(out)
-        if err: self.log(err)
+        if out: self.signaler.log_signal.emit(out)
+        if err: self.signaler.log_signal.emit(err)
 
     def _do_pipeline(self):
         rc, out, err = launcher_core.run_pipeline()
-        if out: self.log(out)
-        if err: self.log(err)
+        if out: self.signaler.log_signal.emit(out)
+        if err: self.signaler.log_signal.emit(err)
 
 
 def main():
-    app = LeonidaLauncherGUI()
-    app.mainloop()
+    app = QApplication(sys.argv)
+    window = LeonidaLauncherWindow()
+    window.show()
+    sys.exit(app.exec())
 
 
 if __name__ == "__main__":

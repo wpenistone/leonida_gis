@@ -41,7 +41,7 @@ To digitize features efficiently and maintain topological integrity, configure t
 Go to **Settings** -> **Options** -> **Digitizing**:
 
 1. **Feature Creation**:
-   * Check **"Reuse last entered attribute values"**: Automatically carries over tags (such as `highway: residential`, `lanes: 2`, `surface: asphalt`) to each new feature you draw. You do not need to re-type attributes on every segment.
+   * Check **"Reuse last entered attribute values"** if digitizing a continuous series of similar streets. Unassigned attributes (such as `maxspeed`, `surface`, or `lanes`) can be left blank (`NULL`).
 2. **Snapping**:
    * Default snapping mode: **All layers**
    * Default snapping type: **Vertex and segment**
@@ -108,9 +108,9 @@ python scripts/validate.py --strict
 2. Click ON a road line on the canvas to select the incoming **FROM** way (highlighted in cyan).
 3. Click near the intersection junction node to place the **VIA** point (auto-snaps to the approach line).
 4. Visual turn arrows radiating into every connected outgoing road appear directly on the map canvas:
-   * 🟢 **Green (Allowed)**: Normal traffic flow (no restriction stored).
-   * 🔴 **Red with 🚫 Slash (Prohibited)**: Clicking turns the arrow red (`no_left_turn`, `no_right_turn`, `no_u_turn`).
-   * 🔵 **Blue with ➡ Arrow (Only)**: Clicking again sets a mandatory turn (`only_straight_on`, `only_left_turn`, `only_right_turn`).
+   * **Green (Allowed)**: Normal traffic flow (no restriction stored).
+   * **Red with Slash (Prohibited)**: Clicking turns the arrow red (`no_left_turn`, `no_right_turn`, `no_u_turn`).
+   * **Blue with Arrow (Only)**: Clicking again sets a mandatory turn (`only_straight_on`, `only_left_turn`, `only_right_turn`).
    * Clicking once more removes the restriction and returns the arrow to green (Allowed).
 5. Saved restrictions write directly to `layers/restrictions.geojson`, immediately updating the QGIS layer cache. Pressing `Esc`, right-clicking, or clicking empty space clears all visual arrows.
 
@@ -253,7 +253,7 @@ If you do not use Git:
 * **Coordinate System**: Planar Equirectangular projection (`+proj=eqc +lat_ts=0 +lat_0=0 +lon_0=0 +x_0=0 +y_0=0 +datum=WGS84 +units=m +no_defs`).
 * **Units**: Meters ($1\text{ unit} = 1.0\text{ meter}$, origin $(0, 0)$ at map center).
 * **Bounds**: Southwest $(-10721.65, -8557.13)\text{ m}$, Northeast $(+3876.15, +9704.21)\text{ m}$.
-* **Strict Layer Purity**: Work layers under `layers/` are kept as pure OpenStreetMap schemas without auto-derived attributes (no `county`, `county_slug`, or `length_m` bloat). `scripts/format.py` automatically purges any stray derived keys. County-split networks and spatial metrics are generated downstream into `derived/` by the build pipeline. Contributors only need to fill in semantic tags (`highway`, `name`, `lanes`, `layer`, `bridge`, `tunnel`).
+* **Strict Layer Purity**: Work layers under `layers/` are kept as pure OpenStreetMap schemas without auto-derived attributes (no `county`, `county_slug`, or `length_m` attributes). `scripts/format.py` automatically purges any stray derived keys. County-split networks and spatial metrics are generated downstream into `derived/` by the build pipeline. Contributors only need to fill in semantic tags (`highway`, `name`, `lanes`, `layer`, `bridge`, `tunnel`).
 
 ---
 

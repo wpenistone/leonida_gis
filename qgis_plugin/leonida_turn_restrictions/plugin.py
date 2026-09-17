@@ -468,9 +468,9 @@ class TurnRestrictionDock(QDockWidget):
         # Visual Legend
         legend_box = QGroupBox("Turn Arrow Legend (Shown while selected)")
         legend_layout = QVBoxLayout(legend_box)
-        legend_layout.addWidget(QLabel("🟢 <b>Green:</b> Turn Allowed (Click on canvas to prohibit)"))
-        legend_layout.addWidget(QLabel("🔴 <b>Red (🚫):</b> Turn Prohibited (Click on canvas to mandate)"))
-        legend_layout.addWidget(QLabel("🔵 <b>Blue (➡):</b> Only Turn Allowed (Click on canvas to allow)"))
+        legend_layout.addWidget(QLabel("<b>Green:</b> Turn Allowed (Click on canvas to prohibit)"))
+        legend_layout.addWidget(QLabel("<b>Red:</b> Turn Prohibited (Click on canvas to mandate)"))
+        legend_layout.addWidget(QLabel("<b>Blue:</b> Only Turn Allowed (Click on canvas to allow)"))
         layout.addWidget(legend_box)
 
         # Optional tags
@@ -708,7 +708,7 @@ class TurnRestrictionDock(QDockWidget):
         return False
 
     def cycle_branch_restriction(self, branch):
-        """OSM iD State Machine: Allowed (Green) -> Prohibited (Red 🚫) -> Only (Blue ➡) -> Allowed."""
+        """OSM iD State Machine: Allowed (Green) -> Prohibited (Red) -> Only (Blue) -> Allowed."""
         curr_status = branch["status"]
         to_ref = branch["ref"]
 
@@ -731,7 +731,7 @@ class TurnRestrictionDock(QDockWidget):
             self.store.save_feature(props, self.via_point)
             branch["status"] = new_status
             branch["curr_tag"] = new_tag
-            self.status.setText(f"🚫 Prohibited: {self.from_way} -> {to_ref} [{new_tag}]")
+            self.status.setText(f"Prohibited: {self.from_way} -> {to_ref} [{new_tag}]")
 
         elif curr_status == "prohibited":
             new_status = "only"
@@ -752,13 +752,13 @@ class TurnRestrictionDock(QDockWidget):
             self.store.save_feature(props, self.via_point)
             branch["status"] = new_status
             branch["curr_tag"] = new_tag
-            self.status.setText(f"🔵 Only: {self.from_way} -> {to_ref} [{new_tag}]")
+            self.status.setText(f"Only: {self.from_way} -> {to_ref} [{new_tag}]")
 
         else:
             self.store.delete_by_ways(self.from_way, to_ref)
             branch["status"] = "allowed"
             branch["curr_tag"] = None
-            self.status.setText(f"🟢 Allowed: {self.from_way} -> {to_ref} (Restriction removed)")
+            self.status.setText(f"Allowed: {self.from_way} -> {to_ref} (Restriction removed)")
 
         self.refresh_list()
         self.reload_qgis_layer()
@@ -775,8 +775,8 @@ class TurnRestrictionDock(QDockWidget):
             rest = p.get("restriction", "restriction")
             fw = p.get("from_way")
             tw = p.get("to_way")
-            icon = "🚫 " if rest.startswith("no_") else "🔵 "
-            lbl = f"{icon}#{fid:02d} | {rest.upper()} | {fw} -> {tw}"
+            tag_prefix = "[Prohibited] " if rest.startswith("no_") else "[Mandatory] "
+            lbl = f"{tag_prefix}#{fid:02d} | {rest.upper()} | {fw} -> {tw}"
             if p.get("except"):
                 lbl += f" (exc: {p['except']})"
             item = QListWidgetItem(lbl)

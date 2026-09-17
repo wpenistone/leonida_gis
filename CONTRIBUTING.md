@@ -52,7 +52,7 @@ git checkout -b feat/describe-your-change
 
 ### 3. Digitize in QGIS
 1. Open `leonida_map_project.qgz` in QGIS 3.x.
-2. Select your target layer under **📁 Active Work Layers (Editable `layers/`)**.
+2. Select your target layer under **Active Work Layers (Editable `layers/`)**.
 3. Toggle edit mode (**`Ctrl + E`**).
 4. Follow the topological standards in **[MAPPING_GUIDE.md](MAPPING_GUIDE.md)**:
    * Snap at-grade intersections (key **`S`**, $15\text{ m}$ tolerance).

@@ -200,9 +200,9 @@ The project includes an interactive QGIS plugin in [`qgis_plugin/leonida_turn_re
 
 ### Behavioral Requirements
 * **Visual Canvas Turn Arrows Overlay:** Renders circular turn arrows radiating directly from the junction node into each connected outgoing way ($R = 42\text{ px}$):
-  * 🟢 **Green:** Allowed Turn (default, no restriction stored).
-  * 🔴 **Red (with 🚫 slash):** Prohibited Turn (`no_left_turn`, `no_right_turn`, `no_u_turn`, `no_straight_on`).
-  * 🔵 **Blue (with ➡ arrow):** Mandatory Turn (`only_straight_on`, `only_left_turn`, `only_right_turn`).
+  * **Green:** Allowed Turn (default, no restriction stored).
+  * **Red (with slash):** Prohibited Turn (`no_left_turn`, `no_right_turn`, `no_u_turn`, `no_straight_on`).
+  * **Blue (with arrow):** Mandatory Turn (`only_straight_on`, `only_left_turn`, `only_right_turn`).
 * **Interactive Toggling:** Clicking an arrow on the canvas cycles $\text{Allowed} \to \text{Prohibited} \to \text{Only} \to \text{Allowed}$, saving directly to [`layers/restrictions.geojson`](file:///C:/Users/kanal/Downloads/Projects/leonida_gis/layers/restrictions.geojson).
 * **STRICT ON-DEMAND DISPLAY ONLY (NOT Always On):**
   * Visual turn arrows must **ONLY** render on the canvas when an intersection is actively selected.
