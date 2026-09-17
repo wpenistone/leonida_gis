@@ -1,0 +1,299 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<presets xmlns="http://josm.openstreetmap.de/tagging-preset-1.0"
+         author="Leonida GIS Project"
+         version="1.0"
+         shortdescription="Leonida GIS Tagging Presets"
+         description="Standardized OpenStreetMap presets for the State of Leonida GIS mapping project (GTA 6 in-game metric coordinate frame).">
+
+  <!-- ================================================================= -->
+  <!-- 1. HIGHWAYS & ROADS                                              -->
+  <!-- ================================================================= -->
+  <group name="Leonida Roads" icon="presets/transport/way/way_motorway.svg">
+    <item name="Motorway (Freeway / Interstate)" icon="presets/transport/way/way_motorway.svg" type="way">
+      <key key="highway" value="motorway"/>
+      <text key="name" text="Street Name" default=""/>
+      <text key="ref" text="Route Shield (e.g. I-97, US-1)" default=""/>
+      <combo key="oneway" text="One-Way Direction" values="yes,no,-1,reversible" default="yes"/>
+      <combo key="lanes" text="Total Lanes" values="1,2,3,4,5,6" default="3"/>
+      <combo key="maxspeed" text="Speed Limit (mph)" values="70,65,60,55,50" default="65"/>
+      <combo key="surface" text="Surface Material" values="asphalt,concrete" default="asphalt"/>
+      <combo key="bridge" text="Bridge Structure" values="yes,viaduct,no" default="no"/>
+      <combo key="tunnel" text="Tunnel Structure" values="yes,no" default="no"/>
+      <combo key="layer" text="Z-Level Layer" values="-2,-1,0,1,2" default="0"/>
+    </item>
+
+    <item name="Motorway Link (Ramp / Slip Road)" icon="presets/transport/way/way_motorway.svg" type="way">
+      <key key="highway" value="motorway_link"/>
+      <combo key="oneway" text="One-Way Direction" values="yes,no,-1" default="yes"/>
+      <combo key="lanes" text="Lanes" values="1,2" default="1"/>
+      <combo key="bridge" text="Bridge" values="yes,no" default="no"/>
+      <combo key="layer" text="Layer" values="-1,0,1,2" default="0"/>
+    </item>
+
+    <item name="Trunk (High-Speed Expressway)" icon="presets/transport/way/way_trunk.svg" type="way">
+      <key key="highway" value="trunk"/>
+      <text key="name" text="Expressway Name" default=""/>
+      <text key="ref" text="Ref (e.g. FL-A1A)" default=""/>
+      <combo key="oneway" text="One-Way" values="yes,no,-1" default="no"/>
+      <combo key="lanes" text="Lanes" values="2,4,6" default="4"/>
+      <combo key="maxspeed" text="Speed Limit (mph)" values="65,60,55,50" default="55"/>
+      <combo key="bridge" text="Bridge" values="yes,no" default="no"/>
+      <combo key="layer" text="Layer" values="-1,0,1" default="0"/>
+    </item>
+
+    <item name="Primary (Arterial Boulevard)" icon="presets/transport/way/way_primary.svg" type="way">
+      <key key="highway" value="primary"/>
+      <text key="name" text="Boulevard Name" default=""/>
+      <combo key="oneway" text="One-Way" values="no,yes,-1" default="no"/>
+      <combo key="lanes" text="Lanes" values="2,4,6" default="4"/>
+      <combo key="maxspeed" text="Speed Limit (mph)" values="45,40,35" default="40"/>
+    </item>
+
+    <item name="Secondary (City Collector)" icon="presets/transport/way/way_secondary.svg" type="way">
+      <key key="highway" value="secondary"/>
+      <text key="name" text="Avenue / Street Name" default=""/>
+      <combo key="oneway" text="One-Way" values="no,yes,-1" default="no"/>
+      <combo key="lanes" text="Lanes" values="2,3,4" default="2"/>
+      <combo key="maxspeed" text="Speed Limit (mph)" values="35,30,25" default="30"/>
+    </item>
+
+    <item name="Tertiary (Sub-Collector)" icon="presets/transport/way/way_tertiary.svg" type="way">
+      <key key="highway" value="tertiary"/>
+      <text key="name" text="Street Name" default=""/>
+      <combo key="oneway" text="One-Way" values="no,yes,-1" default="no"/>
+      <combo key="lanes" text="Lanes" values="2,1" default="2"/>
+    </item>
+
+    <item name="Residential (Neighborhood Street)" icon="presets/transport/way/way_residential.svg" type="way">
+      <key key="highway" value="residential"/>
+      <text key="name" text="Street / Court / Lane Name" default=""/>
+      <combo key="oneway" text="One-Way" values="no,yes,-1" default="no"/>
+      <combo key="lanes" text="Lanes" values="2,1" default="2"/>
+      <combo key="maxspeed" text="Speed Limit (mph)" values="30,25,20,15" default="25"/>
+    </item>
+
+    <item name="Service Road / Parking Aisle" icon="presets/transport/way/way_service.svg" type="way">
+      <key key="highway" value="service"/>
+      <combo key="service" text="Service Type" values="parking_aisle,driveway,alley,emergency_access" default="parking_aisle"/>
+      <combo key="oneway" text="One-Way" values="no,yes,-1" default="no"/>
+    </item>
+
+    <item name="Track / Dirt Trail" icon="presets/transport/way/way_track.svg" type="way">
+      <key key="highway" value="track"/>
+      <combo key="surface" text="Surface" values="dirt,gravel,sand,ground" default="dirt"/>
+      <combo key="tracktype" text="Track Grade" values="grade1,grade2,grade3,grade4,grade5" default="grade2"/>
+    </item>
+
+    <item name="Roundabout / Traffic Circle" icon="presets/transport/junction_roundabout.svg" type="way">
+      <key key="junction" value="roundabout"/>
+      <key key="oneway" value="yes"/>
+      <combo key="highway" text="Road Class" values="primary,secondary,tertiary,residential" default="secondary"/>
+    </item>
+  </group>
+
+  <!-- ================================================================= -->
+  <!-- 2. ADMINISTRATIVE BOUNDARIES & SECTIONS                          -->
+  <!-- ================================================================= -->
+  <group name="Leonida Administrative &amp; Sections" icon="presets/boundaries.svg">
+    <item name="State Boundary (Leonida)" icon="presets/boundaries.svg" type="relation,closedway">
+      <key key="boundary" value="administrative"/>
+      <key key="admin_level" value="4"/>
+      <key key="place" value="state"/>
+      <key key="name" value="Leonida"/>
+      <key key="is_in:country" value="United States"/>
+    </item>
+
+    <item name="County Boundary" icon="presets/boundaries.svg" type="relation,closedway">
+      <key key="boundary" value="administrative"/>
+      <key key="admin_level" value="6"/>
+      <key key="place" value="county"/>
+      <combo key="name" text="County Name" values="Vice-Dale County,Kelly County,Leonard County,Lummox County,Mariana County"/>
+      <key key="is_in:state" value="Leonida"/>
+      <key key="is_in:country" value="United States"/>
+    </item>
+
+    <item name="Municipality / City" icon="presets/place/city.svg" type="relation,closedway,node">
+      <key key="boundary" value="administrative"/>
+      <key key="admin_level" value="8"/>
+      <combo key="place" text="Place Type" values="city,town,village" default="city"/>
+      <text key="name" text="City Name (e.g. Vice City, Port Gellhorn)" default=""/>
+      <text key="is_in:county" text="County Name" default=""/>
+      <key key="is_in:state" value="Leonida"/>
+    </item>
+
+    <item name="Section / Suburb / District" icon="presets/place/suburb.svg" type="closedway,relation">
+      <key key="boundary" value="administrative"/>
+      <key key="admin_level" value="10"/>
+      <combo key="place" text="Locality Classification" values="suburb,neighbourhood,locality,island,islet" default="suburb"/>
+      <text key="name" text="Section Name (e.g. Ambrosia Hills, Ocean Drive)" default=""/>
+      <combo key="is_in:county" text="County" values="Vice-Dale County,Kelly County,Leonard County,Lummox County,Mariana County"/>
+      <key key="is_in:state" value="Leonida"/>
+      <key key="is_in:country" value="United States"/>
+    </item>
+  </group>
+
+  <!-- ================================================================= -->
+  <!-- 3. OSM AREAS & LANDUSE                                           -->
+  <!-- ================================================================= -->
+  <group name="Leonida Landuse &amp; Natural Areas" icon="presets/landuse/residential.svg">
+    <item name="Residential Landuse" icon="presets/landuse/residential.svg" type="closedway,multipolygon">
+      <key key="landuse" value="residential"/>
+      <text key="name" text="Neighborhood Name" default=""/>
+    </item>
+
+    <item name="Commercial / Business District" icon="presets/landuse/commercial.svg" type="closedway,multipolygon">
+      <key key="landuse" value="commercial"/>
+      <text key="name" text="Business Park Name" default=""/>
+    </item>
+
+    <item name="Retail / Shopping District" icon="presets/landuse/retail.svg" type="closedway,multipolygon">
+      <key key="landuse" value="retail"/>
+      <text key="name" text="Shopping Center Name" default=""/>
+    </item>
+
+    <item name="Industrial / Port Docks" icon="presets/landuse/industrial.svg" type="closedway,multipolygon">
+      <key key="landuse" value="industrial"/>
+      <text key="name" text="Industrial Zone Name" default=""/>
+    </item>
+
+    <item name="Military Base / Reserve" icon="presets/military.svg" type="closedway,multipolygon">
+      <key key="landuse" value="military"/>
+      <combo key="military" text="Military Facility" values="base,airfield,barracks,naval_base,danger_area" default="base"/>
+      <text key="name" text="Base Name" default=""/>
+    </item>
+
+    <item name="Public Park / Recreation" icon="presets/leisure/park.svg" type="closedway,multipolygon">
+      <key key="leisure" value="park"/>
+      <text key="name" text="Park Name" default=""/>
+    </item>
+
+    <item name="Nature Reserve / National Park" icon="presets/leisure/nature_reserve.svg" type="closedway,multipolygon">
+      <key key="leisure" value="nature_reserve"/>
+      <key key="boundary" value="protected_area"/>
+      <text key="name" text="Reserve Name (e.g. Mount Kalaga National Park)" default=""/>
+    </item>
+
+    <item name="Wetland / Mangrove / Swamp" icon="presets/natural/wetland.svg" type="closedway,multipolygon">
+      <key key="natural" value="wetland"/>
+      <combo key="wetland" text="Wetland Type" values="swamp,marsh,mangrove,reedbed" default="marsh"/>
+      <text key="name" text="Wetland Name (e.g. Grassrivers)" default=""/>
+    </item>
+
+    <item name="Beach / Coastal Shore" icon="presets/natural/beach.svg" type="closedway,multipolygon">
+      <key key="natural" value="beach"/>
+      <combo key="surface" text="Beach Surface" values="sand,gravel,pebbles" default="sand"/>
+      <text key="name" text="Beach Name (e.g. Vice Beach, Black Beach)" default=""/>
+    </item>
+
+    <item name="Airport Perimeter (Aerodrome)" icon="presets/transport/airport.svg" type="closedway,multipolygon">
+      <key key="aeroway" value="aerodrome"/>
+      <text key="name" text="Airport Name (e.g. Vice City International Airport)" default=""/>
+      <text key="iata" text="IATA Code" default=""/>
+    </item>
+
+    <item name="Airport Apron / Ramp" icon="presets/transport/airport.svg" type="closedway,multipolygon">
+      <key key="aeroway" value="apron"/>
+      <combo key="surface" text="Surface" values="concrete,asphalt" default="concrete"/>
+    </item>
+
+    <item name="Airport Terminal Building" icon="presets/transport/airport.svg" type="closedway,multipolygon">
+      <key key="aeroway" value="terminal"/>
+      <key key="building" value="terminal"/>
+      <text key="name" text="Terminal Name / Concourse" default=""/>
+    </item>
+
+    <item name="Surface Parking Lot" icon="presets/transport/parking.svg" type="closedway,multipolygon">
+      <key key="amenity" value="parking"/>
+      <key key="parking" value="surface"/>
+      <combo key="access" text="Access" values="public,private,customers,permissive" default="public"/>
+    </item>
+
+    <item name="Prison / Correctional Institution" icon="presets/amenity/prison.svg" type="closedway,multipolygon">
+      <key key="amenity" value="prison"/>
+      <text key="name" text="Facility Name (e.g. Leonida State Penitentiary)" default=""/>
+    </item>
+  </group>
+
+  <!-- ================================================================= -->
+  <!-- 4. WATERWAYS & HYDROLOGY                                         -->
+  <!-- ================================================================= -->
+  <group name="Leonida Waterways" icon="presets/waterway/river.svg">
+    <item name="River Centerline" icon="presets/waterway/river.svg" type="way">
+      <key key="waterway" value="river"/>
+      <text key="name" text="River Name" default=""/>
+      <combo key="flow_direction" text="Flow Direction" values="forward,no,backward,either" default="forward"/>
+      <combo key="oneway" text="Routing Direction" values="no,yes,-1" default="no"/>
+      <combo key="boat" text="Navigable by Boat" values="yes,no" default="yes"/>
+    </item>
+
+    <item name="Canal Channel" icon="presets/waterway/canal.svg" type="way">
+      <key key="waterway" value="canal"/>
+      <text key="name" text="Canal Name" default=""/>
+      <combo key="flow_direction" text="Flow Direction" values="no,forward,backward,either" default="no"/>
+      <combo key="oneway" text="Oneway" values="no,yes,-1" default="no"/>
+      <combo key="boat" text="Boat Access" values="yes,no" default="yes"/>
+    </item>
+
+    <item name="Stream / Creek" icon="presets/waterway/stream.svg" type="way">
+      <key key="waterway" value="stream"/>
+      <text key="name" text="Stream Name" default=""/>
+      <combo key="flow_direction" text="Flow Direction" values="forward,no" default="forward"/>
+    </item>
+
+    <item name="Waterway Culvert (Under Road / Rail)" icon="presets/waterway/canal.svg" type="way">
+      <key key="tunnel" value="culvert"/>
+      <key key="layer" value="-1"/>
+      <combo key="waterway" text="Waterway Type" values="river,canal,stream,drain" default="canal"/>
+    </item>
+  </group>
+
+  <!-- ================================================================= -->
+  <!-- 5. RAILWAYS & MASS TRANSIT                                       -->
+  <!-- ================================================================= -->
+  <group name="Leonida Railways" icon="presets/transport/railway/rail.svg">
+    <item name="Standard Heavy Railway Track" icon="presets/transport/railway/rail.svg" type="way">
+      <key key="railway" value="rail"/>
+      <key key="gauge" value="1435"/>
+      <combo key="service" text="Track Usage" values="mainline,yard,siding,spur,crossover" default="mainline"/>
+      <combo key="electrified" text="Electrification" values="no,contact_line,third_rail" default="no"/>
+      <combo key="highspeed" text="High-Speed Rail" values="no,yes" default="no"/>
+      <combo key="bridge" text="Bridge" values="yes,no" default="no"/>
+      <combo key="layer" text="Layer" values="-1,0,1" default="0"/>
+    </item>
+
+    <item name="Light Rail / Urban Transit" icon="presets/transport/railway/light_rail.svg" type="way">
+      <key key="railway" value="light_rail"/>
+      <key key="gauge" value="1435"/>
+      <combo key="electrified" text="Electrified" values="contact_line,third_rail" default="contact_line"/>
+    </item>
+
+    <item name="Subway / Metro" icon="presets/transport/railway/subway.svg" type="way">
+      <key key="railway" value="subway"/>
+      <key key="tunnel" value="yes"/>
+      <key key="layer" value="-1"/>
+    </item>
+  </group>
+
+  <!-- ================================================================= -->
+  <!-- 6. TURN RESTRICTIONS                                             -->
+  <!-- ================================================================= -->
+  <group name="Leonida Turn Restrictions" icon="presets/transport/restriction/no_left_turn.svg">
+    <item name="No Left Turn" icon="presets/transport/restriction/no_left_turn.svg" type="relation">
+      <key key="type" value="restriction"/>
+      <key key="restriction" value="no_left_turn"/>
+    </item>
+    <item name="No Right Turn" icon="presets/transport/restriction/no_right_turn.svg" type="relation">
+      <key key="type" value="restriction"/>
+      <key key="restriction" value="no_right_turn"/>
+    </item>
+    <item name="No U-Turn" icon="presets/transport/restriction/no_u_turn.svg" type="relation">
+      <key key="type" value="restriction"/>
+      <key key="restriction" value="no_u_turn"/>
+    </item>
+    <item name="Only Straight On" icon="presets/transport/restriction/only_straight_on.svg" type="relation">
+      <key key="type" value="restriction"/>
+      <key key="restriction" value="only_straight_on"/>
+    </item>
+  </group>
+
+</presets>

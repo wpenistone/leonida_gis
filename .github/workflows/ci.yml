@@ -1,0 +1,55 @@
+name: Leonida GIS Pipeline CI
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  validate-and-build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: Install Dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install shapely geopandas pyogrio matplotlib pillow numpy scipy
+
+      - name: Validate Layer Formatting & Strict Schema Purity
+        run: |
+          python scripts/format.py
+          git diff --exit-code layers/ || (echo "[FAIL] Layers are not formatted deterministically! Run 'python scripts/format.py' locally before committing." && exit 1)
+
+      - name: Validate Layer Semantics (Strict Mode)
+        run: |
+          python scripts/validate.py --strict
+
+      - name: Test Turn Restrictions Plugin (Headless)
+        run: |
+          python qgis_plugin/test_store_headless.py
+
+      - name: Execute Full GIS Build Pipeline
+        run: |
+          python scripts/run_pipeline.py
+
+      - name: Re-validate After Pipeline
+        run: |
+          python scripts/validate.py --strict
+
+      - name: Upload Master GeoPackage & QA Previews
+        uses: actions/upload-artifact@v4
+        with:
+          name: leonida-gis-build
+          path: |
+            publication/geopackage/leonida_map.gpkg
+            publication/qa_previews/qa_master_in_game_map.png

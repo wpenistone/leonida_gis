@@ -1,0 +1,36 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Scratch directory
+scratch/
+
+# QGIS temporary, backup, and attachment files
+*.qgs~
+*.qgz~
+*.bak
+*_backup.qgs
+*_attachments.zip
+.qgis2/
+layers/*.prj
+
+# Operating system artifacts
+.DS_Store
+Thumbs.db
+ehthumbs.db
+[Dd]esktop.ini
+
+# Editor directories
+.vscode/
+.idea/
+*.swp
+*~
+
+# Redundant previews and SQLite caches
+qa_previews/
+symbology-style.db
+
+# Auto-generated pipeline outputs (rebuilt by scripts/run_pipeline.py)
+derived/
+publication/

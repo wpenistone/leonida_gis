@@ -1,0 +1,15 @@
+#!/bin/sh
+# Pre-commit hook for Leonida GIS: auto-format layers, enforce schema purity,
+# and run the semantic validator
+echo ">>> [Pre-commit] Formatting canonical GeoJSON layers and enforcing pure OSM schema..."
+python scripts/format.py
+
+# Stage any automatically updated layers
+git add layers/*.geojson
+
+echo ">>> [Pre-commit] Validating layer semantics..."
+python scripts/validate.py || {
+  echo "[FAIL] Semantic validation failed - fix the errors above before committing."
+  exit 1
+}
+exit 0

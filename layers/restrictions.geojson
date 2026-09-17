@@ -1,0 +1,10 @@
+{
+  "type": "FeatureCollection",
+  "name": "restrictions",
+  "crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:EPSG::4087" } },
+  "features": [
+    {"type": "Feature","id": 1,"properties": {"description": "No left turn from arterial onto residential connector","except": "emergency","from_way": "R_0154","id": 1,"layer": 0,"restriction": "no_left_turn","to_way": "R_0155","type": "restriction"},"geometry": {"coordinates": [-2522.07,4105.51],"type": "Point"}},
+    {"type": "Feature","id": 2,"properties": {"description": "No U-turn on divided highway","except": "police","from_way": "R_0075","id": 2,"layer": 0,"restriction": "no_u_turn","to_way": "R_0075","type": "restriction"},"geometry": {"coordinates": [-2259.14,3821.76],"type": "Point"}},
+    {"type": "Feature","id": 3,"properties": {"description": "Overpass mainline through traffic only","except": null,"from_way": "R_0173","id": 3,"layer": 1,"restriction": "only_straight_on","to_way": "R_0173","type": "restriction"},"geometry": {"coordinates": [-957.14,577.23],"type": "Point"}}
+  ]
+}

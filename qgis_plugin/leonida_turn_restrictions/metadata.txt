@@ -1,0 +1,14 @@
+[general]
+name=Leonida Turn Restrictions
+qgisMinimumVersion=3.10
+description=OSM-style turn restriction mapping for the State of Leonida GIS: pick FROM way, click VIA point (auto-snapped), pick TO way, choose the restriction type, and save directly to layers/restrictions.geojson.
+version=1.0.0
+author=Leonida GIS Contributors
+email=leonida-gis@example.com
+about=Implements the OSM turn-restriction relation model (from / via / to) on the Leonida road network. Restriction types: no_left_turn, no_right_turn, no_u_turn, only_straight_on, only_left_turn, only_right_turn. VIA points are snapped onto the from-way and validated before saving; existing restrictions can be listed and deleted. Writes canonical one-feature-per-line GeoJSON compatible with scripts/format.py and validated by scripts/validate.py.
+tracker=https://github.com/leonida-gis/leonida_gis/issues
+repository=https://github.com/leonida-gis/leonida_gis
+tags=turns,restriction,routing,osm,roads
+icon=icon.png
+experimental=True
+deprecated=False
