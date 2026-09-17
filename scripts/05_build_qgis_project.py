@@ -53,7 +53,7 @@ LAYER_CONFIG = {
 
     # --- 4. Topography ---
     "topo_peaks_summits":   {"min_scale": 0,       "opacity": 1.0,  "label": {"expr": "concat(\"name\", ' (', \"elevation_m\", ' m)')", "placement": "point", "min_scale": 50000, "size": 8.5, "bold": True, "color": "74,44,20,255", "priority": 5}},
-    "topo_contours":        {"min_scale": 150000,  "opacity": 0.85, "label": {"expr": "format_number(\"elevation_m\", 1) || ' m'", "placement": "line", "min_scale": 1000,  "size": 7.5, "bold": True,  "color": "130,85,60,255",     "priority": 4}},
+    "topo_contours":        {"min_scale": 150000,  "opacity": 0.75, "label": {"expr": "format_number(\"elevation_m\", 1) || ' m'", "placement": "line", "min_scale": 1000,  "size": 7.5, "bold": True,  "color": "130,85,60,255",     "priority": 4}},
     "topo_bathymetry":      {"min_scale": 150000,  "opacity": 0.75, "label": {"expr": "format_number(\"depth_m\", 1) || ' m'", "placement": "line", "min_scale": 1000,  "size": 7.0, "bold": True,  "color": "15,65,105,255",     "priority": 3}},
     "topo_coastline":       {"min_scale": 0,       "opacity": 1.0,  "label": None},
 

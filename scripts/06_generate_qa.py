@@ -85,7 +85,7 @@ def generate_qa():
     if os.path.exists(contours_path):
         gdf_ct = load_plot_gdf(contours_path)
         if not gdf_ct.empty:
-            gdf_ct.plot(ax=ax, color="#c49882", linewidth=0.26, alpha=0.85)
+            gdf_ct.plot(ax=ax, color="#b17158", linewidth=0.26, alpha=0.75)
 
     # 4. Roads
     roads_path = os.path.join(PUB_GEOJSON_DIR, "roads.geojson")

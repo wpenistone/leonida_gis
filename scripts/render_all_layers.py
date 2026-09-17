@@ -100,7 +100,7 @@ def main():
         gdfs["veg"].plot(ax=ax, facecolor="#86ca9e", edgecolor="#63a078", linewidth=0.2, alpha=0.60)
     # 5. Contours
     if gdfs["contours"] is not None:
-        gdfs["contours"].plot(ax=ax, color="#c49882", linewidth=0.26, alpha=0.85)
+        gdfs["contours"].plot(ax=ax, color="#b17158", linewidth=0.26, alpha=0.75)
 
     # 6. Administrative Sections
     if gdfs["sections"] is not None:

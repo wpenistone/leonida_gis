@@ -70,7 +70,7 @@ To ensure high visual contrast against the in-game satellite aerial basemap and 
 
 | Feature Class | Layer Name | Color (RGBA) | Width | Opacity | Label Scale Limit |
 |---|---|:---:|:---:|:---:|:---:|
-| **Elevation Contours** | `Elevation Contours` | `204, 162, 141, 255` (`#CCA28D`) | $0.26\text{ mm}$ | $85\%$ | Visible $\le 1:1,000$ (with $0.75\text{ mm}$ white halo) |
+| **Elevation Contours** | `Elevation Contours` | `177, 113, 88, 255` (`#B17158`) | $0.26\text{ mm}$ | $75\%$ | Visible $\le 1:1,000$ (with $0.75\text{ mm}$ white halo) |
 | **Bathymetry Contours** | `Bathymetry Contours` | `26, 104, 154, 255` (`#1A689A`) | $0.22\text{ mm}$ | $75\%$ | Visible $\le 1:1,000$ (with $0.75\text{ mm}$ white halo) |
 | **Mountain Summits** | `Mountain Peaks & Summits` | `139, 69, 19, 255` (`#8B4513`) | Marker $3.5\text{ mm}$ | $100\%$ | Visible $\le 1:50,000$ (name + elevation) |
 
