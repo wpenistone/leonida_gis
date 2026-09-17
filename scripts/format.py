@@ -122,6 +122,26 @@ def format_geojson_file(filepath):
 
     is_admin_layer = "section" in file_slug or "admin" in file_slug
 
+    # Standard ref_id (prefix enforced per layer: roads R_, rail T_, areas A_)
+    ref_prefix = None
+    if "road" in file_slug or "road" in fc_name.lower():
+        ref_prefix = "R"
+    elif "rail" in file_slug or "rail" in fc_name.lower():
+        ref_prefix = "T"
+    elif "area" in file_slug or "area" in fc_name.lower():
+        ref_prefix = "A"
+
+    seen_ids = set()
+    seen_refs = set()
+    max_id = max([f.get("properties", {}).get("id", 0) for f in features if isinstance(f.get("properties", {}).get("id"), int)], default=0)
+    max_ref_num = 0
+    if ref_prefix:
+        for f in features:
+            r = f.get("properties", {}).get("ref_id")
+            m = re.search(r"(\d+)", str(r)) if r else None
+            if m:
+                max_ref_num = max(max_ref_num, int(m.group(1)))
+
     formatted_features = []
     for idx, feat in enumerate(features, start=1):
         geom = feat.get("geometry")
@@ -137,25 +157,41 @@ def format_geojson_file(filepath):
             for k in DERIVED_KEYS_TO_STRIP:
                 props.pop(k, None)
 
-        # Standard ref_id (prefix enforced per layer: roads R_, rail T_, areas A_)
-        ref_prefix = None
-        if "road" in file_slug or "road" in fc_name.lower():
-            ref_prefix = "R"
-        elif "rail" in file_slug or "rail" in fc_name.lower():
-            ref_prefix = "T"
-        elif "area" in file_slug or "area" in fc_name.lower():
-            ref_prefix = "A"
-
-        if "id" not in props:
-            props["id"] = idx
+        # Resolve ID and ref_id collisions deterministically across concurrent edits
+        fid = props.get("id")
+        if fid is None or fid in seen_ids:
+            if isinstance(fid, int) or fid is None:
+                max_id += 1
+                props["id"] = max_id
+                seen_ids.add(max_id)
+            else:
+                props["id"] = f"{fid}_{idx}"
+                seen_ids.add(props["id"])
+        else:
+            seen_ids.add(fid)
+            if isinstance(fid, int):
+                max_id = max(max_id, fid)
 
         if ref_prefix:
             existing_ref = props.get("ref_id")
             num_match = re.search(r"(\d+)", str(existing_ref)) if existing_ref else None
             if num_match:
-                props["ref_id"] = f"{ref_prefix}_{int(num_match.group(1)):04d}"
+                c_num = int(num_match.group(1))
+                c_ref = f"{ref_prefix}_{c_num:04d}"
+                if c_ref in seen_refs:
+                    max_ref_num += 1
+                    new_ref = f"{ref_prefix}_{max_ref_num:04d}"
+                    props["ref_id"] = new_ref
+                    seen_refs.add(new_ref)
+                else:
+                    props["ref_id"] = c_ref
+                    seen_refs.add(c_ref)
+                    max_ref_num = max(max_ref_num, c_num)
             else:
-                props["ref_id"] = f"{ref_prefix}_{idx:04d}"
+                max_ref_num += 1
+                new_ref = f"{ref_prefix}_{max_ref_num:04d}"
+                props["ref_id"] = new_ref
+                seen_refs.add(new_ref)
 
         # Deterministically sort keys
         feat_id = feat.get("id") or props.get("ref_id") or props.get("id")
