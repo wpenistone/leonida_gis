@@ -5751,4 +5751,49 @@
     <field name="layer" editable="1"/>
     <field name="junction" editable="1"/>
   </editable>
+  <defaults>
+    <default field="id" expression="" applyOnUpdate="0"/>
+    <default field="ref_id" expression="" applyOnUpdate="0"/>
+    <default field="highway" expression="'residential'" applyOnUpdate="0"/>
+    <default field="name" expression="" applyOnUpdate="0"/>
+    <default field="ref" expression="" applyOnUpdate="0"/>
+    <default field="oneway" expression="''" applyOnUpdate="0"/>
+    <default field="lanes" expression="2" applyOnUpdate="0"/>
+    <default field="bridge" expression="''" applyOnUpdate="0"/>
+    <default field="tunnel" expression="''" applyOnUpdate="0"/>
+    <default field="surface" expression="'asphalt'" applyOnUpdate="0"/>
+    <default field="maxspeed" expression="''" applyOnUpdate="0"/>
+    <default field="layer" expression="0" applyOnUpdate="0"/>
+    <default field="junction" expression="''" applyOnUpdate="0"/>
+  </defaults>
+  <constraints>
+    <constraint field="id" constraints="0" exp_strength="0" notnull_strength="0" unique_strength="0"/>
+    <constraint field="ref_id" constraints="0" exp_strength="0" notnull_strength="0" unique_strength="0"/>
+    <constraint field="highway" constraints="1" exp_strength="0" notnull_strength="1" unique_strength="0"/>
+    <constraint field="name" constraints="0" exp_strength="0" notnull_strength="0" unique_strength="0"/>
+    <constraint field="ref" constraints="0" exp_strength="0" notnull_strength="0" unique_strength="0"/>
+    <constraint field="oneway" constraints="0" exp_strength="0" notnull_strength="0" unique_strength="0"/>
+    <constraint field="lanes" constraints="0" exp_strength="0" notnull_strength="0" unique_strength="0"/>
+    <constraint field="bridge" constraints="0" exp_strength="0" notnull_strength="0" unique_strength="0"/>
+    <constraint field="tunnel" constraints="0" exp_strength="0" notnull_strength="0" unique_strength="0"/>
+    <constraint field="surface" constraints="0" exp_strength="0" notnull_strength="0" unique_strength="0"/>
+    <constraint field="maxspeed" constraints="0" exp_strength="0" notnull_strength="0" unique_strength="0"/>
+    <constraint field="layer" constraints="0" exp_strength="0" notnull_strength="0" unique_strength="0"/>
+    <constraint field="junction" constraints="0" exp_strength="0" notnull_strength="0" unique_strength="0"/>
+  </constraints>
+  <constraintExpressions>
+    <constraint desc="" exp="" field="id"/>
+    <constraint desc="" exp="" field="ref_id"/>
+    <constraint desc="" exp="" field="highway"/>
+    <constraint desc="" exp="" field="name"/>
+    <constraint desc="" exp="" field="ref"/>
+    <constraint desc="" exp="" field="oneway"/>
+    <constraint desc="" exp="" field="lanes"/>
+    <constraint desc="" exp="" field="bridge"/>
+    <constraint desc="" exp="" field="tunnel"/>
+    <constraint desc="" exp="" field="surface"/>
+    <constraint desc="" exp="" field="maxspeed"/>
+    <constraint desc="" exp="" field="layer"/>
+    <constraint desc="" exp="" field="junction"/>
+  </constraintExpressions>
 </qgis>
