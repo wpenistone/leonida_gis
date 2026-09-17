@@ -42,4 +42,96 @@
       </symbol>
     </symbols>
   </renderer-v2>
+  <fieldConfiguration>
+    <field name="id" configurationFlags="None">
+      <editWidget type="Range"><config><Option type="Map"><Option type="bool" name="AllowNull" value="false"/><Option type="int" name="Max" value="2147483647"/><Option type="int" name="Min" value="1"/><Option type="int" name="Step" value="1"/></Option></config></editWidget>
+    </field>
+    <field name="ref_id" configurationFlags="None">
+      <editWidget type="TextEdit"><config><Option type="Map"><Option type="bool" name="IsMultiline" value="false"/><Option type="bool" name="UseHtml" value="false"/></Option></config></editWidget>
+    </field>
+    <field name="railway" configurationFlags="None">
+      <editWidget type="ValueMap">
+        <config>
+          <Option type="Map">
+            <Option type="List" name="map">
+              <Option type="Map"><Option type="QString" name="Heavy Rail (Main Line &amp; Freight)" value="rail"/></Option>
+              <Option type="Map"><Option type="QString" name="Light Rail / Tram" value="light_rail"/></Option>
+              <Option type="Map"><Option type="QString" name="Subway / Metro" value="subway"/></Option>
+              <Option type="Map"><Option type="QString" name="Monorail" value="monorail"/></Option>
+            </Option>
+          </Option>
+        </config>
+      </editWidget>
+    </field>
+    <field name="name" configurationFlags="None">
+      <editWidget type="TextEdit"><config><Option type="Map"><Option type="bool" name="IsMultiline" value="false"/><Option type="bool" name="UseHtml" value="false"/></Option></config></editWidget>
+    </field>
+    <field name="service" configurationFlags="None">
+      <editWidget type="ValueMap">
+        <config>
+          <Option type="Map">
+            <Option type="List" name="map">
+              <Option type="Map"><Option type="QString" name="Mainline (Regular Track)" value=""/></Option>
+              <Option type="Map"><Option type="QString" name="Rail Yard (Storage/Switching)" value="yard"/></Option>
+              <Option type="Map"><Option type="QString" name="Siding" value="siding"/></Option>
+              <Option type="Map"><Option type="QString" name="Industrial Spur" value="spur"/></Option>
+              <Option type="Map"><Option type="QString" name="Crossover" value="crossover"/></Option>
+            </Option>
+          </Option>
+        </config>
+      </editWidget>
+    </field>
+    <field name="bridge" configurationFlags="None">
+      <editWidget type="ValueMap">
+        <config>
+          <Option type="Map">
+            <Option type="List" name="map">
+              <Option type="Map"><Option type="QString" name="None (At Grade)" value=""/></Option>
+              <Option type="Map"><Option type="QString" name="Bridge (yes)" value="yes"/></Option>
+              <Option type="Map"><Option type="QString" name="Viaduct" value="viaduct"/></Option>
+            </Option>
+          </Option>
+        </config>
+      </editWidget>
+    </field>
+    <field name="tunnel" configurationFlags="None">
+      <editWidget type="ValueMap">
+        <config>
+          <Option type="Map">
+            <Option type="List" name="map">
+              <Option type="Map"><Option type="QString" name="None (At Grade)" value=""/></Option>
+              <Option type="Map"><Option type="QString" name="Tunnel (yes)" value="yes"/></Option>
+            </Option>
+          </Option>
+        </config>
+      </editWidget>
+    </field>
+    <field name="layer" configurationFlags="None">
+      <editWidget type="Range"><config><Option type="Map"><Option type="bool" name="AllowNull" value="false"/><Option type="int" name="Max" value="5"/><Option type="int" name="Min" value="-5"/><Option type="int" name="Step" value="1"/></Option></config></editWidget>
+    </field>
+  </fieldConfiguration>
+  <aliases>
+    <alias field="id" index="0" name="Feature ID"/>
+    <alias field="ref_id" index="1" name="Transit Ref ID (e.g. T_0001)"/>
+    <alias field="railway" index="2" name="Railway Type (rail / light_rail / subway)"/>
+    <alias field="name" index="3" name="Line / Corridor Name"/>
+    <alias field="service" index="4" name="Track Service (mainline / yard / siding / spur)"/>
+    <alias field="bridge" index="5" name="Bridge Structure"/>
+    <alias field="tunnel" index="6" name="Tunnel Structure"/>
+    <alias field="layer" index="7" name="Z-Level Stacking (-1 tunnel, 0 ground, 1 bridge)"/>
+  </aliases>
+  <editforminit/>
+  <editforminitcodesource>0</editforminitcodesource>
+  <featformsuppress>0</featformsuppress>
+  <editorlayout>generatedlayout</editorlayout>
+  <editable>
+    <field name="id" editable="1"/>
+    <field name="ref_id" editable="1"/>
+    <field name="railway" editable="1"/>
+    <field name="name" editable="1"/>
+    <field name="service" editable="1"/>
+    <field name="bridge" editable="1"/>
+    <field name="tunnel" editable="1"/>
+    <field name="layer" editable="1"/>
+  </editable>
 </qgis>

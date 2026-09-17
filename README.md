@@ -59,6 +59,7 @@ While editing on the map canvas:
 ## Editing Controls & Keybinds Cheat Sheet
 
 | Action | Shortcut / Control | Notes |
+| --- | --- | --- |
 | **Toggle Editing** | `Ctrl + E` | Enables/disables edit mode on active layer (prompts to save layer edits when turning off) |
 | **Save Layer Edits** | Digitizing toolbar icon / `Layer -> Save Layer Edits` | Writes in-memory geometry edits from RAM buffer down to `.geojson` file on disk |
 | **Save Project** | `Ctrl + S` | Saves QGIS project state, layer tree, and styles (`.qgz` file only) |

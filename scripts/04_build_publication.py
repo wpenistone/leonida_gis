@@ -21,7 +21,7 @@ from config import (
     PUB_GEOPACKAGE_DIR, PUB_STYLES_DIR, MASTER_GPKG_PATH, CRS_WKT,
     PROJECT_ROOT, WORK_ROADS_PATH, WORK_RAIL_PATH, WORK_SECTIONS_PATH, WORK_RESTRICTIONS_PATH,
     WORK_WATER_PATH, WORK_LANDMARKS_PATH, WORK_WATERWAYS_PATH, WORK_AREAS_PATH,
-    DERIVED_CONTOURS_PATH, DERIVED_COASTLINE_PATH, DERIVED_PEAKS_PATH,
+    DERIVED_CONTOURS_PATH, DERIVED_BATHYMETRY_PATH, DERIVED_COASTLINE_PATH, DERIVED_PEAKS_PATH,
     DERIVED_BUILDINGS_PATH, DERIVED_WATER_PATH, DERIVED_VEGETATION_PATH,
     DERIVED_SAND_PATH, DERIVED_LANDMASS_PATH, DERIVED_COASTAL_SHELF_PATH
 )
@@ -44,6 +44,7 @@ def build_publication():
         "areas.geojson": WORK_AREAS_PATH,
         "elevation_peaks.geojson": DERIVED_PEAKS_PATH,
         "contours.geojson": DERIVED_CONTOURS_PATH,
+        "bathymetry.geojson": DERIVED_BATHYMETRY_PATH,
         "coastline.geojson": DERIVED_COASTLINE_PATH,
         "buildings.geojson": DERIVED_BUILDINGS_PATH,
         "water_bodies.geojson": DERIVED_WATER_PATH,
@@ -99,6 +100,7 @@ def build_publication():
         ("areas", "areas.geojson"),
         ("elevation_peaks", "elevation_peaks.geojson"),
         ("contours", "contours.geojson"),
+        ("bathymetry", "bathymetry.geojson"),
         ("coastline", "coastline.geojson"),
         ("buildings", "buildings.geojson"),
         ("water_bodies", "water_bodies.geojson"),
@@ -163,7 +165,7 @@ def build_publication():
     shp_layers = [
         "counties", "sections", "roads", "roads_oneway", "roads_bidi",
         "rail", "landmarks", "restrictions", "waterways", "water", "areas",
-        "elevation_peaks", "contours", "coastline",
+        "elevation_peaks", "contours", "bathymetry", "coastline",
         "buildings", "water_bodies", "vegetation", "sand_beaches", "coastal_shelf"
     ]
     for lyr_name in shp_layers:

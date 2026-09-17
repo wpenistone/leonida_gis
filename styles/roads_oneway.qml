@@ -5530,4 +5530,225 @@
       <rendering scaleVisibility="1" scaleMin="1" scaleMax="35000" obstacle="0"/>
     </settings>
   </labeling>
+  <fieldConfiguration>
+    <field name="id" configurationFlags="None">
+      <editWidget type="Range">
+        <config>
+          <Option type="Map">
+            <Option type="bool" name="AllowNull" value="false"/>
+            <Option type="int" name="Max" value="2147483647"/>
+            <Option type="int" name="Min" value="1"/>
+            <Option type="int" name="Step" value="1"/>
+          </Option>
+        </config>
+      </editWidget>
+    </field>
+    <field name="ref_id" configurationFlags="None">
+      <editWidget type="TextEdit">
+        <config>
+          <Option type="Map">
+            <Option type="bool" name="IsMultiline" value="false"/>
+            <Option type="bool" name="UseHtml" value="false"/>
+          </Option>
+        </config>
+      </editWidget>
+    </field>
+    <field name="highway" configurationFlags="None">
+      <editWidget type="ValueMap">
+        <config>
+          <Option type="Map">
+            <Option type="List" name="map">
+              <Option type="Map"><Option type="QString" name="Motorway (Freeway)" value="motorway"/></Option>
+              <Option type="Map"><Option type="QString" name="Motorway Link (Ramp)" value="motorway_link"/></Option>
+              <Option type="Map"><Option type="QString" name="Trunk (Expressway)" value="trunk"/></Option>
+              <Option type="Map"><Option type="QString" name="Trunk Link (Ramp)" value="trunk_link"/></Option>
+              <Option type="Map"><Option type="QString" name="Primary (Arterial)" value="primary"/></Option>
+              <Option type="Map"><Option type="QString" name="Primary Link (Ramp)" value="primary_link"/></Option>
+              <Option type="Map"><Option type="QString" name="Secondary (Collector)" value="secondary"/></Option>
+              <Option type="Map"><Option type="QString" name="Secondary Link (Ramp)" value="secondary_link"/></Option>
+              <Option type="Map"><Option type="QString" name="Tertiary (Local Arterial)" value="tertiary"/></Option>
+              <Option type="Map"><Option type="QString" name="Tertiary Link (Ramp)" value="tertiary_link"/></Option>
+              <Option type="Map"><Option type="QString" name="Residential (Neighborhood)" value="residential"/></Option>
+              <Option type="Map"><Option type="QString" name="Living Street" value="living_street"/></Option>
+              <Option type="Map"><Option type="QString" name="Unclassified (Rural Road)" value="unclassified"/></Option>
+              <Option type="Map"><Option type="QString" name="Service (Alley, Parking, Driveway)" value="service"/></Option>
+              <Option type="Map"><Option type="QString" name="Track (Dirt/Agricultural)" value="track"/></Option>
+              <Option type="Map"><Option type="QString" name="Pedestrian (Walkway)" value="pedestrian"/></Option>
+              <Option type="Map"><Option type="QString" name="Footway / Path / Trail" value="footway"/></Option>
+              <Option type="Map"><Option type="QString" name="Cycleway (Bike Path)" value="cycleway"/></Option>
+            </Option>
+          </Option>
+        </config>
+      </editWidget>
+    </field>
+    <field name="name" configurationFlags="None">
+      <editWidget type="TextEdit">
+        <config>
+          <Option type="Map">
+            <Option type="bool" name="IsMultiline" value="false"/>
+            <Option type="bool" name="UseHtml" value="false"/>
+          </Option>
+        </config>
+      </editWidget>
+    </field>
+    <field name="ref" configurationFlags="None">
+      <editWidget type="TextEdit">
+        <config>
+          <Option type="Map">
+            <Option type="bool" name="IsMultiline" value="false"/>
+            <Option type="bool" name="UseHtml" value="false"/>
+          </Option>
+        </config>
+      </editWidget>
+    </field>
+    <field name="oneway" configurationFlags="None">
+      <editWidget type="ValueMap">
+        <config>
+          <Option type="Map">
+            <Option type="List" name="map">
+              <Option type="Map"><Option type="QString" name="Two-Way Traffic (no / null)" value=""/></Option>
+              <Option type="Map"><Option type="QString" name="Oneway Forward (v0 -> vn)" value="yes"/></Option>
+              <Option type="Map"><Option type="QString" name="Oneway Reverse (vn -> v0)" value="-1"/></Option>
+            </Option>
+          </Option>
+        </config>
+      </editWidget>
+    </field>
+    <field name="lanes" configurationFlags="None">
+      <editWidget type="Range">
+        <config>
+          <Option type="Map">
+            <Option type="bool" name="AllowNull" value="true"/>
+            <Option type="int" name="Max" value="12"/>
+            <Option type="int" name="Min" value="1"/>
+            <Option type="int" name="Step" value="1"/>
+          </Option>
+        </config>
+      </editWidget>
+    </field>
+    <field name="bridge" configurationFlags="None">
+      <editWidget type="ValueMap">
+        <config>
+          <Option type="Map">
+            <Option type="List" name="map">
+              <Option type="Map"><Option type="QString" name="None (At Grade)" value=""/></Option>
+              <Option type="Map"><Option type="QString" name="Bridge (yes)" value="yes"/></Option>
+              <Option type="Map"><Option type="QString" name="Viaduct" value="viaduct"/></Option>
+            </Option>
+          </Option>
+        </config>
+      </editWidget>
+    </field>
+    <field name="tunnel" configurationFlags="None">
+      <editWidget type="ValueMap">
+        <config>
+          <Option type="Map">
+            <Option type="List" name="map">
+              <Option type="Map"><Option type="QString" name="None (At Grade)" value=""/></Option>
+              <Option type="Map"><Option type="QString" name="Tunnel (yes)" value="yes"/></Option>
+              <Option type="Map"><Option type="QString" name="Culvert" value="culvert"/></Option>
+            </Option>
+          </Option>
+        </config>
+      </editWidget>
+    </field>
+    <field name="surface" configurationFlags="None">
+      <editWidget type="ValueMap">
+        <config>
+          <Option type="Map">
+            <Option type="List" name="map">
+              <Option type="Map"><Option type="QString" name="Asphalt" value="asphalt"/></Option>
+              <Option type="Map"><Option type="QString" name="Concrete" value="concrete"/></Option>
+              <Option type="Map"><Option type="QString" name="Paved" value="paved"/></Option>
+              <Option type="Map"><Option type="QString" name="Gravel" value="gravel"/></Option>
+              <Option type="Map"><Option type="QString" name="Dirt / Ground" value="dirt"/></Option>
+              <Option type="Map"><Option type="QString" name="Sand" value="sand"/></Option>
+              <Option type="Map"><Option type="QString" name="Unpaved" value="unpaved"/></Option>
+            </Option>
+          </Option>
+        </config>
+      </editWidget>
+    </field>
+    <field name="maxspeed" configurationFlags="None">
+      <editWidget type="ValueMap">
+        <config>
+          <Option type="Map">
+            <Option type="List" name="map">
+              <Option type="Map"><Option type="QString" name="Unspecified" value=""/></Option>
+              <Option type="Map"><Option type="QString" name="15 mph" value="15"/></Option>
+              <Option type="Map"><Option type="QString" name="20 mph" value="20"/></Option>
+              <Option type="Map"><Option type="QString" name="25 mph" value="25"/></Option>
+              <Option type="Map"><Option type="QString" name="30 mph" value="30"/></Option>
+              <Option type="Map"><Option type="QString" name="35 mph" value="35"/></Option>
+              <Option type="Map"><Option type="QString" name="40 mph" value="40"/></Option>
+              <Option type="Map"><Option type="QString" name="45 mph" value="45"/></Option>
+              <Option type="Map"><Option type="QString" name="50 mph" value="50"/></Option>
+              <Option type="Map"><Option type="QString" name="55 mph" value="55"/></Option>
+              <Option type="Map"><Option type="QString" name="65 mph" value="65"/></Option>
+              <Option type="Map"><Option type="QString" name="70 mph" value="70"/></Option>
+            </Option>
+          </Option>
+        </config>
+      </editWidget>
+    </field>
+    <field name="layer" configurationFlags="None">
+      <editWidget type="Range">
+        <config>
+          <Option type="Map">
+            <Option type="bool" name="AllowNull" value="false"/>
+            <Option type="int" name="Max" value="5"/>
+            <Option type="int" name="Min" value="-5"/>
+            <Option type="int" name="Step" value="1"/>
+          </Option>
+        </config>
+      </editWidget>
+    </field>
+    <field name="junction" configurationFlags="None">
+      <editWidget type="ValueMap">
+        <config>
+          <Option type="Map">
+            <Option type="List" name="map">
+              <Option type="Map"><Option type="QString" name="None (Standard Way)" value=""/></Option>
+              <Option type="Map"><Option type="QString" name="Roundabout (One-Way Loop)" value="roundabout"/></Option>
+              <Option type="Map"><Option type="QString" name="Circular Junction" value="circular"/></Option>
+            </Option>
+          </Option>
+        </config>
+      </editWidget>
+    </field>
+  </fieldConfiguration>
+  <aliases>
+    <alias field="id" index="0" name="Feature ID"/>
+    <alias field="ref_id" index="1" name="Road Ref ID (e.g. R_0190)"/>
+    <alias field="highway" index="2" name="Highway Classification"/>
+    <alias field="name" index="3" name="Street / Road Name"/>
+    <alias field="ref" index="4" name="Route Reference (e.g. US 1, I-95)"/>
+    <alias field="oneway" index="5" name="One-Way Direction"/>
+    <alias field="lanes" index="6" name="Lane Count"/>
+    <alias field="bridge" index="7" name="Bridge Structure"/>
+    <alias field="tunnel" index="8" name="Tunnel Structure"/>
+    <alias field="surface" index="9" name="Surface Material"/>
+    <alias field="maxspeed" index="10" name="Speed Limit (mph)"/>
+    <alias field="layer" index="11" name="Z-Level Stacking (-1 tunnel, 0 ground, 1 bridge)"/>
+    <alias field="junction" index="12" name="Junction Geometry"/>
+  </aliases>
+  <editforminit/>
+  <editforminitcodesource>0</editforminitcodesource>
+  <featformsuppress>0</featformsuppress>
+  <editorlayout>generatedlayout</editorlayout>
+  <editable>
+    <field name="id" editable="1"/>
+    <field name="ref_id" editable="1"/>
+    <field name="highway" editable="1"/>
+    <field name="name" editable="1"/>
+    <field name="ref" editable="1"/>
+    <field name="oneway" editable="1"/>
+    <field name="lanes" editable="1"/>
+    <field name="bridge" editable="1"/>
+    <field name="tunnel" editable="1"/>
+    <field name="surface" editable="1"/>
+    <field name="maxspeed" editable="1"/>
+    <field name="layer" editable="1"/>
+    <field name="junction" editable="1"/>
+  </editable>
 </qgis>

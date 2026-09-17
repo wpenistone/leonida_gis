@@ -38,6 +38,7 @@ WORK_WATERWAYS_PATH = os.path.join(LAYERS_DIR, "waterways.geojson")
 WORK_AREAS_PATH = os.path.join(LAYERS_DIR, "areas.geojson")
 
 DERIVED_CONTOURS_PATH = os.path.join(DERIVED_DIR, "contours.geojson")
+DERIVED_BATHYMETRY_PATH = os.path.join(DERIVED_DIR, "bathymetry.geojson")
 DERIVED_COASTLINE_PATH = os.path.join(DERIVED_DIR, "coastline.geojson")
 DERIVED_PEAKS_PATH = os.path.join(DERIVED_DIR, "elevation_peaks.geojson")
 DERIVED_BUILDINGS_PATH = os.path.join(DERIVED_DIR, "buildings.geojson")

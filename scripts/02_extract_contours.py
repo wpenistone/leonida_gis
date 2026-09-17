@@ -171,6 +171,95 @@ def build_contours():
     print(f"  Saved {len(contour_features)} quantile contour line segments (27 levels, 0.5m-650.7m) -> {out_contours_main} & {out_gpkg}")
 
     # -------------------------------------------------------------------------
+    # 1.5 Extract Negative / Underwater Bathymetric Contours (Submarine Hydrology)
+    # -------------------------------------------------------------------------
+    # Depths ascending from deep ocean abyssal trench up to shallow nearshore
+    bathy_depths_m = [
+        -580.0, -450.0, -320.0, -220.0, -150.0, -100.0, -75.0, -50.0,
+        -35.0, -25.0, -18.0, -12.0, -8.0, -5.0, -2.5, -1.0
+    ]
+    bathy_contour_levels = [SEA_LEVEL + d * SCALE_M for d in bathy_depths_m]
+
+    fig_b, ax_b = plt.subplots()
+    cs_b = ax_b.contour(x_coords, y_coords, arr, levels=bathy_contour_levels)
+    plt.close(fig_b)
+
+    bathy_features = []
+    bathy_id = 1
+    for lvl_idx, d_m in enumerate(bathy_depths_m):
+        segs = cs_b.allsegs[lvl_idx]
+        for seg in segs:
+            if len(seg) >= 3:
+                line = LineString([[round(float(pt[0]), 2), round(float(pt[1]), 2)] for pt in seg])
+                if line.length >= 80.0:  # Filter noise artifacts < 80m
+                    bathy_features.append({
+                        "type": "Feature",
+                        "properties": {
+                            "id": bathy_id,
+                            "elevation_m": round(d_m, 1),
+                            "depth_m": round(abs(d_m), 1),
+                            "length_m": round(line.length, 1),
+                            "source": "16-bit DEM Bathymetric Contours"
+                        },
+                        "geometry": mapping(line)
+                    })
+                    bathy_id += 1
+
+    fc_bathy = {
+        "type": "FeatureCollection",
+        "name": "bathymetry",
+        "crs": {"type": "name", "properties": {"name": "urn:ogc:def:crs:EPSG::4087"}},
+        "features": bathy_features
+    }
+    out_bathy_main = os.path.join(DERIVED_DIR, "bathymetry.geojson")
+    with open(out_bathy_main, "w", encoding="utf-8") as f:
+        json.dump(fc_bathy, f, indent=2)
+
+    out_bathy_gpkg = os.path.join(DERIVED_DIR, "bathymetry.gpkg")
+    if os.path.exists(out_bathy_gpkg):
+        try:
+            os.remove(out_bathy_gpkg)
+        except Exception:
+            pass
+    if bathy_features:
+        gdf_bathy = gpd.GeoDataFrame.from_features(bathy_features, crs="EPSG:4087")
+        gdf_bathy.to_file(out_bathy_gpkg, layer="bathymetry", driver="GPKG")
+
+        bathy_style_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), "styles", "bathymetry.qml")
+        if os.path.exists(bathy_style_path):
+            with open(bathy_style_path, "r", encoding="utf-8") as sf:
+                bathy_style_qml = sf.read()
+            conn = sqlite3.connect(out_bathy_gpkg)
+            cur = conn.cursor()
+            cur.execute('''
+                CREATE TABLE IF NOT EXISTS layer_styles (
+                    id INTEGER PRIMARY KEY AUTOINCREMENT,
+                    f_table_catalog TEXT,
+                    f_table_schema TEXT,
+                    f_table_name TEXT NOT NULL,
+                    f_geometry_column TEXT,
+                    styleName TEXT,
+                    styleQML TEXT,
+                    styleSLD TEXT,
+                    useAsDefault BOOLEAN,
+                    description TEXT,
+                    owner TEXT,
+                    ui TEXT,
+                    update_time TIMESTAMP DEFAULT (datetime('now'))
+                )
+            ''')
+            cur.execute('DELETE FROM layer_styles WHERE f_table_name=?', ('bathymetry',))
+            cur.execute('''
+                INSERT INTO layer_styles 
+                (f_table_name, f_geometry_column, styleName, styleQML, styleSLD, useAsDefault, description, owner, update_time)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
+            ''', ('bathymetry', 'geom', 'default', bathy_style_qml, '', 1, 'Default bathymetry style', 'FA', datetime.datetime.now().isoformat()))
+            conn.commit()
+            conn.close()
+
+    print(f"  Saved {len(bathy_features)} bathymetric underwater contour line segments -> {out_bathy_main} & {out_bathy_gpkg}")
+
+    # -------------------------------------------------------------------------
     # 2. Extract Mountain Peak Summits & Spot Heights (Local Maxima)
     # -------------------------------------------------------------------------
     elev_arr = np.maximum(0, (arr - SEA_LEVEL) / SCALE_M)

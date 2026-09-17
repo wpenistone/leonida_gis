@@ -53,7 +53,8 @@ LAYER_CONFIG = {
 
     # --- 4. Topography ---
     "topo_peaks_summits":   {"min_scale": 0,       "opacity": 1.0,  "label": {"expr": "concat(\"name\", ' (', \"elevation_m\", ' m)')", "placement": "point", "min_scale": 50000, "size": 8.5, "bold": True, "color": "74,44,20,255", "priority": 5}},
-    "topo_contours":        {"min_scale": 150000,  "opacity": 0.85, "label": {"expr": "format_number(\"elevation_m\", 1) || ' m'", "placement": "line", "min_scale": 2000,  "size": 7.5, "bold": True,  "color": "130,85,60,255",     "priority": 4}},
+    "topo_contours":        {"min_scale": 150000,  "opacity": 0.85, "label": {"expr": "format_number(\"elevation_m\", 1) || ' m'", "placement": "line", "min_scale": 1000,  "size": 7.5, "bold": True,  "color": "130,85,60,255",     "priority": 4}},
+    "topo_bathymetry":      {"min_scale": 150000,  "opacity": 0.75, "label": {"expr": "format_number(\"depth_m\", 1) || ' m'", "placement": "line", "min_scale": 1000,  "size": 7.0, "bold": True,  "color": "15,65,105,255",     "priority": 3}},
     "topo_coastline":       {"min_scale": 0,       "opacity": 1.0,  "label": None},
 
     # --- 5. Rasters ---
@@ -189,6 +190,7 @@ def build_qgis_project():
         # --- 4. Topography & Elevation (Vector) ---
         ("topo_peaks_summits", "Mountain Peaks & Summits (37 Summits)", "./derived/elevation_peaks.geojson", "./styles/elevation_peaks.qml", "1", "Topography & Elevation", "ogr"),
         ("topo_contours", "Elevation Contours (Quantile Hypsometric)", "./derived/contours.gpkg|layername=contours", "./styles/contours.qml", "1", "Topography & Elevation", "ogr"),
+        ("topo_bathymetry", "Bathymetry & Underwater Contours (Negative Elevation)", "./derived/bathymetry.gpkg|layername=bathymetry", "./styles/bathymetry.qml", "0", "Topography & Elevation", "ogr"),
         ("topo_coastline", "Coastline Shoreline", "./derived/coastline.geojson", "./styles/coastline.qml", "0", "Topography & Elevation", "ogr"),
 
         # --- 5. Basemaps & Rasters ---
@@ -284,16 +286,35 @@ def build_qgis_project():
     ET.SubElement(desrs, "ellipsoidacronym").text = "EPSG:7030"
     ET.SubElement(desrs, "geographicflag").text = "false"
 
-    # Snapping Settings
-    ET.SubElement(qgis_elem, "snapping-settings", {
+    # Snapping Settings - Advanced per-layer snapping:
+    # Snaps ONLY to active human work layers (roads, rail, restrictions, waterways, landmarks).
+    # Snapping to topological/cartographic layers (contours, bathymetry, buildings, vegetation) is strictly disabled.
+    snap_elem = ET.SubElement(qgis_elem, "snapping-settings", {
         "enabled": "1",
-        "mode": "2", # AllLayers
+        "mode": "3", # Advanced Configuration (snaps only to checked work layers)
         "type": "3", # VertexAndSegment
         "tolerance": "15.0",
         "unit": "1", # ProjectUnits (meters)
         "intersection-snapping": "1",
-        "topological-editing": "1"
+        "topological-editing": "0"
     })
+    indiv_snap = ET.SubElement(snap_elem, "individual-layer-settings")
+    work_layer_ids = {
+        "work_roads_network", "work_rail_network", "work_restrictions",
+        "work_waterways", "work_landmarks", "work_areas_landuse"
+    }
+    for spec_id, _, _, _, _, _, prov in layer_specs:
+        if prov != "gdal":
+            is_work = spec_id in work_layer_ids
+            ET.SubElement(indiv_snap, "layer-setting", {
+                "id": spec_id,
+                "enabled": "1" if is_work else "0",
+                "type": "3" if is_work else "0",
+                "tolerance": "15.0" if is_work else "0.0",
+                "units": "1",
+                "minScale": "0",
+                "maxScale": "0"
+            })
 
     # Maplayers container
     maplayers = ET.SubElement(qgis_elem, "projectlayers")
