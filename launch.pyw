@@ -1,4 +1,4 @@
-#!/usr/bin/env pythonw
+#!/usr/bin/env python
 """
 State of Leonida GIS - PyQt6 Graphical Launcher
 ===============================================
@@ -12,15 +12,29 @@ Launch by double-clicking 'launch.pyw' in Windows Explorer.
 import os
 import sys
 import threading
+import traceback
 
-from PyQt6.QtWidgets import (
-    QApplication, QMainWindow, QWidget, QVBoxLayout, QHBoxLayout,
-    QLabel, QPushButton, QTextEdit, QGroupBox, QMessageBox
-)
-from PyQt6.QtCore import Qt, pyqtSignal, QObject
+# Ensure working directory is always the project root
+PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
+os.chdir(PROJECT_ROOT)
+sys.path.insert(0, os.path.join(PROJECT_ROOT, "scripts"))
 
-sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "scripts"))
-import launcher_core
+try:
+    from PyQt6.QtWidgets import (
+        QApplication, QMainWindow, QWidget, QVBoxLayout, QHBoxLayout,
+        QLabel, QPushButton, QTextEdit, QGroupBox, QMessageBox
+    )
+    from PyQt6.QtCore import Qt, pyqtSignal, QObject
+    import launcher_core
+except Exception as import_err:
+    # If anything fails during startup, show native Windows MessageBox so it does not fail silently
+    err_msg = f"Failed to initialize State of Leonida GIS Launcher:\n\n{traceback.format_exc()}"
+    try:
+        import ctypes
+        ctypes.windll.user32.MessageBoxW(0, err_msg, "Leonida GIS Launcher - Error", 0x10)
+    except Exception:
+        print(err_msg, file=sys.stderr)
+    sys.exit(1)
 
 
 class LogSignaler(QObject):
@@ -195,10 +209,19 @@ class LeonidaLauncherWindow(QMainWindow):
 
 
 def main():
-    app = QApplication(sys.argv)
-    window = LeonidaLauncherWindow()
-    window.show()
-    sys.exit(app.exec())
+    try:
+        app = QApplication(sys.argv)
+        window = LeonidaLauncherWindow()
+        window.show()
+        sys.exit(app.exec())
+    except Exception as e:
+        err_msg = f"Application error:\n\n{traceback.format_exc()}"
+        try:
+            import ctypes
+            ctypes.windll.user32.MessageBoxW(0, err_msg, "Leonida GIS Launcher - Error", 0x10)
+        except Exception:
+            print(err_msg, file=sys.stderr)
+        sys.exit(1)
 
 
 if __name__ == "__main__":
