@@ -45,8 +45,12 @@ class _QgsPointXY:
     def y(self): return self._y
 qcore.QgsPointXY = _QgsPointXY
 qcore.QgsWkbTypes = types.SimpleNamespace(LineGeometry=1, PointGeometry=0)
-for cls in ["QgsProject", "QgsRubberBand", "QgsMapToolEmitPoint"]:
+for cls in ["QgsProject", "QgsMapToolEmitPoint"]:
     setattr(qcore, cls, type(cls, (), {}))
+qgui = types.ModuleType("qgis.gui")
+sys.modules["qgis.gui"] = qgui
+for cls in ["QgsRubberBand", "QgsMapCanvasItem", "QgsMapTool"]:
+    setattr(qgui, cls, type(cls, (), {}))
 sys.modules["qgis.utils"] = types.ModuleType("qgis.utils")
 
 # --- Import the plugin module ---

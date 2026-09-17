@@ -28,11 +28,11 @@ from qgis.PyQt.QtWidgets import (
 from qgis.PyQt.QtCore import Qt, QPointF, QRectF
 from qgis.PyQt.QtGui import QColor, QIcon, QPainter, QPen, QBrush, QPolygonF, QFont
 from qgis.core import (
-    QgsPointXY, QgsRubberBand, QgsWkbTypes, QgsProject
+    QgsPointXY, QgsWkbTypes, QgsProject
 )
 
 try:
-    from qgis.gui import QgsMapCanvasItem, QgsMapTool
+    from qgis.gui import QgsMapCanvasItem, QgsMapTool, QgsRubberBand
 except ImportError:
     class QgsMapCanvasItem:
         def __init__(self, canvas): pass
@@ -42,6 +42,14 @@ except ImportError:
         def __init__(self, canvas): pass
         def deactivate(self): pass
         def keyPressEvent(self, event): pass
+    class QgsRubberBand:
+        def __init__(self, canvas, geometryType=None): pass
+        def setColor(self, color): pass
+        def setWidth(self, width): pass
+        def reset(self): pass
+        def addPoint(self, pt): pass
+        def show(self): pass
+        def hide(self): pass
 
 RESTRICTION_TYPES = [
     ("no_left_turn", "No Left Turn (no_left_turn)"),

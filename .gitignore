@@ -10,6 +10,8 @@ scratch/
 *.qgs~
 *.qgz~
 *.bak
+*.backups/
+.backups/
 *_backup.qgs
 *_attachments.zip
 .qgis2/
