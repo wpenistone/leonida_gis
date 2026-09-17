@@ -82,6 +82,7 @@
         <text-buffer bufferSize="1.5" bufferColor="255,255,255,240" bufferDraw="1"/>
       </text-style>
       <placement placement="0" priority="8" dist="0"/>
+      <rendering scaleVisibility="1" scaleMin="1" scaleMax="7500" obstacle="0"/>
     </settings>
   </labeling>
 </qgis>

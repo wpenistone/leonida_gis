@@ -114,7 +114,7 @@
         <text-buffer bufferSize="1.0" bufferColor="255,255,255,230" bufferDraw="1"/>
       </text-style>
       <placement placement="0" priority="5" dist="0"/>
-      <rendering scaleVisibility="1" scaleMin="1" scaleMax="150000" obstacle="0"/>
+      <rendering scaleVisibility="1" scaleMin="1" scaleMax="7500" obstacle="0"/>
     </settings>
   </labeling>
   <fieldConfiguration>

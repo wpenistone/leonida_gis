@@ -22831,7 +22831,7 @@
           </text-style>
           <text-format plussign="0" wrapChar="" multilineAlign="3" addDirectionSymbol="0" autoWrapLength="0" useMaxLineLengthForAutoWrap="1" reverseDirectionLine="0" formatNumbers="0" decimals="3"/>
           <placement placement="0" layerType="PolygonGeometry" placementFlags="10" dist="0" distUnits="MM" xOffset="0" yOffset="0" rotationAngle="0" quadOffset="4" offsetType="0" preserveRotation="1" maxCurvedCharAngleIn="25" maxCurvedCharAngleOut="25" priority="1" centroidWhole="0" centroidInside="1" fitInPolygonOnly="0" repeatDistance="0" repeatDistanceUnits="MM" overrunDistance="0" overrunDistanceUnit="MM" labelOffsetMapUnitScale="3x:0,0,0,0,0,0" distMapUnitScale="3x:0,0,0,0,0,0"/>
-          <rendering drawLabels="1" scaleVisibility="1" scaleMax="1000000" scaleMin="0" minScale="1000000" maxScale="0" limit="500" displayAll="0" obstacle="1" obstacleType="1" obstacleFactor="1" mergeLines="0" labelPerPart="0" upsidedownLabels="0" zIndex="0" fontLimitPixel="0" fontMinPixel="2"/>
+          <rendering drawLabels="1" scaleVisibility="1" scaleMax="7500" scaleMin="0" minScale="7500" maxScale="0" limit="500" displayAll="0" obstacle="1" obstacleType="1" obstacleFactor="1" mergeLines="0" labelPerPart="0" upsidedownLabels="0" zIndex="0" fontLimitPixel="0" fontMinPixel="2"/>
         </settings>
       </labeling>
       <layerOpacity>1.0</layerOpacity>
@@ -23566,7 +23566,7 @@
           </text-style>
           <text-format plussign="0" wrapChar="" multilineAlign="3" addDirectionSymbol="0" autoWrapLength="0" useMaxLineLengthForAutoWrap="1" reverseDirectionLine="0" formatNumbers="0" decimals="3"/>
           <placement placement="0" layerType="PolygonGeometry" placementFlags="10" dist="0" distUnits="MM" xOffset="0" yOffset="0" rotationAngle="0" quadOffset="4" offsetType="0" preserveRotation="1" maxCurvedCharAngleIn="25" maxCurvedCharAngleOut="25" priority="2" centroidWhole="0" centroidInside="1" fitInPolygonOnly="0" repeatDistance="0" repeatDistanceUnits="MM" overrunDistance="0" overrunDistanceUnit="MM" labelOffsetMapUnitScale="3x:0,0,0,0,0,0" distMapUnitScale="3x:0,0,0,0,0,0"/>
-          <rendering drawLabels="1" scaleVisibility="1" scaleMax="350000" scaleMin="0" minScale="350000" maxScale="0" limit="500" displayAll="0" obstacle="1" obstacleType="1" obstacleFactor="1" mergeLines="0" labelPerPart="0" upsidedownLabels="0" zIndex="0" fontLimitPixel="0" fontMinPixel="2"/>
+          <rendering drawLabels="1" scaleVisibility="1" scaleMax="7500" scaleMin="0" minScale="7500" maxScale="0" limit="500" displayAll="0" obstacle="1" obstacleType="1" obstacleFactor="1" mergeLines="0" labelPerPart="0" upsidedownLabels="0" zIndex="0" fontLimitPixel="0" fontMinPixel="2"/>
         </settings>
       </labeling>
       <layerOpacity>0.35</layerOpacity>

@@ -40,8 +40,8 @@ LAYER_CONFIG = {
     "work_areas_landuse":   {"min_scale": 100000,  "opacity": 0.55, "label": {"field": "name", "placement": "polygon", "min_scale": 100000, "size": 8.0, "bold": False, "color": "70,90,60,255",      "priority": 2}},
 
     # --- 2. Administrative Boundaries ---
-    "carto_counties":       {"min_scale": 0,       "opacity": 1.0,  "label": {"field": "county", "placement": "polygon", "min_scale": 1000000, "size": 12.0, "bold": True, "color": "0,0,0,255",      "priority": 1, "buffer": "255,255,255,200"}},
-    "admin_sections":       {"min_scale": 150000,  "opacity": 0.35, "label": {"field": "name", "placement": "polygon", "min_scale": 350000, "size": 9.0, "bold": True,  "color": "25,25,25,255",      "priority": 2}},
+    "carto_counties":       {"min_scale": 0,       "opacity": 1.0,  "label": {"field": "county", "placement": "polygon", "min_scale": 7500, "size": 12.0, "bold": True, "color": "0,0,0,255",      "priority": 1, "buffer": "255,255,255,200"}},
+    "admin_sections":       {"min_scale": 150000,  "opacity": 0.35, "label": {"field": "name", "placement": "polygon", "min_scale": 7500, "size": 9.0, "bold": True,  "color": "25,25,25,255",      "priority": 2}},
 
     # --- 3. Base Cartography ---
     "carto_buildings":      {"min_scale": 80000,   "opacity": 0.85, "label": None},
