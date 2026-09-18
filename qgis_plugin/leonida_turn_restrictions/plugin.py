@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """
-Leonida Turn Restrictions - QGIS plugin (OSM iD Editor Style, On-Demand Selection)
-===================================================================================
+Leonida Turn Restrictions - QGIS plugin
+=======================================
 Interactive turn-restriction mapping tool for the State of Leonida GIS.
 
 Visual Turn Arrows:
@@ -52,13 +52,13 @@ except ImportError:
         def hide(self): pass
 
 RESTRICTION_TYPES = [
-    ("no_left_turn", "No Left Turn (no_left_turn)"),
-    ("no_right_turn", "No Right Turn (no_right_turn)"),
-    ("no_u_turn", "No U-Turn (no_u_turn)"),
-    ("no_straight_on", "No Straight On (no_straight_on)"),
-    ("only_straight_on", "Only Straight On (only_straight_on)"),
-    ("only_left_turn", "Only Left Turn (only_left_turn)"),
-    ("only_right_turn", "Only Right Turn (only_right_turn)"),
+    ("no_left_turn", "No Left Turn"),
+    ("no_right_turn", "No Right Turn"),
+    ("no_u_turn", "No U-Turn"),
+    ("no_straight_on", "No Straight On"),
+    ("only_straight_on", "Only Straight On"),
+    ("only_left_turn", "Only Left Turn"),
+    ("only_right_turn", "Only Right Turn"),
 ]
 
 PICK_TOLERANCE_M = 35.0
@@ -423,10 +423,10 @@ class IDTurnRestrictionTool(QgsMapTool):
 
 
 class TurnRestrictionDock(QDockWidget):
-    """OSM iD-Style Interactive Turn Restrictions Dock Panel."""
+    """Interactive Turn Restrictions Dock Panel."""
 
     def __init__(self, parent, store, canvas=None):
-        super().__init__("Leonida Turn Restrictions (OSM iD Style)", parent)
+        super().__init__("Turn Restrictions", parent)
         self.store = store
         self.canvas = canvas
         self.setObjectName("LeonidaTurnRestrictionsDock")
@@ -449,8 +449,7 @@ class TurnRestrictionDock(QDockWidget):
 
         # Header Instructions
         self.lbl_step = QLabel(
-            "Visual turn arrows appear when an intersection is selected.<br>"
-            "<i>(Click empty space, right-click, or press Esc to clear)</i>"
+            "Select an intersection to view and edit turn restrictions."
         )
         self.lbl_step.setWordWrap(True)
         layout.addWidget(self.lbl_step)
@@ -474,15 +473,15 @@ class TurnRestrictionDock(QDockWidget):
         layout.addWidget(pick_box)
 
         # Visual Legend
-        legend_box = QGroupBox("Turn Arrow Legend (Shown while selected)")
+        legend_box = QGroupBox("Legend")
         legend_layout = QVBoxLayout(legend_box)
-        legend_layout.addWidget(QLabel("<b>Green:</b> Turn Allowed (Click on canvas to prohibit)"))
-        legend_layout.addWidget(QLabel("<b>Red:</b> Turn Prohibited (Click on canvas to mandate)"))
-        legend_layout.addWidget(QLabel("<b>Blue:</b> Only Turn Allowed (Click on canvas to allow)"))
+        legend_layout.addWidget(QLabel("<b>Green:</b> Allowed"))
+        legend_layout.addWidget(QLabel("<b>Red:</b> Prohibited"))
+        legend_layout.addWidget(QLabel("<b>Blue:</b> Mandatory (Only)"))
         layout.addWidget(legend_box)
 
         # Optional tags
-        tag_box = QGroupBox("Optional Restriction Tags")
+        tag_box = QGroupBox("Optional Tags")
         form = QFormLayout(tag_box)
         self.txt_except = QLineEdit()
         self.txt_except.setPlaceholderText("e.g. emergency, psv, delivery")
@@ -497,7 +496,7 @@ class TurnRestrictionDock(QDockWidget):
         layout.addWidget(self.status)
 
         # Saved Restrictions Manager
-        list_box = QGroupBox("Saved Restrictions (in project)")
+        list_box = QGroupBox("Saved Restrictions")
         list_layout = QVBoxLayout(list_box)
         self.list_widget = QListWidget()
         list_layout.addWidget(self.list_widget)
@@ -841,7 +840,7 @@ class LeonidaTurnRestrictions:
     def initGui(self):
         icon_path = os.path.join(self.plugin_dir, "icon.png")
         icon = QIcon(icon_path) if os.path.exists(icon_path) else QIcon()
-        self.action = QAction(icon, "Leonida Turn Restrictions (OSM iD Style)", self.iface.mainWindow())
+        self.action = QAction(icon, "Turn Restrictions", self.iface.mainWindow())
         self.action.setObjectName("actionLeonidaTurnRestrictions")
         self.action.triggered.connect(self.toggle_dock)
         self.iface.addToolBarIcon(self.action)

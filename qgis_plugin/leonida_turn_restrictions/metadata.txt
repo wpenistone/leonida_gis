@@ -1,7 +1,7 @@
 [general]
 name=Leonida Turn Restrictions
 qgisMinimumVersion=3.10
-description=OSM-style turn restriction mapping for the State of Leonida GIS: pick FROM way, click VIA point (auto-snapped), pick TO way, choose the restriction type, and save directly to layers/restrictions.geojson.
+description=Interactive turn restriction editor for the State of Leonida road network.
 version=1.0.0
 author=Leonida GIS Contributors
 email=leonida-gis@example.com
