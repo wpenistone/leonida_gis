@@ -33,7 +33,7 @@ from config import (
 LAYER_CONFIG = {
     # --- 1. Editable Work Layers ---
     "work_restrictions":    {"min_scale": 20000,   "opacity": 1.0,  "label": {"field": "restriction", "placement": "point", "min_scale": 10000,  "size": 8.0, "bold": True,  "color": "170,0,0,255",       "priority": 9}},
-    "work_landmarks":       {"min_scale": 250000,  "opacity": 1.0,  "label": {"expr": "coalesce(\"name\", \"real_name\")", "placement": "point",   "min_scale": 100000, "size": 8.0, "bold": False, "color": "80,40,0,255",       "priority": 4, "limit": 2000}},
+    "work_landmarks":       {"min_scale": 250000,  "opacity": 1.0,  "label": {"expr": "coalesce(\"name\", \"real_name\")", "placement": "point",   "min_scale": 25000, "size": 9.5, "bold": True,  "color": "80,40,0,255",       "priority": 4, "limit": 500}},
     "work_roads_network":   {"min_scale": 0,       "opacity": 1.0,  "label": {"field": "name", "placement": "line",    "min_scale": 100000, "size": 8.5, "bold": True,  "color": "50,50,50,255",      "priority": 8}},
     "work_rail_network":    {"min_scale": 0,       "opacity": 1.0,  "label": {"field": "name", "placement": "line",    "min_scale": 100000, "size": 8.0, "bold": True,  "color": "30,30,30,255",      "priority": 6}},
     "work_waterways":       {"min_scale": 100000,  "opacity": 1.0,  "label": {"field": "name", "placement": "line",    "min_scale": 100000, "size": 8.0, "bold": False, "color": "20,60,120,255",     "priority": 3}},
@@ -169,38 +169,38 @@ def build_qgis_project():
     layer_specs = [
         # --- 1. Editable Work Layers (Active Digitizing) ---
         ("work_restrictions", "Turn Restrictions", "./layers/restrictions.geojson", "./styles/restrictions.qml", "0", "Editable Work Layers", "ogr"),
-        ("work_landmarks", "Landmarks & POIs (2,318 POIs)", "./layers/landmarks.geojson", "./styles/landmarks.qml", "0", "Editable Work Layers", "ogr"),
+        ("work_landmarks", "GTADB Landmarks and POIs", "./layers/landmarks.geojson", "./styles/landmarks.qml", "0", "Editable Work Layers", "ogr"),
         ("work_roads_network", "Road Network", "./layers/roads.geojson", "./styles/roads.qml", "1", "Editable Work Layers", "ogr"),
-        ("work_rail_network", "Rail Network (Heavy & Light)", "./layers/rail.geojson", "./styles/rail.qml", "1", "Editable Work Layers", "ogr"),
+        ("work_rail_network", "Rail Network", "./layers/rail.geojson", "./styles/rail.qml", "1", "Editable Work Layers", "ogr"),
         ("work_waterways", "Waterways & Hydrology", "./layers/waterways.geojson|geometrytype=LineString", "./styles/waterways.qml", "1", "Editable Work Layers", "ogr"),
         ("work_areas_landuse", "OSM Areas & Landuse", "./layers/areas.geojson|geometrytype=Polygon", "./styles/areas.qml", "0", "Editable Work Layers", "ogr"),
 
         # --- 2. Administrative Boundaries ---
-        ("carto_counties", "County Boundaries (5 Counties)", "./derived/counties_dissolved.geojson", "./styles/counties.qml", "1", "Administrative Boundaries", "ogr"),
-        ("admin_sections", "Administrative Sections (92 Regions)", "./layers/sections.geojson", "./styles/sections.qml", "0", "Administrative Boundaries", "ogr"),
+        ("carto_counties", "County Boundaries", "./derived/counties_dissolved.geojson", "./styles/counties.qml", "1", "Administrative Boundaries", "ogr"),
+        ("admin_sections", "Administrative Sections", "./layers/sections.geojson", "./styles/sections.qml", "0", "Administrative Boundaries", "ogr"),
 
         # --- 3. Base Cartography (Vector Reference) ---
-        ("carto_buildings", "Building Footprints (2,152 Footprints)", "./derived/buildings.geojson", "./styles/buildings.qml", "1", "Base Cartography", "ogr"),
-        ("carto_vegetation", "Parks & Vegetation (1,752 Features)", "./derived/vegetation.geojson", "./styles/vegetation.qml", "1", "Base Cartography", "ogr"),
-        ("carto_sand_beaches", "Beaches & Coastal Sand (350 Features)", "./derived/sand_beaches.geojson", "./styles/sand_beaches.qml", "1", "Base Cartography", "ogr"),
-        ("carto_water", "Water Bodies & Canals (1,869 Features)", "./derived/water_bodies.geojson", "./styles/water_bodies.qml", "1", "Base Cartography", "ogr"),
-        ("carto_sea_lakes", "Water Bodies (Named Sea/Lakes)", "./layers/water.geojson", "./styles/water.qml", "0", "Base Cartography", "ogr"),
+        ("carto_buildings", "Buildings", "./derived/buildings.geojson", "./styles/buildings.qml", "1", "Base Cartography", "ogr"),
+        ("carto_vegetation", "Parks & Vegetation", "./derived/vegetation.geojson", "./styles/vegetation.qml", "1", "Base Cartography", "ogr"),
+        ("carto_sand_beaches", "Beaches & Coastal Sand", "./derived/sand_beaches.geojson", "./styles/sand_beaches.qml", "1", "Base Cartography", "ogr"),
+        ("carto_water", "Water Bodies & Canals", "./derived/water_bodies.geojson", "./styles/water_bodies.qml", "1", "Base Cartography", "ogr"),
+        ("carto_sea_lakes", "Named Sea & Lakes", "./layers/water.geojson", "./styles/water.qml", "0", "Base Cartography", "ogr"),
         ("carto_coastal_shelf", "Coastal Shelf Extent", "./derived/coastal_shelf.geojson", "./styles/coastal_shelf.qml", "0", "Base Cartography", "ogr"),
 
         # --- 4. Topography & Elevation (Vector) ---
         ("topo_peaks_summits", "Mountain Peaks & Summits", "./derived/elevation_peaks.geojson", "./styles/elevation_peaks.qml", "1", "Topography & Elevation", "ogr"),
         ("topo_contours", "Elevation Contours", "./derived/contours.gpkg|layername=contours", "./styles/contours.qml", "1", "Topography & Elevation", "ogr"),
         ("topo_bathymetry", "Bathymetry Contours", "./derived/bathymetry.gpkg|layername=bathymetry", "./styles/bathymetry.qml", "0", "Topography & Elevation", "ogr"),
-        ("topo_coastline", "Coastline Shoreline", "./derived/coastline.geojson", "./styles/coastline.qml", "0", "Topography & Elevation", "ogr"),
+        ("topo_coastline", "Coastline", "./derived/coastline.geojson", "./styles/coastline.qml", "0", "Topography & Elevation", "ogr"),
 
         # --- 5. Basemaps & Rasters ---
-        ("raster_relief", "Analytical Hillshade Relief (Multiply Drape)", "./rasters/heightmap_preview.png", "./styles/relief.qml", "1", "Basemaps & Rasters", "gdal"),
+        ("raster_relief", "Hillshade Relief", "./rasters/heightmap_preview.png", "./styles/relief.qml", "1", "Basemaps & Rasters", "gdal"),
         ("raster_background", "GTA 6 Satellite Map", "./rasters/background_map.png", "", "1", "Basemaps & Rasters", "gdal"),
-        ("raster_dem_elevation", "16-Bit Elevation DEM (Heightmap)", "./rasters/heightmap_16bit.png", "./styles/dem_elevation.qml", "0", "Basemaps & Rasters", "gdal"),
+        ("raster_dem_elevation", "Elevation DEM", "./rasters/heightmap_16bit.png", "./styles/dem_elevation.qml", "0", "Basemaps & Rasters", "gdal"),
     ]
 
     qgis_elem = ET.Element("qgis", {
-        "projectname": "Leonida GIS - Master Collaborative Project",
+        "projectname": "Leonida GIS",
         "version": "3.34.0"
     })
 
@@ -208,7 +208,7 @@ def build_qgis_project():
     home.set("path", "")
 
     title = ET.SubElement(qgis_elem, "title")
-    title.text = "Leonida GIS - In-Game Metric Coordinate Space"
+    title.text = "Leonida GIS"
 
     autotx = ET.SubElement(qgis_elem, "autotransaction")
     autotx.set("active", "0")

@@ -85,11 +85,11 @@ def run_verification():
 
         visible_names = [
             "Road Network",
-            "Rail Network (Heavy & Light)",
-            "County Boundaries (5 Counties)",
-            "Building Footprints (2,152 Footprints)",
-            "Water Bodies & Canals (1,869 Features)",
-            "Analytical Hillshade Relief (Multiply Drape)",
+            "Rail Network",
+            "County Boundaries",
+            "Buildings",
+            "Water Bodies & Canals",
+            "Hillshade Relief",
             "GTA 6 Satellite Map"
         ]
         render_layers = [l for name in visible_names for l in project.mapLayersByName(name)]
