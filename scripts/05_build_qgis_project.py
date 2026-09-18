@@ -32,7 +32,7 @@ from config import (
 # ============================================================================
 LAYER_CONFIG = {
     # --- 1. Editable Work Layers ---
-    "work_restrictions":    {"min_scale": 50000,   "opacity": 1.0,  "label": {"field": "restriction", "placement": "point", "min_scale": 25000,  "size": 8.0, "bold": True,  "color": "170,0,0,255",       "priority": 9}},
+    "work_restrictions":    {"min_scale": 20000,   "opacity": 1.0,  "label": {"field": "restriction", "placement": "point", "min_scale": 10000,  "size": 8.0, "bold": True,  "color": "170,0,0,255",       "priority": 9}},
     "work_landmarks":       {"min_scale": 250000,  "opacity": 1.0,  "label": {"expr": "coalesce(\"name\", \"real_name\")", "placement": "point",   "min_scale": 100000, "size": 8.0, "bold": False, "color": "80,40,0,255",       "priority": 4, "limit": 2000}},
     "work_roads_network":   {"min_scale": 0,       "opacity": 1.0,  "label": {"field": "name", "placement": "line",    "min_scale": 100000, "size": 8.5, "bold": True,  "color": "50,50,50,255",      "priority": 8}},
     "work_rail_network":    {"min_scale": 0,       "opacity": 1.0,  "label": {"field": "name", "placement": "line",    "min_scale": 100000, "size": 8.0, "bold": True,  "color": "30,30,30,255",      "priority": 6}},
@@ -63,8 +63,8 @@ LAYER_CONFIG = {
     "raster_dem_elevation": {"min_scale": 0,       "opacity": 1.0,  "label": None},
 }
 
-# Predefined project zoom scales (right-click scale selector in QGIS)
-PREDEFINED_SCALES = [2000, 5000, 10000, 25000, 50000, 100000, 150000, 250000, 500000]
+# Predefined project zoom scales (snaps Leonida scale bar in QGIS)
+PREDEFINED_SCALES = [500, 1000, 2500, 5000, 10000, 20000, 35000, 75000, 100000]
 
 EPSG_4087_WKT = (
     'PROJCRS["WGS 84 / World Equidistant Cylindrical",'
@@ -269,9 +269,27 @@ def build_qgis_project():
     ET.SubElement(extent, "xmax").text = cur_extent["xmax"] if cur_extent else str(NE_X)
     ET.SubElement(extent, "ymax").text = cur_extent["ymax"] if cur_extent else str(NE_Y)
 
-    # Project View Settings (Sets default extent to full Leonida map)
-    pview = ET.SubElement(qgis_elem, "ProjectViewSettings", {"UseProjectScales": "0", "rotation": "0"})
-    ET.SubElement(pview, "Scales")
+    # Project Properties (Pure Black Canvas Background Color #000000)
+    # NOTE: This must be the ONLY <properties> element in the project file.
+    # QGIS 3.x reads project settings from a single <properties> block; a second
+    # duplicate block breaks the project-CRS parse (canvas falls back to unknown
+    # units and scale readouts render as billions). All later property groups
+    # (Scales, SpatialRefSys) are appended to this same element.
+    props_elem = ET.SubElement(qgis_elem, "properties")
+    gui_elem = ET.SubElement(props_elem, "Gui")
+    ET.SubElement(gui_elem, "CanvasColorRedPart", {"type": "int"}).text = "0"
+    ET.SubElement(gui_elem, "CanvasColorGreenPart", {"type": "int"}).text = "0"
+    ET.SubElement(gui_elem, "CanvasColorBluePart", {"type": "int"}).text = "0"
+    ET.SubElement(gui_elem, "SelectionColorRedPart", {"type": "int"}).text = "255"
+    ET.SubElement(gui_elem, "SelectionColorGreenPart", {"type": "int"}).text = "255"
+    ET.SubElement(gui_elem, "SelectionColorBluePart", {"type": "int"}).text = "0"
+    ET.SubElement(gui_elem, "SelectionColorAlphaPart", {"type": "int"}).text = "255"
+
+    # Project View Settings (Sets default extent to full Leonida map & predefined scales)
+    pview = ET.SubElement(qgis_elem, "ProjectViewSettings", {"UseProjectScales": "1", "rotation": "0"})
+    scales_elem = ET.SubElement(pview, "Scales")
+    for s in PREDEFINED_SCALES:
+        ET.SubElement(scales_elem, "Scale", {"Value": str(s)})
     dextent = ET.SubElement(pview, "DefaultViewExtent", {
         "xmin": str(SW_X), "ymin": str(SW_Y), "xmax": str(NE_X), "ymax": str(NE_Y)
     })
@@ -320,9 +338,9 @@ def build_qgis_project():
     maplayers = ET.SubElement(qgis_elem, "projectlayers")
 
     # Project-wide predefined scales (Project Properties -> General -> Project scales;
-    # shown in the map canvas scale selector dropdown). QSettings-style storage:
-    # <properties><Scales><Scales type="QStringList"><value>1:N</value>...
-    props = ET.SubElement(qgis_elem, "properties")
+    # shown in the map canvas scale selector dropdown). Appended to the single
+    # <properties> block created above (do NOT create a second block here).
+    props = props_elem
     scales_root = ET.SubElement(props, "Scales")
     scales_list = ET.SubElement(scales_root, "Scales", {"type": "QStringList"})
     for s in PREDEFINED_SCALES:
