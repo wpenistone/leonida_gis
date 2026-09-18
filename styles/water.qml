@@ -54,9 +54,9 @@
             <Option type="List" name="map">
               <Option type="Map"><Option type="QString" name="Lake" value="lake"/></Option>
               <Option type="Map"><Option type="QString" name="Pond" value="pond"/></Option>
-              <Option type="Map"><Option type="QString" name="River / Estuary" value="river"/></Option>
+              <Option type="Map"><Option type="QString" name="River" value="river"/></Option>
               <Option type="Map"><Option type="QString" name="Canal" value="canal"/></Option>
-              <Option type="Map"><Option type="QString" name="Sea / Ocean" value="sea"/></Option>
+              <Option type="Map"><Option type="QString" name="Sea" value="sea"/></Option>
               <Option type="Map"><Option type="QString" name="Lagoon" value="lagoon"/></Option>
               <Option type="Map"><Option type="QString" name="Reservoir" value="reservoir"/></Option>
             </Option>
@@ -70,7 +70,20 @@
           <Option type="Map">
             <Option type="List" name="map">
               <Option type="Map"><Option type="QString" name="No" value="no"/></Option>
-              <Option type="Map"><Option type="QString" name="Yes (Tidal Waters)" value="yes"/></Option>
+              <Option type="Map"><Option type="QString" name="Yes" value="yes"/></Option>
+            </Option>
+          </Option>
+        </config>
+      </editWidget>
+    </field>
+    <field name="layer" configurationFlags="None">
+      <editWidget type="ValueMap">
+        <config>
+          <Option type="Map">
+            <Option type="List" name="map">
+              <Option type="Map"><Option type="QString" name="-1 (Subsurface)" value="-1"/></Option>
+              <Option type="Map"><Option type="QString" name="0 (Surface)" value="0"/></Option>
+              <Option type="Map"><Option type="QString" name="1 (Elevated)" value="1"/></Option>
             </Option>
           </Option>
         </config>
@@ -78,28 +91,13 @@
     </field>
   </fieldConfiguration>
   <aliases>
-    <alias field="id" index="0" name="Feature ID"/>
-    <alias field="name" index="1" name="Water Body Name"/>
-    <alias field="natural" index="2" name="Natural Feature Type"/>
-    <alias field="water" index="3" name="Water Classification"/>
-    <alias field="tidal" index="4" name="Tidal Influence"/>
+    <alias field="id" index="0" name="ID"/>
+    <alias field="name" index="1" name="Name"/>
+    <alias field="natural" index="2" name="Natural"/>
+    <alias field="water" index="3" name="Water"/>
+    <alias field="tidal" index="4" name="Tidal"/>
+    <alias field="layer" index="5" name="Layer"/>
   </aliases>
-  <defaults>
-    <default field="id" expression="" applyOnUpdate="0"/>
-    <default field="name" expression="" applyOnUpdate="0"/>
-    <default field="natural" expression="" applyOnUpdate="0"/>
-    <default field="water" expression="" applyOnUpdate="0"/>
-    <default field="tidal" expression="" applyOnUpdate="0"/>
-  </defaults>
-  <constraints>
-    <constraint field="id" constraints="0" exp_strength="0" notnull_strength="0" unique_strength="0"/>
-    <constraint field="name" constraints="0" exp_strength="0" notnull_strength="0" unique_strength="0"/>
-    <constraint field="natural" constraints="0" exp_strength="0" notnull_strength="0" unique_strength="0"/>
-    <constraint field="water" constraints="0" exp_strength="0" notnull_strength="0" unique_strength="0"/>
-    <constraint field="tidal" constraints="0" exp_strength="0" notnull_strength="0" unique_strength="0"/>
-  </constraints>
-  <editforminit/>
-  <editforminitcodesource>0</editforminitcodesource>
   <featformsuppress>0</featformsuppress>
   <editorlayout>generatedlayout</editorlayout>
   <editable>

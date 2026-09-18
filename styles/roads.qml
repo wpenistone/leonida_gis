@@ -1,5799 +1,1143 @@
-<?xml version="1.0" ?>
-<qgis version="3.34.0" styleCategories="AllStyleCategories">
-  <renderer-v2 type="RuleRenderer" symbollevels="1" forceraster="0">
-    <rules key="{osm_carto_roads_root}">
-      <rule key="{rule_0}" symbol="0" label="Motorway (Freeway) [Bridge] [One-Way -&gt;]" filter="(&quot;highway&quot; = 'motorway' AND (&quot;link&quot; IS NULL OR &quot;link&quot; IN ('no', '0', 'false', ''))) AND (&quot;bridge&quot; IN ('yes', '1', 'true', 1, 'viaduct')) AND (&quot;oneway&quot; IN ('yes', '1', 'true', 1))"/>
-      <rule key="{rule_1}" symbol="1" label="Motorway (Freeway) [Bridge] [One-Way &lt;-]" filter="(&quot;highway&quot; = 'motorway' AND (&quot;link&quot; IS NULL OR &quot;link&quot; IN ('no', '0', 'false', ''))) AND (&quot;bridge&quot; IN ('yes', '1', 'true', 1, 'viaduct')) AND (&quot;oneway&quot; IN ('-1', -1))"/>
-      <rule key="{rule_2}" symbol="2" label="Motorway (Freeway) [Bridge]" filter="(&quot;highway&quot; = 'motorway' AND (&quot;link&quot; IS NULL OR &quot;link&quot; IN ('no', '0', 'false', ''))) AND (&quot;bridge&quot; IN ('yes', '1', 'true', 1, 'viaduct')) AND (&quot;oneway&quot; IS NULL OR &quot;oneway&quot; IN ('no', '0', 'false', '', 0))"/>
-      <rule key="{rule_3}" symbol="3" label="Motorway (Freeway) [Tunnel] [One-Way -&gt;]" filter="(&quot;highway&quot; = 'motorway' AND (&quot;link&quot; IS NULL OR &quot;link&quot; IN ('no', '0', 'false', ''))) AND (&quot;tunnel&quot; IN ('yes', '1', 'true', 1, 'culvert')) AND (&quot;oneway&quot; IN ('yes', '1', 'true', 1))"/>
-      <rule key="{rule_4}" symbol="4" label="Motorway (Freeway) [Tunnel] [One-Way &lt;-]" filter="(&quot;highway&quot; = 'motorway' AND (&quot;link&quot; IS NULL OR &quot;link&quot; IN ('no', '0', 'false', ''))) AND (&quot;tunnel&quot; IN ('yes', '1', 'true', 1, 'culvert')) AND (&quot;oneway&quot; IN ('-1', -1))"/>
-      <rule key="{rule_5}" symbol="5" label="Motorway (Freeway) [Tunnel]" filter="(&quot;highway&quot; = 'motorway' AND (&quot;link&quot; IS NULL OR &quot;link&quot; IN ('no', '0', 'false', ''))) AND (&quot;tunnel&quot; IN ('yes', '1', 'true', 1, 'culvert')) AND (&quot;oneway&quot; IS NULL OR &quot;oneway&quot; IN ('no', '0', 'false', '', 0))"/>
-      <rule key="{rule_6}" symbol="6" label="Motorway (Freeway) [One-Way -&gt;]" filter="(&quot;highway&quot; = 'motorway' AND (&quot;link&quot; IS NULL OR &quot;link&quot; IN ('no', '0', 'false', ''))) AND (&quot;bridge&quot; IS NULL OR &quot;bridge&quot; IN ('no', '0', 'false', '', 0)) AND (&quot;tunnel&quot; IS NULL OR &quot;tunnel&quot; IN ('no', '0', 'false', '', 0)) AND (&quot;oneway&quot; IN ('yes', '1', 'true', 1))"/>
-      <rule key="{rule_7}" symbol="7" label="Motorway (Freeway) [One-Way &lt;-]" filter="(&quot;highway&quot; = 'motorway' AND (&quot;link&quot; IS NULL OR &quot;link&quot; IN ('no', '0', 'false', ''))) AND (&quot;bridge&quot; IS NULL OR &quot;bridge&quot; IN ('no', '0', 'false', '', 0)) AND (&quot;tunnel&quot; IS NULL OR &quot;tunnel&quot; IN ('no', '0', 'false', '', 0)) AND (&quot;oneway&quot; IN ('-1', -1))"/>
-      <rule key="{rule_8}" symbol="8" label="Motorway (Freeway)" filter="(&quot;highway&quot; = 'motorway' AND (&quot;link&quot; IS NULL OR &quot;link&quot; IN ('no', '0', 'false', ''))) AND (&quot;bridge&quot; IS NULL OR &quot;bridge&quot; IN ('no', '0', 'false', '', 0)) AND (&quot;tunnel&quot; IS NULL OR &quot;tunnel&quot; IN ('no', '0', 'false', '', 0)) AND (&quot;oneway&quot; IS NULL OR &quot;oneway&quot; IN ('no', '0', 'false', '', 0))"/>
-      <rule key="{rule_9}" symbol="9" label="Motorway (Freeway) (Link) [Bridge] [One-Way -&gt;]" filter="(&quot;highway&quot; = 'motorway_link' OR (&quot;highway&quot; = 'motorway' AND &quot;link&quot; IN ('yes', '1', 'true'))) AND (&quot;bridge&quot; IN ('yes', '1', 'true', 1, 'viaduct')) AND (&quot;oneway&quot; IN ('yes', '1', 'true', 1))"/>
-      <rule key="{rule_10}" symbol="10" label="Motorway (Freeway) (Link) [Bridge] [One-Way &lt;-]" filter="(&quot;highway&quot; = 'motorway_link' OR (&quot;highway&quot; = 'motorway' AND &quot;link&quot; IN ('yes', '1', 'true'))) AND (&quot;bridge&quot; IN ('yes', '1', 'true', 1, 'viaduct')) AND (&quot;oneway&quot; IN ('-1', -1))"/>
-      <rule key="{rule_11}" symbol="11" label="Motorway (Freeway) (Link) [Bridge]" filter="(&quot;highway&quot; = 'motorway_link' OR (&quot;highway&quot; = 'motorway' AND &quot;link&quot; IN ('yes', '1', 'true'))) AND (&quot;bridge&quot; IN ('yes', '1', 'true', 1, 'viaduct')) AND (&quot;oneway&quot; IS NULL OR &quot;oneway&quot; IN ('no', '0', 'false', '', 0))"/>
-      <rule key="{rule_12}" symbol="12" label="Motorway (Freeway) (Link) [Tunnel] [One-Way -&gt;]" filter="(&quot;highway&quot; = 'motorway_link' OR (&quot;highway&quot; = 'motorway' AND &quot;link&quot; IN ('yes', '1', 'true'))) AND (&quot;tunnel&quot; IN ('yes', '1', 'true', 1, 'culvert')) AND (&quot;oneway&quot; IN ('yes', '1', 'true', 1))"/>
-      <rule key="{rule_13}" symbol="13" label="Motorway (Freeway) (Link) [Tunnel] [One-Way &lt;-]" filter="(&quot;highway&quot; = 'motorway_link' OR (&quot;highway&quot; = 'motorway' AND &quot;link&quot; IN ('yes', '1', 'true'))) AND (&quot;tunnel&quot; IN ('yes', '1', 'true', 1, 'culvert')) AND (&quot;oneway&quot; IN ('-1', -1))"/>
-      <rule key="{rule_14}" symbol="14" label="Motorway (Freeway) (Link) [Tunnel]" filter="(&quot;highway&quot; = 'motorway_link' OR (&quot;highway&quot; = 'motorway' AND &quot;link&quot; IN ('yes', '1', 'true'))) AND (&quot;tunnel&quot; IN ('yes', '1', 'true', 1, 'culvert')) AND (&quot;oneway&quot; IS NULL OR &quot;oneway&quot; IN ('no', '0', 'false', '', 0))"/>
-      <rule key="{rule_15}" symbol="15" label="Motorway (Freeway) (Link) [One-Way -&gt;]" filter="(&quot;highway&quot; = 'motorway_link' OR (&quot;highway&quot; = 'motorway' AND &quot;link&quot; IN ('yes', '1', 'true'))) AND (&quot;bridge&quot; IS NULL OR &quot;bridge&quot; IN ('no', '0', 'false', '', 0)) AND (&quot;tunnel&quot; IS NULL OR &quot;tunnel&quot; IN ('no', '0', 'false', '', 0)) AND (&quot;oneway&quot; IN ('yes', '1', 'true', 1))"/>
-      <rule key="{rule_16}" symbol="16" label="Motorway (Freeway) (Link) [One-Way &lt;-]" filter="(&quot;highway&quot; = 'motorway_link' OR (&quot;highway&quot; = 'motorway' AND &quot;link&quot; IN ('yes', '1', 'true'))) AND (&quot;bridge&quot; IS NULL OR &quot;bridge&quot; IN ('no', '0', 'false', '', 0)) AND (&quot;tunnel&quot; IS NULL OR &quot;tunnel&quot; IN ('no', '0', 'false', '', 0)) AND (&quot;oneway&quot; IN ('-1', -1))"/>
-      <rule key="{rule_17}" symbol="17" label="Motorway (Freeway) (Link)" filter="(&quot;highway&quot; = 'motorway_link' OR (&quot;highway&quot; = 'motorway' AND &quot;link&quot; IN ('yes', '1', 'true'))) AND (&quot;bridge&quot; IS NULL OR &quot;bridge&quot; IN ('no', '0', 'false', '', 0)) AND (&quot;tunnel&quot; IS NULL OR &quot;tunnel&quot; IN ('no', '0', 'false', '', 0)) AND (&quot;oneway&quot; IS NULL OR &quot;oneway&quot; IN ('no', '0', 'false', '', 0))"/>
-      <rule key="{rule_18}" symbol="18" label="Trunk (Expressway) [Bridge] [One-Way -&gt;]" filter="(&quot;highway&quot; = 'trunk' AND (&quot;link&quot; IS NULL OR &quot;link&quot; IN ('no', '0', 'false', ''))) AND (&quot;bridge&quot; IN ('yes', '1', 'true', 1, 'viaduct')) AND (&quot;oneway&quot; IN ('yes', '1', 'true', 1))"/>
-      <rule key="{rule_19}" symbol="19" label="Trunk (Expressway) [Bridge] [One-Way &lt;-]" filter="(&quot;highway&quot; = 'trunk' AND (&quot;link&quot; IS NULL OR &quot;link&quot; IN ('no', '0', 'false', ''))) AND (&quot;bridge&quot; IN ('yes', '1', 'true', 1, 'viaduct')) AND (&quot;oneway&quot; IN ('-1', -1))"/>
-      <rule key="{rule_20}" symbol="20" label="Trunk (Expressway) [Bridge]" filter="(&quot;highway&quot; = 'trunk' AND (&quot;link&quot; IS NULL OR &quot;link&quot; IN ('no', '0', 'false', ''))) AND (&quot;bridge&quot; IN ('yes', '1', 'true', 1, 'viaduct')) AND (&quot;oneway&quot; IS NULL OR &quot;oneway&quot; IN ('no', '0', 'false', '', 0))"/>
-      <rule key="{rule_21}" symbol="21" label="Trunk (Expressway) [Tunnel] [One-Way -&gt;]" filter="(&quot;highway&quot; = 'trunk' AND (&quot;link&quot; IS NULL OR &quot;link&quot; IN ('no', '0', 'false', ''))) AND (&quot;tunnel&quot; IN ('yes', '1', 'true', 1, 'culvert')) AND (&quot;oneway&quot; IN ('yes', '1', 'true', 1))"/>
-      <rule key="{rule_22}" symbol="22" label="Trunk (Expressway) [Tunnel] [One-Way &lt;-]" filter="(&quot;highway&quot; = 'trunk' AND (&quot;link&quot; IS NULL OR &quot;link&quot; IN ('no', '0', 'false', ''))) AND (&quot;tunnel&quot; IN ('yes', '1', 'true', 1, 'culvert')) AND (&quot;oneway&quot; IN ('-1', -1))"/>
-      <rule key="{rule_23}" symbol="23" label="Trunk (Expressway) [Tunnel]" filter="(&quot;highway&quot; = 'trunk' AND (&quot;link&quot; IS NULL OR &quot;link&quot; IN ('no', '0', 'false', ''))) AND (&quot;tunnel&quot; IN ('yes', '1', 'true', 1, 'culvert')) AND (&quot;oneway&quot; IS NULL OR &quot;oneway&quot; IN ('no', '0', 'false', '', 0))"/>
-      <rule key="{rule_24}" symbol="24" label="Trunk (Expressway) [One-Way -&gt;]" filter="(&quot;highway&quot; = 'trunk' AND (&quot;link&quot; IS NULL OR &quot;link&quot; IN ('no', '0', 'false', ''))) AND (&quot;bridge&quot; IS NULL OR &quot;bridge&quot; IN ('no', '0', 'false', '', 0)) AND (&quot;tunnel&quot; IS NULL OR &quot;tunnel&quot; IN ('no', '0', 'false', '', 0)) AND (&quot;oneway&quot; IN ('yes', '1', 'true', 1))"/>
-      <rule key="{rule_25}" symbol="25" label="Trunk (Expressway) [One-Way &lt;-]" filter="(&quot;highway&quot; = 'trunk' AND (&quot;link&quot; IS NULL OR &quot;link&quot; IN ('no', '0', 'false', ''))) AND (&quot;bridge&quot; IS NULL OR &quot;bridge&quot; IN ('no', '0', 'false', '', 0)) AND (&quot;tunnel&quot; IS NULL OR &quot;tunnel&quot; IN ('no', '0', 'false', '', 0)) AND (&quot;oneway&quot; IN ('-1', -1))"/>
-      <rule key="{rule_26}" symbol="26" label="Trunk (Expressway)" filter="(&quot;highway&quot; = 'trunk' AND (&quot;link&quot; IS NULL OR &quot;link&quot; IN ('no', '0', 'false', ''))) AND (&quot;bridge&quot; IS NULL OR &quot;bridge&quot; IN ('no', '0', 'false', '', 0)) AND (&quot;tunnel&quot; IS NULL OR &quot;tunnel&quot; IN ('no', '0', 'false', '', 0)) AND (&quot;oneway&quot; IS NULL OR &quot;oneway&quot; IN ('no', '0', 'false', '', 0))"/>
-      <rule key="{rule_27}" symbol="27" label="Trunk (Expressway) (Link) [Bridge] [One-Way -&gt;]" filter="(&quot;highway&quot; = 'trunk_link' OR (&quot;highway&quot; = 'trunk' AND &quot;link&quot; IN ('yes', '1', 'true'))) AND (&quot;bridge&quot; IN ('yes', '1', 'true', 1, 'viaduct')) AND (&quot;oneway&quot; IN ('yes', '1', 'true', 1))"/>
-      <rule key="{rule_28}" symbol="28" label="Trunk (Expressway) (Link) [Bridge] [One-Way &lt;-]" filter="(&quot;highway&quot; = 'trunk_link' OR (&quot;highway&quot; = 'trunk' AND &quot;link&quot; IN ('yes', '1', 'true'))) AND (&quot;bridge&quot; IN ('yes', '1', 'true', 1, 'viaduct')) AND (&quot;oneway&quot; IN ('-1', -1))"/>
-      <rule key="{rule_29}" symbol="29" label="Trunk (Expressway) (Link) [Bridge]" filter="(&quot;highway&quot; = 'trunk_link' OR (&quot;highway&quot; = 'trunk' AND &quot;link&quot; IN ('yes', '1', 'true'))) AND (&quot;bridge&quot; IN ('yes', '1', 'true', 1, 'viaduct')) AND (&quot;oneway&quot; IS NULL OR &quot;oneway&quot; IN ('no', '0', 'false', '', 0))"/>
-      <rule key="{rule_30}" symbol="30" label="Trunk (Expressway) (Link) [Tunnel] [One-Way -&gt;]" filter="(&quot;highway&quot; = 'trunk_link' OR (&quot;highway&quot; = 'trunk' AND &quot;link&quot; IN ('yes', '1', 'true'))) AND (&quot;tunnel&quot; IN ('yes', '1', 'true', 1, 'culvert')) AND (&quot;oneway&quot; IN ('yes', '1', 'true', 1))"/>
-      <rule key="{rule_31}" symbol="31" label="Trunk (Expressway) (Link) [Tunnel] [One-Way &lt;-]" filter="(&quot;highway&quot; = 'trunk_link' OR (&quot;highway&quot; = 'trunk' AND &quot;link&quot; IN ('yes', '1', 'true'))) AND (&quot;tunnel&quot; IN ('yes', '1', 'true', 1, 'culvert')) AND (&quot;oneway&quot; IN ('-1', -1))"/>
-      <rule key="{rule_32}" symbol="32" label="Trunk (Expressway) (Link) [Tunnel]" filter="(&quot;highway&quot; = 'trunk_link' OR (&quot;highway&quot; = 'trunk' AND &quot;link&quot; IN ('yes', '1', 'true'))) AND (&quot;tunnel&quot; IN ('yes', '1', 'true', 1, 'culvert')) AND (&quot;oneway&quot; IS NULL OR &quot;oneway&quot; IN ('no', '0', 'false', '', 0))"/>
-      <rule key="{rule_33}" symbol="33" label="Trunk (Expressway) (Link) [One-Way -&gt;]" filter="(&quot;highway&quot; = 'trunk_link' OR (&quot;highway&quot; = 'trunk' AND &quot;link&quot; IN ('yes', '1', 'true'))) AND (&quot;bridge&quot; IS NULL OR &quot;bridge&quot; IN ('no', '0', 'false', '', 0)) AND (&quot;tunnel&quot; IS NULL OR &quot;tunnel&quot; IN ('no', '0', 'false', '', 0)) AND (&quot;oneway&quot; IN ('yes', '1', 'true', 1))"/>
-      <rule key="{rule_34}" symbol="34" label="Trunk (Expressway) (Link) [One-Way &lt;-]" filter="(&quot;highway&quot; = 'trunk_link' OR (&quot;highway&quot; = 'trunk' AND &quot;link&quot; IN ('yes', '1', 'true'))) AND (&quot;bridge&quot; IS NULL OR &quot;bridge&quot; IN ('no', '0', 'false', '', 0)) AND (&quot;tunnel&quot; IS NULL OR &quot;tunnel&quot; IN ('no', '0', 'false', '', 0)) AND (&quot;oneway&quot; IN ('-1', -1))"/>
-      <rule key="{rule_35}" symbol="35" label="Trunk (Expressway) (Link)" filter="(&quot;highway&quot; = 'trunk_link' OR (&quot;highway&quot; = 'trunk' AND &quot;link&quot; IN ('yes', '1', 'true'))) AND (&quot;bridge&quot; IS NULL OR &quot;bridge&quot; IN ('no', '0', 'false', '', 0)) AND (&quot;tunnel&quot; IS NULL OR &quot;tunnel&quot; IN ('no', '0', 'false', '', 0)) AND (&quot;oneway&quot; IS NULL OR &quot;oneway&quot; IN ('no', '0', 'false', '', 0))"/>
-      <rule key="{rule_36}" symbol="36" label="Primary (Arterial) [Bridge] [One-Way -&gt;]" filter="(&quot;highway&quot; = 'primary' AND (&quot;link&quot; IS NULL OR &quot;link&quot; IN ('no', '0', 'false', ''))) AND (&quot;bridge&quot; IN ('yes', '1', 'true', 1, 'viaduct')) AND (&quot;oneway&quot; IN ('yes', '1', 'true', 1))"/>
-      <rule key="{rule_37}" symbol="37" label="Primary (Arterial) [Bridge] [One-Way &lt;-]" filter="(&quot;highway&quot; = 'primary' AND (&quot;link&quot; IS NULL OR &quot;link&quot; IN ('no', '0', 'false', ''))) AND (&quot;bridge&quot; IN ('yes', '1', 'true', 1, 'viaduct')) AND (&quot;oneway&quot; IN ('-1', -1))"/>
-      <rule key="{rule_38}" symbol="38" label="Primary (Arterial) [Bridge]" filter="(&quot;highway&quot; = 'primary' AND (&quot;link&quot; IS NULL OR &quot;link&quot; IN ('no', '0', 'false', ''))) AND (&quot;bridge&quot; IN ('yes', '1', 'true', 1, 'viaduct')) AND (&quot;oneway&quot; IS NULL OR &quot;oneway&quot; IN ('no', '0', 'false', '', 0))"/>
-      <rule key="{rule_39}" symbol="39" label="Primary (Arterial) [Tunnel] [One-Way -&gt;]" filter="(&quot;highway&quot; = 'primary' AND (&quot;link&quot; IS NULL OR &quot;link&quot; IN ('no', '0', 'false', ''))) AND (&quot;tunnel&quot; IN ('yes', '1', 'true', 1, 'culvert')) AND (&quot;oneway&quot; IN ('yes', '1', 'true', 1))"/>
-      <rule key="{rule_40}" symbol="40" label="Primary (Arterial) [Tunnel] [One-Way &lt;-]" filter="(&quot;highway&quot; = 'primary' AND (&quot;link&quot; IS NULL OR &quot;link&quot; IN ('no', '0', 'false', ''))) AND (&quot;tunnel&quot; IN ('yes', '1', 'true', 1, 'culvert')) AND (&quot;oneway&quot; IN ('-1', -1))"/>
-      <rule key="{rule_41}" symbol="41" label="Primary (Arterial) [Tunnel]" filter="(&quot;highway&quot; = 'primary' AND (&quot;link&quot; IS NULL OR &quot;link&quot; IN ('no', '0', 'false', ''))) AND (&quot;tunnel&quot; IN ('yes', '1', 'true', 1, 'culvert')) AND (&quot;oneway&quot; IS NULL OR &quot;oneway&quot; IN ('no', '0', 'false', '', 0))"/>
-      <rule key="{rule_42}" symbol="42" label="Primary (Arterial) [One-Way -&gt;]" filter="(&quot;highway&quot; = 'primary' AND (&quot;link&quot; IS NULL OR &quot;link&quot; IN ('no', '0', 'false', ''))) AND (&quot;bridge&quot; IS NULL OR &quot;bridge&quot; IN ('no', '0', 'false', '', 0)) AND (&quot;tunnel&quot; IS NULL OR &quot;tunnel&quot; IN ('no', '0', 'false', '', 0)) AND (&quot;oneway&quot; IN ('yes', '1', 'true', 1))"/>
-      <rule key="{rule_43}" symbol="43" label="Primary (Arterial) [One-Way &lt;-]" filter="(&quot;highway&quot; = 'primary' AND (&quot;link&quot; IS NULL OR &quot;link&quot; IN ('no', '0', 'false', ''))) AND (&quot;bridge&quot; IS NULL OR &quot;bridge&quot; IN ('no', '0', 'false', '', 0)) AND (&quot;tunnel&quot; IS NULL OR &quot;tunnel&quot; IN ('no', '0', 'false', '', 0)) AND (&quot;oneway&quot; IN ('-1', -1))"/>
-      <rule key="{rule_44}" symbol="44" label="Primary (Arterial)" filter="(&quot;highway&quot; = 'primary' AND (&quot;link&quot; IS NULL OR &quot;link&quot; IN ('no', '0', 'false', ''))) AND (&quot;bridge&quot; IS NULL OR &quot;bridge&quot; IN ('no', '0', 'false', '', 0)) AND (&quot;tunnel&quot; IS NULL OR &quot;tunnel&quot; IN ('no', '0', 'false', '', 0)) AND (&quot;oneway&quot; IS NULL OR &quot;oneway&quot; IN ('no', '0', 'false', '', 0))"/>
-      <rule key="{rule_45}" symbol="45" label="Primary (Arterial) (Link) [Bridge] [One-Way -&gt;]" filter="(&quot;highway&quot; = 'primary_link' OR (&quot;highway&quot; = 'primary' AND &quot;link&quot; IN ('yes', '1', 'true'))) AND (&quot;bridge&quot; IN ('yes', '1', 'true', 1, 'viaduct')) AND (&quot;oneway&quot; IN ('yes', '1', 'true', 1))"/>
-      <rule key="{rule_46}" symbol="46" label="Primary (Arterial) (Link) [Bridge] [One-Way &lt;-]" filter="(&quot;highway&quot; = 'primary_link' OR (&quot;highway&quot; = 'primary' AND &quot;link&quot; IN ('yes', '1', 'true'))) AND (&quot;bridge&quot; IN ('yes', '1', 'true', 1, 'viaduct')) AND (&quot;oneway&quot; IN ('-1', -1))"/>
-      <rule key="{rule_47}" symbol="47" label="Primary (Arterial) (Link) [Bridge]" filter="(&quot;highway&quot; = 'primary_link' OR (&quot;highway&quot; = 'primary' AND &quot;link&quot; IN ('yes', '1', 'true'))) AND (&quot;bridge&quot; IN ('yes', '1', 'true', 1, 'viaduct')) AND (&quot;oneway&quot; IS NULL OR &quot;oneway&quot; IN ('no', '0', 'false', '', 0))"/>
-      <rule key="{rule_48}" symbol="48" label="Primary (Arterial) (Link) [Tunnel] [One-Way -&gt;]" filter="(&quot;highway&quot; = 'primary_link' OR (&quot;highway&quot; = 'primary' AND &quot;link&quot; IN ('yes', '1', 'true'))) AND (&quot;tunnel&quot; IN ('yes', '1', 'true', 1, 'culvert')) AND (&quot;oneway&quot; IN ('yes', '1', 'true', 1))"/>
-      <rule key="{rule_49}" symbol="49" label="Primary (Arterial) (Link) [Tunnel] [One-Way &lt;-]" filter="(&quot;highway&quot; = 'primary_link' OR (&quot;highway&quot; = 'primary' AND &quot;link&quot; IN ('yes', '1', 'true'))) AND (&quot;tunnel&quot; IN ('yes', '1', 'true', 1, 'culvert')) AND (&quot;oneway&quot; IN ('-1', -1))"/>
-      <rule key="{rule_50}" symbol="50" label="Primary (Arterial) (Link) [Tunnel]" filter="(&quot;highway&quot; = 'primary_link' OR (&quot;highway&quot; = 'primary' AND &quot;link&quot; IN ('yes', '1', 'true'))) AND (&quot;tunnel&quot; IN ('yes', '1', 'true', 1, 'culvert')) AND (&quot;oneway&quot; IS NULL OR &quot;oneway&quot; IN ('no', '0', 'false', '', 0))"/>
-      <rule key="{rule_51}" symbol="51" label="Primary (Arterial) (Link) [One-Way -&gt;]" filter="(&quot;highway&quot; = 'primary_link' OR (&quot;highway&quot; = 'primary' AND &quot;link&quot; IN ('yes', '1', 'true'))) AND (&quot;bridge&quot; IS NULL OR &quot;bridge&quot; IN ('no', '0', 'false', '', 0)) AND (&quot;tunnel&quot; IS NULL OR &quot;tunnel&quot; IN ('no', '0', 'false', '', 0)) AND (&quot;oneway&quot; IN ('yes', '1', 'true', 1))"/>
-      <rule key="{rule_52}" symbol="52" label="Primary (Arterial) (Link) [One-Way &lt;-]" filter="(&quot;highway&quot; = 'primary_link' OR (&quot;highway&quot; = 'primary' AND &quot;link&quot; IN ('yes', '1', 'true'))) AND (&quot;bridge&quot; IS NULL OR &quot;bridge&quot; IN ('no', '0', 'false', '', 0)) AND (&quot;tunnel&quot; IS NULL OR &quot;tunnel&quot; IN ('no', '0', 'false', '', 0)) AND (&quot;oneway&quot; IN ('-1', -1))"/>
-      <rule key="{rule_53}" symbol="53" label="Primary (Arterial) (Link)" filter="(&quot;highway&quot; = 'primary_link' OR (&quot;highway&quot; = 'primary' AND &quot;link&quot; IN ('yes', '1', 'true'))) AND (&quot;bridge&quot; IS NULL OR &quot;bridge&quot; IN ('no', '0', 'false', '', 0)) AND (&quot;tunnel&quot; IS NULL OR &quot;tunnel&quot; IN ('no', '0', 'false', '', 0)) AND (&quot;oneway&quot; IS NULL OR &quot;oneway&quot; IN ('no', '0', 'false', '', 0))"/>
-      <rule key="{rule_54}" symbol="54" label="Secondary (Collector) [Bridge] [One-Way -&gt;]" filter="(&quot;highway&quot; = 'secondary' AND (&quot;link&quot; IS NULL OR &quot;link&quot; IN ('no', '0', 'false', ''))) AND (&quot;bridge&quot; IN ('yes', '1', 'true', 1, 'viaduct')) AND (&quot;oneway&quot; IN ('yes', '1', 'true', 1))"/>
-      <rule key="{rule_55}" symbol="55" label="Secondary (Collector) [Bridge] [One-Way &lt;-]" filter="(&quot;highway&quot; = 'secondary' AND (&quot;link&quot; IS NULL OR &quot;link&quot; IN ('no', '0', 'false', ''))) AND (&quot;bridge&quot; IN ('yes', '1', 'true', 1, 'viaduct')) AND (&quot;oneway&quot; IN ('-1', -1))"/>
-      <rule key="{rule_56}" symbol="56" label="Secondary (Collector) [Bridge]" filter="(&quot;highway&quot; = 'secondary' AND (&quot;link&quot; IS NULL OR &quot;link&quot; IN ('no', '0', 'false', ''))) AND (&quot;bridge&quot; IN ('yes', '1', 'true', 1, 'viaduct')) AND (&quot;oneway&quot; IS NULL OR &quot;oneway&quot; IN ('no', '0', 'false', '', 0))"/>
-      <rule key="{rule_57}" symbol="57" label="Secondary (Collector) [Tunnel] [One-Way -&gt;]" filter="(&quot;highway&quot; = 'secondary' AND (&quot;link&quot; IS NULL OR &quot;link&quot; IN ('no', '0', 'false', ''))) AND (&quot;tunnel&quot; IN ('yes', '1', 'true', 1, 'culvert')) AND (&quot;oneway&quot; IN ('yes', '1', 'true', 1))"/>
-      <rule key="{rule_58}" symbol="58" label="Secondary (Collector) [Tunnel] [One-Way &lt;-]" filter="(&quot;highway&quot; = 'secondary' AND (&quot;link&quot; IS NULL OR &quot;link&quot; IN ('no', '0', 'false', ''))) AND (&quot;tunnel&quot; IN ('yes', '1', 'true', 1, 'culvert')) AND (&quot;oneway&quot; IN ('-1', -1))"/>
-      <rule key="{rule_59}" symbol="59" label="Secondary (Collector) [Tunnel]" filter="(&quot;highway&quot; = 'secondary' AND (&quot;link&quot; IS NULL OR &quot;link&quot; IN ('no', '0', 'false', ''))) AND (&quot;tunnel&quot; IN ('yes', '1', 'true', 1, 'culvert')) AND (&quot;oneway&quot; IS NULL OR &quot;oneway&quot; IN ('no', '0', 'false', '', 0))"/>
-      <rule key="{rule_60}" symbol="60" label="Secondary (Collector) [One-Way -&gt;]" filter="(&quot;highway&quot; = 'secondary' AND (&quot;link&quot; IS NULL OR &quot;link&quot; IN ('no', '0', 'false', ''))) AND (&quot;bridge&quot; IS NULL OR &quot;bridge&quot; IN ('no', '0', 'false', '', 0)) AND (&quot;tunnel&quot; IS NULL OR &quot;tunnel&quot; IN ('no', '0', 'false', '', 0)) AND (&quot;oneway&quot; IN ('yes', '1', 'true', 1))"/>
-      <rule key="{rule_61}" symbol="61" label="Secondary (Collector) [One-Way &lt;-]" filter="(&quot;highway&quot; = 'secondary' AND (&quot;link&quot; IS NULL OR &quot;link&quot; IN ('no', '0', 'false', ''))) AND (&quot;bridge&quot; IS NULL OR &quot;bridge&quot; IN ('no', '0', 'false', '', 0)) AND (&quot;tunnel&quot; IS NULL OR &quot;tunnel&quot; IN ('no', '0', 'false', '', 0)) AND (&quot;oneway&quot; IN ('-1', -1))"/>
-      <rule key="{rule_62}" symbol="62" label="Secondary (Collector)" filter="(&quot;highway&quot; = 'secondary' AND (&quot;link&quot; IS NULL OR &quot;link&quot; IN ('no', '0', 'false', ''))) AND (&quot;bridge&quot; IS NULL OR &quot;bridge&quot; IN ('no', '0', 'false', '', 0)) AND (&quot;tunnel&quot; IS NULL OR &quot;tunnel&quot; IN ('no', '0', 'false', '', 0)) AND (&quot;oneway&quot; IS NULL OR &quot;oneway&quot; IN ('no', '0', 'false', '', 0))"/>
-      <rule key="{rule_63}" symbol="63" label="Secondary (Collector) (Link) [Bridge] [One-Way -&gt;]" filter="(&quot;highway&quot; = 'secondary_link' OR (&quot;highway&quot; = 'secondary' AND &quot;link&quot; IN ('yes', '1', 'true'))) AND (&quot;bridge&quot; IN ('yes', '1', 'true', 1, 'viaduct')) AND (&quot;oneway&quot; IN ('yes', '1', 'true', 1))"/>
-      <rule key="{rule_64}" symbol="64" label="Secondary (Collector) (Link) [Bridge] [One-Way &lt;-]" filter="(&quot;highway&quot; = 'secondary_link' OR (&quot;highway&quot; = 'secondary' AND &quot;link&quot; IN ('yes', '1', 'true'))) AND (&quot;bridge&quot; IN ('yes', '1', 'true', 1, 'viaduct')) AND (&quot;oneway&quot; IN ('-1', -1))"/>
-      <rule key="{rule_65}" symbol="65" label="Secondary (Collector) (Link) [Bridge]" filter="(&quot;highway&quot; = 'secondary_link' OR (&quot;highway&quot; = 'secondary' AND &quot;link&quot; IN ('yes', '1', 'true'))) AND (&quot;bridge&quot; IN ('yes', '1', 'true', 1, 'viaduct')) AND (&quot;oneway&quot; IS NULL OR &quot;oneway&quot; IN ('no', '0', 'false', '', 0))"/>
-      <rule key="{rule_66}" symbol="66" label="Secondary (Collector) (Link) [Tunnel] [One-Way -&gt;]" filter="(&quot;highway&quot; = 'secondary_link' OR (&quot;highway&quot; = 'secondary' AND &quot;link&quot; IN ('yes', '1', 'true'))) AND (&quot;tunnel&quot; IN ('yes', '1', 'true', 1, 'culvert')) AND (&quot;oneway&quot; IN ('yes', '1', 'true', 1))"/>
-      <rule key="{rule_67}" symbol="67" label="Secondary (Collector) (Link) [Tunnel] [One-Way &lt;-]" filter="(&quot;highway&quot; = 'secondary_link' OR (&quot;highway&quot; = 'secondary' AND &quot;link&quot; IN ('yes', '1', 'true'))) AND (&quot;tunnel&quot; IN ('yes', '1', 'true', 1, 'culvert')) AND (&quot;oneway&quot; IN ('-1', -1))"/>
-      <rule key="{rule_68}" symbol="68" label="Secondary (Collector) (Link) [Tunnel]" filter="(&quot;highway&quot; = 'secondary_link' OR (&quot;highway&quot; = 'secondary' AND &quot;link&quot; IN ('yes', '1', 'true'))) AND (&quot;tunnel&quot; IN ('yes', '1', 'true', 1, 'culvert')) AND (&quot;oneway&quot; IS NULL OR &quot;oneway&quot; IN ('no', '0', 'false', '', 0))"/>
-      <rule key="{rule_69}" symbol="69" label="Secondary (Collector) (Link) [One-Way -&gt;]" filter="(&quot;highway&quot; = 'secondary_link' OR (&quot;highway&quot; = 'secondary' AND &quot;link&quot; IN ('yes', '1', 'true'))) AND (&quot;bridge&quot; IS NULL OR &quot;bridge&quot; IN ('no', '0', 'false', '', 0)) AND (&quot;tunnel&quot; IS NULL OR &quot;tunnel&quot; IN ('no', '0', 'false', '', 0)) AND (&quot;oneway&quot; IN ('yes', '1', 'true', 1))"/>
-      <rule key="{rule_70}" symbol="70" label="Secondary (Collector) (Link) [One-Way &lt;-]" filter="(&quot;highway&quot; = 'secondary_link' OR (&quot;highway&quot; = 'secondary' AND &quot;link&quot; IN ('yes', '1', 'true'))) AND (&quot;bridge&quot; IS NULL OR &quot;bridge&quot; IN ('no', '0', 'false', '', 0)) AND (&quot;tunnel&quot; IS NULL OR &quot;tunnel&quot; IN ('no', '0', 'false', '', 0)) AND (&quot;oneway&quot; IN ('-1', -1))"/>
-      <rule key="{rule_71}" symbol="71" label="Secondary (Collector) (Link)" filter="(&quot;highway&quot; = 'secondary_link' OR (&quot;highway&quot; = 'secondary' AND &quot;link&quot; IN ('yes', '1', 'true'))) AND (&quot;bridge&quot; IS NULL OR &quot;bridge&quot; IN ('no', '0', 'false', '', 0)) AND (&quot;tunnel&quot; IS NULL OR &quot;tunnel&quot; IN ('no', '0', 'false', '', 0)) AND (&quot;oneway&quot; IS NULL OR &quot;oneway&quot; IN ('no', '0', 'false', '', 0))"/>
-      <rule key="{rule_72}" symbol="72" label="Tertiary (Sub-Collector) [Bridge] [One-Way -&gt;]" filter="(&quot;highway&quot; = 'tertiary' AND (&quot;link&quot; IS NULL OR &quot;link&quot; IN ('no', '0', 'false', ''))) AND (&quot;bridge&quot; IN ('yes', '1', 'true', 1, 'viaduct')) AND (&quot;oneway&quot; IN ('yes', '1', 'true', 1))"/>
-      <rule key="{rule_73}" symbol="73" label="Tertiary (Sub-Collector) [Bridge] [One-Way &lt;-]" filter="(&quot;highway&quot; = 'tertiary' AND (&quot;link&quot; IS NULL OR &quot;link&quot; IN ('no', '0', 'false', ''))) AND (&quot;bridge&quot; IN ('yes', '1', 'true', 1, 'viaduct')) AND (&quot;oneway&quot; IN ('-1', -1))"/>
-      <rule key="{rule_74}" symbol="74" label="Tertiary (Sub-Collector) [Bridge]" filter="(&quot;highway&quot; = 'tertiary' AND (&quot;link&quot; IS NULL OR &quot;link&quot; IN ('no', '0', 'false', ''))) AND (&quot;bridge&quot; IN ('yes', '1', 'true', 1, 'viaduct')) AND (&quot;oneway&quot; IS NULL OR &quot;oneway&quot; IN ('no', '0', 'false', '', 0))"/>
-      <rule key="{rule_75}" symbol="75" label="Tertiary (Sub-Collector) [Tunnel] [One-Way -&gt;]" filter="(&quot;highway&quot; = 'tertiary' AND (&quot;link&quot; IS NULL OR &quot;link&quot; IN ('no', '0', 'false', ''))) AND (&quot;tunnel&quot; IN ('yes', '1', 'true', 1, 'culvert')) AND (&quot;oneway&quot; IN ('yes', '1', 'true', 1))"/>
-      <rule key="{rule_76}" symbol="76" label="Tertiary (Sub-Collector) [Tunnel] [One-Way &lt;-]" filter="(&quot;highway&quot; = 'tertiary' AND (&quot;link&quot; IS NULL OR &quot;link&quot; IN ('no', '0', 'false', ''))) AND (&quot;tunnel&quot; IN ('yes', '1', 'true', 1, 'culvert')) AND (&quot;oneway&quot; IN ('-1', -1))"/>
-      <rule key="{rule_77}" symbol="77" label="Tertiary (Sub-Collector) [Tunnel]" filter="(&quot;highway&quot; = 'tertiary' AND (&quot;link&quot; IS NULL OR &quot;link&quot; IN ('no', '0', 'false', ''))) AND (&quot;tunnel&quot; IN ('yes', '1', 'true', 1, 'culvert')) AND (&quot;oneway&quot; IS NULL OR &quot;oneway&quot; IN ('no', '0', 'false', '', 0))"/>
-      <rule key="{rule_78}" symbol="78" label="Tertiary (Sub-Collector) [One-Way -&gt;]" filter="(&quot;highway&quot; = 'tertiary' AND (&quot;link&quot; IS NULL OR &quot;link&quot; IN ('no', '0', 'false', ''))) AND (&quot;bridge&quot; IS NULL OR &quot;bridge&quot; IN ('no', '0', 'false', '', 0)) AND (&quot;tunnel&quot; IS NULL OR &quot;tunnel&quot; IN ('no', '0', 'false', '', 0)) AND (&quot;oneway&quot; IN ('yes', '1', 'true', 1))"/>
-      <rule key="{rule_79}" symbol="79" label="Tertiary (Sub-Collector) [One-Way &lt;-]" filter="(&quot;highway&quot; = 'tertiary' AND (&quot;link&quot; IS NULL OR &quot;link&quot; IN ('no', '0', 'false', ''))) AND (&quot;bridge&quot; IS NULL OR &quot;bridge&quot; IN ('no', '0', 'false', '', 0)) AND (&quot;tunnel&quot; IS NULL OR &quot;tunnel&quot; IN ('no', '0', 'false', '', 0)) AND (&quot;oneway&quot; IN ('-1', -1))"/>
-      <rule key="{rule_80}" symbol="80" label="Tertiary (Sub-Collector)" filter="(&quot;highway&quot; = 'tertiary' AND (&quot;link&quot; IS NULL OR &quot;link&quot; IN ('no', '0', 'false', ''))) AND (&quot;bridge&quot; IS NULL OR &quot;bridge&quot; IN ('no', '0', 'false', '', 0)) AND (&quot;tunnel&quot; IS NULL OR &quot;tunnel&quot; IN ('no', '0', 'false', '', 0)) AND (&quot;oneway&quot; IS NULL OR &quot;oneway&quot; IN ('no', '0', 'false', '', 0))"/>
-      <rule key="{rule_81}" symbol="81" label="Tertiary (Sub-Collector) (Link) [Bridge] [One-Way -&gt;]" filter="(&quot;highway&quot; = 'tertiary_link' OR (&quot;highway&quot; = 'tertiary' AND &quot;link&quot; IN ('yes', '1', 'true'))) AND (&quot;bridge&quot; IN ('yes', '1', 'true', 1, 'viaduct')) AND (&quot;oneway&quot; IN ('yes', '1', 'true', 1))"/>
-      <rule key="{rule_82}" symbol="82" label="Tertiary (Sub-Collector) (Link) [Bridge] [One-Way &lt;-]" filter="(&quot;highway&quot; = 'tertiary_link' OR (&quot;highway&quot; = 'tertiary' AND &quot;link&quot; IN ('yes', '1', 'true'))) AND (&quot;bridge&quot; IN ('yes', '1', 'true', 1, 'viaduct')) AND (&quot;oneway&quot; IN ('-1', -1))"/>
-      <rule key="{rule_83}" symbol="83" label="Tertiary (Sub-Collector) (Link) [Bridge]" filter="(&quot;highway&quot; = 'tertiary_link' OR (&quot;highway&quot; = 'tertiary' AND &quot;link&quot; IN ('yes', '1', 'true'))) AND (&quot;bridge&quot; IN ('yes', '1', 'true', 1, 'viaduct')) AND (&quot;oneway&quot; IS NULL OR &quot;oneway&quot; IN ('no', '0', 'false', '', 0))"/>
-      <rule key="{rule_84}" symbol="84" label="Tertiary (Sub-Collector) (Link) [Tunnel] [One-Way -&gt;]" filter="(&quot;highway&quot; = 'tertiary_link' OR (&quot;highway&quot; = 'tertiary' AND &quot;link&quot; IN ('yes', '1', 'true'))) AND (&quot;tunnel&quot; IN ('yes', '1', 'true', 1, 'culvert')) AND (&quot;oneway&quot; IN ('yes', '1', 'true', 1))"/>
-      <rule key="{rule_85}" symbol="85" label="Tertiary (Sub-Collector) (Link) [Tunnel] [One-Way &lt;-]" filter="(&quot;highway&quot; = 'tertiary_link' OR (&quot;highway&quot; = 'tertiary' AND &quot;link&quot; IN ('yes', '1', 'true'))) AND (&quot;tunnel&quot; IN ('yes', '1', 'true', 1, 'culvert')) AND (&quot;oneway&quot; IN ('-1', -1))"/>
-      <rule key="{rule_86}" symbol="86" label="Tertiary (Sub-Collector) (Link) [Tunnel]" filter="(&quot;highway&quot; = 'tertiary_link' OR (&quot;highway&quot; = 'tertiary' AND &quot;link&quot; IN ('yes', '1', 'true'))) AND (&quot;tunnel&quot; IN ('yes', '1', 'true', 1, 'culvert')) AND (&quot;oneway&quot; IS NULL OR &quot;oneway&quot; IN ('no', '0', 'false', '', 0))"/>
-      <rule key="{rule_87}" symbol="87" label="Tertiary (Sub-Collector) (Link) [One-Way -&gt;]" filter="(&quot;highway&quot; = 'tertiary_link' OR (&quot;highway&quot; = 'tertiary' AND &quot;link&quot; IN ('yes', '1', 'true'))) AND (&quot;bridge&quot; IS NULL OR &quot;bridge&quot; IN ('no', '0', 'false', '', 0)) AND (&quot;tunnel&quot; IS NULL OR &quot;tunnel&quot; IN ('no', '0', 'false', '', 0)) AND (&quot;oneway&quot; IN ('yes', '1', 'true', 1))"/>
-      <rule key="{rule_88}" symbol="88" label="Tertiary (Sub-Collector) (Link) [One-Way &lt;-]" filter="(&quot;highway&quot; = 'tertiary_link' OR (&quot;highway&quot; = 'tertiary' AND &quot;link&quot; IN ('yes', '1', 'true'))) AND (&quot;bridge&quot; IS NULL OR &quot;bridge&quot; IN ('no', '0', 'false', '', 0)) AND (&quot;tunnel&quot; IS NULL OR &quot;tunnel&quot; IN ('no', '0', 'false', '', 0)) AND (&quot;oneway&quot; IN ('-1', -1))"/>
-      <rule key="{rule_89}" symbol="89" label="Tertiary (Sub-Collector) (Link)" filter="(&quot;highway&quot; = 'tertiary_link' OR (&quot;highway&quot; = 'tertiary' AND &quot;link&quot; IN ('yes', '1', 'true'))) AND (&quot;bridge&quot; IS NULL OR &quot;bridge&quot; IN ('no', '0', 'false', '', 0)) AND (&quot;tunnel&quot; IS NULL OR &quot;tunnel&quot; IN ('no', '0', 'false', '', 0)) AND (&quot;oneway&quot; IS NULL OR &quot;oneway&quot; IN ('no', '0', 'false', '', 0))"/>
-      <rule key="{rule_90}" symbol="90" label="Unclassified Road [Bridge] [One-Way -&gt;]" filter="(&quot;highway&quot; = 'unclassified' AND (&quot;link&quot; IS NULL OR &quot;link&quot; IN ('no', '0', 'false', ''))) AND (&quot;bridge&quot; IN ('yes', '1', 'true', 1, 'viaduct')) AND (&quot;oneway&quot; IN ('yes', '1', 'true', 1))"/>
-      <rule key="{rule_91}" symbol="91" label="Unclassified Road [Bridge] [One-Way &lt;-]" filter="(&quot;highway&quot; = 'unclassified' AND (&quot;link&quot; IS NULL OR &quot;link&quot; IN ('no', '0', 'false', ''))) AND (&quot;bridge&quot; IN ('yes', '1', 'true', 1, 'viaduct')) AND (&quot;oneway&quot; IN ('-1', -1))"/>
-      <rule key="{rule_92}" symbol="92" label="Unclassified Road [Bridge]" filter="(&quot;highway&quot; = 'unclassified' AND (&quot;link&quot; IS NULL OR &quot;link&quot; IN ('no', '0', 'false', ''))) AND (&quot;bridge&quot; IN ('yes', '1', 'true', 1, 'viaduct')) AND (&quot;oneway&quot; IS NULL OR &quot;oneway&quot; IN ('no', '0', 'false', '', 0))"/>
-      <rule key="{rule_93}" symbol="93" label="Unclassified Road [Tunnel] [One-Way -&gt;]" filter="(&quot;highway&quot; = 'unclassified' AND (&quot;link&quot; IS NULL OR &quot;link&quot; IN ('no', '0', 'false', ''))) AND (&quot;tunnel&quot; IN ('yes', '1', 'true', 1, 'culvert')) AND (&quot;oneway&quot; IN ('yes', '1', 'true', 1))"/>
-      <rule key="{rule_94}" symbol="94" label="Unclassified Road [Tunnel] [One-Way &lt;-]" filter="(&quot;highway&quot; = 'unclassified' AND (&quot;link&quot; IS NULL OR &quot;link&quot; IN ('no', '0', 'false', ''))) AND (&quot;tunnel&quot; IN ('yes', '1', 'true', 1, 'culvert')) AND (&quot;oneway&quot; IN ('-1', -1))"/>
-      <rule key="{rule_95}" symbol="95" label="Unclassified Road [Tunnel]" filter="(&quot;highway&quot; = 'unclassified' AND (&quot;link&quot; IS NULL OR &quot;link&quot; IN ('no', '0', 'false', ''))) AND (&quot;tunnel&quot; IN ('yes', '1', 'true', 1, 'culvert')) AND (&quot;oneway&quot; IS NULL OR &quot;oneway&quot; IN ('no', '0', 'false', '', 0))"/>
-      <rule key="{rule_96}" symbol="96" label="Unclassified Road [One-Way -&gt;]" filter="(&quot;highway&quot; = 'unclassified' AND (&quot;link&quot; IS NULL OR &quot;link&quot; IN ('no', '0', 'false', ''))) AND (&quot;bridge&quot; IS NULL OR &quot;bridge&quot; IN ('no', '0', 'false', '', 0)) AND (&quot;tunnel&quot; IS NULL OR &quot;tunnel&quot; IN ('no', '0', 'false', '', 0)) AND (&quot;oneway&quot; IN ('yes', '1', 'true', 1))"/>
-      <rule key="{rule_97}" symbol="97" label="Unclassified Road [One-Way &lt;-]" filter="(&quot;highway&quot; = 'unclassified' AND (&quot;link&quot; IS NULL OR &quot;link&quot; IN ('no', '0', 'false', ''))) AND (&quot;bridge&quot; IS NULL OR &quot;bridge&quot; IN ('no', '0', 'false', '', 0)) AND (&quot;tunnel&quot; IS NULL OR &quot;tunnel&quot; IN ('no', '0', 'false', '', 0)) AND (&quot;oneway&quot; IN ('-1', -1))"/>
-      <rule key="{rule_98}" symbol="98" label="Unclassified Road" filter="(&quot;highway&quot; = 'unclassified' AND (&quot;link&quot; IS NULL OR &quot;link&quot; IN ('no', '0', 'false', ''))) AND (&quot;bridge&quot; IS NULL OR &quot;bridge&quot; IN ('no', '0', 'false', '', 0)) AND (&quot;tunnel&quot; IS NULL OR &quot;tunnel&quot; IN ('no', '0', 'false', '', 0)) AND (&quot;oneway&quot; IS NULL OR &quot;oneway&quot; IN ('no', '0', 'false', '', 0))"/>
-      <rule key="{rule_99}" symbol="99" label="Unclassified Road (Link) [Bridge] [One-Way -&gt;]" filter="(&quot;highway&quot; = 'unclassified_link' OR (&quot;highway&quot; = 'unclassified' AND &quot;link&quot; IN ('yes', '1', 'true'))) AND (&quot;bridge&quot; IN ('yes', '1', 'true', 1, 'viaduct')) AND (&quot;oneway&quot; IN ('yes', '1', 'true', 1))"/>
-      <rule key="{rule_100}" symbol="100" label="Unclassified Road (Link) [Bridge] [One-Way &lt;-]" filter="(&quot;highway&quot; = 'unclassified_link' OR (&quot;highway&quot; = 'unclassified' AND &quot;link&quot; IN ('yes', '1', 'true'))) AND (&quot;bridge&quot; IN ('yes', '1', 'true', 1, 'viaduct')) AND (&quot;oneway&quot; IN ('-1', -1))"/>
-      <rule key="{rule_101}" symbol="101" label="Unclassified Road (Link) [Bridge]" filter="(&quot;highway&quot; = 'unclassified_link' OR (&quot;highway&quot; = 'unclassified' AND &quot;link&quot; IN ('yes', '1', 'true'))) AND (&quot;bridge&quot; IN ('yes', '1', 'true', 1, 'viaduct')) AND (&quot;oneway&quot; IS NULL OR &quot;oneway&quot; IN ('no', '0', 'false', '', 0))"/>
-      <rule key="{rule_102}" symbol="102" label="Unclassified Road (Link) [Tunnel] [One-Way -&gt;]" filter="(&quot;highway&quot; = 'unclassified_link' OR (&quot;highway&quot; = 'unclassified' AND &quot;link&quot; IN ('yes', '1', 'true'))) AND (&quot;tunnel&quot; IN ('yes', '1', 'true', 1, 'culvert')) AND (&quot;oneway&quot; IN ('yes', '1', 'true', 1))"/>
-      <rule key="{rule_103}" symbol="103" label="Unclassified Road (Link) [Tunnel] [One-Way &lt;-]" filter="(&quot;highway&quot; = 'unclassified_link' OR (&quot;highway&quot; = 'unclassified' AND &quot;link&quot; IN ('yes', '1', 'true'))) AND (&quot;tunnel&quot; IN ('yes', '1', 'true', 1, 'culvert')) AND (&quot;oneway&quot; IN ('-1', -1))"/>
-      <rule key="{rule_104}" symbol="104" label="Unclassified Road (Link) [Tunnel]" filter="(&quot;highway&quot; = 'unclassified_link' OR (&quot;highway&quot; = 'unclassified' AND &quot;link&quot; IN ('yes', '1', 'true'))) AND (&quot;tunnel&quot; IN ('yes', '1', 'true', 1, 'culvert')) AND (&quot;oneway&quot; IS NULL OR &quot;oneway&quot; IN ('no', '0', 'false', '', 0))"/>
-      <rule key="{rule_105}" symbol="105" label="Unclassified Road (Link) [One-Way -&gt;]" filter="(&quot;highway&quot; = 'unclassified_link' OR (&quot;highway&quot; = 'unclassified' AND &quot;link&quot; IN ('yes', '1', 'true'))) AND (&quot;bridge&quot; IS NULL OR &quot;bridge&quot; IN ('no', '0', 'false', '', 0)) AND (&quot;tunnel&quot; IS NULL OR &quot;tunnel&quot; IN ('no', '0', 'false', '', 0)) AND (&quot;oneway&quot; IN ('yes', '1', 'true', 1))"/>
-      <rule key="{rule_106}" symbol="106" label="Unclassified Road (Link) [One-Way &lt;-]" filter="(&quot;highway&quot; = 'unclassified_link' OR (&quot;highway&quot; = 'unclassified' AND &quot;link&quot; IN ('yes', '1', 'true'))) AND (&quot;bridge&quot; IS NULL OR &quot;bridge&quot; IN ('no', '0', 'false', '', 0)) AND (&quot;tunnel&quot; IS NULL OR &quot;tunnel&quot; IN ('no', '0', 'false', '', 0)) AND (&quot;oneway&quot; IN ('-1', -1))"/>
-      <rule key="{rule_107}" symbol="107" label="Unclassified Road (Link)" filter="(&quot;highway&quot; = 'unclassified_link' OR (&quot;highway&quot; = 'unclassified' AND &quot;link&quot; IN ('yes', '1', 'true'))) AND (&quot;bridge&quot; IS NULL OR &quot;bridge&quot; IN ('no', '0', 'false', '', 0)) AND (&quot;tunnel&quot; IS NULL OR &quot;tunnel&quot; IN ('no', '0', 'false', '', 0)) AND (&quot;oneway&quot; IS NULL OR &quot;oneway&quot; IN ('no', '0', 'false', '', 0))"/>
-      <rule key="{rule_108}" symbol="108" label="Residential Road [Bridge] [One-Way -&gt;]" filter="(&quot;highway&quot; = 'residential' AND (&quot;link&quot; IS NULL OR &quot;link&quot; IN ('no', '0', 'false', ''))) AND (&quot;bridge&quot; IN ('yes', '1', 'true', 1, 'viaduct')) AND (&quot;oneway&quot; IN ('yes', '1', 'true', 1))"/>
-      <rule key="{rule_109}" symbol="109" label="Residential Road [Bridge] [One-Way &lt;-]" filter="(&quot;highway&quot; = 'residential' AND (&quot;link&quot; IS NULL OR &quot;link&quot; IN ('no', '0', 'false', ''))) AND (&quot;bridge&quot; IN ('yes', '1', 'true', 1, 'viaduct')) AND (&quot;oneway&quot; IN ('-1', -1))"/>
-      <rule key="{rule_110}" symbol="110" label="Residential Road [Bridge]" filter="(&quot;highway&quot; = 'residential' AND (&quot;link&quot; IS NULL OR &quot;link&quot; IN ('no', '0', 'false', ''))) AND (&quot;bridge&quot; IN ('yes', '1', 'true', 1, 'viaduct')) AND (&quot;oneway&quot; IS NULL OR &quot;oneway&quot; IN ('no', '0', 'false', '', 0))"/>
-      <rule key="{rule_111}" symbol="111" label="Residential Road [Tunnel] [One-Way -&gt;]" filter="(&quot;highway&quot; = 'residential' AND (&quot;link&quot; IS NULL OR &quot;link&quot; IN ('no', '0', 'false', ''))) AND (&quot;tunnel&quot; IN ('yes', '1', 'true', 1, 'culvert')) AND (&quot;oneway&quot; IN ('yes', '1', 'true', 1))"/>
-      <rule key="{rule_112}" symbol="112" label="Residential Road [Tunnel] [One-Way &lt;-]" filter="(&quot;highway&quot; = 'residential' AND (&quot;link&quot; IS NULL OR &quot;link&quot; IN ('no', '0', 'false', ''))) AND (&quot;tunnel&quot; IN ('yes', '1', 'true', 1, 'culvert')) AND (&quot;oneway&quot; IN ('-1', -1))"/>
-      <rule key="{rule_113}" symbol="113" label="Residential Road [Tunnel]" filter="(&quot;highway&quot; = 'residential' AND (&quot;link&quot; IS NULL OR &quot;link&quot; IN ('no', '0', 'false', ''))) AND (&quot;tunnel&quot; IN ('yes', '1', 'true', 1, 'culvert')) AND (&quot;oneway&quot; IS NULL OR &quot;oneway&quot; IN ('no', '0', 'false', '', 0))"/>
-      <rule key="{rule_114}" symbol="114" label="Residential Road [One-Way -&gt;]" filter="(&quot;highway&quot; = 'residential' AND (&quot;link&quot; IS NULL OR &quot;link&quot; IN ('no', '0', 'false', ''))) AND (&quot;bridge&quot; IS NULL OR &quot;bridge&quot; IN ('no', '0', 'false', '', 0)) AND (&quot;tunnel&quot; IS NULL OR &quot;tunnel&quot; IN ('no', '0', 'false', '', 0)) AND (&quot;oneway&quot; IN ('yes', '1', 'true', 1))"/>
-      <rule key="{rule_115}" symbol="115" label="Residential Road [One-Way &lt;-]" filter="(&quot;highway&quot; = 'residential' AND (&quot;link&quot; IS NULL OR &quot;link&quot; IN ('no', '0', 'false', ''))) AND (&quot;bridge&quot; IS NULL OR &quot;bridge&quot; IN ('no', '0', 'false', '', 0)) AND (&quot;tunnel&quot; IS NULL OR &quot;tunnel&quot; IN ('no', '0', 'false', '', 0)) AND (&quot;oneway&quot; IN ('-1', -1))"/>
-      <rule key="{rule_116}" symbol="116" label="Residential Road" filter="(&quot;highway&quot; = 'residential' AND (&quot;link&quot; IS NULL OR &quot;link&quot; IN ('no', '0', 'false', ''))) AND (&quot;bridge&quot; IS NULL OR &quot;bridge&quot; IN ('no', '0', 'false', '', 0)) AND (&quot;tunnel&quot; IS NULL OR &quot;tunnel&quot; IN ('no', '0', 'false', '', 0)) AND (&quot;oneway&quot; IS NULL OR &quot;oneway&quot; IN ('no', '0', 'false', '', 0))"/>
-      <rule key="{rule_117}" symbol="117" label="Residential Road (Link) [Bridge] [One-Way -&gt;]" filter="(&quot;highway&quot; = 'residential_link' OR (&quot;highway&quot; = 'residential' AND &quot;link&quot; IN ('yes', '1', 'true'))) AND (&quot;bridge&quot; IN ('yes', '1', 'true', 1, 'viaduct')) AND (&quot;oneway&quot; IN ('yes', '1', 'true', 1))"/>
-      <rule key="{rule_118}" symbol="118" label="Residential Road (Link) [Bridge] [One-Way &lt;-]" filter="(&quot;highway&quot; = 'residential_link' OR (&quot;highway&quot; = 'residential' AND &quot;link&quot; IN ('yes', '1', 'true'))) AND (&quot;bridge&quot; IN ('yes', '1', 'true', 1, 'viaduct')) AND (&quot;oneway&quot; IN ('-1', -1))"/>
-      <rule key="{rule_119}" symbol="119" label="Residential Road (Link) [Bridge]" filter="(&quot;highway&quot; = 'residential_link' OR (&quot;highway&quot; = 'residential' AND &quot;link&quot; IN ('yes', '1', 'true'))) AND (&quot;bridge&quot; IN ('yes', '1', 'true', 1, 'viaduct')) AND (&quot;oneway&quot; IS NULL OR &quot;oneway&quot; IN ('no', '0', 'false', '', 0))"/>
-      <rule key="{rule_120}" symbol="120" label="Residential Road (Link) [Tunnel] [One-Way -&gt;]" filter="(&quot;highway&quot; = 'residential_link' OR (&quot;highway&quot; = 'residential' AND &quot;link&quot; IN ('yes', '1', 'true'))) AND (&quot;tunnel&quot; IN ('yes', '1', 'true', 1, 'culvert')) AND (&quot;oneway&quot; IN ('yes', '1', 'true', 1))"/>
-      <rule key="{rule_121}" symbol="121" label="Residential Road (Link) [Tunnel] [One-Way &lt;-]" filter="(&quot;highway&quot; = 'residential_link' OR (&quot;highway&quot; = 'residential' AND &quot;link&quot; IN ('yes', '1', 'true'))) AND (&quot;tunnel&quot; IN ('yes', '1', 'true', 1, 'culvert')) AND (&quot;oneway&quot; IN ('-1', -1))"/>
-      <rule key="{rule_122}" symbol="122" label="Residential Road (Link) [Tunnel]" filter="(&quot;highway&quot; = 'residential_link' OR (&quot;highway&quot; = 'residential' AND &quot;link&quot; IN ('yes', '1', 'true'))) AND (&quot;tunnel&quot; IN ('yes', '1', 'true', 1, 'culvert')) AND (&quot;oneway&quot; IS NULL OR &quot;oneway&quot; IN ('no', '0', 'false', '', 0))"/>
-      <rule key="{rule_123}" symbol="123" label="Residential Road (Link) [One-Way -&gt;]" filter="(&quot;highway&quot; = 'residential_link' OR (&quot;highway&quot; = 'residential' AND &quot;link&quot; IN ('yes', '1', 'true'))) AND (&quot;bridge&quot; IS NULL OR &quot;bridge&quot; IN ('no', '0', 'false', '', 0)) AND (&quot;tunnel&quot; IS NULL OR &quot;tunnel&quot; IN ('no', '0', 'false', '', 0)) AND (&quot;oneway&quot; IN ('yes', '1', 'true', 1))"/>
-      <rule key="{rule_124}" symbol="124" label="Residential Road (Link) [One-Way &lt;-]" filter="(&quot;highway&quot; = 'residential_link' OR (&quot;highway&quot; = 'residential' AND &quot;link&quot; IN ('yes', '1', 'true'))) AND (&quot;bridge&quot; IS NULL OR &quot;bridge&quot; IN ('no', '0', 'false', '', 0)) AND (&quot;tunnel&quot; IS NULL OR &quot;tunnel&quot; IN ('no', '0', 'false', '', 0)) AND (&quot;oneway&quot; IN ('-1', -1))"/>
-      <rule key="{rule_125}" symbol="125" label="Residential Road (Link)" filter="(&quot;highway&quot; = 'residential_link' OR (&quot;highway&quot; = 'residential' AND &quot;link&quot; IN ('yes', '1', 'true'))) AND (&quot;bridge&quot; IS NULL OR &quot;bridge&quot; IN ('no', '0', 'false', '', 0)) AND (&quot;tunnel&quot; IS NULL OR &quot;tunnel&quot; IN ('no', '0', 'false', '', 0)) AND (&quot;oneway&quot; IS NULL OR &quot;oneway&quot; IN ('no', '0', 'false', '', 0))"/>
-      <rule key="{rule_126}" symbol="126" label="Living Street [Bridge] [One-Way -&gt;]" filter="(&quot;highway&quot; = 'living_street' AND (&quot;link&quot; IS NULL OR &quot;link&quot; IN ('no', '0', 'false', ''))) AND (&quot;bridge&quot; IN ('yes', '1', 'true', 1, 'viaduct')) AND (&quot;oneway&quot; IN ('yes', '1', 'true', 1))"/>
-      <rule key="{rule_127}" symbol="127" label="Living Street [Bridge] [One-Way &lt;-]" filter="(&quot;highway&quot; = 'living_street' AND (&quot;link&quot; IS NULL OR &quot;link&quot; IN ('no', '0', 'false', ''))) AND (&quot;bridge&quot; IN ('yes', '1', 'true', 1, 'viaduct')) AND (&quot;oneway&quot; IN ('-1', -1))"/>
-      <rule key="{rule_128}" symbol="128" label="Living Street [Bridge]" filter="(&quot;highway&quot; = 'living_street' AND (&quot;link&quot; IS NULL OR &quot;link&quot; IN ('no', '0', 'false', ''))) AND (&quot;bridge&quot; IN ('yes', '1', 'true', 1, 'viaduct')) AND (&quot;oneway&quot; IS NULL OR &quot;oneway&quot; IN ('no', '0', 'false', '', 0))"/>
-      <rule key="{rule_129}" symbol="129" label="Living Street [Tunnel] [One-Way -&gt;]" filter="(&quot;highway&quot; = 'living_street' AND (&quot;link&quot; IS NULL OR &quot;link&quot; IN ('no', '0', 'false', ''))) AND (&quot;tunnel&quot; IN ('yes', '1', 'true', 1, 'culvert')) AND (&quot;oneway&quot; IN ('yes', '1', 'true', 1))"/>
-      <rule key="{rule_130}" symbol="130" label="Living Street [Tunnel] [One-Way &lt;-]" filter="(&quot;highway&quot; = 'living_street' AND (&quot;link&quot; IS NULL OR &quot;link&quot; IN ('no', '0', 'false', ''))) AND (&quot;tunnel&quot; IN ('yes', '1', 'true', 1, 'culvert')) AND (&quot;oneway&quot; IN ('-1', -1))"/>
-      <rule key="{rule_131}" symbol="131" label="Living Street [Tunnel]" filter="(&quot;highway&quot; = 'living_street' AND (&quot;link&quot; IS NULL OR &quot;link&quot; IN ('no', '0', 'false', ''))) AND (&quot;tunnel&quot; IN ('yes', '1', 'true', 1, 'culvert')) AND (&quot;oneway&quot; IS NULL OR &quot;oneway&quot; IN ('no', '0', 'false', '', 0))"/>
-      <rule key="{rule_132}" symbol="132" label="Living Street [One-Way -&gt;]" filter="(&quot;highway&quot; = 'living_street' AND (&quot;link&quot; IS NULL OR &quot;link&quot; IN ('no', '0', 'false', ''))) AND (&quot;bridge&quot; IS NULL OR &quot;bridge&quot; IN ('no', '0', 'false', '', 0)) AND (&quot;tunnel&quot; IS NULL OR &quot;tunnel&quot; IN ('no', '0', 'false', '', 0)) AND (&quot;oneway&quot; IN ('yes', '1', 'true', 1))"/>
-      <rule key="{rule_133}" symbol="133" label="Living Street [One-Way &lt;-]" filter="(&quot;highway&quot; = 'living_street' AND (&quot;link&quot; IS NULL OR &quot;link&quot; IN ('no', '0', 'false', ''))) AND (&quot;bridge&quot; IS NULL OR &quot;bridge&quot; IN ('no', '0', 'false', '', 0)) AND (&quot;tunnel&quot; IS NULL OR &quot;tunnel&quot; IN ('no', '0', 'false', '', 0)) AND (&quot;oneway&quot; IN ('-1', -1))"/>
-      <rule key="{rule_134}" symbol="134" label="Living Street" filter="(&quot;highway&quot; = 'living_street' AND (&quot;link&quot; IS NULL OR &quot;link&quot; IN ('no', '0', 'false', ''))) AND (&quot;bridge&quot; IS NULL OR &quot;bridge&quot; IN ('no', '0', 'false', '', 0)) AND (&quot;tunnel&quot; IS NULL OR &quot;tunnel&quot; IN ('no', '0', 'false', '', 0)) AND (&quot;oneway&quot; IS NULL OR &quot;oneway&quot; IN ('no', '0', 'false', '', 0))"/>
-      <rule key="{rule_135}" symbol="135" label="Living Street (Link) [Bridge] [One-Way -&gt;]" filter="(&quot;highway&quot; = 'living_street_link' OR (&quot;highway&quot; = 'living_street' AND &quot;link&quot; IN ('yes', '1', 'true'))) AND (&quot;bridge&quot; IN ('yes', '1', 'true', 1, 'viaduct')) AND (&quot;oneway&quot; IN ('yes', '1', 'true', 1))"/>
-      <rule key="{rule_136}" symbol="136" label="Living Street (Link) [Bridge] [One-Way &lt;-]" filter="(&quot;highway&quot; = 'living_street_link' OR (&quot;highway&quot; = 'living_street' AND &quot;link&quot; IN ('yes', '1', 'true'))) AND (&quot;bridge&quot; IN ('yes', '1', 'true', 1, 'viaduct')) AND (&quot;oneway&quot; IN ('-1', -1))"/>
-      <rule key="{rule_137}" symbol="137" label="Living Street (Link) [Bridge]" filter="(&quot;highway&quot; = 'living_street_link' OR (&quot;highway&quot; = 'living_street' AND &quot;link&quot; IN ('yes', '1', 'true'))) AND (&quot;bridge&quot; IN ('yes', '1', 'true', 1, 'viaduct')) AND (&quot;oneway&quot; IS NULL OR &quot;oneway&quot; IN ('no', '0', 'false', '', 0))"/>
-      <rule key="{rule_138}" symbol="138" label="Living Street (Link) [Tunnel] [One-Way -&gt;]" filter="(&quot;highway&quot; = 'living_street_link' OR (&quot;highway&quot; = 'living_street' AND &quot;link&quot; IN ('yes', '1', 'true'))) AND (&quot;tunnel&quot; IN ('yes', '1', 'true', 1, 'culvert')) AND (&quot;oneway&quot; IN ('yes', '1', 'true', 1))"/>
-      <rule key="{rule_139}" symbol="139" label="Living Street (Link) [Tunnel] [One-Way &lt;-]" filter="(&quot;highway&quot; = 'living_street_link' OR (&quot;highway&quot; = 'living_street' AND &quot;link&quot; IN ('yes', '1', 'true'))) AND (&quot;tunnel&quot; IN ('yes', '1', 'true', 1, 'culvert')) AND (&quot;oneway&quot; IN ('-1', -1))"/>
-      <rule key="{rule_140}" symbol="140" label="Living Street (Link) [Tunnel]" filter="(&quot;highway&quot; = 'living_street_link' OR (&quot;highway&quot; = 'living_street' AND &quot;link&quot; IN ('yes', '1', 'true'))) AND (&quot;tunnel&quot; IN ('yes', '1', 'true', 1, 'culvert')) AND (&quot;oneway&quot; IS NULL OR &quot;oneway&quot; IN ('no', '0', 'false', '', 0))"/>
-      <rule key="{rule_141}" symbol="141" label="Living Street (Link) [One-Way -&gt;]" filter="(&quot;highway&quot; = 'living_street_link' OR (&quot;highway&quot; = 'living_street' AND &quot;link&quot; IN ('yes', '1', 'true'))) AND (&quot;bridge&quot; IS NULL OR &quot;bridge&quot; IN ('no', '0', 'false', '', 0)) AND (&quot;tunnel&quot; IS NULL OR &quot;tunnel&quot; IN ('no', '0', 'false', '', 0)) AND (&quot;oneway&quot; IN ('yes', '1', 'true', 1))"/>
-      <rule key="{rule_142}" symbol="142" label="Living Street (Link) [One-Way &lt;-]" filter="(&quot;highway&quot; = 'living_street_link' OR (&quot;highway&quot; = 'living_street' AND &quot;link&quot; IN ('yes', '1', 'true'))) AND (&quot;bridge&quot; IS NULL OR &quot;bridge&quot; IN ('no', '0', 'false', '', 0)) AND (&quot;tunnel&quot; IS NULL OR &quot;tunnel&quot; IN ('no', '0', 'false', '', 0)) AND (&quot;oneway&quot; IN ('-1', -1))"/>
-      <rule key="{rule_143}" symbol="143" label="Living Street (Link)" filter="(&quot;highway&quot; = 'living_street_link' OR (&quot;highway&quot; = 'living_street' AND &quot;link&quot; IN ('yes', '1', 'true'))) AND (&quot;bridge&quot; IS NULL OR &quot;bridge&quot; IN ('no', '0', 'false', '', 0)) AND (&quot;tunnel&quot; IS NULL OR &quot;tunnel&quot; IN ('no', '0', 'false', '', 0)) AND (&quot;oneway&quot; IS NULL OR &quot;oneway&quot; IN ('no', '0', 'false', '', 0))"/>
-      <rule key="{rule_144}" symbol="144" label="Service Road [Bridge] [One-Way -&gt;]" filter="(&quot;highway&quot; = 'service' AND (&quot;link&quot; IS NULL OR &quot;link&quot; IN ('no', '0', 'false', ''))) AND (&quot;bridge&quot; IN ('yes', '1', 'true', 1, 'viaduct')) AND (&quot;oneway&quot; IN ('yes', '1', 'true', 1))"/>
-      <rule key="{rule_145}" symbol="145" label="Service Road [Bridge] [One-Way &lt;-]" filter="(&quot;highway&quot; = 'service' AND (&quot;link&quot; IS NULL OR &quot;link&quot; IN ('no', '0', 'false', ''))) AND (&quot;bridge&quot; IN ('yes', '1', 'true', 1, 'viaduct')) AND (&quot;oneway&quot; IN ('-1', -1))"/>
-      <rule key="{rule_146}" symbol="146" label="Service Road [Bridge]" filter="(&quot;highway&quot; = 'service' AND (&quot;link&quot; IS NULL OR &quot;link&quot; IN ('no', '0', 'false', ''))) AND (&quot;bridge&quot; IN ('yes', '1', 'true', 1, 'viaduct')) AND (&quot;oneway&quot; IS NULL OR &quot;oneway&quot; IN ('no', '0', 'false', '', 0))"/>
-      <rule key="{rule_147}" symbol="147" label="Service Road [Tunnel] [One-Way -&gt;]" filter="(&quot;highway&quot; = 'service' AND (&quot;link&quot; IS NULL OR &quot;link&quot; IN ('no', '0', 'false', ''))) AND (&quot;tunnel&quot; IN ('yes', '1', 'true', 1, 'culvert')) AND (&quot;oneway&quot; IN ('yes', '1', 'true', 1))"/>
-      <rule key="{rule_148}" symbol="148" label="Service Road [Tunnel] [One-Way &lt;-]" filter="(&quot;highway&quot; = 'service' AND (&quot;link&quot; IS NULL OR &quot;link&quot; IN ('no', '0', 'false', ''))) AND (&quot;tunnel&quot; IN ('yes', '1', 'true', 1, 'culvert')) AND (&quot;oneway&quot; IN ('-1', -1))"/>
-      <rule key="{rule_149}" symbol="149" label="Service Road [Tunnel]" filter="(&quot;highway&quot; = 'service' AND (&quot;link&quot; IS NULL OR &quot;link&quot; IN ('no', '0', 'false', ''))) AND (&quot;tunnel&quot; IN ('yes', '1', 'true', 1, 'culvert')) AND (&quot;oneway&quot; IS NULL OR &quot;oneway&quot; IN ('no', '0', 'false', '', 0))"/>
-      <rule key="{rule_150}" symbol="150" label="Service Road [One-Way -&gt;]" filter="(&quot;highway&quot; = 'service' AND (&quot;link&quot; IS NULL OR &quot;link&quot; IN ('no', '0', 'false', ''))) AND (&quot;bridge&quot; IS NULL OR &quot;bridge&quot; IN ('no', '0', 'false', '', 0)) AND (&quot;tunnel&quot; IS NULL OR &quot;tunnel&quot; IN ('no', '0', 'false', '', 0)) AND (&quot;oneway&quot; IN ('yes', '1', 'true', 1))"/>
-      <rule key="{rule_151}" symbol="151" label="Service Road [One-Way &lt;-]" filter="(&quot;highway&quot; = 'service' AND (&quot;link&quot; IS NULL OR &quot;link&quot; IN ('no', '0', 'false', ''))) AND (&quot;bridge&quot; IS NULL OR &quot;bridge&quot; IN ('no', '0', 'false', '', 0)) AND (&quot;tunnel&quot; IS NULL OR &quot;tunnel&quot; IN ('no', '0', 'false', '', 0)) AND (&quot;oneway&quot; IN ('-1', -1))"/>
-      <rule key="{rule_152}" symbol="152" label="Service Road" filter="(&quot;highway&quot; = 'service' AND (&quot;link&quot; IS NULL OR &quot;link&quot; IN ('no', '0', 'false', ''))) AND (&quot;bridge&quot; IS NULL OR &quot;bridge&quot; IN ('no', '0', 'false', '', 0)) AND (&quot;tunnel&quot; IS NULL OR &quot;tunnel&quot; IN ('no', '0', 'false', '', 0)) AND (&quot;oneway&quot; IS NULL OR &quot;oneway&quot; IN ('no', '0', 'false', '', 0))"/>
-      <rule key="{rule_153}" symbol="153" label="Service Road (Link) [Bridge] [One-Way -&gt;]" filter="(&quot;highway&quot; = 'service_link' OR (&quot;highway&quot; = 'service' AND &quot;link&quot; IN ('yes', '1', 'true'))) AND (&quot;bridge&quot; IN ('yes', '1', 'true', 1, 'viaduct')) AND (&quot;oneway&quot; IN ('yes', '1', 'true', 1))"/>
-      <rule key="{rule_154}" symbol="154" label="Service Road (Link) [Bridge] [One-Way &lt;-]" filter="(&quot;highway&quot; = 'service_link' OR (&quot;highway&quot; = 'service' AND &quot;link&quot; IN ('yes', '1', 'true'))) AND (&quot;bridge&quot; IN ('yes', '1', 'true', 1, 'viaduct')) AND (&quot;oneway&quot; IN ('-1', -1))"/>
-      <rule key="{rule_155}" symbol="155" label="Service Road (Link) [Bridge]" filter="(&quot;highway&quot; = 'service_link' OR (&quot;highway&quot; = 'service' AND &quot;link&quot; IN ('yes', '1', 'true'))) AND (&quot;bridge&quot; IN ('yes', '1', 'true', 1, 'viaduct')) AND (&quot;oneway&quot; IS NULL OR &quot;oneway&quot; IN ('no', '0', 'false', '', 0))"/>
-      <rule key="{rule_156}" symbol="156" label="Service Road (Link) [Tunnel] [One-Way -&gt;]" filter="(&quot;highway&quot; = 'service_link' OR (&quot;highway&quot; = 'service' AND &quot;link&quot; IN ('yes', '1', 'true'))) AND (&quot;tunnel&quot; IN ('yes', '1', 'true', 1, 'culvert')) AND (&quot;oneway&quot; IN ('yes', '1', 'true', 1))"/>
-      <rule key="{rule_157}" symbol="157" label="Service Road (Link) [Tunnel] [One-Way &lt;-]" filter="(&quot;highway&quot; = 'service_link' OR (&quot;highway&quot; = 'service' AND &quot;link&quot; IN ('yes', '1', 'true'))) AND (&quot;tunnel&quot; IN ('yes', '1', 'true', 1, 'culvert')) AND (&quot;oneway&quot; IN ('-1', -1))"/>
-      <rule key="{rule_158}" symbol="158" label="Service Road (Link) [Tunnel]" filter="(&quot;highway&quot; = 'service_link' OR (&quot;highway&quot; = 'service' AND &quot;link&quot; IN ('yes', '1', 'true'))) AND (&quot;tunnel&quot; IN ('yes', '1', 'true', 1, 'culvert')) AND (&quot;oneway&quot; IS NULL OR &quot;oneway&quot; IN ('no', '0', 'false', '', 0))"/>
-      <rule key="{rule_159}" symbol="159" label="Service Road (Link) [One-Way -&gt;]" filter="(&quot;highway&quot; = 'service_link' OR (&quot;highway&quot; = 'service' AND &quot;link&quot; IN ('yes', '1', 'true'))) AND (&quot;bridge&quot; IS NULL OR &quot;bridge&quot; IN ('no', '0', 'false', '', 0)) AND (&quot;tunnel&quot; IS NULL OR &quot;tunnel&quot; IN ('no', '0', 'false', '', 0)) AND (&quot;oneway&quot; IN ('yes', '1', 'true', 1))"/>
-      <rule key="{rule_160}" symbol="160" label="Service Road (Link) [One-Way &lt;-]" filter="(&quot;highway&quot; = 'service_link' OR (&quot;highway&quot; = 'service' AND &quot;link&quot; IN ('yes', '1', 'true'))) AND (&quot;bridge&quot; IS NULL OR &quot;bridge&quot; IN ('no', '0', 'false', '', 0)) AND (&quot;tunnel&quot; IS NULL OR &quot;tunnel&quot; IN ('no', '0', 'false', '', 0)) AND (&quot;oneway&quot; IN ('-1', -1))"/>
-      <rule key="{rule_161}" symbol="161" label="Service Road (Link)" filter="(&quot;highway&quot; = 'service_link' OR (&quot;highway&quot; = 'service' AND &quot;link&quot; IN ('yes', '1', 'true'))) AND (&quot;bridge&quot; IS NULL OR &quot;bridge&quot; IN ('no', '0', 'false', '', 0)) AND (&quot;tunnel&quot; IS NULL OR &quot;tunnel&quot; IN ('no', '0', 'false', '', 0)) AND (&quot;oneway&quot; IS NULL OR &quot;oneway&quot; IN ('no', '0', 'false', '', 0))"/>
-      <rule key="{rule_162}" symbol="162" label="Track / Rural Dirt Path" filter="(&quot;highway&quot; = 'track') AND (&quot;oneway&quot; IS NULL OR &quot;oneway&quot; IN ('no', '0', 'false', '', 0))"/>
-      <rule key="{rule_163}" symbol="163" label="Track / Rural Dirt Path [One-Way -&gt;]" filter="(&quot;highway&quot; = 'track') AND (&quot;oneway&quot; IN ('yes', '1', 'true', 1))"/>
-      <rule key="{rule_164}" symbol="164" label="Track / Rural Dirt Path [One-Way &lt;-]" filter="(&quot;highway&quot; = 'track') AND (&quot;oneway&quot; IN ('-1', -1))"/>
-      <rule key="{rule_165}" symbol="165" label="Pedestrian Street / Walkway" filter="&quot;highway&quot; = 'pedestrian'"/>
-      <rule key="{rule_166}" symbol="166" label="Footway / Path / Trail" filter="&quot;highway&quot; IN ('footway', 'path', 'steps')"/>
-      <rule key="{rule_167}" symbol="167" label="Cycleway / Bike Path" filter="&quot;highway&quot; = 'cycleway'"/>
-      <rule key="{rule_168}" symbol="168" label="Other Road / Path" filter="ELSE"/>
+<!DOCTYPE qgis PUBLIC 'http://mrcc.com/qgis.dtd' 'SYSTEM'>
+<qgis simplifyDrawingTol="1" maxScale="0" autoRefreshTime="0" simplifyDrawingHints="1" simplifyLocal="1" symbologyReferenceScale="-1" styleCategories="AllStyleCategories" hasScaleBasedVisibilityFlag="0" simplifyAlgorithm="0" minScale="100000000" labelsEnabled="0" autoRefreshMode="Disabled" simplifyMaxScale="1" version="3.44.7-Solothurn" readOnly="0">
+  <flags>
+    <Identifiable>1</Identifiable>
+    <Removable>1</Removable>
+    <Searchable>1</Searchable>
+    <Private>0</Private>
+  </flags>
+  <temporal mode="0" limitMode="0" startField="" accumulate="0" startExpression="" fixedDuration="0" enabled="0" endExpression="" durationUnit="min" endField="" durationField="">
+    <fixedRange>
+      <start></start>
+      <end></end>
+    </fixedRange>
+  </temporal>
+  <elevation extrusionEnabled="0" extrusion="0" zoffset="0" clamping="Terrain" binding="Centroid" customToleranceEnabled="1" type="IndividualFeatures" zscale="1" respectLayerSymbol="1" showMarkerSymbolInSurfacePlots="0" symbology="Line">
+    <data-defined-properties>
+      <Option type="Map">
+        <Option name="name" type="QString" value=""/>
+        <Option name="properties"/>
+        <Option name="type" type="QString" value="collection"/>
+      </Option>
+    </data-defined-properties>
+    <profileLineSymbol>
+      <symbol clip_to_extent="1" is_animated="0" name="" frame_rate="10" type="line" alpha="1" force_rhr="0">
+        <data_defined_properties>
+          <Option type="Map">
+            <Option name="name" type="QString" value=""/>
+            <Option name="properties"/>
+            <Option name="type" type="QString" value="collection"/>
+          </Option>
+        </data_defined_properties>
+        <layer id="{5e3f2513-e03d-410d-8d35-9ecf5fd82c5f}" locked="0" pass="0" class="SimpleLine" enabled="1">
+          <Option type="Map">
+            <Option name="align_dash_pattern" type="QString" value="0"/>
+            <Option name="capstyle" type="QString" value="square"/>
+            <Option name="customdash" type="QString" value="5;2"/>
+            <Option name="customdash_map_unit_scale" type="QString" value="3x:0,0,0,0,0,0"/>
+            <Option name="customdash_unit" type="QString" value="MM"/>
+            <Option name="dash_pattern_offset" type="QString" value="0"/>
+            <Option name="dash_pattern_offset_map_unit_scale" type="QString" value="3x:0,0,0,0,0,0"/>
+            <Option name="dash_pattern_offset_unit" type="QString" value="MM"/>
+            <Option name="draw_inside_polygon" type="QString" value="0"/>
+            <Option name="joinstyle" type="QString" value="bevel"/>
+            <Option name="line_color" type="QString" value="164,113,88,255,rgb:0.6431373,0.4431373,0.345098,1"/>
+            <Option name="line_style" type="QString" value="solid"/>
+            <Option name="line_width" type="QString" value="0.6"/>
+            <Option name="line_width_unit" type="QString" value="MM"/>
+            <Option name="offset" type="QString" value="0"/>
+            <Option name="offset_map_unit_scale" type="QString" value="3x:0,0,0,0,0,0"/>
+            <Option name="offset_unit" type="QString" value="MM"/>
+            <Option name="ring_filter" type="QString" value="0"/>
+            <Option name="trim_distance_end" type="QString" value="0"/>
+            <Option name="trim_distance_end_map_unit_scale" type="QString" value="3x:0,0,0,0,0,0"/>
+            <Option name="trim_distance_end_unit" type="QString" value="MM"/>
+            <Option name="trim_distance_start" type="QString" value="0"/>
+            <Option name="trim_distance_start_map_unit_scale" type="QString" value="3x:0,0,0,0,0,0"/>
+            <Option name="trim_distance_start_unit" type="QString" value="MM"/>
+            <Option name="tweak_dash_pattern_on_corners" type="QString" value="0"/>
+            <Option name="use_custom_dash" type="QString" value="0"/>
+            <Option name="width_map_unit_scale" type="QString" value="3x:0,0,0,0,0,0"/>
+          </Option>
+          <data_defined_properties>
+            <Option type="Map">
+              <Option name="name" type="QString" value=""/>
+              <Option name="properties"/>
+              <Option name="type" type="QString" value="collection"/>
+            </Option>
+          </data_defined_properties>
+        </layer>
+      </symbol>
+    </profileLineSymbol>
+    <profileFillSymbol>
+      <symbol clip_to_extent="1" is_animated="0" name="" frame_rate="10" type="fill" alpha="1" force_rhr="0">
+        <data_defined_properties>
+          <Option type="Map">
+            <Option name="name" type="QString" value=""/>
+            <Option name="properties"/>
+            <Option name="type" type="QString" value="collection"/>
+          </Option>
+        </data_defined_properties>
+        <layer id="{95361a87-73b7-4454-b399-7fd027cc13c5}" locked="0" pass="0" class="SimpleFill" enabled="1">
+          <Option type="Map">
+            <Option name="border_width_map_unit_scale" type="QString" value="3x:0,0,0,0,0,0"/>
+            <Option name="color" type="QString" value="164,113,88,255,rgb:0.6431373,0.4431373,0.345098,1"/>
+            <Option name="joinstyle" type="QString" value="bevel"/>
+            <Option name="offset" type="QString" value="0,0"/>
+            <Option name="offset_map_unit_scale" type="QString" value="3x:0,0,0,0,0,0"/>
+            <Option name="offset_unit" type="QString" value="MM"/>
+            <Option name="outline_color" type="QString" value="117,81,63,255,rgb:0.4593729,0.3165332,0.2464942,1"/>
+            <Option name="outline_style" type="QString" value="solid"/>
+            <Option name="outline_width" type="QString" value="0.2"/>
+            <Option name="outline_width_unit" type="QString" value="MM"/>
+            <Option name="style" type="QString" value="solid"/>
+          </Option>
+          <data_defined_properties>
+            <Option type="Map">
+              <Option name="name" type="QString" value=""/>
+              <Option name="properties"/>
+              <Option name="type" type="QString" value="collection"/>
+            </Option>
+          </data_defined_properties>
+        </layer>
+      </symbol>
+    </profileFillSymbol>
+    <profileMarkerSymbol>
+      <symbol clip_to_extent="1" is_animated="0" name="" frame_rate="10" type="marker" alpha="1" force_rhr="0">
+        <data_defined_properties>
+          <Option type="Map">
+            <Option name="name" type="QString" value=""/>
+            <Option name="properties"/>
+            <Option name="type" type="QString" value="collection"/>
+          </Option>
+        </data_defined_properties>
+        <layer id="{92b70ef4-4be5-4403-889a-48965bc6c4cd}" locked="0" pass="0" class="SimpleMarker" enabled="1">
+          <Option type="Map">
+            <Option name="angle" type="QString" value="0"/>
+            <Option name="cap_style" type="QString" value="square"/>
+            <Option name="color" type="QString" value="164,113,88,255,rgb:0.6431373,0.4431373,0.345098,1"/>
+            <Option name="horizontal_anchor_point" type="QString" value="1"/>
+            <Option name="joinstyle" type="QString" value="bevel"/>
+            <Option name="name" type="QString" value="diamond"/>
+            <Option name="offset" type="QString" value="0,0"/>
+            <Option name="offset_map_unit_scale" type="QString" value="3x:0,0,0,0,0,0"/>
+            <Option name="offset_unit" type="QString" value="MM"/>
+            <Option name="outline_color" type="QString" value="117,81,63,255,rgb:0.4593729,0.3165332,0.2464942,1"/>
+            <Option name="outline_style" type="QString" value="solid"/>
+            <Option name="outline_width" type="QString" value="0.2"/>
+            <Option name="outline_width_map_unit_scale" type="QString" value="3x:0,0,0,0,0,0"/>
+            <Option name="outline_width_unit" type="QString" value="MM"/>
+            <Option name="scale_method" type="QString" value="diameter"/>
+            <Option name="size" type="QString" value="3"/>
+            <Option name="size_map_unit_scale" type="QString" value="3x:0,0,0,0,0,0"/>
+            <Option name="size_unit" type="QString" value="MM"/>
+            <Option name="vertical_anchor_point" type="QString" value="1"/>
+          </Option>
+          <data_defined_properties>
+            <Option type="Map">
+              <Option name="name" type="QString" value=""/>
+              <Option name="properties"/>
+              <Option name="type" type="QString" value="collection"/>
+            </Option>
+          </data_defined_properties>
+        </layer>
+      </symbol>
+    </profileMarkerSymbol>
+  </elevation>
+  <renderer-v2 forceraster="0" enableorderby="1" symbollevels="1" referencescale="-1" type="RuleRenderer">
+    <rules key="{a3998546-10d0-423d-8658-63b43e49ab30}">
+      <rule symbol="0" filter="coalesce(to_string(&quot;bridge&quot;), '') IN ('yes', '1', 'true', 'viaduct')" label="Bridges (Elevated Decks)" key="{094c66dc-2d1d-4675-a271-58032f3e4a44}"/>
+      <rule symbol="1" filter="coalesce(to_string(&quot;bridge&quot;), '') NOT IN ('yes', '1', 'true', 'viaduct') AND coalesce(to_string(&quot;tunnel&quot;), '') NOT IN ('yes', '1', 'true', 'culvert')" label="Surface Roads (Ground Level)" key="{371f6de2-f2f8-4ddc-a232-afb1c8e21254}"/>
+      <rule symbol="2" filter="coalesce(to_string(&quot;tunnel&quot;), '') IN ('yes', '1', 'true', 'culvert')" label="Tunnels (Subterranean)" key="{9df2000a-0841-432e-8f5d-590bac708c02}"/>
     </rules>
     <symbols>
-      <symbol type="line" name="0" alpha="1" force_rhr="0" clip_to_extent="1">
-        <layer pass="0" class="SimpleLine" locked="0">
-          <prop k="line_color" v="0,0,0,255"/>
-          <prop k="line_width" v="2.50"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="square"/>
-          <prop k="joinstyle" v="miter"/>
-        </layer>
-        <layer pass="1" class="SimpleLine" locked="0">
-          <prop k="line_color" v="220,42,103,255"/>
-          <prop k="line_width" v="2.00"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="square"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-        <layer pass="2" class="SimpleLine" locked="0">
-          <prop k="line_color" v="232,146,162,255"/>
-          <prop k="line_width" v="1.40"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="square"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-        <layer pass="3" class="MarkerLine" locked="0">
-          <prop k="placement" v="interval"/>
-          <prop k="interval" v="20"/>
-          <prop k="interval_unit" v="MM"/>
-          <prop k="rotate" v="1"/>
-          <prop k="offset" v="0"/>
-          <prop k="offset_unit" v="MM"/>
-          <prop k="ring_filter" v="0"/>
-          <symbol type="marker" name="@0@3" alpha="1" force_rhr="0" clip_to_extent="1">
-            <layer pass="0" class="SimpleMarker" locked="0">
-              <prop k="name" v="filled_arrowhead"/>
-              <prop k="color" v="80,80,80,230"/>
-              <prop k="outline_color" v="80,80,80,230"/>
-              <prop k="size" v="2.2"/>
-              <prop k="size_unit" v="MM"/>
-              <prop k="angle" v="0"/>
-              <prop k="joinstyle" v="round"/>
-            </layer>
-          </symbol>
-        </layer>
-      </symbol>
-      <symbol type="line" name="1" alpha="1" force_rhr="0" clip_to_extent="1">
-        <layer pass="0" class="SimpleLine" locked="0">
-          <prop k="line_color" v="0,0,0,255"/>
-          <prop k="line_width" v="2.50"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="square"/>
-          <prop k="joinstyle" v="miter"/>
-        </layer>
-        <layer pass="1" class="SimpleLine" locked="0">
-          <prop k="line_color" v="220,42,103,255"/>
-          <prop k="line_width" v="2.00"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="square"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-        <layer pass="2" class="SimpleLine" locked="0">
-          <prop k="line_color" v="232,146,162,255"/>
-          <prop k="line_width" v="1.40"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="square"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-        <layer pass="3" class="MarkerLine" locked="0">
-          <prop k="placement" v="interval"/>
-          <prop k="interval" v="20"/>
-          <prop k="interval_unit" v="MM"/>
-          <prop k="rotate" v="1"/>
-          <prop k="offset" v="0"/>
-          <prop k="offset_unit" v="MM"/>
-          <prop k="ring_filter" v="0"/>
-          <symbol type="marker" name="@1@3" alpha="1" force_rhr="0" clip_to_extent="1">
-            <layer pass="0" class="SimpleMarker" locked="0">
-              <prop k="name" v="filled_arrowhead"/>
-              <prop k="color" v="80,80,80,230"/>
-              <prop k="outline_color" v="80,80,80,230"/>
-              <prop k="size" v="2.2"/>
-              <prop k="size_unit" v="MM"/>
-              <prop k="angle" v="180"/>
-              <prop k="joinstyle" v="round"/>
-            </layer>
-          </symbol>
-        </layer>
-      </symbol>
-      <symbol type="line" name="2" alpha="1" force_rhr="0" clip_to_extent="1">
-        <layer pass="0" class="SimpleLine" locked="0">
-          <prop k="line_color" v="0,0,0,255"/>
-          <prop k="line_width" v="2.50"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="square"/>
-          <prop k="joinstyle" v="miter"/>
-        </layer>
-        <layer pass="1" class="SimpleLine" locked="0">
-          <prop k="line_color" v="220,42,103,255"/>
-          <prop k="line_width" v="2.00"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="square"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-        <layer pass="2" class="SimpleLine" locked="0">
-          <prop k="line_color" v="232,146,162,255"/>
-          <prop k="line_width" v="1.40"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="square"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-      </symbol>
-      <symbol type="line" name="3" alpha="1" force_rhr="0" clip_to_extent="1">
-        <layer pass="1" class="SimpleLine" locked="0">
-          <prop k="line_color" v="220,42,103,255"/>
-          <prop k="line_width" v="2.00"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="round"/>
-          <prop k="joinstyle" v="round"/>
-          <prop k="customdash" v="4;2.5"/>
-          <prop k="use_custom_dash" v="1"/>
-        </layer>
-        <layer pass="2" class="SimpleLine" locked="0">
-          <prop k="line_color" v="232,146,162,255"/>
-          <prop k="line_width" v="1.40"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="round"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-        <layer pass="3" class="MarkerLine" locked="0">
-          <prop k="placement" v="interval"/>
-          <prop k="interval" v="20"/>
-          <prop k="interval_unit" v="MM"/>
-          <prop k="rotate" v="1"/>
-          <prop k="offset" v="0"/>
-          <prop k="offset_unit" v="MM"/>
-          <prop k="ring_filter" v="0"/>
-          <symbol type="marker" name="@3@2" alpha="1" force_rhr="0" clip_to_extent="1">
-            <layer pass="0" class="SimpleMarker" locked="0">
-              <prop k="name" v="filled_arrowhead"/>
-              <prop k="color" v="80,80,80,230"/>
-              <prop k="outline_color" v="80,80,80,230"/>
-              <prop k="size" v="2.2"/>
-              <prop k="size_unit" v="MM"/>
-              <prop k="angle" v="0"/>
-              <prop k="joinstyle" v="round"/>
-            </layer>
-          </symbol>
-        </layer>
-      </symbol>
-      <symbol type="line" name="4" alpha="1" force_rhr="0" clip_to_extent="1">
-        <layer pass="1" class="SimpleLine" locked="0">
-          <prop k="line_color" v="220,42,103,255"/>
-          <prop k="line_width" v="2.00"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="round"/>
-          <prop k="joinstyle" v="round"/>
-          <prop k="customdash" v="4;2.5"/>
-          <prop k="use_custom_dash" v="1"/>
-        </layer>
-        <layer pass="2" class="SimpleLine" locked="0">
-          <prop k="line_color" v="232,146,162,255"/>
-          <prop k="line_width" v="1.40"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="round"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-        <layer pass="3" class="MarkerLine" locked="0">
-          <prop k="placement" v="interval"/>
-          <prop k="interval" v="20"/>
-          <prop k="interval_unit" v="MM"/>
-          <prop k="rotate" v="1"/>
-          <prop k="offset" v="0"/>
-          <prop k="offset_unit" v="MM"/>
-          <prop k="ring_filter" v="0"/>
-          <symbol type="marker" name="@4@2" alpha="1" force_rhr="0" clip_to_extent="1">
-            <layer pass="0" class="SimpleMarker" locked="0">
-              <prop k="name" v="filled_arrowhead"/>
-              <prop k="color" v="80,80,80,230"/>
-              <prop k="outline_color" v="80,80,80,230"/>
-              <prop k="size" v="2.2"/>
-              <prop k="size_unit" v="MM"/>
-              <prop k="angle" v="180"/>
-              <prop k="joinstyle" v="round"/>
-            </layer>
-          </symbol>
-        </layer>
-      </symbol>
-      <symbol type="line" name="5" alpha="1" force_rhr="0" clip_to_extent="1">
-        <layer pass="1" class="SimpleLine" locked="0">
-          <prop k="line_color" v="220,42,103,255"/>
-          <prop k="line_width" v="2.00"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="round"/>
-          <prop k="joinstyle" v="round"/>
-          <prop k="customdash" v="4;2.5"/>
-          <prop k="use_custom_dash" v="1"/>
-        </layer>
-        <layer pass="2" class="SimpleLine" locked="0">
-          <prop k="line_color" v="232,146,162,255"/>
-          <prop k="line_width" v="1.40"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="round"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-      </symbol>
-      <symbol type="line" name="6" alpha="1" force_rhr="0" clip_to_extent="1">
-        <layer pass="1" class="SimpleLine" locked="0">
-          <prop k="line_color" v="220,42,103,255"/>
-          <prop k="line_width" v="2.00"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="round"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-        <layer pass="2" class="SimpleLine" locked="0">
-          <prop k="line_color" v="232,146,162,255"/>
-          <prop k="line_width" v="1.40"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="round"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-        <layer pass="3" class="MarkerLine" locked="0">
-          <prop k="placement" v="interval"/>
-          <prop k="interval" v="20"/>
-          <prop k="interval_unit" v="MM"/>
-          <prop k="rotate" v="1"/>
-          <prop k="offset" v="0"/>
-          <prop k="offset_unit" v="MM"/>
-          <prop k="ring_filter" v="0"/>
-          <symbol type="marker" name="@6@2" alpha="1" force_rhr="0" clip_to_extent="1">
-            <layer pass="0" class="SimpleMarker" locked="0">
-              <prop k="name" v="filled_arrowhead"/>
-              <prop k="color" v="80,80,80,230"/>
-              <prop k="outline_color" v="80,80,80,230"/>
-              <prop k="size" v="2.2"/>
-              <prop k="size_unit" v="MM"/>
-              <prop k="angle" v="0"/>
-              <prop k="joinstyle" v="round"/>
-            </layer>
-          </symbol>
-        </layer>
-      </symbol>
-      <symbol type="line" name="7" alpha="1" force_rhr="0" clip_to_extent="1">
-        <layer pass="1" class="SimpleLine" locked="0">
-          <prop k="line_color" v="220,42,103,255"/>
-          <prop k="line_width" v="2.00"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="round"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-        <layer pass="2" class="SimpleLine" locked="0">
-          <prop k="line_color" v="232,146,162,255"/>
-          <prop k="line_width" v="1.40"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="round"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-        <layer pass="3" class="MarkerLine" locked="0">
-          <prop k="placement" v="interval"/>
-          <prop k="interval" v="20"/>
-          <prop k="interval_unit" v="MM"/>
-          <prop k="rotate" v="1"/>
-          <prop k="offset" v="0"/>
-          <prop k="offset_unit" v="MM"/>
-          <prop k="ring_filter" v="0"/>
-          <symbol type="marker" name="@7@2" alpha="1" force_rhr="0" clip_to_extent="1">
-            <layer pass="0" class="SimpleMarker" locked="0">
-              <prop k="name" v="filled_arrowhead"/>
-              <prop k="color" v="80,80,80,230"/>
-              <prop k="outline_color" v="80,80,80,230"/>
-              <prop k="size" v="2.2"/>
-              <prop k="size_unit" v="MM"/>
-              <prop k="angle" v="180"/>
-              <prop k="joinstyle" v="round"/>
-            </layer>
-          </symbol>
-        </layer>
-      </symbol>
-      <symbol type="line" name="8" alpha="1" force_rhr="0" clip_to_extent="1">
-        <layer pass="1" class="SimpleLine" locked="0">
-          <prop k="line_color" v="220,42,103,255"/>
-          <prop k="line_width" v="2.00"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="round"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-        <layer pass="2" class="SimpleLine" locked="0">
-          <prop k="line_color" v="232,146,162,255"/>
-          <prop k="line_width" v="1.40"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="round"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-      </symbol>
-      <symbol type="line" name="9" alpha="1" force_rhr="0" clip_to_extent="1">
-        <layer pass="0" class="SimpleLine" locked="0">
-          <prop k="line_color" v="0,0,0,255"/>
-          <prop k="line_width" v="2.00"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="square"/>
-          <prop k="joinstyle" v="miter"/>
-        </layer>
-        <layer pass="1" class="SimpleLine" locked="0">
-          <prop k="line_color" v="220,42,103,255"/>
-          <prop k="line_width" v="1.50"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="square"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-        <layer pass="2" class="SimpleLine" locked="0">
-          <prop k="line_color" v="232,146,162,255"/>
-          <prop k="line_width" v="1.00"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="square"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-        <layer pass="3" class="MarkerLine" locked="0">
-          <prop k="placement" v="interval"/>
-          <prop k="interval" v="20"/>
-          <prop k="interval_unit" v="MM"/>
-          <prop k="rotate" v="1"/>
-          <prop k="offset" v="0"/>
-          <prop k="offset_unit" v="MM"/>
-          <prop k="ring_filter" v="0"/>
-          <symbol type="marker" name="@9@3" alpha="1" force_rhr="0" clip_to_extent="1">
-            <layer pass="0" class="SimpleMarker" locked="0">
-              <prop k="name" v="filled_arrowhead"/>
-              <prop k="color" v="80,80,80,230"/>
-              <prop k="outline_color" v="80,80,80,230"/>
-              <prop k="size" v="2.2"/>
-              <prop k="size_unit" v="MM"/>
-              <prop k="angle" v="0"/>
-              <prop k="joinstyle" v="round"/>
-            </layer>
-          </symbol>
-        </layer>
-      </symbol>
-      <symbol type="line" name="10" alpha="1" force_rhr="0" clip_to_extent="1">
-        <layer pass="0" class="SimpleLine" locked="0">
-          <prop k="line_color" v="0,0,0,255"/>
-          <prop k="line_width" v="2.00"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="square"/>
-          <prop k="joinstyle" v="miter"/>
-        </layer>
-        <layer pass="1" class="SimpleLine" locked="0">
-          <prop k="line_color" v="220,42,103,255"/>
-          <prop k="line_width" v="1.50"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="square"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-        <layer pass="2" class="SimpleLine" locked="0">
-          <prop k="line_color" v="232,146,162,255"/>
-          <prop k="line_width" v="1.00"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="square"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-        <layer pass="3" class="MarkerLine" locked="0">
-          <prop k="placement" v="interval"/>
-          <prop k="interval" v="20"/>
-          <prop k="interval_unit" v="MM"/>
-          <prop k="rotate" v="1"/>
-          <prop k="offset" v="0"/>
-          <prop k="offset_unit" v="MM"/>
-          <prop k="ring_filter" v="0"/>
-          <symbol type="marker" name="@10@3" alpha="1" force_rhr="0" clip_to_extent="1">
-            <layer pass="0" class="SimpleMarker" locked="0">
-              <prop k="name" v="filled_arrowhead"/>
-              <prop k="color" v="80,80,80,230"/>
-              <prop k="outline_color" v="80,80,80,230"/>
-              <prop k="size" v="2.2"/>
-              <prop k="size_unit" v="MM"/>
-              <prop k="angle" v="180"/>
-              <prop k="joinstyle" v="round"/>
-            </layer>
-          </symbol>
-        </layer>
-      </symbol>
-      <symbol type="line" name="11" alpha="1" force_rhr="0" clip_to_extent="1">
-        <layer pass="0" class="SimpleLine" locked="0">
-          <prop k="line_color" v="0,0,0,255"/>
-          <prop k="line_width" v="2.00"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="square"/>
-          <prop k="joinstyle" v="miter"/>
-        </layer>
-        <layer pass="1" class="SimpleLine" locked="0">
-          <prop k="line_color" v="220,42,103,255"/>
-          <prop k="line_width" v="1.50"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="square"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-        <layer pass="2" class="SimpleLine" locked="0">
-          <prop k="line_color" v="232,146,162,255"/>
-          <prop k="line_width" v="1.00"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="square"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-      </symbol>
-      <symbol type="line" name="12" alpha="1" force_rhr="0" clip_to_extent="1">
-        <layer pass="1" class="SimpleLine" locked="0">
-          <prop k="line_color" v="220,42,103,255"/>
-          <prop k="line_width" v="1.50"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="round"/>
-          <prop k="joinstyle" v="round"/>
-          <prop k="customdash" v="4;2.5"/>
-          <prop k="use_custom_dash" v="1"/>
-        </layer>
-        <layer pass="2" class="SimpleLine" locked="0">
-          <prop k="line_color" v="232,146,162,255"/>
-          <prop k="line_width" v="1.00"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="round"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-        <layer pass="3" class="MarkerLine" locked="0">
-          <prop k="placement" v="interval"/>
-          <prop k="interval" v="20"/>
-          <prop k="interval_unit" v="MM"/>
-          <prop k="rotate" v="1"/>
-          <prop k="offset" v="0"/>
-          <prop k="offset_unit" v="MM"/>
-          <prop k="ring_filter" v="0"/>
-          <symbol type="marker" name="@12@2" alpha="1" force_rhr="0" clip_to_extent="1">
-            <layer pass="0" class="SimpleMarker" locked="0">
-              <prop k="name" v="filled_arrowhead"/>
-              <prop k="color" v="80,80,80,230"/>
-              <prop k="outline_color" v="80,80,80,230"/>
-              <prop k="size" v="2.2"/>
-              <prop k="size_unit" v="MM"/>
-              <prop k="angle" v="0"/>
-              <prop k="joinstyle" v="round"/>
-            </layer>
-          </symbol>
-        </layer>
-      </symbol>
-      <symbol type="line" name="13" alpha="1" force_rhr="0" clip_to_extent="1">
-        <layer pass="1" class="SimpleLine" locked="0">
-          <prop k="line_color" v="220,42,103,255"/>
-          <prop k="line_width" v="1.50"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="round"/>
-          <prop k="joinstyle" v="round"/>
-          <prop k="customdash" v="4;2.5"/>
-          <prop k="use_custom_dash" v="1"/>
-        </layer>
-        <layer pass="2" class="SimpleLine" locked="0">
-          <prop k="line_color" v="232,146,162,255"/>
-          <prop k="line_width" v="1.00"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="round"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-        <layer pass="3" class="MarkerLine" locked="0">
-          <prop k="placement" v="interval"/>
-          <prop k="interval" v="20"/>
-          <prop k="interval_unit" v="MM"/>
-          <prop k="rotate" v="1"/>
-          <prop k="offset" v="0"/>
-          <prop k="offset_unit" v="MM"/>
-          <prop k="ring_filter" v="0"/>
-          <symbol type="marker" name="@13@2" alpha="1" force_rhr="0" clip_to_extent="1">
-            <layer pass="0" class="SimpleMarker" locked="0">
-              <prop k="name" v="filled_arrowhead"/>
-              <prop k="color" v="80,80,80,230"/>
-              <prop k="outline_color" v="80,80,80,230"/>
-              <prop k="size" v="2.2"/>
-              <prop k="size_unit" v="MM"/>
-              <prop k="angle" v="180"/>
-              <prop k="joinstyle" v="round"/>
-            </layer>
-          </symbol>
-        </layer>
-      </symbol>
-      <symbol type="line" name="14" alpha="1" force_rhr="0" clip_to_extent="1">
-        <layer pass="1" class="SimpleLine" locked="0">
-          <prop k="line_color" v="220,42,103,255"/>
-          <prop k="line_width" v="1.50"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="round"/>
-          <prop k="joinstyle" v="round"/>
-          <prop k="customdash" v="4;2.5"/>
-          <prop k="use_custom_dash" v="1"/>
-        </layer>
-        <layer pass="2" class="SimpleLine" locked="0">
-          <prop k="line_color" v="232,146,162,255"/>
-          <prop k="line_width" v="1.00"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="round"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-      </symbol>
-      <symbol type="line" name="15" alpha="1" force_rhr="0" clip_to_extent="1">
-        <layer pass="1" class="SimpleLine" locked="0">
-          <prop k="line_color" v="220,42,103,255"/>
-          <prop k="line_width" v="1.50"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="round"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-        <layer pass="2" class="SimpleLine" locked="0">
-          <prop k="line_color" v="232,146,162,255"/>
-          <prop k="line_width" v="1.00"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="round"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-        <layer pass="3" class="MarkerLine" locked="0">
-          <prop k="placement" v="interval"/>
-          <prop k="interval" v="20"/>
-          <prop k="interval_unit" v="MM"/>
-          <prop k="rotate" v="1"/>
-          <prop k="offset" v="0"/>
-          <prop k="offset_unit" v="MM"/>
-          <prop k="ring_filter" v="0"/>
-          <symbol type="marker" name="@15@2" alpha="1" force_rhr="0" clip_to_extent="1">
-            <layer pass="0" class="SimpleMarker" locked="0">
-              <prop k="name" v="filled_arrowhead"/>
-              <prop k="color" v="80,80,80,230"/>
-              <prop k="outline_color" v="80,80,80,230"/>
-              <prop k="size" v="2.2"/>
-              <prop k="size_unit" v="MM"/>
-              <prop k="angle" v="0"/>
-              <prop k="joinstyle" v="round"/>
-            </layer>
-          </symbol>
-        </layer>
-      </symbol>
-      <symbol type="line" name="16" alpha="1" force_rhr="0" clip_to_extent="1">
-        <layer pass="1" class="SimpleLine" locked="0">
-          <prop k="line_color" v="220,42,103,255"/>
-          <prop k="line_width" v="1.50"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="round"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-        <layer pass="2" class="SimpleLine" locked="0">
-          <prop k="line_color" v="232,146,162,255"/>
-          <prop k="line_width" v="1.00"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="round"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-        <layer pass="3" class="MarkerLine" locked="0">
-          <prop k="placement" v="interval"/>
-          <prop k="interval" v="20"/>
-          <prop k="interval_unit" v="MM"/>
-          <prop k="rotate" v="1"/>
-          <prop k="offset" v="0"/>
-          <prop k="offset_unit" v="MM"/>
-          <prop k="ring_filter" v="0"/>
-          <symbol type="marker" name="@16@2" alpha="1" force_rhr="0" clip_to_extent="1">
-            <layer pass="0" class="SimpleMarker" locked="0">
-              <prop k="name" v="filled_arrowhead"/>
-              <prop k="color" v="80,80,80,230"/>
-              <prop k="outline_color" v="80,80,80,230"/>
-              <prop k="size" v="2.2"/>
-              <prop k="size_unit" v="MM"/>
-              <prop k="angle" v="180"/>
-              <prop k="joinstyle" v="round"/>
-            </layer>
-          </symbol>
-        </layer>
-      </symbol>
-      <symbol type="line" name="17" alpha="1" force_rhr="0" clip_to_extent="1">
-        <layer pass="1" class="SimpleLine" locked="0">
-          <prop k="line_color" v="220,42,103,255"/>
-          <prop k="line_width" v="1.50"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="round"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-        <layer pass="2" class="SimpleLine" locked="0">
-          <prop k="line_color" v="232,146,162,255"/>
-          <prop k="line_width" v="1.00"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="round"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-      </symbol>
-      <symbol type="line" name="18" alpha="1" force_rhr="0" clip_to_extent="1">
-        <layer pass="0" class="SimpleLine" locked="0">
-          <prop k="line_color" v="0,0,0,255"/>
-          <prop k="line_width" v="2.30"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="square"/>
-          <prop k="joinstyle" v="miter"/>
-        </layer>
-        <layer pass="1" class="SimpleLine" locked="0">
-          <prop k="line_color" v="200,78,47,255"/>
-          <prop k="line_width" v="1.80"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="square"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-        <layer pass="2" class="SimpleLine" locked="0">
-          <prop k="line_color" v="249,178,156,255"/>
-          <prop k="line_width" v="1.30"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="square"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-        <layer pass="3" class="MarkerLine" locked="0">
-          <prop k="placement" v="interval"/>
-          <prop k="interval" v="20"/>
-          <prop k="interval_unit" v="MM"/>
-          <prop k="rotate" v="1"/>
-          <prop k="offset" v="0"/>
-          <prop k="offset_unit" v="MM"/>
-          <prop k="ring_filter" v="0"/>
-          <symbol type="marker" name="@18@3" alpha="1" force_rhr="0" clip_to_extent="1">
-            <layer pass="0" class="SimpleMarker" locked="0">
-              <prop k="name" v="filled_arrowhead"/>
-              <prop k="color" v="80,80,80,230"/>
-              <prop k="outline_color" v="80,80,80,230"/>
-              <prop k="size" v="2.2"/>
-              <prop k="size_unit" v="MM"/>
-              <prop k="angle" v="0"/>
-              <prop k="joinstyle" v="round"/>
-            </layer>
-          </symbol>
-        </layer>
-      </symbol>
-      <symbol type="line" name="19" alpha="1" force_rhr="0" clip_to_extent="1">
-        <layer pass="0" class="SimpleLine" locked="0">
-          <prop k="line_color" v="0,0,0,255"/>
-          <prop k="line_width" v="2.30"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="square"/>
-          <prop k="joinstyle" v="miter"/>
-        </layer>
-        <layer pass="1" class="SimpleLine" locked="0">
-          <prop k="line_color" v="200,78,47,255"/>
-          <prop k="line_width" v="1.80"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="square"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-        <layer pass="2" class="SimpleLine" locked="0">
-          <prop k="line_color" v="249,178,156,255"/>
-          <prop k="line_width" v="1.30"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="square"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-        <layer pass="3" class="MarkerLine" locked="0">
-          <prop k="placement" v="interval"/>
-          <prop k="interval" v="20"/>
-          <prop k="interval_unit" v="MM"/>
-          <prop k="rotate" v="1"/>
-          <prop k="offset" v="0"/>
-          <prop k="offset_unit" v="MM"/>
-          <prop k="ring_filter" v="0"/>
-          <symbol type="marker" name="@19@3" alpha="1" force_rhr="0" clip_to_extent="1">
-            <layer pass="0" class="SimpleMarker" locked="0">
-              <prop k="name" v="filled_arrowhead"/>
-              <prop k="color" v="80,80,80,230"/>
-              <prop k="outline_color" v="80,80,80,230"/>
-              <prop k="size" v="2.2"/>
-              <prop k="size_unit" v="MM"/>
-              <prop k="angle" v="180"/>
-              <prop k="joinstyle" v="round"/>
-            </layer>
-          </symbol>
-        </layer>
-      </symbol>
-      <symbol type="line" name="20" alpha="1" force_rhr="0" clip_to_extent="1">
-        <layer pass="0" class="SimpleLine" locked="0">
-          <prop k="line_color" v="0,0,0,255"/>
-          <prop k="line_width" v="2.30"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="square"/>
-          <prop k="joinstyle" v="miter"/>
-        </layer>
-        <layer pass="1" class="SimpleLine" locked="0">
-          <prop k="line_color" v="200,78,47,255"/>
-          <prop k="line_width" v="1.80"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="square"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-        <layer pass="2" class="SimpleLine" locked="0">
-          <prop k="line_color" v="249,178,156,255"/>
-          <prop k="line_width" v="1.30"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="square"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-      </symbol>
-      <symbol type="line" name="21" alpha="1" force_rhr="0" clip_to_extent="1">
-        <layer pass="1" class="SimpleLine" locked="0">
-          <prop k="line_color" v="200,78,47,255"/>
-          <prop k="line_width" v="1.80"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="round"/>
-          <prop k="joinstyle" v="round"/>
-          <prop k="customdash" v="4;2.5"/>
-          <prop k="use_custom_dash" v="1"/>
-        </layer>
-        <layer pass="2" class="SimpleLine" locked="0">
-          <prop k="line_color" v="249,178,156,255"/>
-          <prop k="line_width" v="1.30"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="round"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-        <layer pass="3" class="MarkerLine" locked="0">
-          <prop k="placement" v="interval"/>
-          <prop k="interval" v="20"/>
-          <prop k="interval_unit" v="MM"/>
-          <prop k="rotate" v="1"/>
-          <prop k="offset" v="0"/>
-          <prop k="offset_unit" v="MM"/>
-          <prop k="ring_filter" v="0"/>
-          <symbol type="marker" name="@21@2" alpha="1" force_rhr="0" clip_to_extent="1">
-            <layer pass="0" class="SimpleMarker" locked="0">
-              <prop k="name" v="filled_arrowhead"/>
-              <prop k="color" v="80,80,80,230"/>
-              <prop k="outline_color" v="80,80,80,230"/>
-              <prop k="size" v="2.2"/>
-              <prop k="size_unit" v="MM"/>
-              <prop k="angle" v="0"/>
-              <prop k="joinstyle" v="round"/>
-            </layer>
-          </symbol>
-        </layer>
-      </symbol>
-      <symbol type="line" name="22" alpha="1" force_rhr="0" clip_to_extent="1">
-        <layer pass="1" class="SimpleLine" locked="0">
-          <prop k="line_color" v="200,78,47,255"/>
-          <prop k="line_width" v="1.80"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="round"/>
-          <prop k="joinstyle" v="round"/>
-          <prop k="customdash" v="4;2.5"/>
-          <prop k="use_custom_dash" v="1"/>
-        </layer>
-        <layer pass="2" class="SimpleLine" locked="0">
-          <prop k="line_color" v="249,178,156,255"/>
-          <prop k="line_width" v="1.30"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="round"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-        <layer pass="3" class="MarkerLine" locked="0">
-          <prop k="placement" v="interval"/>
-          <prop k="interval" v="20"/>
-          <prop k="interval_unit" v="MM"/>
-          <prop k="rotate" v="1"/>
-          <prop k="offset" v="0"/>
-          <prop k="offset_unit" v="MM"/>
-          <prop k="ring_filter" v="0"/>
-          <symbol type="marker" name="@22@2" alpha="1" force_rhr="0" clip_to_extent="1">
-            <layer pass="0" class="SimpleMarker" locked="0">
-              <prop k="name" v="filled_arrowhead"/>
-              <prop k="color" v="80,80,80,230"/>
-              <prop k="outline_color" v="80,80,80,230"/>
-              <prop k="size" v="2.2"/>
-              <prop k="size_unit" v="MM"/>
-              <prop k="angle" v="180"/>
-              <prop k="joinstyle" v="round"/>
-            </layer>
-          </symbol>
-        </layer>
-      </symbol>
-      <symbol type="line" name="23" alpha="1" force_rhr="0" clip_to_extent="1">
-        <layer pass="1" class="SimpleLine" locked="0">
-          <prop k="line_color" v="200,78,47,255"/>
-          <prop k="line_width" v="1.80"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="round"/>
-          <prop k="joinstyle" v="round"/>
-          <prop k="customdash" v="4;2.5"/>
-          <prop k="use_custom_dash" v="1"/>
-        </layer>
-        <layer pass="2" class="SimpleLine" locked="0">
-          <prop k="line_color" v="249,178,156,255"/>
-          <prop k="line_width" v="1.30"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="round"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-      </symbol>
-      <symbol type="line" name="24" alpha="1" force_rhr="0" clip_to_extent="1">
-        <layer pass="1" class="SimpleLine" locked="0">
-          <prop k="line_color" v="200,78,47,255"/>
-          <prop k="line_width" v="1.80"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="round"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-        <layer pass="2" class="SimpleLine" locked="0">
-          <prop k="line_color" v="249,178,156,255"/>
-          <prop k="line_width" v="1.30"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="round"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-        <layer pass="3" class="MarkerLine" locked="0">
-          <prop k="placement" v="interval"/>
-          <prop k="interval" v="20"/>
-          <prop k="interval_unit" v="MM"/>
-          <prop k="rotate" v="1"/>
-          <prop k="offset" v="0"/>
-          <prop k="offset_unit" v="MM"/>
-          <prop k="ring_filter" v="0"/>
-          <symbol type="marker" name="@24@2" alpha="1" force_rhr="0" clip_to_extent="1">
-            <layer pass="0" class="SimpleMarker" locked="0">
-              <prop k="name" v="filled_arrowhead"/>
-              <prop k="color" v="80,80,80,230"/>
-              <prop k="outline_color" v="80,80,80,230"/>
-              <prop k="size" v="2.2"/>
-              <prop k="size_unit" v="MM"/>
-              <prop k="angle" v="0"/>
-              <prop k="joinstyle" v="round"/>
-            </layer>
-          </symbol>
-        </layer>
-      </symbol>
-      <symbol type="line" name="25" alpha="1" force_rhr="0" clip_to_extent="1">
-        <layer pass="1" class="SimpleLine" locked="0">
-          <prop k="line_color" v="200,78,47,255"/>
-          <prop k="line_width" v="1.80"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="round"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-        <layer pass="2" class="SimpleLine" locked="0">
-          <prop k="line_color" v="249,178,156,255"/>
-          <prop k="line_width" v="1.30"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="round"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-        <layer pass="3" class="MarkerLine" locked="0">
-          <prop k="placement" v="interval"/>
-          <prop k="interval" v="20"/>
-          <prop k="interval_unit" v="MM"/>
-          <prop k="rotate" v="1"/>
-          <prop k="offset" v="0"/>
-          <prop k="offset_unit" v="MM"/>
-          <prop k="ring_filter" v="0"/>
-          <symbol type="marker" name="@25@2" alpha="1" force_rhr="0" clip_to_extent="1">
-            <layer pass="0" class="SimpleMarker" locked="0">
-              <prop k="name" v="filled_arrowhead"/>
-              <prop k="color" v="80,80,80,230"/>
-              <prop k="outline_color" v="80,80,80,230"/>
-              <prop k="size" v="2.2"/>
-              <prop k="size_unit" v="MM"/>
-              <prop k="angle" v="180"/>
-              <prop k="joinstyle" v="round"/>
-            </layer>
-          </symbol>
-        </layer>
-      </symbol>
-      <symbol type="line" name="26" alpha="1" force_rhr="0" clip_to_extent="1">
-        <layer pass="1" class="SimpleLine" locked="0">
-          <prop k="line_color" v="200,78,47,255"/>
-          <prop k="line_width" v="1.80"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="round"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-        <layer pass="2" class="SimpleLine" locked="0">
-          <prop k="line_color" v="249,178,156,255"/>
-          <prop k="line_width" v="1.30"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="round"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-      </symbol>
-      <symbol type="line" name="27" alpha="1" force_rhr="0" clip_to_extent="1">
-        <layer pass="0" class="SimpleLine" locked="0">
-          <prop k="line_color" v="0,0,0,255"/>
-          <prop k="line_width" v="1.80"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="square"/>
-          <prop k="joinstyle" v="miter"/>
-        </layer>
-        <layer pass="1" class="SimpleLine" locked="0">
-          <prop k="line_color" v="200,78,47,255"/>
-          <prop k="line_width" v="1.30"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="square"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-        <layer pass="2" class="SimpleLine" locked="0">
-          <prop k="line_color" v="249,178,156,255"/>
-          <prop k="line_width" v="0.90"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="square"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-        <layer pass="3" class="MarkerLine" locked="0">
-          <prop k="placement" v="interval"/>
-          <prop k="interval" v="20"/>
-          <prop k="interval_unit" v="MM"/>
-          <prop k="rotate" v="1"/>
-          <prop k="offset" v="0"/>
-          <prop k="offset_unit" v="MM"/>
-          <prop k="ring_filter" v="0"/>
-          <symbol type="marker" name="@27@3" alpha="1" force_rhr="0" clip_to_extent="1">
-            <layer pass="0" class="SimpleMarker" locked="0">
-              <prop k="name" v="filled_arrowhead"/>
-              <prop k="color" v="80,80,80,230"/>
-              <prop k="outline_color" v="80,80,80,230"/>
-              <prop k="size" v="2.2"/>
-              <prop k="size_unit" v="MM"/>
-              <prop k="angle" v="0"/>
-              <prop k="joinstyle" v="round"/>
-            </layer>
-          </symbol>
-        </layer>
-      </symbol>
-      <symbol type="line" name="28" alpha="1" force_rhr="0" clip_to_extent="1">
-        <layer pass="0" class="SimpleLine" locked="0">
-          <prop k="line_color" v="0,0,0,255"/>
-          <prop k="line_width" v="1.80"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="square"/>
-          <prop k="joinstyle" v="miter"/>
-        </layer>
-        <layer pass="1" class="SimpleLine" locked="0">
-          <prop k="line_color" v="200,78,47,255"/>
-          <prop k="line_width" v="1.30"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="square"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-        <layer pass="2" class="SimpleLine" locked="0">
-          <prop k="line_color" v="249,178,156,255"/>
-          <prop k="line_width" v="0.90"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="square"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-        <layer pass="3" class="MarkerLine" locked="0">
-          <prop k="placement" v="interval"/>
-          <prop k="interval" v="20"/>
-          <prop k="interval_unit" v="MM"/>
-          <prop k="rotate" v="1"/>
-          <prop k="offset" v="0"/>
-          <prop k="offset_unit" v="MM"/>
-          <prop k="ring_filter" v="0"/>
-          <symbol type="marker" name="@28@3" alpha="1" force_rhr="0" clip_to_extent="1">
-            <layer pass="0" class="SimpleMarker" locked="0">
-              <prop k="name" v="filled_arrowhead"/>
-              <prop k="color" v="80,80,80,230"/>
-              <prop k="outline_color" v="80,80,80,230"/>
-              <prop k="size" v="2.2"/>
-              <prop k="size_unit" v="MM"/>
-              <prop k="angle" v="180"/>
-              <prop k="joinstyle" v="round"/>
-            </layer>
-          </symbol>
-        </layer>
-      </symbol>
-      <symbol type="line" name="29" alpha="1" force_rhr="0" clip_to_extent="1">
-        <layer pass="0" class="SimpleLine" locked="0">
-          <prop k="line_color" v="0,0,0,255"/>
-          <prop k="line_width" v="1.80"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="square"/>
-          <prop k="joinstyle" v="miter"/>
-        </layer>
-        <layer pass="1" class="SimpleLine" locked="0">
-          <prop k="line_color" v="200,78,47,255"/>
-          <prop k="line_width" v="1.30"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="square"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-        <layer pass="2" class="SimpleLine" locked="0">
-          <prop k="line_color" v="249,178,156,255"/>
-          <prop k="line_width" v="0.90"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="square"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-      </symbol>
-      <symbol type="line" name="30" alpha="1" force_rhr="0" clip_to_extent="1">
-        <layer pass="1" class="SimpleLine" locked="0">
-          <prop k="line_color" v="200,78,47,255"/>
-          <prop k="line_width" v="1.30"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="round"/>
-          <prop k="joinstyle" v="round"/>
-          <prop k="customdash" v="4;2.5"/>
-          <prop k="use_custom_dash" v="1"/>
-        </layer>
-        <layer pass="2" class="SimpleLine" locked="0">
-          <prop k="line_color" v="249,178,156,255"/>
-          <prop k="line_width" v="0.90"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="round"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-        <layer pass="3" class="MarkerLine" locked="0">
-          <prop k="placement" v="interval"/>
-          <prop k="interval" v="20"/>
-          <prop k="interval_unit" v="MM"/>
-          <prop k="rotate" v="1"/>
-          <prop k="offset" v="0"/>
-          <prop k="offset_unit" v="MM"/>
-          <prop k="ring_filter" v="0"/>
-          <symbol type="marker" name="@30@2" alpha="1" force_rhr="0" clip_to_extent="1">
-            <layer pass="0" class="SimpleMarker" locked="0">
-              <prop k="name" v="filled_arrowhead"/>
-              <prop k="color" v="80,80,80,230"/>
-              <prop k="outline_color" v="80,80,80,230"/>
-              <prop k="size" v="2.2"/>
-              <prop k="size_unit" v="MM"/>
-              <prop k="angle" v="0"/>
-              <prop k="joinstyle" v="round"/>
-            </layer>
-          </symbol>
-        </layer>
-      </symbol>
-      <symbol type="line" name="31" alpha="1" force_rhr="0" clip_to_extent="1">
-        <layer pass="1" class="SimpleLine" locked="0">
-          <prop k="line_color" v="200,78,47,255"/>
-          <prop k="line_width" v="1.30"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="round"/>
-          <prop k="joinstyle" v="round"/>
-          <prop k="customdash" v="4;2.5"/>
-          <prop k="use_custom_dash" v="1"/>
-        </layer>
-        <layer pass="2" class="SimpleLine" locked="0">
-          <prop k="line_color" v="249,178,156,255"/>
-          <prop k="line_width" v="0.90"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="round"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-        <layer pass="3" class="MarkerLine" locked="0">
-          <prop k="placement" v="interval"/>
-          <prop k="interval" v="20"/>
-          <prop k="interval_unit" v="MM"/>
-          <prop k="rotate" v="1"/>
-          <prop k="offset" v="0"/>
-          <prop k="offset_unit" v="MM"/>
-          <prop k="ring_filter" v="0"/>
-          <symbol type="marker" name="@31@2" alpha="1" force_rhr="0" clip_to_extent="1">
-            <layer pass="0" class="SimpleMarker" locked="0">
-              <prop k="name" v="filled_arrowhead"/>
-              <prop k="color" v="80,80,80,230"/>
-              <prop k="outline_color" v="80,80,80,230"/>
-              <prop k="size" v="2.2"/>
-              <prop k="size_unit" v="MM"/>
-              <prop k="angle" v="180"/>
-              <prop k="joinstyle" v="round"/>
-            </layer>
-          </symbol>
-        </layer>
-      </symbol>
-      <symbol type="line" name="32" alpha="1" force_rhr="0" clip_to_extent="1">
-        <layer pass="1" class="SimpleLine" locked="0">
-          <prop k="line_color" v="200,78,47,255"/>
-          <prop k="line_width" v="1.30"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="round"/>
-          <prop k="joinstyle" v="round"/>
-          <prop k="customdash" v="4;2.5"/>
-          <prop k="use_custom_dash" v="1"/>
-        </layer>
-        <layer pass="2" class="SimpleLine" locked="0">
-          <prop k="line_color" v="249,178,156,255"/>
-          <prop k="line_width" v="0.90"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="round"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-      </symbol>
-      <symbol type="line" name="33" alpha="1" force_rhr="0" clip_to_extent="1">
-        <layer pass="1" class="SimpleLine" locked="0">
-          <prop k="line_color" v="200,78,47,255"/>
-          <prop k="line_width" v="1.30"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="round"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-        <layer pass="2" class="SimpleLine" locked="0">
-          <prop k="line_color" v="249,178,156,255"/>
-          <prop k="line_width" v="0.90"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="round"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-        <layer pass="3" class="MarkerLine" locked="0">
-          <prop k="placement" v="interval"/>
-          <prop k="interval" v="20"/>
-          <prop k="interval_unit" v="MM"/>
-          <prop k="rotate" v="1"/>
-          <prop k="offset" v="0"/>
-          <prop k="offset_unit" v="MM"/>
-          <prop k="ring_filter" v="0"/>
-          <symbol type="marker" name="@33@2" alpha="1" force_rhr="0" clip_to_extent="1">
-            <layer pass="0" class="SimpleMarker" locked="0">
-              <prop k="name" v="filled_arrowhead"/>
-              <prop k="color" v="80,80,80,230"/>
-              <prop k="outline_color" v="80,80,80,230"/>
-              <prop k="size" v="2.2"/>
-              <prop k="size_unit" v="MM"/>
-              <prop k="angle" v="0"/>
-              <prop k="joinstyle" v="round"/>
-            </layer>
-          </symbol>
-        </layer>
-      </symbol>
-      <symbol type="line" name="34" alpha="1" force_rhr="0" clip_to_extent="1">
-        <layer pass="1" class="SimpleLine" locked="0">
-          <prop k="line_color" v="200,78,47,255"/>
-          <prop k="line_width" v="1.30"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="round"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-        <layer pass="2" class="SimpleLine" locked="0">
-          <prop k="line_color" v="249,178,156,255"/>
-          <prop k="line_width" v="0.90"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="round"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-        <layer pass="3" class="MarkerLine" locked="0">
-          <prop k="placement" v="interval"/>
-          <prop k="interval" v="20"/>
-          <prop k="interval_unit" v="MM"/>
-          <prop k="rotate" v="1"/>
-          <prop k="offset" v="0"/>
-          <prop k="offset_unit" v="MM"/>
-          <prop k="ring_filter" v="0"/>
-          <symbol type="marker" name="@34@2" alpha="1" force_rhr="0" clip_to_extent="1">
-            <layer pass="0" class="SimpleMarker" locked="0">
-              <prop k="name" v="filled_arrowhead"/>
-              <prop k="color" v="80,80,80,230"/>
-              <prop k="outline_color" v="80,80,80,230"/>
-              <prop k="size" v="2.2"/>
-              <prop k="size_unit" v="MM"/>
-              <prop k="angle" v="180"/>
-              <prop k="joinstyle" v="round"/>
-            </layer>
-          </symbol>
-        </layer>
-      </symbol>
-      <symbol type="line" name="35" alpha="1" force_rhr="0" clip_to_extent="1">
-        <layer pass="1" class="SimpleLine" locked="0">
-          <prop k="line_color" v="200,78,47,255"/>
-          <prop k="line_width" v="1.30"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="round"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-        <layer pass="2" class="SimpleLine" locked="0">
-          <prop k="line_color" v="249,178,156,255"/>
-          <prop k="line_width" v="0.90"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="round"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-      </symbol>
-      <symbol type="line" name="36" alpha="1" force_rhr="0" clip_to_extent="1">
-        <layer pass="0" class="SimpleLine" locked="0">
-          <prop k="line_color" v="0,0,0,255"/>
-          <prop k="line_width" v="2.10"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="square"/>
-          <prop k="joinstyle" v="miter"/>
-        </layer>
-        <layer pass="1" class="SimpleLine" locked="0">
-          <prop k="line_color" v="160,107,0,255"/>
-          <prop k="line_width" v="1.60"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="square"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-        <layer pass="2" class="SimpleLine" locked="0">
-          <prop k="line_color" v="252,214,164,255"/>
-          <prop k="line_width" v="1.15"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="square"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-        <layer pass="3" class="MarkerLine" locked="0">
-          <prop k="placement" v="interval"/>
-          <prop k="interval" v="20"/>
-          <prop k="interval_unit" v="MM"/>
-          <prop k="rotate" v="1"/>
-          <prop k="offset" v="0"/>
-          <prop k="offset_unit" v="MM"/>
-          <prop k="ring_filter" v="0"/>
-          <symbol type="marker" name="@36@3" alpha="1" force_rhr="0" clip_to_extent="1">
-            <layer pass="0" class="SimpleMarker" locked="0">
-              <prop k="name" v="filled_arrowhead"/>
-              <prop k="color" v="80,80,80,230"/>
-              <prop k="outline_color" v="80,80,80,230"/>
-              <prop k="size" v="2.2"/>
-              <prop k="size_unit" v="MM"/>
-              <prop k="angle" v="0"/>
-              <prop k="joinstyle" v="round"/>
-            </layer>
-          </symbol>
-        </layer>
-      </symbol>
-      <symbol type="line" name="37" alpha="1" force_rhr="0" clip_to_extent="1">
-        <layer pass="0" class="SimpleLine" locked="0">
-          <prop k="line_color" v="0,0,0,255"/>
-          <prop k="line_width" v="2.10"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="square"/>
-          <prop k="joinstyle" v="miter"/>
-        </layer>
-        <layer pass="1" class="SimpleLine" locked="0">
-          <prop k="line_color" v="160,107,0,255"/>
-          <prop k="line_width" v="1.60"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="square"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-        <layer pass="2" class="SimpleLine" locked="0">
-          <prop k="line_color" v="252,214,164,255"/>
-          <prop k="line_width" v="1.15"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="square"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-        <layer pass="3" class="MarkerLine" locked="0">
-          <prop k="placement" v="interval"/>
-          <prop k="interval" v="20"/>
-          <prop k="interval_unit" v="MM"/>
-          <prop k="rotate" v="1"/>
-          <prop k="offset" v="0"/>
-          <prop k="offset_unit" v="MM"/>
-          <prop k="ring_filter" v="0"/>
-          <symbol type="marker" name="@37@3" alpha="1" force_rhr="0" clip_to_extent="1">
-            <layer pass="0" class="SimpleMarker" locked="0">
-              <prop k="name" v="filled_arrowhead"/>
-              <prop k="color" v="80,80,80,230"/>
-              <prop k="outline_color" v="80,80,80,230"/>
-              <prop k="size" v="2.2"/>
-              <prop k="size_unit" v="MM"/>
-              <prop k="angle" v="180"/>
-              <prop k="joinstyle" v="round"/>
-            </layer>
-          </symbol>
-        </layer>
-      </symbol>
-      <symbol type="line" name="38" alpha="1" force_rhr="0" clip_to_extent="1">
-        <layer pass="0" class="SimpleLine" locked="0">
-          <prop k="line_color" v="0,0,0,255"/>
-          <prop k="line_width" v="2.10"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="square"/>
-          <prop k="joinstyle" v="miter"/>
-        </layer>
-        <layer pass="1" class="SimpleLine" locked="0">
-          <prop k="line_color" v="160,107,0,255"/>
-          <prop k="line_width" v="1.60"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="square"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-        <layer pass="2" class="SimpleLine" locked="0">
-          <prop k="line_color" v="252,214,164,255"/>
-          <prop k="line_width" v="1.15"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="square"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-      </symbol>
-      <symbol type="line" name="39" alpha="1" force_rhr="0" clip_to_extent="1">
-        <layer pass="1" class="SimpleLine" locked="0">
-          <prop k="line_color" v="160,107,0,255"/>
-          <prop k="line_width" v="1.60"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="round"/>
-          <prop k="joinstyle" v="round"/>
-          <prop k="customdash" v="4;2.5"/>
-          <prop k="use_custom_dash" v="1"/>
-        </layer>
-        <layer pass="2" class="SimpleLine" locked="0">
-          <prop k="line_color" v="252,214,164,255"/>
-          <prop k="line_width" v="1.15"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="round"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-        <layer pass="3" class="MarkerLine" locked="0">
-          <prop k="placement" v="interval"/>
-          <prop k="interval" v="20"/>
-          <prop k="interval_unit" v="MM"/>
-          <prop k="rotate" v="1"/>
-          <prop k="offset" v="0"/>
-          <prop k="offset_unit" v="MM"/>
-          <prop k="ring_filter" v="0"/>
-          <symbol type="marker" name="@39@2" alpha="1" force_rhr="0" clip_to_extent="1">
-            <layer pass="0" class="SimpleMarker" locked="0">
-              <prop k="name" v="filled_arrowhead"/>
-              <prop k="color" v="80,80,80,230"/>
-              <prop k="outline_color" v="80,80,80,230"/>
-              <prop k="size" v="2.2"/>
-              <prop k="size_unit" v="MM"/>
-              <prop k="angle" v="0"/>
-              <prop k="joinstyle" v="round"/>
-            </layer>
-          </symbol>
-        </layer>
-      </symbol>
-      <symbol type="line" name="40" alpha="1" force_rhr="0" clip_to_extent="1">
-        <layer pass="1" class="SimpleLine" locked="0">
-          <prop k="line_color" v="160,107,0,255"/>
-          <prop k="line_width" v="1.60"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="round"/>
-          <prop k="joinstyle" v="round"/>
-          <prop k="customdash" v="4;2.5"/>
-          <prop k="use_custom_dash" v="1"/>
-        </layer>
-        <layer pass="2" class="SimpleLine" locked="0">
-          <prop k="line_color" v="252,214,164,255"/>
-          <prop k="line_width" v="1.15"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="round"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-        <layer pass="3" class="MarkerLine" locked="0">
-          <prop k="placement" v="interval"/>
-          <prop k="interval" v="20"/>
-          <prop k="interval_unit" v="MM"/>
-          <prop k="rotate" v="1"/>
-          <prop k="offset" v="0"/>
-          <prop k="offset_unit" v="MM"/>
-          <prop k="ring_filter" v="0"/>
-          <symbol type="marker" name="@40@2" alpha="1" force_rhr="0" clip_to_extent="1">
-            <layer pass="0" class="SimpleMarker" locked="0">
-              <prop k="name" v="filled_arrowhead"/>
-              <prop k="color" v="80,80,80,230"/>
-              <prop k="outline_color" v="80,80,80,230"/>
-              <prop k="size" v="2.2"/>
-              <prop k="size_unit" v="MM"/>
-              <prop k="angle" v="180"/>
-              <prop k="joinstyle" v="round"/>
-            </layer>
-          </symbol>
-        </layer>
-      </symbol>
-      <symbol type="line" name="41" alpha="1" force_rhr="0" clip_to_extent="1">
-        <layer pass="1" class="SimpleLine" locked="0">
-          <prop k="line_color" v="160,107,0,255"/>
-          <prop k="line_width" v="1.60"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="round"/>
-          <prop k="joinstyle" v="round"/>
-          <prop k="customdash" v="4;2.5"/>
-          <prop k="use_custom_dash" v="1"/>
-        </layer>
-        <layer pass="2" class="SimpleLine" locked="0">
-          <prop k="line_color" v="252,214,164,255"/>
-          <prop k="line_width" v="1.15"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="round"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-      </symbol>
-      <symbol type="line" name="42" alpha="1" force_rhr="0" clip_to_extent="1">
-        <layer pass="1" class="SimpleLine" locked="0">
-          <prop k="line_color" v="160,107,0,255"/>
-          <prop k="line_width" v="1.60"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="round"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-        <layer pass="2" class="SimpleLine" locked="0">
-          <prop k="line_color" v="252,214,164,255"/>
-          <prop k="line_width" v="1.15"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="round"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-        <layer pass="3" class="MarkerLine" locked="0">
-          <prop k="placement" v="interval"/>
-          <prop k="interval" v="20"/>
-          <prop k="interval_unit" v="MM"/>
-          <prop k="rotate" v="1"/>
-          <prop k="offset" v="0"/>
-          <prop k="offset_unit" v="MM"/>
-          <prop k="ring_filter" v="0"/>
-          <symbol type="marker" name="@42@2" alpha="1" force_rhr="0" clip_to_extent="1">
-            <layer pass="0" class="SimpleMarker" locked="0">
-              <prop k="name" v="filled_arrowhead"/>
-              <prop k="color" v="80,80,80,230"/>
-              <prop k="outline_color" v="80,80,80,230"/>
-              <prop k="size" v="2.2"/>
-              <prop k="size_unit" v="MM"/>
-              <prop k="angle" v="0"/>
-              <prop k="joinstyle" v="round"/>
-            </layer>
-          </symbol>
-        </layer>
-      </symbol>
-      <symbol type="line" name="43" alpha="1" force_rhr="0" clip_to_extent="1">
-        <layer pass="1" class="SimpleLine" locked="0">
-          <prop k="line_color" v="160,107,0,255"/>
-          <prop k="line_width" v="1.60"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="round"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-        <layer pass="2" class="SimpleLine" locked="0">
-          <prop k="line_color" v="252,214,164,255"/>
-          <prop k="line_width" v="1.15"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="round"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-        <layer pass="3" class="MarkerLine" locked="0">
-          <prop k="placement" v="interval"/>
-          <prop k="interval" v="20"/>
-          <prop k="interval_unit" v="MM"/>
-          <prop k="rotate" v="1"/>
-          <prop k="offset" v="0"/>
-          <prop k="offset_unit" v="MM"/>
-          <prop k="ring_filter" v="0"/>
-          <symbol type="marker" name="@43@2" alpha="1" force_rhr="0" clip_to_extent="1">
-            <layer pass="0" class="SimpleMarker" locked="0">
-              <prop k="name" v="filled_arrowhead"/>
-              <prop k="color" v="80,80,80,230"/>
-              <prop k="outline_color" v="80,80,80,230"/>
-              <prop k="size" v="2.2"/>
-              <prop k="size_unit" v="MM"/>
-              <prop k="angle" v="180"/>
-              <prop k="joinstyle" v="round"/>
-            </layer>
-          </symbol>
-        </layer>
-      </symbol>
-      <symbol type="line" name="44" alpha="1" force_rhr="0" clip_to_extent="1">
-        <layer pass="1" class="SimpleLine" locked="0">
-          <prop k="line_color" v="160,107,0,255"/>
-          <prop k="line_width" v="1.60"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="round"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-        <layer pass="2" class="SimpleLine" locked="0">
-          <prop k="line_color" v="252,214,164,255"/>
-          <prop k="line_width" v="1.15"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="round"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-      </symbol>
-      <symbol type="line" name="45" alpha="1" force_rhr="0" clip_to_extent="1">
-        <layer pass="0" class="SimpleLine" locked="0">
-          <prop k="line_color" v="0,0,0,255"/>
-          <prop k="line_width" v="1.70"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="square"/>
-          <prop k="joinstyle" v="miter"/>
-        </layer>
-        <layer pass="1" class="SimpleLine" locked="0">
-          <prop k="line_color" v="160,107,0,255"/>
-          <prop k="line_width" v="1.20"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="square"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-        <layer pass="2" class="SimpleLine" locked="0">
-          <prop k="line_color" v="252,214,164,255"/>
-          <prop k="line_width" v="0.80"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="square"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-        <layer pass="3" class="MarkerLine" locked="0">
-          <prop k="placement" v="interval"/>
-          <prop k="interval" v="20"/>
-          <prop k="interval_unit" v="MM"/>
-          <prop k="rotate" v="1"/>
-          <prop k="offset" v="0"/>
-          <prop k="offset_unit" v="MM"/>
-          <prop k="ring_filter" v="0"/>
-          <symbol type="marker" name="@45@3" alpha="1" force_rhr="0" clip_to_extent="1">
-            <layer pass="0" class="SimpleMarker" locked="0">
-              <prop k="name" v="filled_arrowhead"/>
-              <prop k="color" v="80,80,80,230"/>
-              <prop k="outline_color" v="80,80,80,230"/>
-              <prop k="size" v="2.2"/>
-              <prop k="size_unit" v="MM"/>
-              <prop k="angle" v="0"/>
-              <prop k="joinstyle" v="round"/>
-            </layer>
-          </symbol>
-        </layer>
-      </symbol>
-      <symbol type="line" name="46" alpha="1" force_rhr="0" clip_to_extent="1">
-        <layer pass="0" class="SimpleLine" locked="0">
-          <prop k="line_color" v="0,0,0,255"/>
-          <prop k="line_width" v="1.70"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="square"/>
-          <prop k="joinstyle" v="miter"/>
-        </layer>
-        <layer pass="1" class="SimpleLine" locked="0">
-          <prop k="line_color" v="160,107,0,255"/>
-          <prop k="line_width" v="1.20"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="square"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-        <layer pass="2" class="SimpleLine" locked="0">
-          <prop k="line_color" v="252,214,164,255"/>
-          <prop k="line_width" v="0.80"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="square"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-        <layer pass="3" class="MarkerLine" locked="0">
-          <prop k="placement" v="interval"/>
-          <prop k="interval" v="20"/>
-          <prop k="interval_unit" v="MM"/>
-          <prop k="rotate" v="1"/>
-          <prop k="offset" v="0"/>
-          <prop k="offset_unit" v="MM"/>
-          <prop k="ring_filter" v="0"/>
-          <symbol type="marker" name="@46@3" alpha="1" force_rhr="0" clip_to_extent="1">
-            <layer pass="0" class="SimpleMarker" locked="0">
-              <prop k="name" v="filled_arrowhead"/>
-              <prop k="color" v="80,80,80,230"/>
-              <prop k="outline_color" v="80,80,80,230"/>
-              <prop k="size" v="2.2"/>
-              <prop k="size_unit" v="MM"/>
-              <prop k="angle" v="180"/>
-              <prop k="joinstyle" v="round"/>
-            </layer>
-          </symbol>
-        </layer>
-      </symbol>
-      <symbol type="line" name="47" alpha="1" force_rhr="0" clip_to_extent="1">
-        <layer pass="0" class="SimpleLine" locked="0">
-          <prop k="line_color" v="0,0,0,255"/>
-          <prop k="line_width" v="1.70"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="square"/>
-          <prop k="joinstyle" v="miter"/>
-        </layer>
-        <layer pass="1" class="SimpleLine" locked="0">
-          <prop k="line_color" v="160,107,0,255"/>
-          <prop k="line_width" v="1.20"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="square"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-        <layer pass="2" class="SimpleLine" locked="0">
-          <prop k="line_color" v="252,214,164,255"/>
-          <prop k="line_width" v="0.80"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="square"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-      </symbol>
-      <symbol type="line" name="48" alpha="1" force_rhr="0" clip_to_extent="1">
-        <layer pass="1" class="SimpleLine" locked="0">
-          <prop k="line_color" v="160,107,0,255"/>
-          <prop k="line_width" v="1.20"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="round"/>
-          <prop k="joinstyle" v="round"/>
-          <prop k="customdash" v="4;2.5"/>
-          <prop k="use_custom_dash" v="1"/>
-        </layer>
-        <layer pass="2" class="SimpleLine" locked="0">
-          <prop k="line_color" v="252,214,164,255"/>
-          <prop k="line_width" v="0.80"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="round"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-        <layer pass="3" class="MarkerLine" locked="0">
-          <prop k="placement" v="interval"/>
-          <prop k="interval" v="20"/>
-          <prop k="interval_unit" v="MM"/>
-          <prop k="rotate" v="1"/>
-          <prop k="offset" v="0"/>
-          <prop k="offset_unit" v="MM"/>
-          <prop k="ring_filter" v="0"/>
-          <symbol type="marker" name="@48@2" alpha="1" force_rhr="0" clip_to_extent="1">
-            <layer pass="0" class="SimpleMarker" locked="0">
-              <prop k="name" v="filled_arrowhead"/>
-              <prop k="color" v="80,80,80,230"/>
-              <prop k="outline_color" v="80,80,80,230"/>
-              <prop k="size" v="2.2"/>
-              <prop k="size_unit" v="MM"/>
-              <prop k="angle" v="0"/>
-              <prop k="joinstyle" v="round"/>
-            </layer>
-          </symbol>
-        </layer>
-      </symbol>
-      <symbol type="line" name="49" alpha="1" force_rhr="0" clip_to_extent="1">
-        <layer pass="1" class="SimpleLine" locked="0">
-          <prop k="line_color" v="160,107,0,255"/>
-          <prop k="line_width" v="1.20"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="round"/>
-          <prop k="joinstyle" v="round"/>
-          <prop k="customdash" v="4;2.5"/>
-          <prop k="use_custom_dash" v="1"/>
-        </layer>
-        <layer pass="2" class="SimpleLine" locked="0">
-          <prop k="line_color" v="252,214,164,255"/>
-          <prop k="line_width" v="0.80"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="round"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-        <layer pass="3" class="MarkerLine" locked="0">
-          <prop k="placement" v="interval"/>
-          <prop k="interval" v="20"/>
-          <prop k="interval_unit" v="MM"/>
-          <prop k="rotate" v="1"/>
-          <prop k="offset" v="0"/>
-          <prop k="offset_unit" v="MM"/>
-          <prop k="ring_filter" v="0"/>
-          <symbol type="marker" name="@49@2" alpha="1" force_rhr="0" clip_to_extent="1">
-            <layer pass="0" class="SimpleMarker" locked="0">
-              <prop k="name" v="filled_arrowhead"/>
-              <prop k="color" v="80,80,80,230"/>
-              <prop k="outline_color" v="80,80,80,230"/>
-              <prop k="size" v="2.2"/>
-              <prop k="size_unit" v="MM"/>
-              <prop k="angle" v="180"/>
-              <prop k="joinstyle" v="round"/>
-            </layer>
-          </symbol>
-        </layer>
-      </symbol>
-      <symbol type="line" name="50" alpha="1" force_rhr="0" clip_to_extent="1">
-        <layer pass="1" class="SimpleLine" locked="0">
-          <prop k="line_color" v="160,107,0,255"/>
-          <prop k="line_width" v="1.20"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="round"/>
-          <prop k="joinstyle" v="round"/>
-          <prop k="customdash" v="4;2.5"/>
-          <prop k="use_custom_dash" v="1"/>
-        </layer>
-        <layer pass="2" class="SimpleLine" locked="0">
-          <prop k="line_color" v="252,214,164,255"/>
-          <prop k="line_width" v="0.80"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="round"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-      </symbol>
-      <symbol type="line" name="51" alpha="1" force_rhr="0" clip_to_extent="1">
-        <layer pass="1" class="SimpleLine" locked="0">
-          <prop k="line_color" v="160,107,0,255"/>
-          <prop k="line_width" v="1.20"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="round"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-        <layer pass="2" class="SimpleLine" locked="0">
-          <prop k="line_color" v="252,214,164,255"/>
-          <prop k="line_width" v="0.80"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="round"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-        <layer pass="3" class="MarkerLine" locked="0">
-          <prop k="placement" v="interval"/>
-          <prop k="interval" v="20"/>
-          <prop k="interval_unit" v="MM"/>
-          <prop k="rotate" v="1"/>
-          <prop k="offset" v="0"/>
-          <prop k="offset_unit" v="MM"/>
-          <prop k="ring_filter" v="0"/>
-          <symbol type="marker" name="@51@2" alpha="1" force_rhr="0" clip_to_extent="1">
-            <layer pass="0" class="SimpleMarker" locked="0">
-              <prop k="name" v="filled_arrowhead"/>
-              <prop k="color" v="80,80,80,230"/>
-              <prop k="outline_color" v="80,80,80,230"/>
-              <prop k="size" v="2.2"/>
-              <prop k="size_unit" v="MM"/>
-              <prop k="angle" v="0"/>
-              <prop k="joinstyle" v="round"/>
-            </layer>
-          </symbol>
-        </layer>
-      </symbol>
-      <symbol type="line" name="52" alpha="1" force_rhr="0" clip_to_extent="1">
-        <layer pass="1" class="SimpleLine" locked="0">
-          <prop k="line_color" v="160,107,0,255"/>
-          <prop k="line_width" v="1.20"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="round"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-        <layer pass="2" class="SimpleLine" locked="0">
-          <prop k="line_color" v="252,214,164,255"/>
-          <prop k="line_width" v="0.80"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="round"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-        <layer pass="3" class="MarkerLine" locked="0">
-          <prop k="placement" v="interval"/>
-          <prop k="interval" v="20"/>
-          <prop k="interval_unit" v="MM"/>
-          <prop k="rotate" v="1"/>
-          <prop k="offset" v="0"/>
-          <prop k="offset_unit" v="MM"/>
-          <prop k="ring_filter" v="0"/>
-          <symbol type="marker" name="@52@2" alpha="1" force_rhr="0" clip_to_extent="1">
-            <layer pass="0" class="SimpleMarker" locked="0">
-              <prop k="name" v="filled_arrowhead"/>
-              <prop k="color" v="80,80,80,230"/>
-              <prop k="outline_color" v="80,80,80,230"/>
-              <prop k="size" v="2.2"/>
-              <prop k="size_unit" v="MM"/>
-              <prop k="angle" v="180"/>
-              <prop k="joinstyle" v="round"/>
-            </layer>
-          </symbol>
-        </layer>
-      </symbol>
-      <symbol type="line" name="53" alpha="1" force_rhr="0" clip_to_extent="1">
-        <layer pass="1" class="SimpleLine" locked="0">
-          <prop k="line_color" v="160,107,0,255"/>
-          <prop k="line_width" v="1.20"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="round"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-        <layer pass="2" class="SimpleLine" locked="0">
-          <prop k="line_color" v="252,214,164,255"/>
-          <prop k="line_width" v="0.80"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="round"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-      </symbol>
-      <symbol type="line" name="54" alpha="1" force_rhr="0" clip_to_extent="1">
-        <layer pass="0" class="SimpleLine" locked="0">
-          <prop k="line_color" v="0,0,0,255"/>
-          <prop k="line_width" v="1.90"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="square"/>
-          <prop k="joinstyle" v="miter"/>
-        </layer>
-        <layer pass="1" class="SimpleLine" locked="0">
-          <prop k="line_color" v="112,125,5,255"/>
-          <prop k="line_width" v="1.40"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="square"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-        <layer pass="2" class="SimpleLine" locked="0">
-          <prop k="line_color" v="247,250,191,255"/>
-          <prop k="line_width" v="0.95"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="square"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-        <layer pass="3" class="MarkerLine" locked="0">
-          <prop k="placement" v="interval"/>
-          <prop k="interval" v="20"/>
-          <prop k="interval_unit" v="MM"/>
-          <prop k="rotate" v="1"/>
-          <prop k="offset" v="0"/>
-          <prop k="offset_unit" v="MM"/>
-          <prop k="ring_filter" v="0"/>
-          <symbol type="marker" name="@54@3" alpha="1" force_rhr="0" clip_to_extent="1">
-            <layer pass="0" class="SimpleMarker" locked="0">
-              <prop k="name" v="filled_arrowhead"/>
-              <prop k="color" v="80,80,80,230"/>
-              <prop k="outline_color" v="80,80,80,230"/>
-              <prop k="size" v="2.2"/>
-              <prop k="size_unit" v="MM"/>
-              <prop k="angle" v="0"/>
-              <prop k="joinstyle" v="round"/>
-            </layer>
-          </symbol>
-        </layer>
-      </symbol>
-      <symbol type="line" name="55" alpha="1" force_rhr="0" clip_to_extent="1">
-        <layer pass="0" class="SimpleLine" locked="0">
-          <prop k="line_color" v="0,0,0,255"/>
-          <prop k="line_width" v="1.90"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="square"/>
-          <prop k="joinstyle" v="miter"/>
-        </layer>
-        <layer pass="1" class="SimpleLine" locked="0">
-          <prop k="line_color" v="112,125,5,255"/>
-          <prop k="line_width" v="1.40"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="square"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-        <layer pass="2" class="SimpleLine" locked="0">
-          <prop k="line_color" v="247,250,191,255"/>
-          <prop k="line_width" v="0.95"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="square"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-        <layer pass="3" class="MarkerLine" locked="0">
-          <prop k="placement" v="interval"/>
-          <prop k="interval" v="20"/>
-          <prop k="interval_unit" v="MM"/>
-          <prop k="rotate" v="1"/>
-          <prop k="offset" v="0"/>
-          <prop k="offset_unit" v="MM"/>
-          <prop k="ring_filter" v="0"/>
-          <symbol type="marker" name="@55@3" alpha="1" force_rhr="0" clip_to_extent="1">
-            <layer pass="0" class="SimpleMarker" locked="0">
-              <prop k="name" v="filled_arrowhead"/>
-              <prop k="color" v="80,80,80,230"/>
-              <prop k="outline_color" v="80,80,80,230"/>
-              <prop k="size" v="2.2"/>
-              <prop k="size_unit" v="MM"/>
-              <prop k="angle" v="180"/>
-              <prop k="joinstyle" v="round"/>
-            </layer>
-          </symbol>
-        </layer>
-      </symbol>
-      <symbol type="line" name="56" alpha="1" force_rhr="0" clip_to_extent="1">
-        <layer pass="0" class="SimpleLine" locked="0">
-          <prop k="line_color" v="0,0,0,255"/>
-          <prop k="line_width" v="1.90"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="square"/>
-          <prop k="joinstyle" v="miter"/>
-        </layer>
-        <layer pass="1" class="SimpleLine" locked="0">
-          <prop k="line_color" v="112,125,5,255"/>
-          <prop k="line_width" v="1.40"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="square"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-        <layer pass="2" class="SimpleLine" locked="0">
-          <prop k="line_color" v="247,250,191,255"/>
-          <prop k="line_width" v="0.95"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="square"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-      </symbol>
-      <symbol type="line" name="57" alpha="1" force_rhr="0" clip_to_extent="1">
-        <layer pass="1" class="SimpleLine" locked="0">
-          <prop k="line_color" v="112,125,5,255"/>
-          <prop k="line_width" v="1.40"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="round"/>
-          <prop k="joinstyle" v="round"/>
-          <prop k="customdash" v="4;2.5"/>
-          <prop k="use_custom_dash" v="1"/>
-        </layer>
-        <layer pass="2" class="SimpleLine" locked="0">
-          <prop k="line_color" v="247,250,191,255"/>
-          <prop k="line_width" v="0.95"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="round"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-        <layer pass="3" class="MarkerLine" locked="0">
-          <prop k="placement" v="interval"/>
-          <prop k="interval" v="20"/>
-          <prop k="interval_unit" v="MM"/>
-          <prop k="rotate" v="1"/>
-          <prop k="offset" v="0"/>
-          <prop k="offset_unit" v="MM"/>
-          <prop k="ring_filter" v="0"/>
-          <symbol type="marker" name="@57@2" alpha="1" force_rhr="0" clip_to_extent="1">
-            <layer pass="0" class="SimpleMarker" locked="0">
-              <prop k="name" v="filled_arrowhead"/>
-              <prop k="color" v="80,80,80,230"/>
-              <prop k="outline_color" v="80,80,80,230"/>
-              <prop k="size" v="2.2"/>
-              <prop k="size_unit" v="MM"/>
-              <prop k="angle" v="0"/>
-              <prop k="joinstyle" v="round"/>
-            </layer>
-          </symbol>
-        </layer>
-      </symbol>
-      <symbol type="line" name="58" alpha="1" force_rhr="0" clip_to_extent="1">
-        <layer pass="1" class="SimpleLine" locked="0">
-          <prop k="line_color" v="112,125,5,255"/>
-          <prop k="line_width" v="1.40"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="round"/>
-          <prop k="joinstyle" v="round"/>
-          <prop k="customdash" v="4;2.5"/>
-          <prop k="use_custom_dash" v="1"/>
-        </layer>
-        <layer pass="2" class="SimpleLine" locked="0">
-          <prop k="line_color" v="247,250,191,255"/>
-          <prop k="line_width" v="0.95"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="round"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-        <layer pass="3" class="MarkerLine" locked="0">
-          <prop k="placement" v="interval"/>
-          <prop k="interval" v="20"/>
-          <prop k="interval_unit" v="MM"/>
-          <prop k="rotate" v="1"/>
-          <prop k="offset" v="0"/>
-          <prop k="offset_unit" v="MM"/>
-          <prop k="ring_filter" v="0"/>
-          <symbol type="marker" name="@58@2" alpha="1" force_rhr="0" clip_to_extent="1">
-            <layer pass="0" class="SimpleMarker" locked="0">
-              <prop k="name" v="filled_arrowhead"/>
-              <prop k="color" v="80,80,80,230"/>
-              <prop k="outline_color" v="80,80,80,230"/>
-              <prop k="size" v="2.2"/>
-              <prop k="size_unit" v="MM"/>
-              <prop k="angle" v="180"/>
-              <prop k="joinstyle" v="round"/>
-            </layer>
-          </symbol>
-        </layer>
-      </symbol>
-      <symbol type="line" name="59" alpha="1" force_rhr="0" clip_to_extent="1">
-        <layer pass="1" class="SimpleLine" locked="0">
-          <prop k="line_color" v="112,125,5,255"/>
-          <prop k="line_width" v="1.40"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="round"/>
-          <prop k="joinstyle" v="round"/>
-          <prop k="customdash" v="4;2.5"/>
-          <prop k="use_custom_dash" v="1"/>
-        </layer>
-        <layer pass="2" class="SimpleLine" locked="0">
-          <prop k="line_color" v="247,250,191,255"/>
-          <prop k="line_width" v="0.95"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="round"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-      </symbol>
-      <symbol type="line" name="60" alpha="1" force_rhr="0" clip_to_extent="1">
-        <layer pass="1" class="SimpleLine" locked="0">
-          <prop k="line_color" v="112,125,5,255"/>
-          <prop k="line_width" v="1.40"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="round"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-        <layer pass="2" class="SimpleLine" locked="0">
-          <prop k="line_color" v="247,250,191,255"/>
-          <prop k="line_width" v="0.95"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="round"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-        <layer pass="3" class="MarkerLine" locked="0">
-          <prop k="placement" v="interval"/>
-          <prop k="interval" v="20"/>
-          <prop k="interval_unit" v="MM"/>
-          <prop k="rotate" v="1"/>
-          <prop k="offset" v="0"/>
-          <prop k="offset_unit" v="MM"/>
-          <prop k="ring_filter" v="0"/>
-          <symbol type="marker" name="@60@2" alpha="1" force_rhr="0" clip_to_extent="1">
-            <layer pass="0" class="SimpleMarker" locked="0">
-              <prop k="name" v="filled_arrowhead"/>
-              <prop k="color" v="80,80,80,230"/>
-              <prop k="outline_color" v="80,80,80,230"/>
-              <prop k="size" v="2.2"/>
-              <prop k="size_unit" v="MM"/>
-              <prop k="angle" v="0"/>
-              <prop k="joinstyle" v="round"/>
-            </layer>
-          </symbol>
-        </layer>
-      </symbol>
-      <symbol type="line" name="61" alpha="1" force_rhr="0" clip_to_extent="1">
-        <layer pass="1" class="SimpleLine" locked="0">
-          <prop k="line_color" v="112,125,5,255"/>
-          <prop k="line_width" v="1.40"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="round"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-        <layer pass="2" class="SimpleLine" locked="0">
-          <prop k="line_color" v="247,250,191,255"/>
-          <prop k="line_width" v="0.95"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="round"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-        <layer pass="3" class="MarkerLine" locked="0">
-          <prop k="placement" v="interval"/>
-          <prop k="interval" v="20"/>
-          <prop k="interval_unit" v="MM"/>
-          <prop k="rotate" v="1"/>
-          <prop k="offset" v="0"/>
-          <prop k="offset_unit" v="MM"/>
-          <prop k="ring_filter" v="0"/>
-          <symbol type="marker" name="@61@2" alpha="1" force_rhr="0" clip_to_extent="1">
-            <layer pass="0" class="SimpleMarker" locked="0">
-              <prop k="name" v="filled_arrowhead"/>
-              <prop k="color" v="80,80,80,230"/>
-              <prop k="outline_color" v="80,80,80,230"/>
-              <prop k="size" v="2.2"/>
-              <prop k="size_unit" v="MM"/>
-              <prop k="angle" v="180"/>
-              <prop k="joinstyle" v="round"/>
-            </layer>
-          </symbol>
-        </layer>
-      </symbol>
-      <symbol type="line" name="62" alpha="1" force_rhr="0" clip_to_extent="1">
-        <layer pass="1" class="SimpleLine" locked="0">
-          <prop k="line_color" v="112,125,5,255"/>
-          <prop k="line_width" v="1.40"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="round"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-        <layer pass="2" class="SimpleLine" locked="0">
-          <prop k="line_color" v="247,250,191,255"/>
-          <prop k="line_width" v="0.95"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="round"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-      </symbol>
-      <symbol type="line" name="63" alpha="1" force_rhr="0" clip_to_extent="1">
-        <layer pass="0" class="SimpleLine" locked="0">
-          <prop k="line_color" v="0,0,0,255"/>
-          <prop k="line_width" v="1.55"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="square"/>
-          <prop k="joinstyle" v="miter"/>
-        </layer>
-        <layer pass="1" class="SimpleLine" locked="0">
-          <prop k="line_color" v="112,125,5,255"/>
-          <prop k="line_width" v="1.05"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="square"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-        <layer pass="2" class="SimpleLine" locked="0">
-          <prop k="line_color" v="247,250,191,255"/>
-          <prop k="line_width" v="0.70"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="square"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-        <layer pass="3" class="MarkerLine" locked="0">
-          <prop k="placement" v="interval"/>
-          <prop k="interval" v="20"/>
-          <prop k="interval_unit" v="MM"/>
-          <prop k="rotate" v="1"/>
-          <prop k="offset" v="0"/>
-          <prop k="offset_unit" v="MM"/>
-          <prop k="ring_filter" v="0"/>
-          <symbol type="marker" name="@63@3" alpha="1" force_rhr="0" clip_to_extent="1">
-            <layer pass="0" class="SimpleMarker" locked="0">
-              <prop k="name" v="filled_arrowhead"/>
-              <prop k="color" v="80,80,80,230"/>
-              <prop k="outline_color" v="80,80,80,230"/>
-              <prop k="size" v="2.2"/>
-              <prop k="size_unit" v="MM"/>
-              <prop k="angle" v="0"/>
-              <prop k="joinstyle" v="round"/>
-            </layer>
-          </symbol>
-        </layer>
-      </symbol>
-      <symbol type="line" name="64" alpha="1" force_rhr="0" clip_to_extent="1">
-        <layer pass="0" class="SimpleLine" locked="0">
-          <prop k="line_color" v="0,0,0,255"/>
-          <prop k="line_width" v="1.55"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="square"/>
-          <prop k="joinstyle" v="miter"/>
-        </layer>
-        <layer pass="1" class="SimpleLine" locked="0">
-          <prop k="line_color" v="112,125,5,255"/>
-          <prop k="line_width" v="1.05"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="square"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-        <layer pass="2" class="SimpleLine" locked="0">
-          <prop k="line_color" v="247,250,191,255"/>
-          <prop k="line_width" v="0.70"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="square"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-        <layer pass="3" class="MarkerLine" locked="0">
-          <prop k="placement" v="interval"/>
-          <prop k="interval" v="20"/>
-          <prop k="interval_unit" v="MM"/>
-          <prop k="rotate" v="1"/>
-          <prop k="offset" v="0"/>
-          <prop k="offset_unit" v="MM"/>
-          <prop k="ring_filter" v="0"/>
-          <symbol type="marker" name="@64@3" alpha="1" force_rhr="0" clip_to_extent="1">
-            <layer pass="0" class="SimpleMarker" locked="0">
-              <prop k="name" v="filled_arrowhead"/>
-              <prop k="color" v="80,80,80,230"/>
-              <prop k="outline_color" v="80,80,80,230"/>
-              <prop k="size" v="2.2"/>
-              <prop k="size_unit" v="MM"/>
-              <prop k="angle" v="180"/>
-              <prop k="joinstyle" v="round"/>
-            </layer>
-          </symbol>
-        </layer>
-      </symbol>
-      <symbol type="line" name="65" alpha="1" force_rhr="0" clip_to_extent="1">
-        <layer pass="0" class="SimpleLine" locked="0">
-          <prop k="line_color" v="0,0,0,255"/>
-          <prop k="line_width" v="1.55"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="square"/>
-          <prop k="joinstyle" v="miter"/>
-        </layer>
-        <layer pass="1" class="SimpleLine" locked="0">
-          <prop k="line_color" v="112,125,5,255"/>
-          <prop k="line_width" v="1.05"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="square"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-        <layer pass="2" class="SimpleLine" locked="0">
-          <prop k="line_color" v="247,250,191,255"/>
-          <prop k="line_width" v="0.70"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="square"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-      </symbol>
-      <symbol type="line" name="66" alpha="1" force_rhr="0" clip_to_extent="1">
-        <layer pass="1" class="SimpleLine" locked="0">
-          <prop k="line_color" v="112,125,5,255"/>
-          <prop k="line_width" v="1.05"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="round"/>
-          <prop k="joinstyle" v="round"/>
-          <prop k="customdash" v="4;2.5"/>
-          <prop k="use_custom_dash" v="1"/>
-        </layer>
-        <layer pass="2" class="SimpleLine" locked="0">
-          <prop k="line_color" v="247,250,191,255"/>
-          <prop k="line_width" v="0.70"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="round"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-        <layer pass="3" class="MarkerLine" locked="0">
-          <prop k="placement" v="interval"/>
-          <prop k="interval" v="20"/>
-          <prop k="interval_unit" v="MM"/>
-          <prop k="rotate" v="1"/>
-          <prop k="offset" v="0"/>
-          <prop k="offset_unit" v="MM"/>
-          <prop k="ring_filter" v="0"/>
-          <symbol type="marker" name="@66@2" alpha="1" force_rhr="0" clip_to_extent="1">
-            <layer pass="0" class="SimpleMarker" locked="0">
-              <prop k="name" v="filled_arrowhead"/>
-              <prop k="color" v="80,80,80,230"/>
-              <prop k="outline_color" v="80,80,80,230"/>
-              <prop k="size" v="2.2"/>
-              <prop k="size_unit" v="MM"/>
-              <prop k="angle" v="0"/>
-              <prop k="joinstyle" v="round"/>
-            </layer>
-          </symbol>
-        </layer>
-      </symbol>
-      <symbol type="line" name="67" alpha="1" force_rhr="0" clip_to_extent="1">
-        <layer pass="1" class="SimpleLine" locked="0">
-          <prop k="line_color" v="112,125,5,255"/>
-          <prop k="line_width" v="1.05"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="round"/>
-          <prop k="joinstyle" v="round"/>
-          <prop k="customdash" v="4;2.5"/>
-          <prop k="use_custom_dash" v="1"/>
-        </layer>
-        <layer pass="2" class="SimpleLine" locked="0">
-          <prop k="line_color" v="247,250,191,255"/>
-          <prop k="line_width" v="0.70"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="round"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-        <layer pass="3" class="MarkerLine" locked="0">
-          <prop k="placement" v="interval"/>
-          <prop k="interval" v="20"/>
-          <prop k="interval_unit" v="MM"/>
-          <prop k="rotate" v="1"/>
-          <prop k="offset" v="0"/>
-          <prop k="offset_unit" v="MM"/>
-          <prop k="ring_filter" v="0"/>
-          <symbol type="marker" name="@67@2" alpha="1" force_rhr="0" clip_to_extent="1">
-            <layer pass="0" class="SimpleMarker" locked="0">
-              <prop k="name" v="filled_arrowhead"/>
-              <prop k="color" v="80,80,80,230"/>
-              <prop k="outline_color" v="80,80,80,230"/>
-              <prop k="size" v="2.2"/>
-              <prop k="size_unit" v="MM"/>
-              <prop k="angle" v="180"/>
-              <prop k="joinstyle" v="round"/>
-            </layer>
-          </symbol>
-        </layer>
-      </symbol>
-      <symbol type="line" name="68" alpha="1" force_rhr="0" clip_to_extent="1">
-        <layer pass="1" class="SimpleLine" locked="0">
-          <prop k="line_color" v="112,125,5,255"/>
-          <prop k="line_width" v="1.05"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="round"/>
-          <prop k="joinstyle" v="round"/>
-          <prop k="customdash" v="4;2.5"/>
-          <prop k="use_custom_dash" v="1"/>
-        </layer>
-        <layer pass="2" class="SimpleLine" locked="0">
-          <prop k="line_color" v="247,250,191,255"/>
-          <prop k="line_width" v="0.70"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="round"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-      </symbol>
-      <symbol type="line" name="69" alpha="1" force_rhr="0" clip_to_extent="1">
-        <layer pass="1" class="SimpleLine" locked="0">
-          <prop k="line_color" v="112,125,5,255"/>
-          <prop k="line_width" v="1.05"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="round"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-        <layer pass="2" class="SimpleLine" locked="0">
-          <prop k="line_color" v="247,250,191,255"/>
-          <prop k="line_width" v="0.70"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="round"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-        <layer pass="3" class="MarkerLine" locked="0">
-          <prop k="placement" v="interval"/>
-          <prop k="interval" v="20"/>
-          <prop k="interval_unit" v="MM"/>
-          <prop k="rotate" v="1"/>
-          <prop k="offset" v="0"/>
-          <prop k="offset_unit" v="MM"/>
-          <prop k="ring_filter" v="0"/>
-          <symbol type="marker" name="@69@2" alpha="1" force_rhr="0" clip_to_extent="1">
-            <layer pass="0" class="SimpleMarker" locked="0">
-              <prop k="name" v="filled_arrowhead"/>
-              <prop k="color" v="80,80,80,230"/>
-              <prop k="outline_color" v="80,80,80,230"/>
-              <prop k="size" v="2.2"/>
-              <prop k="size_unit" v="MM"/>
-              <prop k="angle" v="0"/>
-              <prop k="joinstyle" v="round"/>
-            </layer>
-          </symbol>
-        </layer>
-      </symbol>
-      <symbol type="line" name="70" alpha="1" force_rhr="0" clip_to_extent="1">
-        <layer pass="1" class="SimpleLine" locked="0">
-          <prop k="line_color" v="112,125,5,255"/>
-          <prop k="line_width" v="1.05"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="round"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-        <layer pass="2" class="SimpleLine" locked="0">
-          <prop k="line_color" v="247,250,191,255"/>
-          <prop k="line_width" v="0.70"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="round"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-        <layer pass="3" class="MarkerLine" locked="0">
-          <prop k="placement" v="interval"/>
-          <prop k="interval" v="20"/>
-          <prop k="interval_unit" v="MM"/>
-          <prop k="rotate" v="1"/>
-          <prop k="offset" v="0"/>
-          <prop k="offset_unit" v="MM"/>
-          <prop k="ring_filter" v="0"/>
-          <symbol type="marker" name="@70@2" alpha="1" force_rhr="0" clip_to_extent="1">
-            <layer pass="0" class="SimpleMarker" locked="0">
-              <prop k="name" v="filled_arrowhead"/>
-              <prop k="color" v="80,80,80,230"/>
-              <prop k="outline_color" v="80,80,80,230"/>
-              <prop k="size" v="2.2"/>
-              <prop k="size_unit" v="MM"/>
-              <prop k="angle" v="180"/>
-              <prop k="joinstyle" v="round"/>
-            </layer>
-          </symbol>
-        </layer>
-      </symbol>
-      <symbol type="line" name="71" alpha="1" force_rhr="0" clip_to_extent="1">
-        <layer pass="1" class="SimpleLine" locked="0">
-          <prop k="line_color" v="112,125,5,255"/>
-          <prop k="line_width" v="1.05"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="round"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-        <layer pass="2" class="SimpleLine" locked="0">
-          <prop k="line_color" v="247,250,191,255"/>
-          <prop k="line_width" v="0.70"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="round"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-      </symbol>
-      <symbol type="line" name="72" alpha="1" force_rhr="0" clip_to_extent="1">
-        <layer pass="0" class="SimpleLine" locked="0">
-          <prop k="line_color" v="0,0,0,255"/>
-          <prop k="line_width" v="1.70"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="square"/>
-          <prop k="joinstyle" v="miter"/>
-        </layer>
-        <layer pass="1" class="SimpleLine" locked="0">
-          <prop k="line_color" v="143,143,143,255"/>
-          <prop k="line_width" v="1.20"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="square"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-        <layer pass="2" class="SimpleLine" locked="0">
-          <prop k="line_color" v="255,255,255,255"/>
-          <prop k="line_width" v="0.80"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="square"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-        <layer pass="3" class="MarkerLine" locked="0">
-          <prop k="placement" v="interval"/>
-          <prop k="interval" v="20"/>
-          <prop k="interval_unit" v="MM"/>
-          <prop k="rotate" v="1"/>
-          <prop k="offset" v="0"/>
-          <prop k="offset_unit" v="MM"/>
-          <prop k="ring_filter" v="0"/>
-          <symbol type="marker" name="@72@3" alpha="1" force_rhr="0" clip_to_extent="1">
-            <layer pass="0" class="SimpleMarker" locked="0">
-              <prop k="name" v="filled_arrowhead"/>
-              <prop k="color" v="80,80,80,230"/>
-              <prop k="outline_color" v="80,80,80,230"/>
-              <prop k="size" v="2.2"/>
-              <prop k="size_unit" v="MM"/>
-              <prop k="angle" v="0"/>
-              <prop k="joinstyle" v="round"/>
-            </layer>
-          </symbol>
-        </layer>
-      </symbol>
-      <symbol type="line" name="73" alpha="1" force_rhr="0" clip_to_extent="1">
-        <layer pass="0" class="SimpleLine" locked="0">
-          <prop k="line_color" v="0,0,0,255"/>
-          <prop k="line_width" v="1.70"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="square"/>
-          <prop k="joinstyle" v="miter"/>
-        </layer>
-        <layer pass="1" class="SimpleLine" locked="0">
-          <prop k="line_color" v="143,143,143,255"/>
-          <prop k="line_width" v="1.20"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="square"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-        <layer pass="2" class="SimpleLine" locked="0">
-          <prop k="line_color" v="255,255,255,255"/>
-          <prop k="line_width" v="0.80"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="square"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-        <layer pass="3" class="MarkerLine" locked="0">
-          <prop k="placement" v="interval"/>
-          <prop k="interval" v="20"/>
-          <prop k="interval_unit" v="MM"/>
-          <prop k="rotate" v="1"/>
-          <prop k="offset" v="0"/>
-          <prop k="offset_unit" v="MM"/>
-          <prop k="ring_filter" v="0"/>
-          <symbol type="marker" name="@73@3" alpha="1" force_rhr="0" clip_to_extent="1">
-            <layer pass="0" class="SimpleMarker" locked="0">
-              <prop k="name" v="filled_arrowhead"/>
-              <prop k="color" v="80,80,80,230"/>
-              <prop k="outline_color" v="80,80,80,230"/>
-              <prop k="size" v="2.2"/>
-              <prop k="size_unit" v="MM"/>
-              <prop k="angle" v="180"/>
-              <prop k="joinstyle" v="round"/>
-            </layer>
-          </symbol>
-        </layer>
-      </symbol>
-      <symbol type="line" name="74" alpha="1" force_rhr="0" clip_to_extent="1">
-        <layer pass="0" class="SimpleLine" locked="0">
-          <prop k="line_color" v="0,0,0,255"/>
-          <prop k="line_width" v="1.70"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="square"/>
-          <prop k="joinstyle" v="miter"/>
-        </layer>
-        <layer pass="1" class="SimpleLine" locked="0">
-          <prop k="line_color" v="143,143,143,255"/>
-          <prop k="line_width" v="1.20"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="square"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-        <layer pass="2" class="SimpleLine" locked="0">
-          <prop k="line_color" v="255,255,255,255"/>
-          <prop k="line_width" v="0.80"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="square"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-      </symbol>
-      <symbol type="line" name="75" alpha="1" force_rhr="0" clip_to_extent="1">
-        <layer pass="1" class="SimpleLine" locked="0">
-          <prop k="line_color" v="143,143,143,255"/>
-          <prop k="line_width" v="1.20"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="round"/>
-          <prop k="joinstyle" v="round"/>
-          <prop k="customdash" v="4;2.5"/>
-          <prop k="use_custom_dash" v="1"/>
-        </layer>
-        <layer pass="2" class="SimpleLine" locked="0">
-          <prop k="line_color" v="255,255,255,255"/>
-          <prop k="line_width" v="0.80"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="round"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-        <layer pass="3" class="MarkerLine" locked="0">
-          <prop k="placement" v="interval"/>
-          <prop k="interval" v="20"/>
-          <prop k="interval_unit" v="MM"/>
-          <prop k="rotate" v="1"/>
-          <prop k="offset" v="0"/>
-          <prop k="offset_unit" v="MM"/>
-          <prop k="ring_filter" v="0"/>
-          <symbol type="marker" name="@75@2" alpha="1" force_rhr="0" clip_to_extent="1">
-            <layer pass="0" class="SimpleMarker" locked="0">
-              <prop k="name" v="filled_arrowhead"/>
-              <prop k="color" v="80,80,80,230"/>
-              <prop k="outline_color" v="80,80,80,230"/>
-              <prop k="size" v="2.2"/>
-              <prop k="size_unit" v="MM"/>
-              <prop k="angle" v="0"/>
-              <prop k="joinstyle" v="round"/>
-            </layer>
-          </symbol>
-        </layer>
-      </symbol>
-      <symbol type="line" name="76" alpha="1" force_rhr="0" clip_to_extent="1">
-        <layer pass="1" class="SimpleLine" locked="0">
-          <prop k="line_color" v="143,143,143,255"/>
-          <prop k="line_width" v="1.20"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="round"/>
-          <prop k="joinstyle" v="round"/>
-          <prop k="customdash" v="4;2.5"/>
-          <prop k="use_custom_dash" v="1"/>
-        </layer>
-        <layer pass="2" class="SimpleLine" locked="0">
-          <prop k="line_color" v="255,255,255,255"/>
-          <prop k="line_width" v="0.80"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="round"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-        <layer pass="3" class="MarkerLine" locked="0">
-          <prop k="placement" v="interval"/>
-          <prop k="interval" v="20"/>
-          <prop k="interval_unit" v="MM"/>
-          <prop k="rotate" v="1"/>
-          <prop k="offset" v="0"/>
-          <prop k="offset_unit" v="MM"/>
-          <prop k="ring_filter" v="0"/>
-          <symbol type="marker" name="@76@2" alpha="1" force_rhr="0" clip_to_extent="1">
-            <layer pass="0" class="SimpleMarker" locked="0">
-              <prop k="name" v="filled_arrowhead"/>
-              <prop k="color" v="80,80,80,230"/>
-              <prop k="outline_color" v="80,80,80,230"/>
-              <prop k="size" v="2.2"/>
-              <prop k="size_unit" v="MM"/>
-              <prop k="angle" v="180"/>
-              <prop k="joinstyle" v="round"/>
-            </layer>
-          </symbol>
-        </layer>
-      </symbol>
-      <symbol type="line" name="77" alpha="1" force_rhr="0" clip_to_extent="1">
-        <layer pass="1" class="SimpleLine" locked="0">
-          <prop k="line_color" v="143,143,143,255"/>
-          <prop k="line_width" v="1.20"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="round"/>
-          <prop k="joinstyle" v="round"/>
-          <prop k="customdash" v="4;2.5"/>
-          <prop k="use_custom_dash" v="1"/>
-        </layer>
-        <layer pass="2" class="SimpleLine" locked="0">
-          <prop k="line_color" v="255,255,255,255"/>
-          <prop k="line_width" v="0.80"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="round"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-      </symbol>
-      <symbol type="line" name="78" alpha="1" force_rhr="0" clip_to_extent="1">
-        <layer pass="1" class="SimpleLine" locked="0">
-          <prop k="line_color" v="143,143,143,255"/>
-          <prop k="line_width" v="1.20"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="round"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-        <layer pass="2" class="SimpleLine" locked="0">
-          <prop k="line_color" v="255,255,255,255"/>
-          <prop k="line_width" v="0.80"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="round"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-        <layer pass="3" class="MarkerLine" locked="0">
-          <prop k="placement" v="interval"/>
-          <prop k="interval" v="20"/>
-          <prop k="interval_unit" v="MM"/>
-          <prop k="rotate" v="1"/>
-          <prop k="offset" v="0"/>
-          <prop k="offset_unit" v="MM"/>
-          <prop k="ring_filter" v="0"/>
-          <symbol type="marker" name="@78@2" alpha="1" force_rhr="0" clip_to_extent="1">
-            <layer pass="0" class="SimpleMarker" locked="0">
-              <prop k="name" v="filled_arrowhead"/>
-              <prop k="color" v="80,80,80,230"/>
-              <prop k="outline_color" v="80,80,80,230"/>
-              <prop k="size" v="2.2"/>
-              <prop k="size_unit" v="MM"/>
-              <prop k="angle" v="0"/>
-              <prop k="joinstyle" v="round"/>
-            </layer>
-          </symbol>
-        </layer>
-      </symbol>
-      <symbol type="line" name="79" alpha="1" force_rhr="0" clip_to_extent="1">
-        <layer pass="1" class="SimpleLine" locked="0">
-          <prop k="line_color" v="143,143,143,255"/>
-          <prop k="line_width" v="1.20"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="round"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-        <layer pass="2" class="SimpleLine" locked="0">
-          <prop k="line_color" v="255,255,255,255"/>
-          <prop k="line_width" v="0.80"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="round"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-        <layer pass="3" class="MarkerLine" locked="0">
-          <prop k="placement" v="interval"/>
-          <prop k="interval" v="20"/>
-          <prop k="interval_unit" v="MM"/>
-          <prop k="rotate" v="1"/>
-          <prop k="offset" v="0"/>
-          <prop k="offset_unit" v="MM"/>
-          <prop k="ring_filter" v="0"/>
-          <symbol type="marker" name="@79@2" alpha="1" force_rhr="0" clip_to_extent="1">
-            <layer pass="0" class="SimpleMarker" locked="0">
-              <prop k="name" v="filled_arrowhead"/>
-              <prop k="color" v="80,80,80,230"/>
-              <prop k="outline_color" v="80,80,80,230"/>
-              <prop k="size" v="2.2"/>
-              <prop k="size_unit" v="MM"/>
-              <prop k="angle" v="180"/>
-              <prop k="joinstyle" v="round"/>
-            </layer>
-          </symbol>
-        </layer>
-      </symbol>
-      <symbol type="line" name="80" alpha="1" force_rhr="0" clip_to_extent="1">
-        <layer pass="1" class="SimpleLine" locked="0">
-          <prop k="line_color" v="143,143,143,255"/>
-          <prop k="line_width" v="1.20"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="round"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-        <layer pass="2" class="SimpleLine" locked="0">
-          <prop k="line_color" v="255,255,255,255"/>
-          <prop k="line_width" v="0.80"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="round"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-      </symbol>
-      <symbol type="line" name="81" alpha="1" force_rhr="0" clip_to_extent="1">
-        <layer pass="0" class="SimpleLine" locked="0">
-          <prop k="line_color" v="0,0,0,255"/>
-          <prop k="line_width" v="1.40"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="square"/>
-          <prop k="joinstyle" v="miter"/>
-        </layer>
-        <layer pass="1" class="SimpleLine" locked="0">
-          <prop k="line_color" v="143,143,143,255"/>
-          <prop k="line_width" v="0.90"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="square"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-        <layer pass="2" class="SimpleLine" locked="0">
-          <prop k="line_color" v="255,255,255,255"/>
-          <prop k="line_width" v="0.60"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="square"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-        <layer pass="3" class="MarkerLine" locked="0">
-          <prop k="placement" v="interval"/>
-          <prop k="interval" v="20"/>
-          <prop k="interval_unit" v="MM"/>
-          <prop k="rotate" v="1"/>
-          <prop k="offset" v="0"/>
-          <prop k="offset_unit" v="MM"/>
-          <prop k="ring_filter" v="0"/>
-          <symbol type="marker" name="@81@3" alpha="1" force_rhr="0" clip_to_extent="1">
-            <layer pass="0" class="SimpleMarker" locked="0">
-              <prop k="name" v="filled_arrowhead"/>
-              <prop k="color" v="80,80,80,230"/>
-              <prop k="outline_color" v="80,80,80,230"/>
-              <prop k="size" v="2.2"/>
-              <prop k="size_unit" v="MM"/>
-              <prop k="angle" v="0"/>
-              <prop k="joinstyle" v="round"/>
-            </layer>
-          </symbol>
-        </layer>
-      </symbol>
-      <symbol type="line" name="82" alpha="1" force_rhr="0" clip_to_extent="1">
-        <layer pass="0" class="SimpleLine" locked="0">
-          <prop k="line_color" v="0,0,0,255"/>
-          <prop k="line_width" v="1.40"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="square"/>
-          <prop k="joinstyle" v="miter"/>
-        </layer>
-        <layer pass="1" class="SimpleLine" locked="0">
-          <prop k="line_color" v="143,143,143,255"/>
-          <prop k="line_width" v="0.90"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="square"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-        <layer pass="2" class="SimpleLine" locked="0">
-          <prop k="line_color" v="255,255,255,255"/>
-          <prop k="line_width" v="0.60"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="square"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-        <layer pass="3" class="MarkerLine" locked="0">
-          <prop k="placement" v="interval"/>
-          <prop k="interval" v="20"/>
-          <prop k="interval_unit" v="MM"/>
-          <prop k="rotate" v="1"/>
-          <prop k="offset" v="0"/>
-          <prop k="offset_unit" v="MM"/>
-          <prop k="ring_filter" v="0"/>
-          <symbol type="marker" name="@82@3" alpha="1" force_rhr="0" clip_to_extent="1">
-            <layer pass="0" class="SimpleMarker" locked="0">
-              <prop k="name" v="filled_arrowhead"/>
-              <prop k="color" v="80,80,80,230"/>
-              <prop k="outline_color" v="80,80,80,230"/>
-              <prop k="size" v="2.2"/>
-              <prop k="size_unit" v="MM"/>
-              <prop k="angle" v="180"/>
-              <prop k="joinstyle" v="round"/>
-            </layer>
-          </symbol>
-        </layer>
-      </symbol>
-      <symbol type="line" name="83" alpha="1" force_rhr="0" clip_to_extent="1">
-        <layer pass="0" class="SimpleLine" locked="0">
-          <prop k="line_color" v="0,0,0,255"/>
-          <prop k="line_width" v="1.40"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="square"/>
-          <prop k="joinstyle" v="miter"/>
-        </layer>
-        <layer pass="1" class="SimpleLine" locked="0">
-          <prop k="line_color" v="143,143,143,255"/>
-          <prop k="line_width" v="0.90"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="square"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-        <layer pass="2" class="SimpleLine" locked="0">
-          <prop k="line_color" v="255,255,255,255"/>
-          <prop k="line_width" v="0.60"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="square"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-      </symbol>
-      <symbol type="line" name="84" alpha="1" force_rhr="0" clip_to_extent="1">
-        <layer pass="1" class="SimpleLine" locked="0">
-          <prop k="line_color" v="143,143,143,255"/>
-          <prop k="line_width" v="0.90"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="round"/>
-          <prop k="joinstyle" v="round"/>
-          <prop k="customdash" v="4;2.5"/>
-          <prop k="use_custom_dash" v="1"/>
-        </layer>
-        <layer pass="2" class="SimpleLine" locked="0">
-          <prop k="line_color" v="255,255,255,255"/>
-          <prop k="line_width" v="0.60"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="round"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-        <layer pass="3" class="MarkerLine" locked="0">
-          <prop k="placement" v="interval"/>
-          <prop k="interval" v="20"/>
-          <prop k="interval_unit" v="MM"/>
-          <prop k="rotate" v="1"/>
-          <prop k="offset" v="0"/>
-          <prop k="offset_unit" v="MM"/>
-          <prop k="ring_filter" v="0"/>
-          <symbol type="marker" name="@84@2" alpha="1" force_rhr="0" clip_to_extent="1">
-            <layer pass="0" class="SimpleMarker" locked="0">
-              <prop k="name" v="filled_arrowhead"/>
-              <prop k="color" v="80,80,80,230"/>
-              <prop k="outline_color" v="80,80,80,230"/>
-              <prop k="size" v="2.2"/>
-              <prop k="size_unit" v="MM"/>
-              <prop k="angle" v="0"/>
-              <prop k="joinstyle" v="round"/>
-            </layer>
-          </symbol>
-        </layer>
-      </symbol>
-      <symbol type="line" name="85" alpha="1" force_rhr="0" clip_to_extent="1">
-        <layer pass="1" class="SimpleLine" locked="0">
-          <prop k="line_color" v="143,143,143,255"/>
-          <prop k="line_width" v="0.90"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="round"/>
-          <prop k="joinstyle" v="round"/>
-          <prop k="customdash" v="4;2.5"/>
-          <prop k="use_custom_dash" v="1"/>
-        </layer>
-        <layer pass="2" class="SimpleLine" locked="0">
-          <prop k="line_color" v="255,255,255,255"/>
-          <prop k="line_width" v="0.60"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="round"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-        <layer pass="3" class="MarkerLine" locked="0">
-          <prop k="placement" v="interval"/>
-          <prop k="interval" v="20"/>
-          <prop k="interval_unit" v="MM"/>
-          <prop k="rotate" v="1"/>
-          <prop k="offset" v="0"/>
-          <prop k="offset_unit" v="MM"/>
-          <prop k="ring_filter" v="0"/>
-          <symbol type="marker" name="@85@2" alpha="1" force_rhr="0" clip_to_extent="1">
-            <layer pass="0" class="SimpleMarker" locked="0">
-              <prop k="name" v="filled_arrowhead"/>
-              <prop k="color" v="80,80,80,230"/>
-              <prop k="outline_color" v="80,80,80,230"/>
-              <prop k="size" v="2.2"/>
-              <prop k="size_unit" v="MM"/>
-              <prop k="angle" v="180"/>
-              <prop k="joinstyle" v="round"/>
-            </layer>
-          </symbol>
-        </layer>
-      </symbol>
-      <symbol type="line" name="86" alpha="1" force_rhr="0" clip_to_extent="1">
-        <layer pass="1" class="SimpleLine" locked="0">
-          <prop k="line_color" v="143,143,143,255"/>
-          <prop k="line_width" v="0.90"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="round"/>
-          <prop k="joinstyle" v="round"/>
-          <prop k="customdash" v="4;2.5"/>
-          <prop k="use_custom_dash" v="1"/>
-        </layer>
-        <layer pass="2" class="SimpleLine" locked="0">
-          <prop k="line_color" v="255,255,255,255"/>
-          <prop k="line_width" v="0.60"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="round"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-      </symbol>
-      <symbol type="line" name="87" alpha="1" force_rhr="0" clip_to_extent="1">
-        <layer pass="1" class="SimpleLine" locked="0">
-          <prop k="line_color" v="143,143,143,255"/>
-          <prop k="line_width" v="0.90"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="round"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-        <layer pass="2" class="SimpleLine" locked="0">
-          <prop k="line_color" v="255,255,255,255"/>
-          <prop k="line_width" v="0.60"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="round"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-        <layer pass="3" class="MarkerLine" locked="0">
-          <prop k="placement" v="interval"/>
-          <prop k="interval" v="20"/>
-          <prop k="interval_unit" v="MM"/>
-          <prop k="rotate" v="1"/>
-          <prop k="offset" v="0"/>
-          <prop k="offset_unit" v="MM"/>
-          <prop k="ring_filter" v="0"/>
-          <symbol type="marker" name="@87@2" alpha="1" force_rhr="0" clip_to_extent="1">
-            <layer pass="0" class="SimpleMarker" locked="0">
-              <prop k="name" v="filled_arrowhead"/>
-              <prop k="color" v="80,80,80,230"/>
-              <prop k="outline_color" v="80,80,80,230"/>
-              <prop k="size" v="2.2"/>
-              <prop k="size_unit" v="MM"/>
-              <prop k="angle" v="0"/>
-              <prop k="joinstyle" v="round"/>
-            </layer>
-          </symbol>
-        </layer>
-      </symbol>
-      <symbol type="line" name="88" alpha="1" force_rhr="0" clip_to_extent="1">
-        <layer pass="1" class="SimpleLine" locked="0">
-          <prop k="line_color" v="143,143,143,255"/>
-          <prop k="line_width" v="0.90"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="round"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-        <layer pass="2" class="SimpleLine" locked="0">
-          <prop k="line_color" v="255,255,255,255"/>
-          <prop k="line_width" v="0.60"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="round"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-        <layer pass="3" class="MarkerLine" locked="0">
-          <prop k="placement" v="interval"/>
-          <prop k="interval" v="20"/>
-          <prop k="interval_unit" v="MM"/>
-          <prop k="rotate" v="1"/>
-          <prop k="offset" v="0"/>
-          <prop k="offset_unit" v="MM"/>
-          <prop k="ring_filter" v="0"/>
-          <symbol type="marker" name="@88@2" alpha="1" force_rhr="0" clip_to_extent="1">
-            <layer pass="0" class="SimpleMarker" locked="0">
-              <prop k="name" v="filled_arrowhead"/>
-              <prop k="color" v="80,80,80,230"/>
-              <prop k="outline_color" v="80,80,80,230"/>
-              <prop k="size" v="2.2"/>
-              <prop k="size_unit" v="MM"/>
-              <prop k="angle" v="180"/>
-              <prop k="joinstyle" v="round"/>
-            </layer>
-          </symbol>
-        </layer>
-      </symbol>
-      <symbol type="line" name="89" alpha="1" force_rhr="0" clip_to_extent="1">
-        <layer pass="1" class="SimpleLine" locked="0">
-          <prop k="line_color" v="143,143,143,255"/>
-          <prop k="line_width" v="0.90"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="round"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-        <layer pass="2" class="SimpleLine" locked="0">
-          <prop k="line_color" v="255,255,255,255"/>
-          <prop k="line_width" v="0.60"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="round"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-      </symbol>
-      <symbol type="line" name="90" alpha="1" force_rhr="0" clip_to_extent="1">
-        <layer pass="0" class="SimpleLine" locked="0">
-          <prop k="line_color" v="0,0,0,255"/>
-          <prop k="line_width" v="1.55"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="square"/>
-          <prop k="joinstyle" v="miter"/>
-        </layer>
-        <layer pass="1" class="SimpleLine" locked="0">
-          <prop k="line_color" v="176,176,176,255"/>
-          <prop k="line_width" v="1.05"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="square"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-        <layer pass="2" class="SimpleLine" locked="0">
-          <prop k="line_color" v="255,255,255,255"/>
-          <prop k="line_width" v="0.70"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="square"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-        <layer pass="3" class="MarkerLine" locked="0">
-          <prop k="placement" v="interval"/>
-          <prop k="interval" v="20"/>
-          <prop k="interval_unit" v="MM"/>
-          <prop k="rotate" v="1"/>
-          <prop k="offset" v="0"/>
-          <prop k="offset_unit" v="MM"/>
-          <prop k="ring_filter" v="0"/>
-          <symbol type="marker" name="@90@3" alpha="1" force_rhr="0" clip_to_extent="1">
-            <layer pass="0" class="SimpleMarker" locked="0">
-              <prop k="name" v="filled_arrowhead"/>
-              <prop k="color" v="80,80,80,230"/>
-              <prop k="outline_color" v="80,80,80,230"/>
-              <prop k="size" v="2.2"/>
-              <prop k="size_unit" v="MM"/>
-              <prop k="angle" v="0"/>
-              <prop k="joinstyle" v="round"/>
-            </layer>
-          </symbol>
-        </layer>
-      </symbol>
-      <symbol type="line" name="91" alpha="1" force_rhr="0" clip_to_extent="1">
-        <layer pass="0" class="SimpleLine" locked="0">
-          <prop k="line_color" v="0,0,0,255"/>
-          <prop k="line_width" v="1.55"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="square"/>
-          <prop k="joinstyle" v="miter"/>
-        </layer>
-        <layer pass="1" class="SimpleLine" locked="0">
-          <prop k="line_color" v="176,176,176,255"/>
-          <prop k="line_width" v="1.05"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="square"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-        <layer pass="2" class="SimpleLine" locked="0">
-          <prop k="line_color" v="255,255,255,255"/>
-          <prop k="line_width" v="0.70"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="square"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-        <layer pass="3" class="MarkerLine" locked="0">
-          <prop k="placement" v="interval"/>
-          <prop k="interval" v="20"/>
-          <prop k="interval_unit" v="MM"/>
-          <prop k="rotate" v="1"/>
-          <prop k="offset" v="0"/>
-          <prop k="offset_unit" v="MM"/>
-          <prop k="ring_filter" v="0"/>
-          <symbol type="marker" name="@91@3" alpha="1" force_rhr="0" clip_to_extent="1">
-            <layer pass="0" class="SimpleMarker" locked="0">
-              <prop k="name" v="filled_arrowhead"/>
-              <prop k="color" v="80,80,80,230"/>
-              <prop k="outline_color" v="80,80,80,230"/>
-              <prop k="size" v="2.2"/>
-              <prop k="size_unit" v="MM"/>
-              <prop k="angle" v="180"/>
-              <prop k="joinstyle" v="round"/>
-            </layer>
-          </symbol>
-        </layer>
-      </symbol>
-      <symbol type="line" name="92" alpha="1" force_rhr="0" clip_to_extent="1">
-        <layer pass="0" class="SimpleLine" locked="0">
-          <prop k="line_color" v="0,0,0,255"/>
-          <prop k="line_width" v="1.55"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="square"/>
-          <prop k="joinstyle" v="miter"/>
-        </layer>
-        <layer pass="1" class="SimpleLine" locked="0">
-          <prop k="line_color" v="176,176,176,255"/>
-          <prop k="line_width" v="1.05"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="square"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-        <layer pass="2" class="SimpleLine" locked="0">
-          <prop k="line_color" v="255,255,255,255"/>
-          <prop k="line_width" v="0.70"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="square"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-      </symbol>
-      <symbol type="line" name="93" alpha="1" force_rhr="0" clip_to_extent="1">
-        <layer pass="1" class="SimpleLine" locked="0">
-          <prop k="line_color" v="176,176,176,255"/>
-          <prop k="line_width" v="1.05"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="round"/>
-          <prop k="joinstyle" v="round"/>
-          <prop k="customdash" v="4;2.5"/>
-          <prop k="use_custom_dash" v="1"/>
-        </layer>
-        <layer pass="2" class="SimpleLine" locked="0">
-          <prop k="line_color" v="255,255,255,255"/>
-          <prop k="line_width" v="0.70"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="round"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-        <layer pass="3" class="MarkerLine" locked="0">
-          <prop k="placement" v="interval"/>
-          <prop k="interval" v="20"/>
-          <prop k="interval_unit" v="MM"/>
-          <prop k="rotate" v="1"/>
-          <prop k="offset" v="0"/>
-          <prop k="offset_unit" v="MM"/>
-          <prop k="ring_filter" v="0"/>
-          <symbol type="marker" name="@93@2" alpha="1" force_rhr="0" clip_to_extent="1">
-            <layer pass="0" class="SimpleMarker" locked="0">
-              <prop k="name" v="filled_arrowhead"/>
-              <prop k="color" v="80,80,80,230"/>
-              <prop k="outline_color" v="80,80,80,230"/>
-              <prop k="size" v="2.2"/>
-              <prop k="size_unit" v="MM"/>
-              <prop k="angle" v="0"/>
-              <prop k="joinstyle" v="round"/>
-            </layer>
-          </symbol>
-        </layer>
-      </symbol>
-      <symbol type="line" name="94" alpha="1" force_rhr="0" clip_to_extent="1">
-        <layer pass="1" class="SimpleLine" locked="0">
-          <prop k="line_color" v="176,176,176,255"/>
-          <prop k="line_width" v="1.05"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="round"/>
-          <prop k="joinstyle" v="round"/>
-          <prop k="customdash" v="4;2.5"/>
-          <prop k="use_custom_dash" v="1"/>
-        </layer>
-        <layer pass="2" class="SimpleLine" locked="0">
-          <prop k="line_color" v="255,255,255,255"/>
-          <prop k="line_width" v="0.70"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="round"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-        <layer pass="3" class="MarkerLine" locked="0">
-          <prop k="placement" v="interval"/>
-          <prop k="interval" v="20"/>
-          <prop k="interval_unit" v="MM"/>
-          <prop k="rotate" v="1"/>
-          <prop k="offset" v="0"/>
-          <prop k="offset_unit" v="MM"/>
-          <prop k="ring_filter" v="0"/>
-          <symbol type="marker" name="@94@2" alpha="1" force_rhr="0" clip_to_extent="1">
-            <layer pass="0" class="SimpleMarker" locked="0">
-              <prop k="name" v="filled_arrowhead"/>
-              <prop k="color" v="80,80,80,230"/>
-              <prop k="outline_color" v="80,80,80,230"/>
-              <prop k="size" v="2.2"/>
-              <prop k="size_unit" v="MM"/>
-              <prop k="angle" v="180"/>
-              <prop k="joinstyle" v="round"/>
-            </layer>
-          </symbol>
-        </layer>
-      </symbol>
-      <symbol type="line" name="95" alpha="1" force_rhr="0" clip_to_extent="1">
-        <layer pass="1" class="SimpleLine" locked="0">
-          <prop k="line_color" v="176,176,176,255"/>
-          <prop k="line_width" v="1.05"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="round"/>
-          <prop k="joinstyle" v="round"/>
-          <prop k="customdash" v="4;2.5"/>
-          <prop k="use_custom_dash" v="1"/>
-        </layer>
-        <layer pass="2" class="SimpleLine" locked="0">
-          <prop k="line_color" v="255,255,255,255"/>
-          <prop k="line_width" v="0.70"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="round"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-      </symbol>
-      <symbol type="line" name="96" alpha="1" force_rhr="0" clip_to_extent="1">
-        <layer pass="1" class="SimpleLine" locked="0">
-          <prop k="line_color" v="176,176,176,255"/>
-          <prop k="line_width" v="1.05"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="round"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-        <layer pass="2" class="SimpleLine" locked="0">
-          <prop k="line_color" v="255,255,255,255"/>
-          <prop k="line_width" v="0.70"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="round"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-        <layer pass="3" class="MarkerLine" locked="0">
-          <prop k="placement" v="interval"/>
-          <prop k="interval" v="20"/>
-          <prop k="interval_unit" v="MM"/>
-          <prop k="rotate" v="1"/>
-          <prop k="offset" v="0"/>
-          <prop k="offset_unit" v="MM"/>
-          <prop k="ring_filter" v="0"/>
-          <symbol type="marker" name="@96@2" alpha="1" force_rhr="0" clip_to_extent="1">
-            <layer pass="0" class="SimpleMarker" locked="0">
-              <prop k="name" v="filled_arrowhead"/>
-              <prop k="color" v="80,80,80,230"/>
-              <prop k="outline_color" v="80,80,80,230"/>
-              <prop k="size" v="2.2"/>
-              <prop k="size_unit" v="MM"/>
-              <prop k="angle" v="0"/>
-              <prop k="joinstyle" v="round"/>
-            </layer>
-          </symbol>
-        </layer>
-      </symbol>
-      <symbol type="line" name="97" alpha="1" force_rhr="0" clip_to_extent="1">
-        <layer pass="1" class="SimpleLine" locked="0">
-          <prop k="line_color" v="176,176,176,255"/>
-          <prop k="line_width" v="1.05"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="round"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-        <layer pass="2" class="SimpleLine" locked="0">
-          <prop k="line_color" v="255,255,255,255"/>
-          <prop k="line_width" v="0.70"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="round"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-        <layer pass="3" class="MarkerLine" locked="0">
-          <prop k="placement" v="interval"/>
-          <prop k="interval" v="20"/>
-          <prop k="interval_unit" v="MM"/>
-          <prop k="rotate" v="1"/>
-          <prop k="offset" v="0"/>
-          <prop k="offset_unit" v="MM"/>
-          <prop k="ring_filter" v="0"/>
-          <symbol type="marker" name="@97@2" alpha="1" force_rhr="0" clip_to_extent="1">
-            <layer pass="0" class="SimpleMarker" locked="0">
-              <prop k="name" v="filled_arrowhead"/>
-              <prop k="color" v="80,80,80,230"/>
-              <prop k="outline_color" v="80,80,80,230"/>
-              <prop k="size" v="2.2"/>
-              <prop k="size_unit" v="MM"/>
-              <prop k="angle" v="180"/>
-              <prop k="joinstyle" v="round"/>
-            </layer>
-          </symbol>
-        </layer>
-      </symbol>
-      <symbol type="line" name="98" alpha="1" force_rhr="0" clip_to_extent="1">
-        <layer pass="1" class="SimpleLine" locked="0">
-          <prop k="line_color" v="176,176,176,255"/>
-          <prop k="line_width" v="1.05"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="round"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-        <layer pass="2" class="SimpleLine" locked="0">
-          <prop k="line_color" v="255,255,255,255"/>
-          <prop k="line_width" v="0.70"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="round"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-      </symbol>
-      <symbol type="line" name="99" alpha="1" force_rhr="0" clip_to_extent="1">
-        <layer pass="0" class="SimpleLine" locked="0">
-          <prop k="line_color" v="0,0,0,255"/>
-          <prop k="line_width" v="1.35"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="square"/>
-          <prop k="joinstyle" v="miter"/>
-        </layer>
-        <layer pass="1" class="SimpleLine" locked="0">
-          <prop k="line_color" v="176,176,176,255"/>
-          <prop k="line_width" v="0.85"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="square"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-        <layer pass="2" class="SimpleLine" locked="0">
-          <prop k="line_color" v="255,255,255,255"/>
-          <prop k="line_width" v="0.55"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="square"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-        <layer pass="3" class="MarkerLine" locked="0">
-          <prop k="placement" v="interval"/>
-          <prop k="interval" v="20"/>
-          <prop k="interval_unit" v="MM"/>
-          <prop k="rotate" v="1"/>
-          <prop k="offset" v="0"/>
-          <prop k="offset_unit" v="MM"/>
-          <prop k="ring_filter" v="0"/>
-          <symbol type="marker" name="@99@3" alpha="1" force_rhr="0" clip_to_extent="1">
-            <layer pass="0" class="SimpleMarker" locked="0">
-              <prop k="name" v="filled_arrowhead"/>
-              <prop k="color" v="80,80,80,230"/>
-              <prop k="outline_color" v="80,80,80,230"/>
-              <prop k="size" v="2.2"/>
-              <prop k="size_unit" v="MM"/>
-              <prop k="angle" v="0"/>
-              <prop k="joinstyle" v="round"/>
-            </layer>
-          </symbol>
-        </layer>
-      </symbol>
-      <symbol type="line" name="100" alpha="1" force_rhr="0" clip_to_extent="1">
-        <layer pass="0" class="SimpleLine" locked="0">
-          <prop k="line_color" v="0,0,0,255"/>
-          <prop k="line_width" v="1.35"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="square"/>
-          <prop k="joinstyle" v="miter"/>
-        </layer>
-        <layer pass="1" class="SimpleLine" locked="0">
-          <prop k="line_color" v="176,176,176,255"/>
-          <prop k="line_width" v="0.85"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="square"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-        <layer pass="2" class="SimpleLine" locked="0">
-          <prop k="line_color" v="255,255,255,255"/>
-          <prop k="line_width" v="0.55"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="square"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-        <layer pass="3" class="MarkerLine" locked="0">
-          <prop k="placement" v="interval"/>
-          <prop k="interval" v="20"/>
-          <prop k="interval_unit" v="MM"/>
-          <prop k="rotate" v="1"/>
-          <prop k="offset" v="0"/>
-          <prop k="offset_unit" v="MM"/>
-          <prop k="ring_filter" v="0"/>
-          <symbol type="marker" name="@100@3" alpha="1" force_rhr="0" clip_to_extent="1">
-            <layer pass="0" class="SimpleMarker" locked="0">
-              <prop k="name" v="filled_arrowhead"/>
-              <prop k="color" v="80,80,80,230"/>
-              <prop k="outline_color" v="80,80,80,230"/>
-              <prop k="size" v="2.2"/>
-              <prop k="size_unit" v="MM"/>
-              <prop k="angle" v="180"/>
-              <prop k="joinstyle" v="round"/>
-            </layer>
-          </symbol>
-        </layer>
-      </symbol>
-      <symbol type="line" name="101" alpha="1" force_rhr="0" clip_to_extent="1">
-        <layer pass="0" class="SimpleLine" locked="0">
-          <prop k="line_color" v="0,0,0,255"/>
-          <prop k="line_width" v="1.35"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="square"/>
-          <prop k="joinstyle" v="miter"/>
-        </layer>
-        <layer pass="1" class="SimpleLine" locked="0">
-          <prop k="line_color" v="176,176,176,255"/>
-          <prop k="line_width" v="0.85"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="square"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-        <layer pass="2" class="SimpleLine" locked="0">
-          <prop k="line_color" v="255,255,255,255"/>
-          <prop k="line_width" v="0.55"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="square"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-      </symbol>
-      <symbol type="line" name="102" alpha="1" force_rhr="0" clip_to_extent="1">
-        <layer pass="1" class="SimpleLine" locked="0">
-          <prop k="line_color" v="176,176,176,255"/>
-          <prop k="line_width" v="0.85"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="round"/>
-          <prop k="joinstyle" v="round"/>
-          <prop k="customdash" v="4;2.5"/>
-          <prop k="use_custom_dash" v="1"/>
-        </layer>
-        <layer pass="2" class="SimpleLine" locked="0">
-          <prop k="line_color" v="255,255,255,255"/>
-          <prop k="line_width" v="0.55"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="round"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-        <layer pass="3" class="MarkerLine" locked="0">
-          <prop k="placement" v="interval"/>
-          <prop k="interval" v="20"/>
-          <prop k="interval_unit" v="MM"/>
-          <prop k="rotate" v="1"/>
-          <prop k="offset" v="0"/>
-          <prop k="offset_unit" v="MM"/>
-          <prop k="ring_filter" v="0"/>
-          <symbol type="marker" name="@102@2" alpha="1" force_rhr="0" clip_to_extent="1">
-            <layer pass="0" class="SimpleMarker" locked="0">
-              <prop k="name" v="filled_arrowhead"/>
-              <prop k="color" v="80,80,80,230"/>
-              <prop k="outline_color" v="80,80,80,230"/>
-              <prop k="size" v="2.2"/>
-              <prop k="size_unit" v="MM"/>
-              <prop k="angle" v="0"/>
-              <prop k="joinstyle" v="round"/>
-            </layer>
-          </symbol>
-        </layer>
-      </symbol>
-      <symbol type="line" name="103" alpha="1" force_rhr="0" clip_to_extent="1">
-        <layer pass="1" class="SimpleLine" locked="0">
-          <prop k="line_color" v="176,176,176,255"/>
-          <prop k="line_width" v="0.85"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="round"/>
-          <prop k="joinstyle" v="round"/>
-          <prop k="customdash" v="4;2.5"/>
-          <prop k="use_custom_dash" v="1"/>
-        </layer>
-        <layer pass="2" class="SimpleLine" locked="0">
-          <prop k="line_color" v="255,255,255,255"/>
-          <prop k="line_width" v="0.55"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="round"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-        <layer pass="3" class="MarkerLine" locked="0">
-          <prop k="placement" v="interval"/>
-          <prop k="interval" v="20"/>
-          <prop k="interval_unit" v="MM"/>
-          <prop k="rotate" v="1"/>
-          <prop k="offset" v="0"/>
-          <prop k="offset_unit" v="MM"/>
-          <prop k="ring_filter" v="0"/>
-          <symbol type="marker" name="@103@2" alpha="1" force_rhr="0" clip_to_extent="1">
-            <layer pass="0" class="SimpleMarker" locked="0">
-              <prop k="name" v="filled_arrowhead"/>
-              <prop k="color" v="80,80,80,230"/>
-              <prop k="outline_color" v="80,80,80,230"/>
-              <prop k="size" v="2.2"/>
-              <prop k="size_unit" v="MM"/>
-              <prop k="angle" v="180"/>
-              <prop k="joinstyle" v="round"/>
-            </layer>
-          </symbol>
-        </layer>
-      </symbol>
-      <symbol type="line" name="104" alpha="1" force_rhr="0" clip_to_extent="1">
-        <layer pass="1" class="SimpleLine" locked="0">
-          <prop k="line_color" v="176,176,176,255"/>
-          <prop k="line_width" v="0.85"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="round"/>
-          <prop k="joinstyle" v="round"/>
-          <prop k="customdash" v="4;2.5"/>
-          <prop k="use_custom_dash" v="1"/>
-        </layer>
-        <layer pass="2" class="SimpleLine" locked="0">
-          <prop k="line_color" v="255,255,255,255"/>
-          <prop k="line_width" v="0.55"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="round"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-      </symbol>
-      <symbol type="line" name="105" alpha="1" force_rhr="0" clip_to_extent="1">
-        <layer pass="1" class="SimpleLine" locked="0">
-          <prop k="line_color" v="176,176,176,255"/>
-          <prop k="line_width" v="0.85"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="round"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-        <layer pass="2" class="SimpleLine" locked="0">
-          <prop k="line_color" v="255,255,255,255"/>
-          <prop k="line_width" v="0.55"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="round"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-        <layer pass="3" class="MarkerLine" locked="0">
-          <prop k="placement" v="interval"/>
-          <prop k="interval" v="20"/>
-          <prop k="interval_unit" v="MM"/>
-          <prop k="rotate" v="1"/>
-          <prop k="offset" v="0"/>
-          <prop k="offset_unit" v="MM"/>
-          <prop k="ring_filter" v="0"/>
-          <symbol type="marker" name="@105@2" alpha="1" force_rhr="0" clip_to_extent="1">
-            <layer pass="0" class="SimpleMarker" locked="0">
-              <prop k="name" v="filled_arrowhead"/>
-              <prop k="color" v="80,80,80,230"/>
-              <prop k="outline_color" v="80,80,80,230"/>
-              <prop k="size" v="2.2"/>
-              <prop k="size_unit" v="MM"/>
-              <prop k="angle" v="0"/>
-              <prop k="joinstyle" v="round"/>
-            </layer>
-          </symbol>
-        </layer>
-      </symbol>
-      <symbol type="line" name="106" alpha="1" force_rhr="0" clip_to_extent="1">
-        <layer pass="1" class="SimpleLine" locked="0">
-          <prop k="line_color" v="176,176,176,255"/>
-          <prop k="line_width" v="0.85"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="round"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-        <layer pass="2" class="SimpleLine" locked="0">
-          <prop k="line_color" v="255,255,255,255"/>
-          <prop k="line_width" v="0.55"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="round"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-        <layer pass="3" class="MarkerLine" locked="0">
-          <prop k="placement" v="interval"/>
-          <prop k="interval" v="20"/>
-          <prop k="interval_unit" v="MM"/>
-          <prop k="rotate" v="1"/>
-          <prop k="offset" v="0"/>
-          <prop k="offset_unit" v="MM"/>
-          <prop k="ring_filter" v="0"/>
-          <symbol type="marker" name="@106@2" alpha="1" force_rhr="0" clip_to_extent="1">
-            <layer pass="0" class="SimpleMarker" locked="0">
-              <prop k="name" v="filled_arrowhead"/>
-              <prop k="color" v="80,80,80,230"/>
-              <prop k="outline_color" v="80,80,80,230"/>
-              <prop k="size" v="2.2"/>
-              <prop k="size_unit" v="MM"/>
-              <prop k="angle" v="180"/>
-              <prop k="joinstyle" v="round"/>
-            </layer>
-          </symbol>
-        </layer>
-      </symbol>
-      <symbol type="line" name="107" alpha="1" force_rhr="0" clip_to_extent="1">
-        <layer pass="1" class="SimpleLine" locked="0">
-          <prop k="line_color" v="176,176,176,255"/>
-          <prop k="line_width" v="0.85"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="round"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-        <layer pass="2" class="SimpleLine" locked="0">
-          <prop k="line_color" v="255,255,255,255"/>
-          <prop k="line_width" v="0.55"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="round"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-      </symbol>
-      <symbol type="line" name="108" alpha="1" force_rhr="0" clip_to_extent="1">
-        <layer pass="0" class="SimpleLine" locked="0">
-          <prop k="line_color" v="0,0,0,255"/>
-          <prop k="line_width" v="1.55"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="square"/>
-          <prop k="joinstyle" v="miter"/>
-        </layer>
-        <layer pass="1" class="SimpleLine" locked="0">
-          <prop k="line_color" v="176,176,176,255"/>
-          <prop k="line_width" v="1.05"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="square"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-        <layer pass="2" class="SimpleLine" locked="0">
-          <prop k="line_color" v="255,255,255,255"/>
-          <prop k="line_width" v="0.70"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="square"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-        <layer pass="3" class="MarkerLine" locked="0">
-          <prop k="placement" v="interval"/>
-          <prop k="interval" v="20"/>
-          <prop k="interval_unit" v="MM"/>
-          <prop k="rotate" v="1"/>
-          <prop k="offset" v="0"/>
-          <prop k="offset_unit" v="MM"/>
-          <prop k="ring_filter" v="0"/>
-          <symbol type="marker" name="@108@3" alpha="1" force_rhr="0" clip_to_extent="1">
-            <layer pass="0" class="SimpleMarker" locked="0">
-              <prop k="name" v="filled_arrowhead"/>
-              <prop k="color" v="80,80,80,230"/>
-              <prop k="outline_color" v="80,80,80,230"/>
-              <prop k="size" v="2.2"/>
-              <prop k="size_unit" v="MM"/>
-              <prop k="angle" v="0"/>
-              <prop k="joinstyle" v="round"/>
-            </layer>
-          </symbol>
-        </layer>
-      </symbol>
-      <symbol type="line" name="109" alpha="1" force_rhr="0" clip_to_extent="1">
-        <layer pass="0" class="SimpleLine" locked="0">
-          <prop k="line_color" v="0,0,0,255"/>
-          <prop k="line_width" v="1.55"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="square"/>
-          <prop k="joinstyle" v="miter"/>
-        </layer>
-        <layer pass="1" class="SimpleLine" locked="0">
-          <prop k="line_color" v="176,176,176,255"/>
-          <prop k="line_width" v="1.05"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="square"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-        <layer pass="2" class="SimpleLine" locked="0">
-          <prop k="line_color" v="255,255,255,255"/>
-          <prop k="line_width" v="0.70"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="square"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-        <layer pass="3" class="MarkerLine" locked="0">
-          <prop k="placement" v="interval"/>
-          <prop k="interval" v="20"/>
-          <prop k="interval_unit" v="MM"/>
-          <prop k="rotate" v="1"/>
-          <prop k="offset" v="0"/>
-          <prop k="offset_unit" v="MM"/>
-          <prop k="ring_filter" v="0"/>
-          <symbol type="marker" name="@109@3" alpha="1" force_rhr="0" clip_to_extent="1">
-            <layer pass="0" class="SimpleMarker" locked="0">
-              <prop k="name" v="filled_arrowhead"/>
-              <prop k="color" v="80,80,80,230"/>
-              <prop k="outline_color" v="80,80,80,230"/>
-              <prop k="size" v="2.2"/>
-              <prop k="size_unit" v="MM"/>
-              <prop k="angle" v="180"/>
-              <prop k="joinstyle" v="round"/>
-            </layer>
-          </symbol>
-        </layer>
-      </symbol>
-      <symbol type="line" name="110" alpha="1" force_rhr="0" clip_to_extent="1">
-        <layer pass="0" class="SimpleLine" locked="0">
-          <prop k="line_color" v="0,0,0,255"/>
-          <prop k="line_width" v="1.55"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="square"/>
-          <prop k="joinstyle" v="miter"/>
-        </layer>
-        <layer pass="1" class="SimpleLine" locked="0">
-          <prop k="line_color" v="176,176,176,255"/>
-          <prop k="line_width" v="1.05"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="square"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-        <layer pass="2" class="SimpleLine" locked="0">
-          <prop k="line_color" v="255,255,255,255"/>
-          <prop k="line_width" v="0.70"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="square"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-      </symbol>
-      <symbol type="line" name="111" alpha="1" force_rhr="0" clip_to_extent="1">
-        <layer pass="1" class="SimpleLine" locked="0">
-          <prop k="line_color" v="176,176,176,255"/>
-          <prop k="line_width" v="1.05"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="round"/>
-          <prop k="joinstyle" v="round"/>
-          <prop k="customdash" v="4;2.5"/>
-          <prop k="use_custom_dash" v="1"/>
-        </layer>
-        <layer pass="2" class="SimpleLine" locked="0">
-          <prop k="line_color" v="255,255,255,255"/>
-          <prop k="line_width" v="0.70"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="round"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-        <layer pass="3" class="MarkerLine" locked="0">
-          <prop k="placement" v="interval"/>
-          <prop k="interval" v="20"/>
-          <prop k="interval_unit" v="MM"/>
-          <prop k="rotate" v="1"/>
-          <prop k="offset" v="0"/>
-          <prop k="offset_unit" v="MM"/>
-          <prop k="ring_filter" v="0"/>
-          <symbol type="marker" name="@111@2" alpha="1" force_rhr="0" clip_to_extent="1">
-            <layer pass="0" class="SimpleMarker" locked="0">
-              <prop k="name" v="filled_arrowhead"/>
-              <prop k="color" v="80,80,80,230"/>
-              <prop k="outline_color" v="80,80,80,230"/>
-              <prop k="size" v="2.2"/>
-              <prop k="size_unit" v="MM"/>
-              <prop k="angle" v="0"/>
-              <prop k="joinstyle" v="round"/>
-            </layer>
-          </symbol>
-        </layer>
-      </symbol>
-      <symbol type="line" name="112" alpha="1" force_rhr="0" clip_to_extent="1">
-        <layer pass="1" class="SimpleLine" locked="0">
-          <prop k="line_color" v="176,176,176,255"/>
-          <prop k="line_width" v="1.05"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="round"/>
-          <prop k="joinstyle" v="round"/>
-          <prop k="customdash" v="4;2.5"/>
-          <prop k="use_custom_dash" v="1"/>
-        </layer>
-        <layer pass="2" class="SimpleLine" locked="0">
-          <prop k="line_color" v="255,255,255,255"/>
-          <prop k="line_width" v="0.70"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="round"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-        <layer pass="3" class="MarkerLine" locked="0">
-          <prop k="placement" v="interval"/>
-          <prop k="interval" v="20"/>
-          <prop k="interval_unit" v="MM"/>
-          <prop k="rotate" v="1"/>
-          <prop k="offset" v="0"/>
-          <prop k="offset_unit" v="MM"/>
-          <prop k="ring_filter" v="0"/>
-          <symbol type="marker" name="@112@2" alpha="1" force_rhr="0" clip_to_extent="1">
-            <layer pass="0" class="SimpleMarker" locked="0">
-              <prop k="name" v="filled_arrowhead"/>
-              <prop k="color" v="80,80,80,230"/>
-              <prop k="outline_color" v="80,80,80,230"/>
-              <prop k="size" v="2.2"/>
-              <prop k="size_unit" v="MM"/>
-              <prop k="angle" v="180"/>
-              <prop k="joinstyle" v="round"/>
-            </layer>
-          </symbol>
-        </layer>
-      </symbol>
-      <symbol type="line" name="113" alpha="1" force_rhr="0" clip_to_extent="1">
-        <layer pass="1" class="SimpleLine" locked="0">
-          <prop k="line_color" v="176,176,176,255"/>
-          <prop k="line_width" v="1.05"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="round"/>
-          <prop k="joinstyle" v="round"/>
-          <prop k="customdash" v="4;2.5"/>
-          <prop k="use_custom_dash" v="1"/>
-        </layer>
-        <layer pass="2" class="SimpleLine" locked="0">
-          <prop k="line_color" v="255,255,255,255"/>
-          <prop k="line_width" v="0.70"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="round"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-      </symbol>
-      <symbol type="line" name="114" alpha="1" force_rhr="0" clip_to_extent="1">
-        <layer pass="1" class="SimpleLine" locked="0">
-          <prop k="line_color" v="176,176,176,255"/>
-          <prop k="line_width" v="1.05"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="round"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-        <layer pass="2" class="SimpleLine" locked="0">
-          <prop k="line_color" v="255,255,255,255"/>
-          <prop k="line_width" v="0.70"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="round"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-        <layer pass="3" class="MarkerLine" locked="0">
-          <prop k="placement" v="interval"/>
-          <prop k="interval" v="20"/>
-          <prop k="interval_unit" v="MM"/>
-          <prop k="rotate" v="1"/>
-          <prop k="offset" v="0"/>
-          <prop k="offset_unit" v="MM"/>
-          <prop k="ring_filter" v="0"/>
-          <symbol type="marker" name="@114@2" alpha="1" force_rhr="0" clip_to_extent="1">
-            <layer pass="0" class="SimpleMarker" locked="0">
-              <prop k="name" v="filled_arrowhead"/>
-              <prop k="color" v="80,80,80,230"/>
-              <prop k="outline_color" v="80,80,80,230"/>
-              <prop k="size" v="2.2"/>
-              <prop k="size_unit" v="MM"/>
-              <prop k="angle" v="0"/>
-              <prop k="joinstyle" v="round"/>
-            </layer>
-          </symbol>
-        </layer>
-      </symbol>
-      <symbol type="line" name="115" alpha="1" force_rhr="0" clip_to_extent="1">
-        <layer pass="1" class="SimpleLine" locked="0">
-          <prop k="line_color" v="176,176,176,255"/>
-          <prop k="line_width" v="1.05"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="round"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-        <layer pass="2" class="SimpleLine" locked="0">
-          <prop k="line_color" v="255,255,255,255"/>
-          <prop k="line_width" v="0.70"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="round"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-        <layer pass="3" class="MarkerLine" locked="0">
-          <prop k="placement" v="interval"/>
-          <prop k="interval" v="20"/>
-          <prop k="interval_unit" v="MM"/>
-          <prop k="rotate" v="1"/>
-          <prop k="offset" v="0"/>
-          <prop k="offset_unit" v="MM"/>
-          <prop k="ring_filter" v="0"/>
-          <symbol type="marker" name="@115@2" alpha="1" force_rhr="0" clip_to_extent="1">
-            <layer pass="0" class="SimpleMarker" locked="0">
-              <prop k="name" v="filled_arrowhead"/>
-              <prop k="color" v="80,80,80,230"/>
-              <prop k="outline_color" v="80,80,80,230"/>
-              <prop k="size" v="2.2"/>
-              <prop k="size_unit" v="MM"/>
-              <prop k="angle" v="180"/>
-              <prop k="joinstyle" v="round"/>
-            </layer>
-          </symbol>
-        </layer>
-      </symbol>
-      <symbol type="line" name="116" alpha="1" force_rhr="0" clip_to_extent="1">
-        <layer pass="1" class="SimpleLine" locked="0">
-          <prop k="line_color" v="176,176,176,255"/>
-          <prop k="line_width" v="1.05"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="round"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-        <layer pass="2" class="SimpleLine" locked="0">
-          <prop k="line_color" v="255,255,255,255"/>
-          <prop k="line_width" v="0.70"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="round"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-      </symbol>
-      <symbol type="line" name="117" alpha="1" force_rhr="0" clip_to_extent="1">
-        <layer pass="0" class="SimpleLine" locked="0">
-          <prop k="line_color" v="0,0,0,255"/>
-          <prop k="line_width" v="1.35"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="square"/>
-          <prop k="joinstyle" v="miter"/>
-        </layer>
-        <layer pass="1" class="SimpleLine" locked="0">
-          <prop k="line_color" v="176,176,176,255"/>
-          <prop k="line_width" v="0.85"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="square"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-        <layer pass="2" class="SimpleLine" locked="0">
-          <prop k="line_color" v="255,255,255,255"/>
-          <prop k="line_width" v="0.55"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="square"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-        <layer pass="3" class="MarkerLine" locked="0">
-          <prop k="placement" v="interval"/>
-          <prop k="interval" v="20"/>
-          <prop k="interval_unit" v="MM"/>
-          <prop k="rotate" v="1"/>
-          <prop k="offset" v="0"/>
-          <prop k="offset_unit" v="MM"/>
-          <prop k="ring_filter" v="0"/>
-          <symbol type="marker" name="@117@3" alpha="1" force_rhr="0" clip_to_extent="1">
-            <layer pass="0" class="SimpleMarker" locked="0">
-              <prop k="name" v="filled_arrowhead"/>
-              <prop k="color" v="80,80,80,230"/>
-              <prop k="outline_color" v="80,80,80,230"/>
-              <prop k="size" v="2.2"/>
-              <prop k="size_unit" v="MM"/>
-              <prop k="angle" v="0"/>
-              <prop k="joinstyle" v="round"/>
-            </layer>
-          </symbol>
-        </layer>
-      </symbol>
-      <symbol type="line" name="118" alpha="1" force_rhr="0" clip_to_extent="1">
-        <layer pass="0" class="SimpleLine" locked="0">
-          <prop k="line_color" v="0,0,0,255"/>
-          <prop k="line_width" v="1.35"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="square"/>
-          <prop k="joinstyle" v="miter"/>
-        </layer>
-        <layer pass="1" class="SimpleLine" locked="0">
-          <prop k="line_color" v="176,176,176,255"/>
-          <prop k="line_width" v="0.85"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="square"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-        <layer pass="2" class="SimpleLine" locked="0">
-          <prop k="line_color" v="255,255,255,255"/>
-          <prop k="line_width" v="0.55"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="square"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-        <layer pass="3" class="MarkerLine" locked="0">
-          <prop k="placement" v="interval"/>
-          <prop k="interval" v="20"/>
-          <prop k="interval_unit" v="MM"/>
-          <prop k="rotate" v="1"/>
-          <prop k="offset" v="0"/>
-          <prop k="offset_unit" v="MM"/>
-          <prop k="ring_filter" v="0"/>
-          <symbol type="marker" name="@118@3" alpha="1" force_rhr="0" clip_to_extent="1">
-            <layer pass="0" class="SimpleMarker" locked="0">
-              <prop k="name" v="filled_arrowhead"/>
-              <prop k="color" v="80,80,80,230"/>
-              <prop k="outline_color" v="80,80,80,230"/>
-              <prop k="size" v="2.2"/>
-              <prop k="size_unit" v="MM"/>
-              <prop k="angle" v="180"/>
-              <prop k="joinstyle" v="round"/>
-            </layer>
-          </symbol>
-        </layer>
-      </symbol>
-      <symbol type="line" name="119" alpha="1" force_rhr="0" clip_to_extent="1">
-        <layer pass="0" class="SimpleLine" locked="0">
-          <prop k="line_color" v="0,0,0,255"/>
-          <prop k="line_width" v="1.35"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="square"/>
-          <prop k="joinstyle" v="miter"/>
-        </layer>
-        <layer pass="1" class="SimpleLine" locked="0">
-          <prop k="line_color" v="176,176,176,255"/>
-          <prop k="line_width" v="0.85"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="square"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-        <layer pass="2" class="SimpleLine" locked="0">
-          <prop k="line_color" v="255,255,255,255"/>
-          <prop k="line_width" v="0.55"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="square"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-      </symbol>
-      <symbol type="line" name="120" alpha="1" force_rhr="0" clip_to_extent="1">
-        <layer pass="1" class="SimpleLine" locked="0">
-          <prop k="line_color" v="176,176,176,255"/>
-          <prop k="line_width" v="0.85"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="round"/>
-          <prop k="joinstyle" v="round"/>
-          <prop k="customdash" v="4;2.5"/>
-          <prop k="use_custom_dash" v="1"/>
-        </layer>
-        <layer pass="2" class="SimpleLine" locked="0">
-          <prop k="line_color" v="255,255,255,255"/>
-          <prop k="line_width" v="0.55"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="round"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-        <layer pass="3" class="MarkerLine" locked="0">
-          <prop k="placement" v="interval"/>
-          <prop k="interval" v="20"/>
-          <prop k="interval_unit" v="MM"/>
-          <prop k="rotate" v="1"/>
-          <prop k="offset" v="0"/>
-          <prop k="offset_unit" v="MM"/>
-          <prop k="ring_filter" v="0"/>
-          <symbol type="marker" name="@120@2" alpha="1" force_rhr="0" clip_to_extent="1">
-            <layer pass="0" class="SimpleMarker" locked="0">
-              <prop k="name" v="filled_arrowhead"/>
-              <prop k="color" v="80,80,80,230"/>
-              <prop k="outline_color" v="80,80,80,230"/>
-              <prop k="size" v="2.2"/>
-              <prop k="size_unit" v="MM"/>
-              <prop k="angle" v="0"/>
-              <prop k="joinstyle" v="round"/>
-            </layer>
-          </symbol>
-        </layer>
-      </symbol>
-      <symbol type="line" name="121" alpha="1" force_rhr="0" clip_to_extent="1">
-        <layer pass="1" class="SimpleLine" locked="0">
-          <prop k="line_color" v="176,176,176,255"/>
-          <prop k="line_width" v="0.85"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="round"/>
-          <prop k="joinstyle" v="round"/>
-          <prop k="customdash" v="4;2.5"/>
-          <prop k="use_custom_dash" v="1"/>
-        </layer>
-        <layer pass="2" class="SimpleLine" locked="0">
-          <prop k="line_color" v="255,255,255,255"/>
-          <prop k="line_width" v="0.55"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="round"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-        <layer pass="3" class="MarkerLine" locked="0">
-          <prop k="placement" v="interval"/>
-          <prop k="interval" v="20"/>
-          <prop k="interval_unit" v="MM"/>
-          <prop k="rotate" v="1"/>
-          <prop k="offset" v="0"/>
-          <prop k="offset_unit" v="MM"/>
-          <prop k="ring_filter" v="0"/>
-          <symbol type="marker" name="@121@2" alpha="1" force_rhr="0" clip_to_extent="1">
-            <layer pass="0" class="SimpleMarker" locked="0">
-              <prop k="name" v="filled_arrowhead"/>
-              <prop k="color" v="80,80,80,230"/>
-              <prop k="outline_color" v="80,80,80,230"/>
-              <prop k="size" v="2.2"/>
-              <prop k="size_unit" v="MM"/>
-              <prop k="angle" v="180"/>
-              <prop k="joinstyle" v="round"/>
-            </layer>
-          </symbol>
-        </layer>
-      </symbol>
-      <symbol type="line" name="122" alpha="1" force_rhr="0" clip_to_extent="1">
-        <layer pass="1" class="SimpleLine" locked="0">
-          <prop k="line_color" v="176,176,176,255"/>
-          <prop k="line_width" v="0.85"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="round"/>
-          <prop k="joinstyle" v="round"/>
-          <prop k="customdash" v="4;2.5"/>
-          <prop k="use_custom_dash" v="1"/>
-        </layer>
-        <layer pass="2" class="SimpleLine" locked="0">
-          <prop k="line_color" v="255,255,255,255"/>
-          <prop k="line_width" v="0.55"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="round"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-      </symbol>
-      <symbol type="line" name="123" alpha="1" force_rhr="0" clip_to_extent="1">
-        <layer pass="1" class="SimpleLine" locked="0">
-          <prop k="line_color" v="176,176,176,255"/>
-          <prop k="line_width" v="0.85"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="round"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-        <layer pass="2" class="SimpleLine" locked="0">
-          <prop k="line_color" v="255,255,255,255"/>
-          <prop k="line_width" v="0.55"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="round"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-        <layer pass="3" class="MarkerLine" locked="0">
-          <prop k="placement" v="interval"/>
-          <prop k="interval" v="20"/>
-          <prop k="interval_unit" v="MM"/>
-          <prop k="rotate" v="1"/>
-          <prop k="offset" v="0"/>
-          <prop k="offset_unit" v="MM"/>
-          <prop k="ring_filter" v="0"/>
-          <symbol type="marker" name="@123@2" alpha="1" force_rhr="0" clip_to_extent="1">
-            <layer pass="0" class="SimpleMarker" locked="0">
-              <prop k="name" v="filled_arrowhead"/>
-              <prop k="color" v="80,80,80,230"/>
-              <prop k="outline_color" v="80,80,80,230"/>
-              <prop k="size" v="2.2"/>
-              <prop k="size_unit" v="MM"/>
-              <prop k="angle" v="0"/>
-              <prop k="joinstyle" v="round"/>
-            </layer>
-          </symbol>
-        </layer>
-      </symbol>
-      <symbol type="line" name="124" alpha="1" force_rhr="0" clip_to_extent="1">
-        <layer pass="1" class="SimpleLine" locked="0">
-          <prop k="line_color" v="176,176,176,255"/>
-          <prop k="line_width" v="0.85"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="round"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-        <layer pass="2" class="SimpleLine" locked="0">
-          <prop k="line_color" v="255,255,255,255"/>
-          <prop k="line_width" v="0.55"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="round"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-        <layer pass="3" class="MarkerLine" locked="0">
-          <prop k="placement" v="interval"/>
-          <prop k="interval" v="20"/>
-          <prop k="interval_unit" v="MM"/>
-          <prop k="rotate" v="1"/>
-          <prop k="offset" v="0"/>
-          <prop k="offset_unit" v="MM"/>
-          <prop k="ring_filter" v="0"/>
-          <symbol type="marker" name="@124@2" alpha="1" force_rhr="0" clip_to_extent="1">
-            <layer pass="0" class="SimpleMarker" locked="0">
-              <prop k="name" v="filled_arrowhead"/>
-              <prop k="color" v="80,80,80,230"/>
-              <prop k="outline_color" v="80,80,80,230"/>
-              <prop k="size" v="2.2"/>
-              <prop k="size_unit" v="MM"/>
-              <prop k="angle" v="180"/>
-              <prop k="joinstyle" v="round"/>
-            </layer>
-          </symbol>
-        </layer>
-      </symbol>
-      <symbol type="line" name="125" alpha="1" force_rhr="0" clip_to_extent="1">
-        <layer pass="1" class="SimpleLine" locked="0">
-          <prop k="line_color" v="176,176,176,255"/>
-          <prop k="line_width" v="0.85"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="round"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-        <layer pass="2" class="SimpleLine" locked="0">
-          <prop k="line_color" v="255,255,255,255"/>
-          <prop k="line_width" v="0.55"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="round"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-      </symbol>
-      <symbol type="line" name="126" alpha="1" force_rhr="0" clip_to_extent="1">
-        <layer pass="0" class="SimpleLine" locked="0">
-          <prop k="line_color" v="0,0,0,255"/>
-          <prop k="line_width" v="1.45"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="square"/>
-          <prop k="joinstyle" v="miter"/>
-        </layer>
-        <layer pass="1" class="SimpleLine" locked="0">
-          <prop k="line_color" v="176,176,176,255"/>
-          <prop k="line_width" v="0.95"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="square"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-        <layer pass="2" class="SimpleLine" locked="0">
-          <prop k="line_color" v="237,237,237,255"/>
-          <prop k="line_width" v="0.60"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="square"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-        <layer pass="3" class="MarkerLine" locked="0">
-          <prop k="placement" v="interval"/>
-          <prop k="interval" v="20"/>
-          <prop k="interval_unit" v="MM"/>
-          <prop k="rotate" v="1"/>
-          <prop k="offset" v="0"/>
-          <prop k="offset_unit" v="MM"/>
-          <prop k="ring_filter" v="0"/>
-          <symbol type="marker" name="@126@3" alpha="1" force_rhr="0" clip_to_extent="1">
-            <layer pass="0" class="SimpleMarker" locked="0">
-              <prop k="name" v="filled_arrowhead"/>
-              <prop k="color" v="80,80,80,230"/>
-              <prop k="outline_color" v="80,80,80,230"/>
-              <prop k="size" v="2.2"/>
-              <prop k="size_unit" v="MM"/>
-              <prop k="angle" v="0"/>
-              <prop k="joinstyle" v="round"/>
-            </layer>
-          </symbol>
-        </layer>
-      </symbol>
-      <symbol type="line" name="127" alpha="1" force_rhr="0" clip_to_extent="1">
-        <layer pass="0" class="SimpleLine" locked="0">
-          <prop k="line_color" v="0,0,0,255"/>
-          <prop k="line_width" v="1.45"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="square"/>
-          <prop k="joinstyle" v="miter"/>
-        </layer>
-        <layer pass="1" class="SimpleLine" locked="0">
-          <prop k="line_color" v="176,176,176,255"/>
-          <prop k="line_width" v="0.95"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="square"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-        <layer pass="2" class="SimpleLine" locked="0">
-          <prop k="line_color" v="237,237,237,255"/>
-          <prop k="line_width" v="0.60"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="square"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-        <layer pass="3" class="MarkerLine" locked="0">
-          <prop k="placement" v="interval"/>
-          <prop k="interval" v="20"/>
-          <prop k="interval_unit" v="MM"/>
-          <prop k="rotate" v="1"/>
-          <prop k="offset" v="0"/>
-          <prop k="offset_unit" v="MM"/>
-          <prop k="ring_filter" v="0"/>
-          <symbol type="marker" name="@127@3" alpha="1" force_rhr="0" clip_to_extent="1">
-            <layer pass="0" class="SimpleMarker" locked="0">
-              <prop k="name" v="filled_arrowhead"/>
-              <prop k="color" v="80,80,80,230"/>
-              <prop k="outline_color" v="80,80,80,230"/>
-              <prop k="size" v="2.2"/>
-              <prop k="size_unit" v="MM"/>
-              <prop k="angle" v="180"/>
-              <prop k="joinstyle" v="round"/>
-            </layer>
-          </symbol>
-        </layer>
-      </symbol>
-      <symbol type="line" name="128" alpha="1" force_rhr="0" clip_to_extent="1">
-        <layer pass="0" class="SimpleLine" locked="0">
-          <prop k="line_color" v="0,0,0,255"/>
-          <prop k="line_width" v="1.45"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="square"/>
-          <prop k="joinstyle" v="miter"/>
-        </layer>
-        <layer pass="1" class="SimpleLine" locked="0">
-          <prop k="line_color" v="176,176,176,255"/>
-          <prop k="line_width" v="0.95"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="square"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-        <layer pass="2" class="SimpleLine" locked="0">
-          <prop k="line_color" v="237,237,237,255"/>
-          <prop k="line_width" v="0.60"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="square"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-      </symbol>
-      <symbol type="line" name="129" alpha="1" force_rhr="0" clip_to_extent="1">
-        <layer pass="1" class="SimpleLine" locked="0">
-          <prop k="line_color" v="176,176,176,255"/>
-          <prop k="line_width" v="0.95"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="round"/>
-          <prop k="joinstyle" v="round"/>
-          <prop k="customdash" v="4;2.5"/>
-          <prop k="use_custom_dash" v="1"/>
-        </layer>
-        <layer pass="2" class="SimpleLine" locked="0">
-          <prop k="line_color" v="237,237,237,255"/>
-          <prop k="line_width" v="0.60"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="round"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-        <layer pass="3" class="MarkerLine" locked="0">
-          <prop k="placement" v="interval"/>
-          <prop k="interval" v="20"/>
-          <prop k="interval_unit" v="MM"/>
-          <prop k="rotate" v="1"/>
-          <prop k="offset" v="0"/>
-          <prop k="offset_unit" v="MM"/>
-          <prop k="ring_filter" v="0"/>
-          <symbol type="marker" name="@129@2" alpha="1" force_rhr="0" clip_to_extent="1">
-            <layer pass="0" class="SimpleMarker" locked="0">
-              <prop k="name" v="filled_arrowhead"/>
-              <prop k="color" v="80,80,80,230"/>
-              <prop k="outline_color" v="80,80,80,230"/>
-              <prop k="size" v="2.2"/>
-              <prop k="size_unit" v="MM"/>
-              <prop k="angle" v="0"/>
-              <prop k="joinstyle" v="round"/>
-            </layer>
-          </symbol>
-        </layer>
-      </symbol>
-      <symbol type="line" name="130" alpha="1" force_rhr="0" clip_to_extent="1">
-        <layer pass="1" class="SimpleLine" locked="0">
-          <prop k="line_color" v="176,176,176,255"/>
-          <prop k="line_width" v="0.95"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="round"/>
-          <prop k="joinstyle" v="round"/>
-          <prop k="customdash" v="4;2.5"/>
-          <prop k="use_custom_dash" v="1"/>
-        </layer>
-        <layer pass="2" class="SimpleLine" locked="0">
-          <prop k="line_color" v="237,237,237,255"/>
-          <prop k="line_width" v="0.60"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="round"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-        <layer pass="3" class="MarkerLine" locked="0">
-          <prop k="placement" v="interval"/>
-          <prop k="interval" v="20"/>
-          <prop k="interval_unit" v="MM"/>
-          <prop k="rotate" v="1"/>
-          <prop k="offset" v="0"/>
-          <prop k="offset_unit" v="MM"/>
-          <prop k="ring_filter" v="0"/>
-          <symbol type="marker" name="@130@2" alpha="1" force_rhr="0" clip_to_extent="1">
-            <layer pass="0" class="SimpleMarker" locked="0">
-              <prop k="name" v="filled_arrowhead"/>
-              <prop k="color" v="80,80,80,230"/>
-              <prop k="outline_color" v="80,80,80,230"/>
-              <prop k="size" v="2.2"/>
-              <prop k="size_unit" v="MM"/>
-              <prop k="angle" v="180"/>
-              <prop k="joinstyle" v="round"/>
-            </layer>
-          </symbol>
-        </layer>
-      </symbol>
-      <symbol type="line" name="131" alpha="1" force_rhr="0" clip_to_extent="1">
-        <layer pass="1" class="SimpleLine" locked="0">
-          <prop k="line_color" v="176,176,176,255"/>
-          <prop k="line_width" v="0.95"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="round"/>
-          <prop k="joinstyle" v="round"/>
-          <prop k="customdash" v="4;2.5"/>
-          <prop k="use_custom_dash" v="1"/>
-        </layer>
-        <layer pass="2" class="SimpleLine" locked="0">
-          <prop k="line_color" v="237,237,237,255"/>
-          <prop k="line_width" v="0.60"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="round"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-      </symbol>
-      <symbol type="line" name="132" alpha="1" force_rhr="0" clip_to_extent="1">
-        <layer pass="1" class="SimpleLine" locked="0">
-          <prop k="line_color" v="176,176,176,255"/>
-          <prop k="line_width" v="0.95"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="round"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-        <layer pass="2" class="SimpleLine" locked="0">
-          <prop k="line_color" v="237,237,237,255"/>
-          <prop k="line_width" v="0.60"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="round"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-        <layer pass="3" class="MarkerLine" locked="0">
-          <prop k="placement" v="interval"/>
-          <prop k="interval" v="20"/>
-          <prop k="interval_unit" v="MM"/>
-          <prop k="rotate" v="1"/>
-          <prop k="offset" v="0"/>
-          <prop k="offset_unit" v="MM"/>
-          <prop k="ring_filter" v="0"/>
-          <symbol type="marker" name="@132@2" alpha="1" force_rhr="0" clip_to_extent="1">
-            <layer pass="0" class="SimpleMarker" locked="0">
-              <prop k="name" v="filled_arrowhead"/>
-              <prop k="color" v="80,80,80,230"/>
-              <prop k="outline_color" v="80,80,80,230"/>
-              <prop k="size" v="2.2"/>
-              <prop k="size_unit" v="MM"/>
-              <prop k="angle" v="0"/>
-              <prop k="joinstyle" v="round"/>
-            </layer>
-          </symbol>
-        </layer>
-      </symbol>
-      <symbol type="line" name="133" alpha="1" force_rhr="0" clip_to_extent="1">
-        <layer pass="1" class="SimpleLine" locked="0">
-          <prop k="line_color" v="176,176,176,255"/>
-          <prop k="line_width" v="0.95"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="round"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-        <layer pass="2" class="SimpleLine" locked="0">
-          <prop k="line_color" v="237,237,237,255"/>
-          <prop k="line_width" v="0.60"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="round"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-        <layer pass="3" class="MarkerLine" locked="0">
-          <prop k="placement" v="interval"/>
-          <prop k="interval" v="20"/>
-          <prop k="interval_unit" v="MM"/>
-          <prop k="rotate" v="1"/>
-          <prop k="offset" v="0"/>
-          <prop k="offset_unit" v="MM"/>
-          <prop k="ring_filter" v="0"/>
-          <symbol type="marker" name="@133@2" alpha="1" force_rhr="0" clip_to_extent="1">
-            <layer pass="0" class="SimpleMarker" locked="0">
-              <prop k="name" v="filled_arrowhead"/>
-              <prop k="color" v="80,80,80,230"/>
-              <prop k="outline_color" v="80,80,80,230"/>
-              <prop k="size" v="2.2"/>
-              <prop k="size_unit" v="MM"/>
-              <prop k="angle" v="180"/>
-              <prop k="joinstyle" v="round"/>
-            </layer>
-          </symbol>
-        </layer>
-      </symbol>
-      <symbol type="line" name="134" alpha="1" force_rhr="0" clip_to_extent="1">
-        <layer pass="1" class="SimpleLine" locked="0">
-          <prop k="line_color" v="176,176,176,255"/>
-          <prop k="line_width" v="0.95"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="round"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-        <layer pass="2" class="SimpleLine" locked="0">
-          <prop k="line_color" v="237,237,237,255"/>
-          <prop k="line_width" v="0.60"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="round"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-      </symbol>
-      <symbol type="line" name="135" alpha="1" force_rhr="0" clip_to_extent="1">
-        <layer pass="0" class="SimpleLine" locked="0">
-          <prop k="line_color" v="0,0,0,255"/>
-          <prop k="line_width" v="1.30"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="square"/>
-          <prop k="joinstyle" v="miter"/>
-        </layer>
-        <layer pass="1" class="SimpleLine" locked="0">
-          <prop k="line_color" v="176,176,176,255"/>
-          <prop k="line_width" v="0.80"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="square"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-        <layer pass="2" class="SimpleLine" locked="0">
-          <prop k="line_color" v="237,237,237,255"/>
-          <prop k="line_width" v="0.50"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="square"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-        <layer pass="3" class="MarkerLine" locked="0">
-          <prop k="placement" v="interval"/>
-          <prop k="interval" v="20"/>
-          <prop k="interval_unit" v="MM"/>
-          <prop k="rotate" v="1"/>
-          <prop k="offset" v="0"/>
-          <prop k="offset_unit" v="MM"/>
-          <prop k="ring_filter" v="0"/>
-          <symbol type="marker" name="@135@3" alpha="1" force_rhr="0" clip_to_extent="1">
-            <layer pass="0" class="SimpleMarker" locked="0">
-              <prop k="name" v="filled_arrowhead"/>
-              <prop k="color" v="80,80,80,230"/>
-              <prop k="outline_color" v="80,80,80,230"/>
-              <prop k="size" v="2.2"/>
-              <prop k="size_unit" v="MM"/>
-              <prop k="angle" v="0"/>
-              <prop k="joinstyle" v="round"/>
-            </layer>
-          </symbol>
-        </layer>
-      </symbol>
-      <symbol type="line" name="136" alpha="1" force_rhr="0" clip_to_extent="1">
-        <layer pass="0" class="SimpleLine" locked="0">
-          <prop k="line_color" v="0,0,0,255"/>
-          <prop k="line_width" v="1.30"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="square"/>
-          <prop k="joinstyle" v="miter"/>
-        </layer>
-        <layer pass="1" class="SimpleLine" locked="0">
-          <prop k="line_color" v="176,176,176,255"/>
-          <prop k="line_width" v="0.80"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="square"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-        <layer pass="2" class="SimpleLine" locked="0">
-          <prop k="line_color" v="237,237,237,255"/>
-          <prop k="line_width" v="0.50"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="square"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-        <layer pass="3" class="MarkerLine" locked="0">
-          <prop k="placement" v="interval"/>
-          <prop k="interval" v="20"/>
-          <prop k="interval_unit" v="MM"/>
-          <prop k="rotate" v="1"/>
-          <prop k="offset" v="0"/>
-          <prop k="offset_unit" v="MM"/>
-          <prop k="ring_filter" v="0"/>
-          <symbol type="marker" name="@136@3" alpha="1" force_rhr="0" clip_to_extent="1">
-            <layer pass="0" class="SimpleMarker" locked="0">
-              <prop k="name" v="filled_arrowhead"/>
-              <prop k="color" v="80,80,80,230"/>
-              <prop k="outline_color" v="80,80,80,230"/>
-              <prop k="size" v="2.2"/>
-              <prop k="size_unit" v="MM"/>
-              <prop k="angle" v="180"/>
-              <prop k="joinstyle" v="round"/>
-            </layer>
-          </symbol>
-        </layer>
-      </symbol>
-      <symbol type="line" name="137" alpha="1" force_rhr="0" clip_to_extent="1">
-        <layer pass="0" class="SimpleLine" locked="0">
-          <prop k="line_color" v="0,0,0,255"/>
-          <prop k="line_width" v="1.30"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="square"/>
-          <prop k="joinstyle" v="miter"/>
-        </layer>
-        <layer pass="1" class="SimpleLine" locked="0">
-          <prop k="line_color" v="176,176,176,255"/>
-          <prop k="line_width" v="0.80"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="square"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-        <layer pass="2" class="SimpleLine" locked="0">
-          <prop k="line_color" v="237,237,237,255"/>
-          <prop k="line_width" v="0.50"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="square"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-      </symbol>
-      <symbol type="line" name="138" alpha="1" force_rhr="0" clip_to_extent="1">
-        <layer pass="1" class="SimpleLine" locked="0">
-          <prop k="line_color" v="176,176,176,255"/>
-          <prop k="line_width" v="0.80"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="round"/>
-          <prop k="joinstyle" v="round"/>
-          <prop k="customdash" v="4;2.5"/>
-          <prop k="use_custom_dash" v="1"/>
-        </layer>
-        <layer pass="2" class="SimpleLine" locked="0">
-          <prop k="line_color" v="237,237,237,255"/>
-          <prop k="line_width" v="0.50"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="round"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-        <layer pass="3" class="MarkerLine" locked="0">
-          <prop k="placement" v="interval"/>
-          <prop k="interval" v="20"/>
-          <prop k="interval_unit" v="MM"/>
-          <prop k="rotate" v="1"/>
-          <prop k="offset" v="0"/>
-          <prop k="offset_unit" v="MM"/>
-          <prop k="ring_filter" v="0"/>
-          <symbol type="marker" name="@138@2" alpha="1" force_rhr="0" clip_to_extent="1">
-            <layer pass="0" class="SimpleMarker" locked="0">
-              <prop k="name" v="filled_arrowhead"/>
-              <prop k="color" v="80,80,80,230"/>
-              <prop k="outline_color" v="80,80,80,230"/>
-              <prop k="size" v="2.2"/>
-              <prop k="size_unit" v="MM"/>
-              <prop k="angle" v="0"/>
-              <prop k="joinstyle" v="round"/>
-            </layer>
-          </symbol>
-        </layer>
-      </symbol>
-      <symbol type="line" name="139" alpha="1" force_rhr="0" clip_to_extent="1">
-        <layer pass="1" class="SimpleLine" locked="0">
-          <prop k="line_color" v="176,176,176,255"/>
-          <prop k="line_width" v="0.80"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="round"/>
-          <prop k="joinstyle" v="round"/>
-          <prop k="customdash" v="4;2.5"/>
-          <prop k="use_custom_dash" v="1"/>
-        </layer>
-        <layer pass="2" class="SimpleLine" locked="0">
-          <prop k="line_color" v="237,237,237,255"/>
-          <prop k="line_width" v="0.50"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="round"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-        <layer pass="3" class="MarkerLine" locked="0">
-          <prop k="placement" v="interval"/>
-          <prop k="interval" v="20"/>
-          <prop k="interval_unit" v="MM"/>
-          <prop k="rotate" v="1"/>
-          <prop k="offset" v="0"/>
-          <prop k="offset_unit" v="MM"/>
-          <prop k="ring_filter" v="0"/>
-          <symbol type="marker" name="@139@2" alpha="1" force_rhr="0" clip_to_extent="1">
-            <layer pass="0" class="SimpleMarker" locked="0">
-              <prop k="name" v="filled_arrowhead"/>
-              <prop k="color" v="80,80,80,230"/>
-              <prop k="outline_color" v="80,80,80,230"/>
-              <prop k="size" v="2.2"/>
-              <prop k="size_unit" v="MM"/>
-              <prop k="angle" v="180"/>
-              <prop k="joinstyle" v="round"/>
-            </layer>
-          </symbol>
-        </layer>
-      </symbol>
-      <symbol type="line" name="140" alpha="1" force_rhr="0" clip_to_extent="1">
-        <layer pass="1" class="SimpleLine" locked="0">
-          <prop k="line_color" v="176,176,176,255"/>
-          <prop k="line_width" v="0.80"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="round"/>
-          <prop k="joinstyle" v="round"/>
-          <prop k="customdash" v="4;2.5"/>
-          <prop k="use_custom_dash" v="1"/>
-        </layer>
-        <layer pass="2" class="SimpleLine" locked="0">
-          <prop k="line_color" v="237,237,237,255"/>
-          <prop k="line_width" v="0.50"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="round"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-      </symbol>
-      <symbol type="line" name="141" alpha="1" force_rhr="0" clip_to_extent="1">
-        <layer pass="1" class="SimpleLine" locked="0">
-          <prop k="line_color" v="176,176,176,255"/>
-          <prop k="line_width" v="0.80"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="round"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-        <layer pass="2" class="SimpleLine" locked="0">
-          <prop k="line_color" v="237,237,237,255"/>
-          <prop k="line_width" v="0.50"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="round"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-        <layer pass="3" class="MarkerLine" locked="0">
-          <prop k="placement" v="interval"/>
-          <prop k="interval" v="20"/>
-          <prop k="interval_unit" v="MM"/>
-          <prop k="rotate" v="1"/>
-          <prop k="offset" v="0"/>
-          <prop k="offset_unit" v="MM"/>
-          <prop k="ring_filter" v="0"/>
-          <symbol type="marker" name="@141@2" alpha="1" force_rhr="0" clip_to_extent="1">
-            <layer pass="0" class="SimpleMarker" locked="0">
-              <prop k="name" v="filled_arrowhead"/>
-              <prop k="color" v="80,80,80,230"/>
-              <prop k="outline_color" v="80,80,80,230"/>
-              <prop k="size" v="2.2"/>
-              <prop k="size_unit" v="MM"/>
-              <prop k="angle" v="0"/>
-              <prop k="joinstyle" v="round"/>
-            </layer>
-          </symbol>
-        </layer>
-      </symbol>
-      <symbol type="line" name="142" alpha="1" force_rhr="0" clip_to_extent="1">
-        <layer pass="1" class="SimpleLine" locked="0">
-          <prop k="line_color" v="176,176,176,255"/>
-          <prop k="line_width" v="0.80"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="round"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-        <layer pass="2" class="SimpleLine" locked="0">
-          <prop k="line_color" v="237,237,237,255"/>
-          <prop k="line_width" v="0.50"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="round"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-        <layer pass="3" class="MarkerLine" locked="0">
-          <prop k="placement" v="interval"/>
-          <prop k="interval" v="20"/>
-          <prop k="interval_unit" v="MM"/>
-          <prop k="rotate" v="1"/>
-          <prop k="offset" v="0"/>
-          <prop k="offset_unit" v="MM"/>
-          <prop k="ring_filter" v="0"/>
-          <symbol type="marker" name="@142@2" alpha="1" force_rhr="0" clip_to_extent="1">
-            <layer pass="0" class="SimpleMarker" locked="0">
-              <prop k="name" v="filled_arrowhead"/>
-              <prop k="color" v="80,80,80,230"/>
-              <prop k="outline_color" v="80,80,80,230"/>
-              <prop k="size" v="2.2"/>
-              <prop k="size_unit" v="MM"/>
-              <prop k="angle" v="180"/>
-              <prop k="joinstyle" v="round"/>
-            </layer>
-          </symbol>
-        </layer>
-      </symbol>
-      <symbol type="line" name="143" alpha="1" force_rhr="0" clip_to_extent="1">
-        <layer pass="1" class="SimpleLine" locked="0">
-          <prop k="line_color" v="176,176,176,255"/>
-          <prop k="line_width" v="0.80"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="round"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-        <layer pass="2" class="SimpleLine" locked="0">
-          <prop k="line_color" v="237,237,237,255"/>
-          <prop k="line_width" v="0.50"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="round"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-      </symbol>
-      <symbol type="line" name="144" alpha="1" force_rhr="0" clip_to_extent="1">
-        <layer pass="0" class="SimpleLine" locked="0">
-          <prop k="line_color" v="0,0,0,255"/>
-          <prop k="line_width" v="1.30"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="square"/>
-          <prop k="joinstyle" v="miter"/>
-        </layer>
-        <layer pass="1" class="SimpleLine" locked="0">
-          <prop k="line_color" v="207,207,207,255"/>
-          <prop k="line_width" v="0.80"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="square"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-        <layer pass="2" class="SimpleLine" locked="0">
-          <prop k="line_color" v="255,255,255,255"/>
-          <prop k="line_width" v="0.50"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="square"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-        <layer pass="3" class="MarkerLine" locked="0">
-          <prop k="placement" v="interval"/>
-          <prop k="interval" v="20"/>
-          <prop k="interval_unit" v="MM"/>
-          <prop k="rotate" v="1"/>
-          <prop k="offset" v="0"/>
-          <prop k="offset_unit" v="MM"/>
-          <prop k="ring_filter" v="0"/>
-          <symbol type="marker" name="@144@3" alpha="1" force_rhr="0" clip_to_extent="1">
-            <layer pass="0" class="SimpleMarker" locked="0">
-              <prop k="name" v="filled_arrowhead"/>
-              <prop k="color" v="80,80,80,230"/>
-              <prop k="outline_color" v="80,80,80,230"/>
-              <prop k="size" v="2.2"/>
-              <prop k="size_unit" v="MM"/>
-              <prop k="angle" v="0"/>
-              <prop k="joinstyle" v="round"/>
-            </layer>
-          </symbol>
-        </layer>
-      </symbol>
-      <symbol type="line" name="145" alpha="1" force_rhr="0" clip_to_extent="1">
-        <layer pass="0" class="SimpleLine" locked="0">
-          <prop k="line_color" v="0,0,0,255"/>
-          <prop k="line_width" v="1.30"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="square"/>
-          <prop k="joinstyle" v="miter"/>
-        </layer>
-        <layer pass="1" class="SimpleLine" locked="0">
-          <prop k="line_color" v="207,207,207,255"/>
-          <prop k="line_width" v="0.80"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="square"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-        <layer pass="2" class="SimpleLine" locked="0">
-          <prop k="line_color" v="255,255,255,255"/>
-          <prop k="line_width" v="0.50"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="square"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-        <layer pass="3" class="MarkerLine" locked="0">
-          <prop k="placement" v="interval"/>
-          <prop k="interval" v="20"/>
-          <prop k="interval_unit" v="MM"/>
-          <prop k="rotate" v="1"/>
-          <prop k="offset" v="0"/>
-          <prop k="offset_unit" v="MM"/>
-          <prop k="ring_filter" v="0"/>
-          <symbol type="marker" name="@145@3" alpha="1" force_rhr="0" clip_to_extent="1">
-            <layer pass="0" class="SimpleMarker" locked="0">
-              <prop k="name" v="filled_arrowhead"/>
-              <prop k="color" v="80,80,80,230"/>
-              <prop k="outline_color" v="80,80,80,230"/>
-              <prop k="size" v="2.2"/>
-              <prop k="size_unit" v="MM"/>
-              <prop k="angle" v="180"/>
-              <prop k="joinstyle" v="round"/>
-            </layer>
-          </symbol>
-        </layer>
-      </symbol>
-      <symbol type="line" name="146" alpha="1" force_rhr="0" clip_to_extent="1">
-        <layer pass="0" class="SimpleLine" locked="0">
-          <prop k="line_color" v="0,0,0,255"/>
-          <prop k="line_width" v="1.30"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="square"/>
-          <prop k="joinstyle" v="miter"/>
-        </layer>
-        <layer pass="1" class="SimpleLine" locked="0">
-          <prop k="line_color" v="207,207,207,255"/>
-          <prop k="line_width" v="0.80"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="square"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-        <layer pass="2" class="SimpleLine" locked="0">
-          <prop k="line_color" v="255,255,255,255"/>
-          <prop k="line_width" v="0.50"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="square"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-      </symbol>
-      <symbol type="line" name="147" alpha="1" force_rhr="0" clip_to_extent="1">
-        <layer pass="1" class="SimpleLine" locked="0">
-          <prop k="line_color" v="207,207,207,255"/>
-          <prop k="line_width" v="0.80"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="round"/>
-          <prop k="joinstyle" v="round"/>
-          <prop k="customdash" v="4;2.5"/>
-          <prop k="use_custom_dash" v="1"/>
-        </layer>
-        <layer pass="2" class="SimpleLine" locked="0">
-          <prop k="line_color" v="255,255,255,255"/>
-          <prop k="line_width" v="0.50"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="round"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-        <layer pass="3" class="MarkerLine" locked="0">
-          <prop k="placement" v="interval"/>
-          <prop k="interval" v="20"/>
-          <prop k="interval_unit" v="MM"/>
-          <prop k="rotate" v="1"/>
-          <prop k="offset" v="0"/>
-          <prop k="offset_unit" v="MM"/>
-          <prop k="ring_filter" v="0"/>
-          <symbol type="marker" name="@147@2" alpha="1" force_rhr="0" clip_to_extent="1">
-            <layer pass="0" class="SimpleMarker" locked="0">
-              <prop k="name" v="filled_arrowhead"/>
-              <prop k="color" v="80,80,80,230"/>
-              <prop k="outline_color" v="80,80,80,230"/>
-              <prop k="size" v="2.2"/>
-              <prop k="size_unit" v="MM"/>
-              <prop k="angle" v="0"/>
-              <prop k="joinstyle" v="round"/>
-            </layer>
-          </symbol>
-        </layer>
-      </symbol>
-      <symbol type="line" name="148" alpha="1" force_rhr="0" clip_to_extent="1">
-        <layer pass="1" class="SimpleLine" locked="0">
-          <prop k="line_color" v="207,207,207,255"/>
-          <prop k="line_width" v="0.80"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="round"/>
-          <prop k="joinstyle" v="round"/>
-          <prop k="customdash" v="4;2.5"/>
-          <prop k="use_custom_dash" v="1"/>
-        </layer>
-        <layer pass="2" class="SimpleLine" locked="0">
-          <prop k="line_color" v="255,255,255,255"/>
-          <prop k="line_width" v="0.50"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="round"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-        <layer pass="3" class="MarkerLine" locked="0">
-          <prop k="placement" v="interval"/>
-          <prop k="interval" v="20"/>
-          <prop k="interval_unit" v="MM"/>
-          <prop k="rotate" v="1"/>
-          <prop k="offset" v="0"/>
-          <prop k="offset_unit" v="MM"/>
-          <prop k="ring_filter" v="0"/>
-          <symbol type="marker" name="@148@2" alpha="1" force_rhr="0" clip_to_extent="1">
-            <layer pass="0" class="SimpleMarker" locked="0">
-              <prop k="name" v="filled_arrowhead"/>
-              <prop k="color" v="80,80,80,230"/>
-              <prop k="outline_color" v="80,80,80,230"/>
-              <prop k="size" v="2.2"/>
-              <prop k="size_unit" v="MM"/>
-              <prop k="angle" v="180"/>
-              <prop k="joinstyle" v="round"/>
-            </layer>
-          </symbol>
-        </layer>
-      </symbol>
-      <symbol type="line" name="149" alpha="1" force_rhr="0" clip_to_extent="1">
-        <layer pass="1" class="SimpleLine" locked="0">
-          <prop k="line_color" v="207,207,207,255"/>
-          <prop k="line_width" v="0.80"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="round"/>
-          <prop k="joinstyle" v="round"/>
-          <prop k="customdash" v="4;2.5"/>
-          <prop k="use_custom_dash" v="1"/>
-        </layer>
-        <layer pass="2" class="SimpleLine" locked="0">
-          <prop k="line_color" v="255,255,255,255"/>
-          <prop k="line_width" v="0.50"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="round"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-      </symbol>
-      <symbol type="line" name="150" alpha="1" force_rhr="0" clip_to_extent="1">
-        <layer pass="1" class="SimpleLine" locked="0">
-          <prop k="line_color" v="207,207,207,255"/>
-          <prop k="line_width" v="0.80"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="round"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-        <layer pass="2" class="SimpleLine" locked="0">
-          <prop k="line_color" v="255,255,255,255"/>
-          <prop k="line_width" v="0.50"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="round"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-        <layer pass="3" class="MarkerLine" locked="0">
-          <prop k="placement" v="interval"/>
-          <prop k="interval" v="20"/>
-          <prop k="interval_unit" v="MM"/>
-          <prop k="rotate" v="1"/>
-          <prop k="offset" v="0"/>
-          <prop k="offset_unit" v="MM"/>
-          <prop k="ring_filter" v="0"/>
-          <symbol type="marker" name="@150@2" alpha="1" force_rhr="0" clip_to_extent="1">
-            <layer pass="0" class="SimpleMarker" locked="0">
-              <prop k="name" v="filled_arrowhead"/>
-              <prop k="color" v="80,80,80,230"/>
-              <prop k="outline_color" v="80,80,80,230"/>
-              <prop k="size" v="2.2"/>
-              <prop k="size_unit" v="MM"/>
-              <prop k="angle" v="0"/>
-              <prop k="joinstyle" v="round"/>
-            </layer>
-          </symbol>
-        </layer>
-      </symbol>
-      <symbol type="line" name="151" alpha="1" force_rhr="0" clip_to_extent="1">
-        <layer pass="1" class="SimpleLine" locked="0">
-          <prop k="line_color" v="207,207,207,255"/>
-          <prop k="line_width" v="0.80"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="round"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-        <layer pass="2" class="SimpleLine" locked="0">
-          <prop k="line_color" v="255,255,255,255"/>
-          <prop k="line_width" v="0.50"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="round"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-        <layer pass="3" class="MarkerLine" locked="0">
-          <prop k="placement" v="interval"/>
-          <prop k="interval" v="20"/>
-          <prop k="interval_unit" v="MM"/>
-          <prop k="rotate" v="1"/>
-          <prop k="offset" v="0"/>
-          <prop k="offset_unit" v="MM"/>
-          <prop k="ring_filter" v="0"/>
-          <symbol type="marker" name="@151@2" alpha="1" force_rhr="0" clip_to_extent="1">
-            <layer pass="0" class="SimpleMarker" locked="0">
-              <prop k="name" v="filled_arrowhead"/>
-              <prop k="color" v="80,80,80,230"/>
-              <prop k="outline_color" v="80,80,80,230"/>
-              <prop k="size" v="2.2"/>
-              <prop k="size_unit" v="MM"/>
-              <prop k="angle" v="180"/>
-              <prop k="joinstyle" v="round"/>
-            </layer>
-          </symbol>
-        </layer>
-      </symbol>
-      <symbol type="line" name="152" alpha="1" force_rhr="0" clip_to_extent="1">
-        <layer pass="1" class="SimpleLine" locked="0">
-          <prop k="line_color" v="207,207,207,255"/>
-          <prop k="line_width" v="0.80"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="round"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-        <layer pass="2" class="SimpleLine" locked="0">
-          <prop k="line_color" v="255,255,255,255"/>
-          <prop k="line_width" v="0.50"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="round"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-      </symbol>
-      <symbol type="line" name="153" alpha="1" force_rhr="0" clip_to_extent="1">
-        <layer pass="0" class="SimpleLine" locked="0">
-          <prop k="line_color" v="0,0,0,255"/>
-          <prop k="line_width" v="1.20"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="square"/>
-          <prop k="joinstyle" v="miter"/>
-        </layer>
-        <layer pass="1" class="SimpleLine" locked="0">
-          <prop k="line_color" v="207,207,207,255"/>
-          <prop k="line_width" v="0.70"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="square"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-        <layer pass="2" class="SimpleLine" locked="0">
-          <prop k="line_color" v="255,255,255,255"/>
-          <prop k="line_width" v="0.40"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="square"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-        <layer pass="3" class="MarkerLine" locked="0">
-          <prop k="placement" v="interval"/>
-          <prop k="interval" v="20"/>
-          <prop k="interval_unit" v="MM"/>
-          <prop k="rotate" v="1"/>
-          <prop k="offset" v="0"/>
-          <prop k="offset_unit" v="MM"/>
-          <prop k="ring_filter" v="0"/>
-          <symbol type="marker" name="@153@3" alpha="1" force_rhr="0" clip_to_extent="1">
-            <layer pass="0" class="SimpleMarker" locked="0">
-              <prop k="name" v="filled_arrowhead"/>
-              <prop k="color" v="80,80,80,230"/>
-              <prop k="outline_color" v="80,80,80,230"/>
-              <prop k="size" v="2.2"/>
-              <prop k="size_unit" v="MM"/>
-              <prop k="angle" v="0"/>
-              <prop k="joinstyle" v="round"/>
-            </layer>
-          </symbol>
-        </layer>
-      </symbol>
-      <symbol type="line" name="154" alpha="1" force_rhr="0" clip_to_extent="1">
-        <layer pass="0" class="SimpleLine" locked="0">
-          <prop k="line_color" v="0,0,0,255"/>
-          <prop k="line_width" v="1.20"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="square"/>
-          <prop k="joinstyle" v="miter"/>
-        </layer>
-        <layer pass="1" class="SimpleLine" locked="0">
-          <prop k="line_color" v="207,207,207,255"/>
-          <prop k="line_width" v="0.70"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="square"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-        <layer pass="2" class="SimpleLine" locked="0">
-          <prop k="line_color" v="255,255,255,255"/>
-          <prop k="line_width" v="0.40"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="square"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-        <layer pass="3" class="MarkerLine" locked="0">
-          <prop k="placement" v="interval"/>
-          <prop k="interval" v="20"/>
-          <prop k="interval_unit" v="MM"/>
-          <prop k="rotate" v="1"/>
-          <prop k="offset" v="0"/>
-          <prop k="offset_unit" v="MM"/>
-          <prop k="ring_filter" v="0"/>
-          <symbol type="marker" name="@154@3" alpha="1" force_rhr="0" clip_to_extent="1">
-            <layer pass="0" class="SimpleMarker" locked="0">
-              <prop k="name" v="filled_arrowhead"/>
-              <prop k="color" v="80,80,80,230"/>
-              <prop k="outline_color" v="80,80,80,230"/>
-              <prop k="size" v="2.2"/>
-              <prop k="size_unit" v="MM"/>
-              <prop k="angle" v="180"/>
-              <prop k="joinstyle" v="round"/>
-            </layer>
-          </symbol>
-        </layer>
-      </symbol>
-      <symbol type="line" name="155" alpha="1" force_rhr="0" clip_to_extent="1">
-        <layer pass="0" class="SimpleLine" locked="0">
-          <prop k="line_color" v="0,0,0,255"/>
-          <prop k="line_width" v="1.20"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="square"/>
-          <prop k="joinstyle" v="miter"/>
-        </layer>
-        <layer pass="1" class="SimpleLine" locked="0">
-          <prop k="line_color" v="207,207,207,255"/>
-          <prop k="line_width" v="0.70"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="square"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-        <layer pass="2" class="SimpleLine" locked="0">
-          <prop k="line_color" v="255,255,255,255"/>
-          <prop k="line_width" v="0.40"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="square"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-      </symbol>
-      <symbol type="line" name="156" alpha="1" force_rhr="0" clip_to_extent="1">
-        <layer pass="1" class="SimpleLine" locked="0">
-          <prop k="line_color" v="207,207,207,255"/>
-          <prop k="line_width" v="0.70"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="round"/>
-          <prop k="joinstyle" v="round"/>
-          <prop k="customdash" v="4;2.5"/>
-          <prop k="use_custom_dash" v="1"/>
-        </layer>
-        <layer pass="2" class="SimpleLine" locked="0">
-          <prop k="line_color" v="255,255,255,255"/>
-          <prop k="line_width" v="0.40"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="round"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-        <layer pass="3" class="MarkerLine" locked="0">
-          <prop k="placement" v="interval"/>
-          <prop k="interval" v="20"/>
-          <prop k="interval_unit" v="MM"/>
-          <prop k="rotate" v="1"/>
-          <prop k="offset" v="0"/>
-          <prop k="offset_unit" v="MM"/>
-          <prop k="ring_filter" v="0"/>
-          <symbol type="marker" name="@156@2" alpha="1" force_rhr="0" clip_to_extent="1">
-            <layer pass="0" class="SimpleMarker" locked="0">
-              <prop k="name" v="filled_arrowhead"/>
-              <prop k="color" v="80,80,80,230"/>
-              <prop k="outline_color" v="80,80,80,230"/>
-              <prop k="size" v="2.2"/>
-              <prop k="size_unit" v="MM"/>
-              <prop k="angle" v="0"/>
-              <prop k="joinstyle" v="round"/>
-            </layer>
-          </symbol>
-        </layer>
-      </symbol>
-      <symbol type="line" name="157" alpha="1" force_rhr="0" clip_to_extent="1">
-        <layer pass="1" class="SimpleLine" locked="0">
-          <prop k="line_color" v="207,207,207,255"/>
-          <prop k="line_width" v="0.70"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="round"/>
-          <prop k="joinstyle" v="round"/>
-          <prop k="customdash" v="4;2.5"/>
-          <prop k="use_custom_dash" v="1"/>
-        </layer>
-        <layer pass="2" class="SimpleLine" locked="0">
-          <prop k="line_color" v="255,255,255,255"/>
-          <prop k="line_width" v="0.40"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="round"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-        <layer pass="3" class="MarkerLine" locked="0">
-          <prop k="placement" v="interval"/>
-          <prop k="interval" v="20"/>
-          <prop k="interval_unit" v="MM"/>
-          <prop k="rotate" v="1"/>
-          <prop k="offset" v="0"/>
-          <prop k="offset_unit" v="MM"/>
-          <prop k="ring_filter" v="0"/>
-          <symbol type="marker" name="@157@2" alpha="1" force_rhr="0" clip_to_extent="1">
-            <layer pass="0" class="SimpleMarker" locked="0">
-              <prop k="name" v="filled_arrowhead"/>
-              <prop k="color" v="80,80,80,230"/>
-              <prop k="outline_color" v="80,80,80,230"/>
-              <prop k="size" v="2.2"/>
-              <prop k="size_unit" v="MM"/>
-              <prop k="angle" v="180"/>
-              <prop k="joinstyle" v="round"/>
-            </layer>
-          </symbol>
-        </layer>
-      </symbol>
-      <symbol type="line" name="158" alpha="1" force_rhr="0" clip_to_extent="1">
-        <layer pass="1" class="SimpleLine" locked="0">
-          <prop k="line_color" v="207,207,207,255"/>
-          <prop k="line_width" v="0.70"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="round"/>
-          <prop k="joinstyle" v="round"/>
-          <prop k="customdash" v="4;2.5"/>
-          <prop k="use_custom_dash" v="1"/>
-        </layer>
-        <layer pass="2" class="SimpleLine" locked="0">
-          <prop k="line_color" v="255,255,255,255"/>
-          <prop k="line_width" v="0.40"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="round"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-      </symbol>
-      <symbol type="line" name="159" alpha="1" force_rhr="0" clip_to_extent="1">
-        <layer pass="1" class="SimpleLine" locked="0">
-          <prop k="line_color" v="207,207,207,255"/>
-          <prop k="line_width" v="0.70"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="round"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-        <layer pass="2" class="SimpleLine" locked="0">
-          <prop k="line_color" v="255,255,255,255"/>
-          <prop k="line_width" v="0.40"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="round"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-        <layer pass="3" class="MarkerLine" locked="0">
-          <prop k="placement" v="interval"/>
-          <prop k="interval" v="20"/>
-          <prop k="interval_unit" v="MM"/>
-          <prop k="rotate" v="1"/>
-          <prop k="offset" v="0"/>
-          <prop k="offset_unit" v="MM"/>
-          <prop k="ring_filter" v="0"/>
-          <symbol type="marker" name="@159@2" alpha="1" force_rhr="0" clip_to_extent="1">
-            <layer pass="0" class="SimpleMarker" locked="0">
-              <prop k="name" v="filled_arrowhead"/>
-              <prop k="color" v="80,80,80,230"/>
-              <prop k="outline_color" v="80,80,80,230"/>
-              <prop k="size" v="2.2"/>
-              <prop k="size_unit" v="MM"/>
-              <prop k="angle" v="0"/>
-              <prop k="joinstyle" v="round"/>
-            </layer>
-          </symbol>
-        </layer>
-      </symbol>
-      <symbol type="line" name="160" alpha="1" force_rhr="0" clip_to_extent="1">
-        <layer pass="1" class="SimpleLine" locked="0">
-          <prop k="line_color" v="207,207,207,255"/>
-          <prop k="line_width" v="0.70"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="round"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-        <layer pass="2" class="SimpleLine" locked="0">
-          <prop k="line_color" v="255,255,255,255"/>
-          <prop k="line_width" v="0.40"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="round"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-        <layer pass="3" class="MarkerLine" locked="0">
-          <prop k="placement" v="interval"/>
-          <prop k="interval" v="20"/>
-          <prop k="interval_unit" v="MM"/>
-          <prop k="rotate" v="1"/>
-          <prop k="offset" v="0"/>
-          <prop k="offset_unit" v="MM"/>
-          <prop k="ring_filter" v="0"/>
-          <symbol type="marker" name="@160@2" alpha="1" force_rhr="0" clip_to_extent="1">
-            <layer pass="0" class="SimpleMarker" locked="0">
-              <prop k="name" v="filled_arrowhead"/>
-              <prop k="color" v="80,80,80,230"/>
-              <prop k="outline_color" v="80,80,80,230"/>
-              <prop k="size" v="2.2"/>
-              <prop k="size_unit" v="MM"/>
-              <prop k="angle" v="180"/>
-              <prop k="joinstyle" v="round"/>
-            </layer>
-          </symbol>
-        </layer>
-      </symbol>
-      <symbol type="line" name="161" alpha="1" force_rhr="0" clip_to_extent="1">
-        <layer pass="1" class="SimpleLine" locked="0">
-          <prop k="line_color" v="207,207,207,255"/>
-          <prop k="line_width" v="0.70"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="round"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-        <layer pass="2" class="SimpleLine" locked="0">
-          <prop k="line_color" v="255,255,255,255"/>
-          <prop k="line_width" v="0.40"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="capstyle" v="round"/>
-          <prop k="joinstyle" v="round"/>
-        </layer>
-      </symbol>
-      <symbol type="line" name="162" alpha="1" force_rhr="0" clip_to_extent="1">
-        <layer pass="1" class="SimpleLine" locked="0">
-          <prop k="line_color" v="153,102,0,255"/>
-          <prop k="line_width" v="0.5"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="customdash" v="3.5;2.0"/>
-          <prop k="use_custom_dash" v="1"/>
-          <prop k="capstyle" v="flat"/>
-        </layer>
-      </symbol>
-      <symbol type="line" name="163" alpha="1" force_rhr="0" clip_to_extent="1">
-        <layer pass="1" class="SimpleLine" locked="0">
-          <prop k="line_color" v="153,102,0,255"/>
-          <prop k="line_width" v="0.5"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="customdash" v="3.5;2.0"/>
-          <prop k="use_custom_dash" v="1"/>
-          <prop k="capstyle" v="flat"/>
-        </layer>
-        <layer pass="2" class="MarkerLine" locked="0">
-          <prop k="placement" v="interval"/>
-          <prop k="interval" v="20"/>
-          <prop k="interval_unit" v="MM"/>
-          <prop k="rotate" v="1"/>
-          <prop k="offset" v="0"/>
-          <prop k="offset_unit" v="MM"/>
-          <symbol type="marker" name="@163@1" alpha="1" force_rhr="0" clip_to_extent="1">
-            <layer pass="0" class="SimpleMarker" locked="0">
-              <prop k="name" v="filled_arrowhead"/>
-              <prop k="color" v="153,102,0,255"/>
-              <prop k="outline_color" v="153,102,0,255"/>
-              <prop k="size" v="2.0"/>
-              <prop k="size_unit" v="MM"/>
-              <prop k="angle" v="0"/>
-            </layer>
-          </symbol>
-        </layer>
-      </symbol>
-      <symbol type="line" name="164" alpha="1" force_rhr="0" clip_to_extent="1">
-        <layer pass="1" class="SimpleLine" locked="0">
-          <prop k="line_color" v="153,102,0,255"/>
-          <prop k="line_width" v="0.5"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="customdash" v="3.5;2.0"/>
-          <prop k="use_custom_dash" v="1"/>
-          <prop k="capstyle" v="flat"/>
-        </layer>
-        <layer pass="2" class="MarkerLine" locked="0">
-          <prop k="placement" v="interval"/>
-          <prop k="interval" v="20"/>
-          <prop k="interval_unit" v="MM"/>
-          <prop k="rotate" v="1"/>
-          <prop k="offset" v="0"/>
-          <prop k="offset_unit" v="MM"/>
-          <symbol type="marker" name="@164@1" alpha="1" force_rhr="0" clip_to_extent="1">
-            <layer pass="0" class="SimpleMarker" locked="0">
-              <prop k="name" v="filled_arrowhead"/>
-              <prop k="color" v="153,102,0,255"/>
-              <prop k="outline_color" v="153,102,0,255"/>
-              <prop k="size" v="2.0"/>
-              <prop k="size_unit" v="MM"/>
-              <prop k="angle" v="180"/>
+      <symbol clip_to_extent="1" is_animated="0" name="0" frame_rate="10" type="line" alpha="1" force_rhr="0">
+        <data_defined_properties>
+          <Option type="Map">
+            <Option name="name" type="QString" value=""/>
+            <Option name="properties"/>
+            <Option name="type" type="QString" value="collection"/>
+          </Option>
+        </data_defined_properties>
+        <layer id="{e6b58512-f4c8-4626-a410-1c0f2cdb92a9}" locked="0" pass="4" class="SimpleLine" enabled="1">
+          <Option type="Map">
+            <Option name="align_dash_pattern" type="QString" value="0"/>
+            <Option name="capstyle" type="QString" value="flat"/>
+            <Option name="customdash" type="QString" value="5;2"/>
+            <Option name="customdash_map_unit_scale" type="QString" value="3x:0,0,0,0,0,0"/>
+            <Option name="customdash_unit" type="QString" value="MM"/>
+            <Option name="dash_pattern_offset" type="QString" value="0"/>
+            <Option name="dash_pattern_offset_map_unit_scale" type="QString" value="3x:0,0,0,0,0,0"/>
+            <Option name="dash_pattern_offset_unit" type="QString" value="MM"/>
+            <Option name="draw_inside_polygon" type="QString" value="0"/>
+            <Option name="joinstyle" type="QString" value="round"/>
+            <Option name="line_color" type="QString" value="0,0,0,255,rgb:0,0,0,1"/>
+            <Option name="line_style" type="QString" value="solid"/>
+            <Option name="line_width" type="QString" value="1.5"/>
+            <Option name="line_width_unit" type="QString" value="MM"/>
+            <Option name="offset" type="QString" value="0"/>
+            <Option name="offset_map_unit_scale" type="QString" value="3x:0,0,0,0,0,0"/>
+            <Option name="offset_unit" type="QString" value="MM"/>
+            <Option name="ring_filter" type="QString" value="0"/>
+            <Option name="trim_distance_end" type="QString" value="0"/>
+            <Option name="trim_distance_end_map_unit_scale" type="QString" value="3x:0,0,0,0,0,0"/>
+            <Option name="trim_distance_end_unit" type="QString" value="MM"/>
+            <Option name="trim_distance_start" type="QString" value="0"/>
+            <Option name="trim_distance_start_map_unit_scale" type="QString" value="3x:0,0,0,0,0,0"/>
+            <Option name="trim_distance_start_unit" type="QString" value="MM"/>
+            <Option name="tweak_dash_pattern_on_corners" type="QString" value="0"/>
+            <Option name="use_custom_dash" type="QString" value="0"/>
+            <Option name="width_map_unit_scale" type="QString" value="3x:0,0,0,0,0,0"/>
+          </Option>
+          <data_defined_properties>
+            <Option type="Map">
+              <Option name="name" type="QString" value=""/>
+              <Option name="properties" type="Map">
+                <Option name="outlineWidth" type="Map">
+                  <Option name="active" type="bool" value="true"/>
+                  <Option name="expression" type="QString" value="(CASE&#xa;  WHEN &quot;highway&quot; IN ('track', 'footway', 'cycleway', 'path', 'steps') THEN 0.00&#xa;&#xa;  -- LINKS &amp; RAMPS&#xa;  WHEN (&quot;highway&quot; LIKE '%_link' OR coalesce(to_string(&quot;link&quot;), '') IN ('yes', '1', 'true')) THEN&#xa;    CASE&#xa;      WHEN &quot;highway&quot; IN ('motorway', 'motorway_link', 'trunk', 'trunk_link') THEN&#xa;        CASE&#xa;          WHEN coalesce(@map_scale, 1000) >= 35000 THEN 0.00&#xa;          WHEN coalesce(@map_scale, 1000) >= 20000 THEN 1.05&#xa;          WHEN coalesce(@map_scale, 1000) >= 8000 THEN 1.60&#xa;          WHEN coalesce(@map_scale, 1000) >= 3000 THEN 2.25&#xa;          ELSE 3.15&#xa;        END&#xa;      WHEN &quot;highway&quot; IN ('primary', 'primary_link') THEN&#xa;        CASE&#xa;          WHEN coalesce(@map_scale, 1000) >= 35000 THEN 0.00&#xa;          WHEN coalesce(@map_scale, 1000) >= 20000 THEN 1.00&#xa;          WHEN coalesce(@map_scale, 1000) >= 8000 THEN 1.45&#xa;          WHEN coalesce(@map_scale, 1000) >= 3000 THEN 2.10&#xa;          ELSE 2.90&#xa;        END&#xa;      WHEN &quot;highway&quot; IN ('secondary', 'secondary_link') THEN&#xa;        CASE&#xa;          WHEN coalesce(@map_scale, 1000) >= 35000 THEN 0.00&#xa;          WHEN coalesce(@map_scale, 1000) >= 20000 THEN 0.85&#xa;          WHEN coalesce(@map_scale, 1000) >= 8000 THEN 1.30&#xa;          WHEN coalesce(@map_scale, 1000) >= 3000 THEN 1.90&#xa;          ELSE 2.65&#xa;        END&#xa;      WHEN &quot;highway&quot; IN ('tertiary', 'tertiary_link') THEN&#xa;        CASE&#xa;          WHEN coalesce(@map_scale, 1000) >= 20000 THEN 0.00&#xa;          WHEN coalesce(@map_scale, 1000) >= 8000 THEN 1.15&#xa;          WHEN coalesce(@map_scale, 1000) >= 3000 THEN 1.65&#xa;          ELSE 2.35&#xa;        END&#xa;      ELSE&#xa;        CASE&#xa;          WHEN coalesce(@map_scale, 1000) >= 20000 THEN 0.00&#xa;          WHEN coalesce(@map_scale, 1000) >= 8000 THEN 0.90&#xa;          WHEN coalesce(@map_scale, 1000) >= 3000 THEN 1.35&#xa;          ELSE 2.05&#xa;        END&#xa;    END&#xa;&#xa;  -- MAINLINE ROADS&#xa;  WHEN &quot;highway&quot; IN ('motorway', 'trunk') THEN&#xa;    CASE&#xa;      WHEN coalesce(@map_scale, 1000) >= 50000 THEN 1.00&#xa;      WHEN coalesce(@map_scale, 1000) >= 20000 THEN 1.55&#xa;      WHEN coalesce(@map_scale, 1000) >= 8000 THEN 2.30&#xa;      WHEN coalesce(@map_scale, 1000) >= 3000 THEN 3.35&#xa;      ELSE 5.00&#xa;    END&#xa;  WHEN &quot;highway&quot; = 'primary' THEN&#xa;    CASE&#xa;      WHEN coalesce(@map_scale, 1000) >= 50000 THEN 0.85&#xa;      WHEN coalesce(@map_scale, 1000) >= 20000 THEN 1.35&#xa;      WHEN coalesce(@map_scale, 1000) >= 8000 THEN 2.10&#xa;      WHEN coalesce(@map_scale, 1000) >= 3000 THEN 3.05&#xa;      ELSE 4.60&#xa;    END&#xa;  WHEN &quot;highway&quot; = 'secondary' THEN&#xa;    CASE&#xa;      WHEN coalesce(@map_scale, 1000) >= 50000 THEN 0.75&#xa;      WHEN coalesce(@map_scale, 1000) >= 20000 THEN 1.20&#xa;      WHEN coalesce(@map_scale, 1000) >= 8000 THEN 1.95&#xa;      WHEN coalesce(@map_scale, 1000) >= 3000 THEN 2.80&#xa;      ELSE 4.10&#xa;    END&#xa;  WHEN &quot;highway&quot; = 'tertiary' THEN&#xa;    CASE&#xa;      WHEN coalesce(@map_scale, 1000) >= 50000 THEN 0.00&#xa;      WHEN coalesce(@map_scale, 1000) >= 20000 THEN 1.05&#xa;      WHEN coalesce(@map_scale, 1000) >= 8000 THEN 1.70&#xa;      WHEN coalesce(@map_scale, 1000) >= 3000 THEN 2.50&#xa;      ELSE 3.70&#xa;    END&#xa;  WHEN &quot;highway&quot; IN ('residential', 'unclassified', 'road') THEN&#xa;    CASE&#xa;      WHEN coalesce(@map_scale, 1000) >= 50000 THEN 0.00&#xa;      WHEN coalesce(@map_scale, 1000) >= 20000 THEN 0.75&#xa;      WHEN coalesce(@map_scale, 1000) >= 8000 THEN 1.30&#xa;      WHEN coalesce(@map_scale, 1000) >= 3000 THEN 1.90&#xa;      ELSE 2.90&#xa;    END&#xa;  WHEN &quot;highway&quot; IN ('living_street', 'pedestrian') THEN&#xa;    CASE&#xa;      WHEN coalesce(@map_scale, 1000) >= 20000 THEN 0.00&#xa;      WHEN coalesce(@map_scale, 1000) >= 8000 THEN 1.10&#xa;      WHEN coalesce(@map_scale, 1000) >= 3000 THEN 1.70&#xa;      ELSE 2.60&#xa;    END&#xa;  WHEN &quot;highway&quot; = 'service' THEN&#xa;    CASE&#xa;      WHEN coalesce(@map_scale, 1000) >= 20000 THEN 0.00&#xa;      WHEN coalesce(@map_scale, 1000) >= 8000 THEN 0.90&#xa;      WHEN coalesce(@map_scale, 1000) >= 3000 THEN 1.35&#xa;      ELSE 2.00&#xa;    END&#xa;  ELSE&#xa;    CASE&#xa;      WHEN coalesce(@map_scale, 1000) >= 20000 THEN 0.00&#xa;      WHEN coalesce(@map_scale, 1000) >= 8000 THEN 0.75&#xa;      WHEN coalesce(@map_scale, 1000) >= 3000 THEN 1.20&#xa;      ELSE 1.70&#xa;    END&#xa;END) + ((CASE&#xa;  WHEN &quot;highway&quot; IN ('track', 'footway', 'cycleway', 'path', 'steps') THEN 0.00&#xa;&#xa;  -- LINKS &amp; RAMPS&#xa;  WHEN (&quot;highway&quot; LIKE '%_link' OR coalesce(to_string(&quot;link&quot;), '') IN ('yes', '1', 'true')) THEN&#xa;    CASE&#xa;      WHEN &quot;highway&quot; IN ('motorway', 'motorway_link', 'trunk', 'trunk_link') THEN&#xa;        CASE&#xa;          WHEN coalesce(@map_scale, 1000) >= 35000 THEN 0.00&#xa;          WHEN coalesce(@map_scale, 1000) >= 20000 THEN 1.05&#xa;          WHEN coalesce(@map_scale, 1000) >= 8000 THEN 1.60&#xa;          WHEN coalesce(@map_scale, 1000) >= 3000 THEN 2.25&#xa;          ELSE 3.15&#xa;        END&#xa;      WHEN &quot;highway&quot; IN ('primary', 'primary_link') THEN&#xa;        CASE&#xa;          WHEN coalesce(@map_scale, 1000) >= 35000 THEN 0.00&#xa;          WHEN coalesce(@map_scale, 1000) >= 20000 THEN 1.00&#xa;          WHEN coalesce(@map_scale, 1000) >= 8000 THEN 1.45&#xa;          WHEN coalesce(@map_scale, 1000) >= 3000 THEN 2.10&#xa;          ELSE 2.90&#xa;        END&#xa;      WHEN &quot;highway&quot; IN ('secondary', 'secondary_link') THEN&#xa;        CASE&#xa;          WHEN coalesce(@map_scale, 1000) >= 35000 THEN 0.00&#xa;          WHEN coalesce(@map_scale, 1000) >= 20000 THEN 0.85&#xa;          WHEN coalesce(@map_scale, 1000) >= 8000 THEN 1.30&#xa;          WHEN coalesce(@map_scale, 1000) >= 3000 THEN 1.90&#xa;          ELSE 2.65&#xa;        END&#xa;      WHEN &quot;highway&quot; IN ('tertiary', 'tertiary_link') THEN&#xa;        CASE&#xa;          WHEN coalesce(@map_scale, 1000) >= 20000 THEN 0.00&#xa;          WHEN coalesce(@map_scale, 1000) >= 8000 THEN 1.15&#xa;          WHEN coalesce(@map_scale, 1000) >= 3000 THEN 1.65&#xa;          ELSE 2.35&#xa;        END&#xa;      ELSE&#xa;        CASE&#xa;          WHEN coalesce(@map_scale, 1000) >= 20000 THEN 0.00&#xa;          WHEN coalesce(@map_scale, 1000) >= 8000 THEN 0.90&#xa;          WHEN coalesce(@map_scale, 1000) >= 3000 THEN 1.35&#xa;          ELSE 2.05&#xa;        END&#xa;    END&#xa;&#xa;  -- MAINLINE ROADS&#xa;  WHEN &quot;highway&quot; IN ('motorway', 'trunk') THEN&#xa;    CASE&#xa;      WHEN coalesce(@map_scale, 1000) >= 50000 THEN 1.00&#xa;      WHEN coalesce(@map_scale, 1000) >= 20000 THEN 1.55&#xa;      WHEN coalesce(@map_scale, 1000) >= 8000 THEN 2.30&#xa;      WHEN coalesce(@map_scale, 1000) >= 3000 THEN 3.35&#xa;      ELSE 5.00&#xa;    END&#xa;  WHEN &quot;highway&quot; = 'primary' THEN&#xa;    CASE&#xa;      WHEN coalesce(@map_scale, 1000) >= 50000 THEN 0.85&#xa;      WHEN coalesce(@map_scale, 1000) >= 20000 THEN 1.35&#xa;      WHEN coalesce(@map_scale, 1000) >= 8000 THEN 2.10&#xa;      WHEN coalesce(@map_scale, 1000) >= 3000 THEN 3.05&#xa;      ELSE 4.60&#xa;    END&#xa;  WHEN &quot;highway&quot; = 'secondary' THEN&#xa;    CASE&#xa;      WHEN coalesce(@map_scale, 1000) >= 50000 THEN 0.75&#xa;      WHEN coalesce(@map_scale, 1000) >= 20000 THEN 1.20&#xa;      WHEN coalesce(@map_scale, 1000) >= 8000 THEN 1.95&#xa;      WHEN coalesce(@map_scale, 1000) >= 3000 THEN 2.80&#xa;      ELSE 4.10&#xa;    END&#xa;  WHEN &quot;highway&quot; = 'tertiary' THEN&#xa;    CASE&#xa;      WHEN coalesce(@map_scale, 1000) >= 50000 THEN 0.00&#xa;      WHEN coalesce(@map_scale, 1000) >= 20000 THEN 1.05&#xa;      WHEN coalesce(@map_scale, 1000) >= 8000 THEN 1.70&#xa;      WHEN coalesce(@map_scale, 1000) >= 3000 THEN 2.50&#xa;      ELSE 3.70&#xa;    END&#xa;  WHEN &quot;highway&quot; IN ('residential', 'unclassified', 'road') THEN&#xa;    CASE&#xa;      WHEN coalesce(@map_scale, 1000) >= 50000 THEN 0.00&#xa;      WHEN coalesce(@map_scale, 1000) >= 20000 THEN 0.75&#xa;      WHEN coalesce(@map_scale, 1000) >= 8000 THEN 1.30&#xa;      WHEN coalesce(@map_scale, 1000) >= 3000 THEN 1.90&#xa;      ELSE 2.90&#xa;    END&#xa;  WHEN &quot;highway&quot; IN ('living_street', 'pedestrian') THEN&#xa;    CASE&#xa;      WHEN coalesce(@map_scale, 1000) >= 20000 THEN 0.00&#xa;      WHEN coalesce(@map_scale, 1000) >= 8000 THEN 1.10&#xa;      WHEN coalesce(@map_scale, 1000) >= 3000 THEN 1.70&#xa;      ELSE 2.60&#xa;    END&#xa;  WHEN &quot;highway&quot; = 'service' THEN&#xa;    CASE&#xa;      WHEN coalesce(@map_scale, 1000) >= 20000 THEN 0.00&#xa;      WHEN coalesce(@map_scale, 1000) >= 8000 THEN 0.90&#xa;      WHEN coalesce(@map_scale, 1000) >= 3000 THEN 1.35&#xa;      ELSE 2.00&#xa;    END&#xa;  ELSE&#xa;    CASE&#xa;      WHEN coalesce(@map_scale, 1000) >= 20000 THEN 0.00&#xa;      WHEN coalesce(@map_scale, 1000) >= 8000 THEN 0.75&#xa;      WHEN coalesce(@map_scale, 1000) >= 3000 THEN 1.20&#xa;      ELSE 1.70&#xa;    END&#xa;END) - (CASE&#xa;  -- LINKS &amp; RAMPS (&quot;highway&quot; ends with _link OR &quot;link&quot; = 'yes')&#xa;  WHEN (&quot;highway&quot; LIKE '%_link' OR coalesce(to_string(&quot;link&quot;), '') IN ('yes', '1', 'true')) THEN&#xa;    CASE&#xa;      WHEN &quot;highway&quot; IN ('motorway', 'motorway_link', 'trunk', 'trunk_link') THEN&#xa;        CASE&#xa;          WHEN coalesce(@map_scale, 1000) >= 35000 THEN 0.00&#xa;          WHEN coalesce(@map_scale, 1000) >= 20000 THEN 0.70&#xa;          WHEN coalesce(@map_scale, 1000) >= 8000 THEN 1.15&#xa;          WHEN coalesce(@map_scale, 1000) >= 3000 THEN 1.70&#xa;          ELSE 2.55&#xa;        END&#xa;      WHEN &quot;highway&quot; IN ('primary', 'primary_link') THEN&#xa;        CASE&#xa;          WHEN coalesce(@map_scale, 1000) >= 35000 THEN 0.00&#xa;          WHEN coalesce(@map_scale, 1000) >= 20000 THEN 0.60&#xa;          WHEN coalesce(@map_scale, 1000) >= 8000 THEN 1.00&#xa;          WHEN coalesce(@map_scale, 1000) >= 3000 THEN 1.60&#xa;          ELSE 2.30&#xa;        END&#xa;      WHEN &quot;highway&quot; IN ('secondary', 'secondary_link') THEN&#xa;        CASE&#xa;          WHEN coalesce(@map_scale, 1000) >= 35000 THEN 0.00&#xa;          WHEN coalesce(@map_scale, 1000) >= 20000 THEN 0.55&#xa;          WHEN coalesce(@map_scale, 1000) >= 8000 THEN 0.90&#xa;          WHEN coalesce(@map_scale, 1000) >= 3000 THEN 1.45&#xa;          ELSE 2.10&#xa;        END&#xa;      WHEN &quot;highway&quot; IN ('tertiary', 'tertiary_link') THEN&#xa;        CASE&#xa;          WHEN coalesce(@map_scale, 1000) >= 20000 THEN 0.00&#xa;          WHEN coalesce(@map_scale, 1000) >= 8000 THEN 0.75&#xa;          WHEN coalesce(@map_scale, 1000) >= 3000 THEN 1.20&#xa;          ELSE 1.90&#xa;        END&#xa;      ELSE&#xa;        CASE&#xa;          WHEN coalesce(@map_scale, 1000) >= 20000 THEN 0.00&#xa;          WHEN coalesce(@map_scale, 1000) >= 8000 THEN 0.60&#xa;          WHEN coalesce(@map_scale, 1000) >= 3000 THEN 1.00&#xa;          ELSE 1.60&#xa;        END&#xa;    END&#xa;&#xa;  -- MAINLINE ROADS&#xa;  WHEN &quot;highway&quot; IN ('motorway', 'trunk') THEN&#xa;    CASE&#xa;      WHEN coalesce(@map_scale, 1000) >= 50000 THEN 0.70&#xa;      WHEN coalesce(@map_scale, 1000) >= 20000 THEN 1.15&#xa;      WHEN coalesce(@map_scale, 1000) >= 8000 THEN 1.80&#xa;      WHEN coalesce(@map_scale, 1000) >= 3000 THEN 2.70&#xa;      ELSE 4.20&#xa;    END&#xa;  WHEN &quot;highway&quot; = 'primary' THEN&#xa;    CASE&#xa;      WHEN coalesce(@map_scale, 1000) >= 50000 THEN 0.55&#xa;      WHEN coalesce(@map_scale, 1000) >= 20000 THEN 1.00&#xa;      WHEN coalesce(@map_scale, 1000) >= 8000 THEN 1.60&#xa;      WHEN coalesce(@map_scale, 1000) >= 3000 THEN 2.40&#xa;      ELSE 3.80&#xa;    END&#xa;  WHEN &quot;highway&quot; = 'secondary' THEN&#xa;    CASE&#xa;      WHEN coalesce(@map_scale, 1000) >= 50000 THEN 0.45&#xa;      WHEN coalesce(@map_scale, 1000) >= 20000 THEN 0.85&#xa;      WHEN coalesce(@map_scale, 1000) >= 8000 THEN 1.45&#xa;      WHEN coalesce(@map_scale, 1000) >= 3000 THEN 2.20&#xa;      ELSE 3.40&#xa;    END&#xa;  WHEN &quot;highway&quot; = 'tertiary' THEN&#xa;    CASE&#xa;      WHEN coalesce(@map_scale, 1000) >= 50000 THEN 0.00&#xa;      WHEN coalesce(@map_scale, 1000) >= 20000 THEN 0.70&#xa;      WHEN coalesce(@map_scale, 1000) >= 8000 THEN 1.30&#xa;      WHEN coalesce(@map_scale, 1000) >= 3000 THEN 1.90&#xa;      ELSE 3.00&#xa;    END&#xa;  WHEN &quot;highway&quot; IN ('residential', 'unclassified', 'road') THEN&#xa;    CASE&#xa;      WHEN coalesce(@map_scale, 1000) >= 50000 THEN 0.00&#xa;      WHEN coalesce(@map_scale, 1000) >= 20000 THEN 0.45&#xa;      WHEN coalesce(@map_scale, 1000) >= 8000 THEN 0.90&#xa;      WHEN coalesce(@map_scale, 1000) >= 3000 THEN 1.45&#xa;      ELSE 2.30&#xa;    END&#xa;  WHEN &quot;highway&quot; IN ('living_street', 'pedestrian') THEN&#xa;    CASE&#xa;      WHEN coalesce(@map_scale, 1000) >= 20000 THEN 0.00&#xa;      WHEN coalesce(@map_scale, 1000) >= 8000 THEN 0.80&#xa;      WHEN coalesce(@map_scale, 1000) >= 3000 THEN 1.30&#xa;      ELSE 2.10&#xa;    END&#xa;  WHEN &quot;highway&quot; = 'service' THEN&#xa;    CASE&#xa;      WHEN coalesce(@map_scale, 1000) >= 20000 THEN 0.00&#xa;      WHEN coalesce(@map_scale, 1000) >= 8000 THEN 0.60&#xa;      WHEN coalesce(@map_scale, 1000) >= 3000 THEN 1.00&#xa;      ELSE 1.60&#xa;    END&#xa;  WHEN &quot;highway&quot; IN ('track', 'footway', 'cycleway', 'path', 'steps') THEN&#xa;    CASE&#xa;      WHEN coalesce(@map_scale, 1000) >= 20000 THEN 0.00&#xa;      WHEN coalesce(@map_scale, 1000) >= 8000 THEN 0.45&#xa;      WHEN coalesce(@map_scale, 1000) >= 3000 THEN 0.70&#xa;      ELSE 1.00&#xa;    END&#xa;  ELSE&#xa;    CASE&#xa;      WHEN coalesce(@map_scale, 1000) >= 20000 THEN 0.00&#xa;      WHEN coalesce(@map_scale, 1000) >= 8000 THEN 0.45&#xa;      WHEN coalesce(@map_scale, 1000) >= 3000 THEN 0.85&#xa;      ELSE 1.30&#xa;    END&#xa;END))"/>
+                  <Option name="type" type="int" value="3"/>
+                </Option>
+              </Option>
+              <Option name="type" type="QString" value="collection"/>
+            </Option>
+          </data_defined_properties>
+        </layer>
+        <layer id="{e861e4a4-0252-49ec-a30d-47c5e3dd754c}" locked="0" pass="6" class="SimpleLine" enabled="1">
+          <Option type="Map">
+            <Option name="align_dash_pattern" type="QString" value="0"/>
+            <Option name="capstyle" type="QString" value="square"/>
+            <Option name="customdash" type="QString" value="5;2"/>
+            <Option name="customdash_map_unit_scale" type="QString" value="3x:0,0,0,0,0,0"/>
+            <Option name="customdash_unit" type="QString" value="MM"/>
+            <Option name="dash_pattern_offset" type="QString" value="0"/>
+            <Option name="dash_pattern_offset_map_unit_scale" type="QString" value="3x:0,0,0,0,0,0"/>
+            <Option name="dash_pattern_offset_unit" type="QString" value="MM"/>
+            <Option name="draw_inside_polygon" type="QString" value="0"/>
+            <Option name="joinstyle" type="QString" value="bevel"/>
+            <Option name="line_color" type="QString" value="255,255,255,255,rgb:1,1,1,1"/>
+            <Option name="line_style" type="QString" value="solid"/>
+            <Option name="line_width" type="QString" value="1.15"/>
+            <Option name="line_width_unit" type="QString" value="MM"/>
+            <Option name="offset" type="QString" value="0"/>
+            <Option name="offset_map_unit_scale" type="QString" value="3x:0,0,0,0,0,0"/>
+            <Option name="offset_unit" type="QString" value="MM"/>
+            <Option name="ring_filter" type="QString" value="0"/>
+            <Option name="trim_distance_end" type="QString" value="0"/>
+            <Option name="trim_distance_end_map_unit_scale" type="QString" value="3x:0,0,0,0,0,0"/>
+            <Option name="trim_distance_end_unit" type="QString" value="MM"/>
+            <Option name="trim_distance_start" type="QString" value="0"/>
+            <Option name="trim_distance_start_map_unit_scale" type="QString" value="3x:0,0,0,0,0,0"/>
+            <Option name="trim_distance_start_unit" type="QString" value="MM"/>
+            <Option name="tweak_dash_pattern_on_corners" type="QString" value="0"/>
+            <Option name="use_custom_dash" type="QString" value="0"/>
+            <Option name="width_map_unit_scale" type="QString" value="3x:0,0,0,0,0,0"/>
+          </Option>
+          <data_defined_properties>
+            <Option type="Map">
+              <Option name="name" type="QString" value=""/>
+              <Option name="properties" type="Map">
+                <Option name="customDash" type="Map">
+                  <Option name="active" type="bool" value="true"/>
+                  <Option name="expression" type="QString" value="CASE WHEN &quot;highway&quot; IN ('track', 'footway', 'cycleway') THEN '2;1.5' ELSE '1;0' END"/>
+                  <Option name="type" type="int" value="3"/>
+                </Option>
+                <Option name="outlineColor" type="Map">
+                  <Option name="active" type="bool" value="true"/>
+                  <Option name="expression" type="QString" value="CASE&#xa;  WHEN &quot;highway&quot; IN ('motorway', 'motorway_link') THEN '#e892a2'&#xa;  WHEN &quot;highway&quot; IN ('trunk', 'trunk_link') THEN '#f9b29c'&#xa;  WHEN &quot;highway&quot; IN ('primary', 'primary_link') THEN '#fcd6a4'&#xa;  WHEN &quot;highway&quot; IN ('secondary', 'secondary_link') THEN '#f7fabf'&#xa;  WHEN &quot;highway&quot; IN ('tertiary', 'tertiary_link') THEN '#ffffff'&#xa;  WHEN &quot;highway&quot; IN ('residential', 'unclassified', 'road') THEN '#ffffff'&#xa;  WHEN &quot;highway&quot; = 'living_street' THEN '#ededed'&#xa;  WHEN &quot;highway&quot; = 'pedestrian' THEN '#dddde8'&#xa;  WHEN &quot;highway&quot; = 'service' THEN '#ffffff'&#xa;  WHEN &quot;highway&quot; = 'track' THEN '#996600'&#xa;  WHEN &quot;highway&quot; IN ('footway', 'path', 'steps') THEN '#fa8072'&#xa;  WHEN &quot;highway&quot; = 'cycleway' THEN '#0000ff'&#xa;  ELSE '#ffffff'&#xa;END"/>
+                  <Option name="type" type="int" value="3"/>
+                </Option>
+                <Option name="outlineWidth" type="Map">
+                  <Option name="active" type="bool" value="true"/>
+                  <Option name="expression" type="QString" value="CASE&#xa;  -- LINKS &amp; RAMPS (&quot;highway&quot; ends with _link OR &quot;link&quot; = 'yes')&#xa;  WHEN (&quot;highway&quot; LIKE '%_link' OR coalesce(to_string(&quot;link&quot;), '') IN ('yes', '1', 'true')) THEN&#xa;    CASE&#xa;      WHEN &quot;highway&quot; IN ('motorway', 'motorway_link', 'trunk', 'trunk_link') THEN&#xa;        CASE&#xa;          WHEN coalesce(@map_scale, 1000) >= 35000 THEN 0.00&#xa;          WHEN coalesce(@map_scale, 1000) >= 20000 THEN 0.70&#xa;          WHEN coalesce(@map_scale, 1000) >= 8000 THEN 1.15&#xa;          WHEN coalesce(@map_scale, 1000) >= 3000 THEN 1.70&#xa;          ELSE 2.55&#xa;        END&#xa;      WHEN &quot;highway&quot; IN ('primary', 'primary_link') THEN&#xa;        CASE&#xa;          WHEN coalesce(@map_scale, 1000) >= 35000 THEN 0.00&#xa;          WHEN coalesce(@map_scale, 1000) >= 20000 THEN 0.60&#xa;          WHEN coalesce(@map_scale, 1000) >= 8000 THEN 1.00&#xa;          WHEN coalesce(@map_scale, 1000) >= 3000 THEN 1.60&#xa;          ELSE 2.30&#xa;        END&#xa;      WHEN &quot;highway&quot; IN ('secondary', 'secondary_link') THEN&#xa;        CASE&#xa;          WHEN coalesce(@map_scale, 1000) >= 35000 THEN 0.00&#xa;          WHEN coalesce(@map_scale, 1000) >= 20000 THEN 0.55&#xa;          WHEN coalesce(@map_scale, 1000) >= 8000 THEN 0.90&#xa;          WHEN coalesce(@map_scale, 1000) >= 3000 THEN 1.45&#xa;          ELSE 2.10&#xa;        END&#xa;      WHEN &quot;highway&quot; IN ('tertiary', 'tertiary_link') THEN&#xa;        CASE&#xa;          WHEN coalesce(@map_scale, 1000) >= 20000 THEN 0.00&#xa;          WHEN coalesce(@map_scale, 1000) >= 8000 THEN 0.75&#xa;          WHEN coalesce(@map_scale, 1000) >= 3000 THEN 1.20&#xa;          ELSE 1.90&#xa;        END&#xa;      ELSE&#xa;        CASE&#xa;          WHEN coalesce(@map_scale, 1000) >= 20000 THEN 0.00&#xa;          WHEN coalesce(@map_scale, 1000) >= 8000 THEN 0.60&#xa;          WHEN coalesce(@map_scale, 1000) >= 3000 THEN 1.00&#xa;          ELSE 1.60&#xa;        END&#xa;    END&#xa;&#xa;  -- MAINLINE ROADS&#xa;  WHEN &quot;highway&quot; IN ('motorway', 'trunk') THEN&#xa;    CASE&#xa;      WHEN coalesce(@map_scale, 1000) >= 50000 THEN 0.70&#xa;      WHEN coalesce(@map_scale, 1000) >= 20000 THEN 1.15&#xa;      WHEN coalesce(@map_scale, 1000) >= 8000 THEN 1.80&#xa;      WHEN coalesce(@map_scale, 1000) >= 3000 THEN 2.70&#xa;      ELSE 4.20&#xa;    END&#xa;  WHEN &quot;highway&quot; = 'primary' THEN&#xa;    CASE&#xa;      WHEN coalesce(@map_scale, 1000) >= 50000 THEN 0.55&#xa;      WHEN coalesce(@map_scale, 1000) >= 20000 THEN 1.00&#xa;      WHEN coalesce(@map_scale, 1000) >= 8000 THEN 1.60&#xa;      WHEN coalesce(@map_scale, 1000) >= 3000 THEN 2.40&#xa;      ELSE 3.80&#xa;    END&#xa;  WHEN &quot;highway&quot; = 'secondary' THEN&#xa;    CASE&#xa;      WHEN coalesce(@map_scale, 1000) >= 50000 THEN 0.45&#xa;      WHEN coalesce(@map_scale, 1000) >= 20000 THEN 0.85&#xa;      WHEN coalesce(@map_scale, 1000) >= 8000 THEN 1.45&#xa;      WHEN coalesce(@map_scale, 1000) >= 3000 THEN 2.20&#xa;      ELSE 3.40&#xa;    END&#xa;  WHEN &quot;highway&quot; = 'tertiary' THEN&#xa;    CASE&#xa;      WHEN coalesce(@map_scale, 1000) >= 50000 THEN 0.00&#xa;      WHEN coalesce(@map_scale, 1000) >= 20000 THEN 0.70&#xa;      WHEN coalesce(@map_scale, 1000) >= 8000 THEN 1.30&#xa;      WHEN coalesce(@map_scale, 1000) >= 3000 THEN 1.90&#xa;      ELSE 3.00&#xa;    END&#xa;  WHEN &quot;highway&quot; IN ('residential', 'unclassified', 'road') THEN&#xa;    CASE&#xa;      WHEN coalesce(@map_scale, 1000) >= 50000 THEN 0.00&#xa;      WHEN coalesce(@map_scale, 1000) >= 20000 THEN 0.45&#xa;      WHEN coalesce(@map_scale, 1000) >= 8000 THEN 0.90&#xa;      WHEN coalesce(@map_scale, 1000) >= 3000 THEN 1.45&#xa;      ELSE 2.30&#xa;    END&#xa;  WHEN &quot;highway&quot; IN ('living_street', 'pedestrian') THEN&#xa;    CASE&#xa;      WHEN coalesce(@map_scale, 1000) >= 20000 THEN 0.00&#xa;      WHEN coalesce(@map_scale, 1000) >= 8000 THEN 0.80&#xa;      WHEN coalesce(@map_scale, 1000) >= 3000 THEN 1.30&#xa;      ELSE 2.10&#xa;    END&#xa;  WHEN &quot;highway&quot; = 'service' THEN&#xa;    CASE&#xa;      WHEN coalesce(@map_scale, 1000) >= 20000 THEN 0.00&#xa;      WHEN coalesce(@map_scale, 1000) >= 8000 THEN 0.60&#xa;      WHEN coalesce(@map_scale, 1000) >= 3000 THEN 1.00&#xa;      ELSE 1.60&#xa;    END&#xa;  WHEN &quot;highway&quot; IN ('track', 'footway', 'cycleway', 'path', 'steps') THEN&#xa;    CASE&#xa;      WHEN coalesce(@map_scale, 1000) >= 20000 THEN 0.00&#xa;      WHEN coalesce(@map_scale, 1000) >= 8000 THEN 0.45&#xa;      WHEN coalesce(@map_scale, 1000) >= 3000 THEN 0.70&#xa;      ELSE 1.00&#xa;    END&#xa;  ELSE&#xa;    CASE&#xa;      WHEN coalesce(@map_scale, 1000) >= 20000 THEN 0.00&#xa;      WHEN coalesce(@map_scale, 1000) >= 8000 THEN 0.45&#xa;      WHEN coalesce(@map_scale, 1000) >= 3000 THEN 0.85&#xa;      ELSE 1.30&#xa;    END&#xa;END"/>
+                  <Option name="type" type="int" value="3"/>
+                </Option>
+              </Option>
+              <Option name="type" type="QString" value="collection"/>
+            </Option>
+          </data_defined_properties>
+        </layer>
+        <layer id="{9bd4df08-9906-498a-a2a6-42861f07758e}" locked="0" pass="7" class="MarkerLine" enabled="1">
+          <Option type="Map">
+            <Option name="average_angle_length" type="QString" value="4"/>
+            <Option name="average_angle_map_unit_scale" type="QString" value="3x:0,0,0,0,0,0"/>
+            <Option name="average_angle_unit" type="QString" value="MM"/>
+            <Option name="interval" type="QString" value="18"/>
+            <Option name="interval_map_unit_scale" type="QString" value="3x:0,0,0,0,0,0"/>
+            <Option name="interval_unit" type="QString" value="MM"/>
+            <Option name="offset" type="QString" value="0"/>
+            <Option name="offset_along_line" type="QString" value="0"/>
+            <Option name="offset_along_line_map_unit_scale" type="QString" value="3x:0,0,0,0,0,0"/>
+            <Option name="offset_along_line_unit" type="QString" value="MM"/>
+            <Option name="offset_map_unit_scale" type="QString" value="3x:0,0,0,0,0,0"/>
+            <Option name="offset_unit" type="QString" value="MM"/>
+            <Option name="place_on_every_part" type="bool" value="true"/>
+            <Option name="placements" type="QString" value="Interval"/>
+            <Option name="ring_filter" type="QString" value="0"/>
+            <Option name="rotate" type="QString" value="1"/>
+          </Option>
+          <data_defined_properties>
+            <Option type="Map">
+              <Option name="name" type="QString" value=""/>
+              <Option name="properties"/>
+              <Option name="type" type="QString" value="collection"/>
+            </Option>
+          </data_defined_properties>
+          <symbol clip_to_extent="1" is_animated="0" name="@0@2" frame_rate="10" type="marker" alpha="1" force_rhr="0">
+            <data_defined_properties>
+              <Option type="Map">
+                <Option name="name" type="QString" value=""/>
+                <Option name="properties"/>
+                <Option name="type" type="QString" value="collection"/>
+              </Option>
+            </data_defined_properties>
+            <layer id="{24cb7b6d-8b83-4357-ab08-de6fb482674b}" locked="0" pass="0" class="SvgMarker" enabled="1">
+              <Option type="Map">
+                <Option name="angle" type="QString" value="0"/>
+                <Option name="color" type="QString" value="85,85,85,255,rgb:0.3333333,0.3333333,0.3333333,1"/>
+                <Option name="fixedAspectRatio" type="QString" value="0"/>
+                <Option name="horizontal_anchor_point" type="QString" value="1"/>
+                <Option name="name" type="QString" value="C:/Users/kanal/Projects/leonida_gis/styles/oneway.svg"/>
+                <Option name="offset" type="QString" value="0,0"/>
+                <Option name="offset_map_unit_scale" type="QString" value="3x:0,0,0,0,0,0"/>
+                <Option name="offset_unit" type="QString" value="MM"/>
+                <Option name="outline_color" type="QString" value="85,85,85,255,rgb:0.3333333,0.3333333,0.3333333,1"/>
+                <Option name="outline_width" type="QString" value="0.2"/>
+                <Option name="outline_width_map_unit_scale" type="QString" value="3x:0,0,0,0,0,0"/>
+                <Option name="outline_width_unit" type="QString" value="MM"/>
+                <Option name="parameters"/>
+                <Option name="scale_method" type="QString" value="diameter"/>
+                <Option name="size" type="QString" value="2.8"/>
+                <Option name="size_map_unit_scale" type="QString" value="3x:0,0,0,0,0,0"/>
+                <Option name="size_unit" type="QString" value="MM"/>
+                <Option name="vertical_anchor_point" type="QString" value="1"/>
+              </Option>
+              <data_defined_properties>
+                <Option type="Map">
+                  <Option name="name" type="QString" value=""/>
+                  <Option name="properties" type="Map">
+                    <Option name="angle" type="Map">
+                      <Option name="active" type="bool" value="true"/>
+                      <Option name="expression" type="QString" value="CASE WHEN coalesce(to_string(&quot;oneway&quot;), '') = '-1' THEN 180 ELSE 0 END"/>
+                      <Option name="type" type="int" value="3"/>
+                    </Option>
+                    <Option name="fillColor" type="Map">
+                      <Option name="active" type="bool" value="true"/>
+                      <Option name="expression" type="QString" value="CASE&#xa;  WHEN &quot;highway&quot; IN ('motorway', 'motorway_link') THEN '#741334'&#xa;  WHEN &quot;highway&quot; IN ('trunk', 'trunk_link') THEN '#612617'&#xa;  WHEN &quot;highway&quot; IN ('primary', 'primary_link') THEN '#543800'&#xa;  WHEN &quot;highway&quot; IN ('secondary', 'secondary_link') THEN '#444c03'&#xa;  WHEN &quot;highway&quot; IN ('tertiary', 'tertiary_link') THEN '#424242'&#xa;  WHEN &quot;highway&quot; IN ('residential', 'unclassified', 'road', 'service') THEN '#555555'&#xa;  WHEN &quot;highway&quot; = 'living_street' THEN '#6e6e6e'&#xa;  WHEN &quot;highway&quot; = 'pedestrian' THEN '#4b4b4b'&#xa;  WHEN &quot;highway&quot; = 'track' THEN '#664400'&#xa;  WHEN &quot;highway&quot; IN ('footway', 'path', 'steps') THEN '#b31806'&#xa;  WHEN &quot;highway&quot; = 'cycleway' THEN '#000080'&#xa;  ELSE '#555555'&#xa;END"/>
+                      <Option name="type" type="int" value="3"/>
+                    </Option>
+                    <Option name="outlineColor" type="Map">
+                      <Option name="active" type="bool" value="true"/>
+                      <Option name="expression" type="QString" value="CASE&#xa;  WHEN &quot;highway&quot; IN ('motorway', 'motorway_link') THEN '#741334'&#xa;  WHEN &quot;highway&quot; IN ('trunk', 'trunk_link') THEN '#612617'&#xa;  WHEN &quot;highway&quot; IN ('primary', 'primary_link') THEN '#543800'&#xa;  WHEN &quot;highway&quot; IN ('secondary', 'secondary_link') THEN '#444c03'&#xa;  WHEN &quot;highway&quot; IN ('tertiary', 'tertiary_link') THEN '#424242'&#xa;  WHEN &quot;highway&quot; IN ('residential', 'unclassified', 'road', 'service') THEN '#555555'&#xa;  WHEN &quot;highway&quot; = 'living_street' THEN '#6e6e6e'&#xa;  WHEN &quot;highway&quot; = 'pedestrian' THEN '#4b4b4b'&#xa;  WHEN &quot;highway&quot; = 'track' THEN '#664400'&#xa;  WHEN &quot;highway&quot; IN ('footway', 'path', 'steps') THEN '#b31806'&#xa;  WHEN &quot;highway&quot; = 'cycleway' THEN '#000080'&#xa;  ELSE '#555555'&#xa;END"/>
+                      <Option name="type" type="int" value="3"/>
+                    </Option>
+                    <Option name="size" type="Map">
+                      <Option name="active" type="bool" value="true"/>
+                      <Option name="expression" type="QString" value="CASE&#xa;  WHEN coalesce(to_string(&quot;oneway&quot;), '') IN ('yes', '1', 'true', '-1') THEN&#xa;    CASE&#xa;      WHEN (&quot;highway&quot; LIKE '%_link' OR coalesce(to_string(&quot;link&quot;), '') IN ('yes', '1', 'true')) THEN&#xa;        CASE&#xa;          WHEN coalesce(@map_scale, 1000) &lt;= 2500 THEN 3.3&#xa;          WHEN coalesce(@map_scale, 1000) &lt;= 8000 THEN 2.4&#xa;          WHEN coalesce(@map_scale, 1000) &lt;= 20000 THEN 1.8&#xa;          ELSE 0.0&#xa;        END&#xa;      ELSE&#xa;        CASE&#xa;          WHEN coalesce(@map_scale, 1000) &lt;= 2500 THEN 4.2&#xa;          WHEN coalesce(@map_scale, 1000) &lt;= 8000 THEN 3.0&#xa;          WHEN coalesce(@map_scale, 1000) &lt;= 20000 THEN 2.2&#xa;          ELSE 0.0&#xa;        END&#xa;    END&#xa;  ELSE 0.0&#xa;END"/>
+                      <Option name="type" type="int" value="3"/>
+                    </Option>
+                  </Option>
+                  <Option name="type" type="QString" value="collection"/>
+                </Option>
+              </data_defined_properties>
+            </layer>
+          </symbol>
+        </layer>
+      </symbol>
+      <symbol clip_to_extent="1" is_animated="0" name="1" frame_rate="10" type="line" alpha="1" force_rhr="0">
+        <data_defined_properties>
+          <Option type="Map">
+            <Option name="name" type="QString" value=""/>
+            <Option name="properties"/>
+            <Option name="type" type="QString" value="collection"/>
+          </Option>
+        </data_defined_properties>
+        <layer id="{9a40d8b1-e05d-4e19-8f3a-bbb05a77e21a}" locked="0" pass="2" class="SimpleLine" enabled="1">
+          <Option type="Map">
+            <Option name="align_dash_pattern" type="QString" value="0"/>
+            <Option name="capstyle" type="QString" value="square"/>
+            <Option name="customdash" type="QString" value="5;2"/>
+            <Option name="customdash_map_unit_scale" type="QString" value="3x:0,0,0,0,0,0"/>
+            <Option name="customdash_unit" type="QString" value="MM"/>
+            <Option name="dash_pattern_offset" type="QString" value="0"/>
+            <Option name="dash_pattern_offset_map_unit_scale" type="QString" value="3x:0,0,0,0,0,0"/>
+            <Option name="dash_pattern_offset_unit" type="QString" value="MM"/>
+            <Option name="draw_inside_polygon" type="QString" value="0"/>
+            <Option name="joinstyle" type="QString" value="bevel"/>
+            <Option name="line_color" type="QString" value="187,187,187,255,rgb:0.7333333,0.7333333,0.7333333,1"/>
+            <Option name="line_style" type="QString" value="solid"/>
+            <Option name="line_width" type="QString" value="1.5"/>
+            <Option name="line_width_unit" type="QString" value="MM"/>
+            <Option name="offset" type="QString" value="0"/>
+            <Option name="offset_map_unit_scale" type="QString" value="3x:0,0,0,0,0,0"/>
+            <Option name="offset_unit" type="QString" value="MM"/>
+            <Option name="ring_filter" type="QString" value="0"/>
+            <Option name="trim_distance_end" type="QString" value="0"/>
+            <Option name="trim_distance_end_map_unit_scale" type="QString" value="3x:0,0,0,0,0,0"/>
+            <Option name="trim_distance_end_unit" type="QString" value="MM"/>
+            <Option name="trim_distance_start" type="QString" value="0"/>
+            <Option name="trim_distance_start_map_unit_scale" type="QString" value="3x:0,0,0,0,0,0"/>
+            <Option name="trim_distance_start_unit" type="QString" value="MM"/>
+            <Option name="tweak_dash_pattern_on_corners" type="QString" value="0"/>
+            <Option name="use_custom_dash" type="QString" value="0"/>
+            <Option name="width_map_unit_scale" type="QString" value="3x:0,0,0,0,0,0"/>
+          </Option>
+          <data_defined_properties>
+            <Option type="Map">
+              <Option name="name" type="QString" value=""/>
+              <Option name="properties" type="Map">
+                <Option name="outlineColor" type="Map">
+                  <Option name="active" type="bool" value="true"/>
+                  <Option name="expression" type="QString" value="CASE&#xa;  WHEN &quot;highway&quot; IN ('motorway', 'motorway_link') THEN '#dc2a67'&#xa;  WHEN &quot;highway&quot; IN ('trunk', 'trunk_link') THEN '#c84e2f'&#xa;  WHEN &quot;highway&quot; IN ('primary', 'primary_link') THEN '#a06b00'&#xa;  WHEN &quot;highway&quot; IN ('secondary', 'secondary_link') THEN '#707d05'&#xa;  WHEN &quot;highway&quot; IN ('tertiary', 'tertiary_link') THEN '#8f8f8f'&#xa;  WHEN &quot;highway&quot; IN ('residential', 'unclassified', 'road') THEN '#bbbbbb'&#xa;  WHEN &quot;highway&quot; = 'living_street' THEN '#bbbbbb'&#xa;  WHEN &quot;highway&quot; = 'pedestrian' THEN '#999999'&#xa;  WHEN &quot;highway&quot; = 'service' THEN '#cfcfcf'&#xa;  ELSE '#00000000'&#xa;END"/>
+                  <Option name="type" type="int" value="3"/>
+                </Option>
+                <Option name="outlineWidth" type="Map">
+                  <Option name="active" type="bool" value="true"/>
+                  <Option name="expression" type="QString" value="CASE&#xa;  WHEN &quot;highway&quot; IN ('track', 'footway', 'cycleway', 'path', 'steps') THEN 0.00&#xa;&#xa;  -- LINKS &amp; RAMPS&#xa;  WHEN (&quot;highway&quot; LIKE '%_link' OR coalesce(to_string(&quot;link&quot;), '') IN ('yes', '1', 'true')) THEN&#xa;    CASE&#xa;      WHEN &quot;highway&quot; IN ('motorway', 'motorway_link', 'trunk', 'trunk_link') THEN&#xa;        CASE&#xa;          WHEN coalesce(@map_scale, 1000) >= 35000 THEN 0.00&#xa;          WHEN coalesce(@map_scale, 1000) >= 20000 THEN 1.05&#xa;          WHEN coalesce(@map_scale, 1000) >= 8000 THEN 1.60&#xa;          WHEN coalesce(@map_scale, 1000) >= 3000 THEN 2.25&#xa;          ELSE 3.15&#xa;        END&#xa;      WHEN &quot;highway&quot; IN ('primary', 'primary_link') THEN&#xa;        CASE&#xa;          WHEN coalesce(@map_scale, 1000) >= 35000 THEN 0.00&#xa;          WHEN coalesce(@map_scale, 1000) >= 20000 THEN 1.00&#xa;          WHEN coalesce(@map_scale, 1000) >= 8000 THEN 1.45&#xa;          WHEN coalesce(@map_scale, 1000) >= 3000 THEN 2.10&#xa;          ELSE 2.90&#xa;        END&#xa;      WHEN &quot;highway&quot; IN ('secondary', 'secondary_link') THEN&#xa;        CASE&#xa;          WHEN coalesce(@map_scale, 1000) >= 35000 THEN 0.00&#xa;          WHEN coalesce(@map_scale, 1000) >= 20000 THEN 0.85&#xa;          WHEN coalesce(@map_scale, 1000) >= 8000 THEN 1.30&#xa;          WHEN coalesce(@map_scale, 1000) >= 3000 THEN 1.90&#xa;          ELSE 2.65&#xa;        END&#xa;      WHEN &quot;highway&quot; IN ('tertiary', 'tertiary_link') THEN&#xa;        CASE&#xa;          WHEN coalesce(@map_scale, 1000) >= 20000 THEN 0.00&#xa;          WHEN coalesce(@map_scale, 1000) >= 8000 THEN 1.15&#xa;          WHEN coalesce(@map_scale, 1000) >= 3000 THEN 1.65&#xa;          ELSE 2.35&#xa;        END&#xa;      ELSE&#xa;        CASE&#xa;          WHEN coalesce(@map_scale, 1000) >= 20000 THEN 0.00&#xa;          WHEN coalesce(@map_scale, 1000) >= 8000 THEN 0.90&#xa;          WHEN coalesce(@map_scale, 1000) >= 3000 THEN 1.35&#xa;          ELSE 2.05&#xa;        END&#xa;    END&#xa;&#xa;  -- MAINLINE ROADS&#xa;  WHEN &quot;highway&quot; IN ('motorway', 'trunk') THEN&#xa;    CASE&#xa;      WHEN coalesce(@map_scale, 1000) >= 50000 THEN 1.00&#xa;      WHEN coalesce(@map_scale, 1000) >= 20000 THEN 1.55&#xa;      WHEN coalesce(@map_scale, 1000) >= 8000 THEN 2.30&#xa;      WHEN coalesce(@map_scale, 1000) >= 3000 THEN 3.35&#xa;      ELSE 5.00&#xa;    END&#xa;  WHEN &quot;highway&quot; = 'primary' THEN&#xa;    CASE&#xa;      WHEN coalesce(@map_scale, 1000) >= 50000 THEN 0.85&#xa;      WHEN coalesce(@map_scale, 1000) >= 20000 THEN 1.35&#xa;      WHEN coalesce(@map_scale, 1000) >= 8000 THEN 2.10&#xa;      WHEN coalesce(@map_scale, 1000) >= 3000 THEN 3.05&#xa;      ELSE 4.60&#xa;    END&#xa;  WHEN &quot;highway&quot; = 'secondary' THEN&#xa;    CASE&#xa;      WHEN coalesce(@map_scale, 1000) >= 50000 THEN 0.75&#xa;      WHEN coalesce(@map_scale, 1000) >= 20000 THEN 1.20&#xa;      WHEN coalesce(@map_scale, 1000) >= 8000 THEN 1.95&#xa;      WHEN coalesce(@map_scale, 1000) >= 3000 THEN 2.80&#xa;      ELSE 4.10&#xa;    END&#xa;  WHEN &quot;highway&quot; = 'tertiary' THEN&#xa;    CASE&#xa;      WHEN coalesce(@map_scale, 1000) >= 50000 THEN 0.00&#xa;      WHEN coalesce(@map_scale, 1000) >= 20000 THEN 1.05&#xa;      WHEN coalesce(@map_scale, 1000) >= 8000 THEN 1.70&#xa;      WHEN coalesce(@map_scale, 1000) >= 3000 THEN 2.50&#xa;      ELSE 3.70&#xa;    END&#xa;  WHEN &quot;highway&quot; IN ('residential', 'unclassified', 'road') THEN&#xa;    CASE&#xa;      WHEN coalesce(@map_scale, 1000) >= 50000 THEN 0.00&#xa;      WHEN coalesce(@map_scale, 1000) >= 20000 THEN 0.75&#xa;      WHEN coalesce(@map_scale, 1000) >= 8000 THEN 1.30&#xa;      WHEN coalesce(@map_scale, 1000) >= 3000 THEN 1.90&#xa;      ELSE 2.90&#xa;    END&#xa;  WHEN &quot;highway&quot; IN ('living_street', 'pedestrian') THEN&#xa;    CASE&#xa;      WHEN coalesce(@map_scale, 1000) >= 20000 THEN 0.00&#xa;      WHEN coalesce(@map_scale, 1000) >= 8000 THEN 1.10&#xa;      WHEN coalesce(@map_scale, 1000) >= 3000 THEN 1.70&#xa;      ELSE 2.60&#xa;    END&#xa;  WHEN &quot;highway&quot; = 'service' THEN&#xa;    CASE&#xa;      WHEN coalesce(@map_scale, 1000) >= 20000 THEN 0.00&#xa;      WHEN coalesce(@map_scale, 1000) >= 8000 THEN 0.90&#xa;      WHEN coalesce(@map_scale, 1000) >= 3000 THEN 1.35&#xa;      ELSE 2.00&#xa;    END&#xa;  ELSE&#xa;    CASE&#xa;      WHEN coalesce(@map_scale, 1000) >= 20000 THEN 0.00&#xa;      WHEN coalesce(@map_scale, 1000) >= 8000 THEN 0.75&#xa;      WHEN coalesce(@map_scale, 1000) >= 3000 THEN 1.20&#xa;      ELSE 1.70&#xa;    END&#xa;END"/>
+                  <Option name="type" type="int" value="3"/>
+                </Option>
+              </Option>
+              <Option name="type" type="QString" value="collection"/>
+            </Option>
+          </data_defined_properties>
+        </layer>
+        <layer id="{50f11291-d30b-48c0-a97c-e9f1e8b7f020}" locked="0" pass="3" class="SimpleLine" enabled="1">
+          <Option type="Map">
+            <Option name="align_dash_pattern" type="QString" value="0"/>
+            <Option name="capstyle" type="QString" value="square"/>
+            <Option name="customdash" type="QString" value="5;2"/>
+            <Option name="customdash_map_unit_scale" type="QString" value="3x:0,0,0,0,0,0"/>
+            <Option name="customdash_unit" type="QString" value="MM"/>
+            <Option name="dash_pattern_offset" type="QString" value="0"/>
+            <Option name="dash_pattern_offset_map_unit_scale" type="QString" value="3x:0,0,0,0,0,0"/>
+            <Option name="dash_pattern_offset_unit" type="QString" value="MM"/>
+            <Option name="draw_inside_polygon" type="QString" value="0"/>
+            <Option name="joinstyle" type="QString" value="bevel"/>
+            <Option name="line_color" type="QString" value="255,255,255,255,rgb:1,1,1,1"/>
+            <Option name="line_style" type="QString" value="solid"/>
+            <Option name="line_width" type="QString" value="1.15"/>
+            <Option name="line_width_unit" type="QString" value="MM"/>
+            <Option name="offset" type="QString" value="0"/>
+            <Option name="offset_map_unit_scale" type="QString" value="3x:0,0,0,0,0,0"/>
+            <Option name="offset_unit" type="QString" value="MM"/>
+            <Option name="ring_filter" type="QString" value="0"/>
+            <Option name="trim_distance_end" type="QString" value="0"/>
+            <Option name="trim_distance_end_map_unit_scale" type="QString" value="3x:0,0,0,0,0,0"/>
+            <Option name="trim_distance_end_unit" type="QString" value="MM"/>
+            <Option name="trim_distance_start" type="QString" value="0"/>
+            <Option name="trim_distance_start_map_unit_scale" type="QString" value="3x:0,0,0,0,0,0"/>
+            <Option name="trim_distance_start_unit" type="QString" value="MM"/>
+            <Option name="tweak_dash_pattern_on_corners" type="QString" value="0"/>
+            <Option name="use_custom_dash" type="QString" value="0"/>
+            <Option name="width_map_unit_scale" type="QString" value="3x:0,0,0,0,0,0"/>
+          </Option>
+          <data_defined_properties>
+            <Option type="Map">
+              <Option name="name" type="QString" value=""/>
+              <Option name="properties" type="Map">
+                <Option name="customDash" type="Map">
+                  <Option name="active" type="bool" value="true"/>
+                  <Option name="expression" type="QString" value="CASE WHEN &quot;highway&quot; IN ('track', 'footway', 'cycleway') THEN '2;1.5' ELSE '1;0' END"/>
+                  <Option name="type" type="int" value="3"/>
+                </Option>
+                <Option name="outlineColor" type="Map">
+                  <Option name="active" type="bool" value="true"/>
+                  <Option name="expression" type="QString" value="CASE&#xa;  WHEN &quot;highway&quot; IN ('motorway', 'motorway_link') THEN '#e892a2'&#xa;  WHEN &quot;highway&quot; IN ('trunk', 'trunk_link') THEN '#f9b29c'&#xa;  WHEN &quot;highway&quot; IN ('primary', 'primary_link') THEN '#fcd6a4'&#xa;  WHEN &quot;highway&quot; IN ('secondary', 'secondary_link') THEN '#f7fabf'&#xa;  WHEN &quot;highway&quot; IN ('tertiary', 'tertiary_link') THEN '#ffffff'&#xa;  WHEN &quot;highway&quot; IN ('residential', 'unclassified', 'road') THEN '#ffffff'&#xa;  WHEN &quot;highway&quot; = 'living_street' THEN '#ededed'&#xa;  WHEN &quot;highway&quot; = 'pedestrian' THEN '#dddde8'&#xa;  WHEN &quot;highway&quot; = 'service' THEN '#ffffff'&#xa;  WHEN &quot;highway&quot; = 'track' THEN '#996600'&#xa;  WHEN &quot;highway&quot; IN ('footway', 'path', 'steps') THEN '#fa8072'&#xa;  WHEN &quot;highway&quot; = 'cycleway' THEN '#0000ff'&#xa;  ELSE '#ffffff'&#xa;END"/>
+                  <Option name="type" type="int" value="3"/>
+                </Option>
+                <Option name="outlineWidth" type="Map">
+                  <Option name="active" type="bool" value="true"/>
+                  <Option name="expression" type="QString" value="CASE&#xa;  -- LINKS &amp; RAMPS (&quot;highway&quot; ends with _link OR &quot;link&quot; = 'yes')&#xa;  WHEN (&quot;highway&quot; LIKE '%_link' OR coalesce(to_string(&quot;link&quot;), '') IN ('yes', '1', 'true')) THEN&#xa;    CASE&#xa;      WHEN &quot;highway&quot; IN ('motorway', 'motorway_link', 'trunk', 'trunk_link') THEN&#xa;        CASE&#xa;          WHEN coalesce(@map_scale, 1000) >= 35000 THEN 0.00&#xa;          WHEN coalesce(@map_scale, 1000) >= 20000 THEN 0.70&#xa;          WHEN coalesce(@map_scale, 1000) >= 8000 THEN 1.15&#xa;          WHEN coalesce(@map_scale, 1000) >= 3000 THEN 1.70&#xa;          ELSE 2.55&#xa;        END&#xa;      WHEN &quot;highway&quot; IN ('primary', 'primary_link') THEN&#xa;        CASE&#xa;          WHEN coalesce(@map_scale, 1000) >= 35000 THEN 0.00&#xa;          WHEN coalesce(@map_scale, 1000) >= 20000 THEN 0.60&#xa;          WHEN coalesce(@map_scale, 1000) >= 8000 THEN 1.00&#xa;          WHEN coalesce(@map_scale, 1000) >= 3000 THEN 1.60&#xa;          ELSE 2.30&#xa;        END&#xa;      WHEN &quot;highway&quot; IN ('secondary', 'secondary_link') THEN&#xa;        CASE&#xa;          WHEN coalesce(@map_scale, 1000) >= 35000 THEN 0.00&#xa;          WHEN coalesce(@map_scale, 1000) >= 20000 THEN 0.55&#xa;          WHEN coalesce(@map_scale, 1000) >= 8000 THEN 0.90&#xa;          WHEN coalesce(@map_scale, 1000) >= 3000 THEN 1.45&#xa;          ELSE 2.10&#xa;        END&#xa;      WHEN &quot;highway&quot; IN ('tertiary', 'tertiary_link') THEN&#xa;        CASE&#xa;          WHEN coalesce(@map_scale, 1000) >= 20000 THEN 0.00&#xa;          WHEN coalesce(@map_scale, 1000) >= 8000 THEN 0.75&#xa;          WHEN coalesce(@map_scale, 1000) >= 3000 THEN 1.20&#xa;          ELSE 1.90&#xa;        END&#xa;      ELSE&#xa;        CASE&#xa;          WHEN coalesce(@map_scale, 1000) >= 20000 THEN 0.00&#xa;          WHEN coalesce(@map_scale, 1000) >= 8000 THEN 0.60&#xa;          WHEN coalesce(@map_scale, 1000) >= 3000 THEN 1.00&#xa;          ELSE 1.60&#xa;        END&#xa;    END&#xa;&#xa;  -- MAINLINE ROADS&#xa;  WHEN &quot;highway&quot; IN ('motorway', 'trunk') THEN&#xa;    CASE&#xa;      WHEN coalesce(@map_scale, 1000) >= 50000 THEN 0.70&#xa;      WHEN coalesce(@map_scale, 1000) >= 20000 THEN 1.15&#xa;      WHEN coalesce(@map_scale, 1000) >= 8000 THEN 1.80&#xa;      WHEN coalesce(@map_scale, 1000) >= 3000 THEN 2.70&#xa;      ELSE 4.20&#xa;    END&#xa;  WHEN &quot;highway&quot; = 'primary' THEN&#xa;    CASE&#xa;      WHEN coalesce(@map_scale, 1000) >= 50000 THEN 0.55&#xa;      WHEN coalesce(@map_scale, 1000) >= 20000 THEN 1.00&#xa;      WHEN coalesce(@map_scale, 1000) >= 8000 THEN 1.60&#xa;      WHEN coalesce(@map_scale, 1000) >= 3000 THEN 2.40&#xa;      ELSE 3.80&#xa;    END&#xa;  WHEN &quot;highway&quot; = 'secondary' THEN&#xa;    CASE&#xa;      WHEN coalesce(@map_scale, 1000) >= 50000 THEN 0.45&#xa;      WHEN coalesce(@map_scale, 1000) >= 20000 THEN 0.85&#xa;      WHEN coalesce(@map_scale, 1000) >= 8000 THEN 1.45&#xa;      WHEN coalesce(@map_scale, 1000) >= 3000 THEN 2.20&#xa;      ELSE 3.40&#xa;    END&#xa;  WHEN &quot;highway&quot; = 'tertiary' THEN&#xa;    CASE&#xa;      WHEN coalesce(@map_scale, 1000) >= 50000 THEN 0.00&#xa;      WHEN coalesce(@map_scale, 1000) >= 20000 THEN 0.70&#xa;      WHEN coalesce(@map_scale, 1000) >= 8000 THEN 1.30&#xa;      WHEN coalesce(@map_scale, 1000) >= 3000 THEN 1.90&#xa;      ELSE 3.00&#xa;    END&#xa;  WHEN &quot;highway&quot; IN ('residential', 'unclassified', 'road') THEN&#xa;    CASE&#xa;      WHEN coalesce(@map_scale, 1000) >= 50000 THEN 0.00&#xa;      WHEN coalesce(@map_scale, 1000) >= 20000 THEN 0.45&#xa;      WHEN coalesce(@map_scale, 1000) >= 8000 THEN 0.90&#xa;      WHEN coalesce(@map_scale, 1000) >= 3000 THEN 1.45&#xa;      ELSE 2.30&#xa;    END&#xa;  WHEN &quot;highway&quot; IN ('living_street', 'pedestrian') THEN&#xa;    CASE&#xa;      WHEN coalesce(@map_scale, 1000) >= 20000 THEN 0.00&#xa;      WHEN coalesce(@map_scale, 1000) >= 8000 THEN 0.80&#xa;      WHEN coalesce(@map_scale, 1000) >= 3000 THEN 1.30&#xa;      ELSE 2.10&#xa;    END&#xa;  WHEN &quot;highway&quot; = 'service' THEN&#xa;    CASE&#xa;      WHEN coalesce(@map_scale, 1000) >= 20000 THEN 0.00&#xa;      WHEN coalesce(@map_scale, 1000) >= 8000 THEN 0.60&#xa;      WHEN coalesce(@map_scale, 1000) >= 3000 THEN 1.00&#xa;      ELSE 1.60&#xa;    END&#xa;  WHEN &quot;highway&quot; IN ('track', 'footway', 'cycleway', 'path', 'steps') THEN&#xa;    CASE&#xa;      WHEN coalesce(@map_scale, 1000) >= 20000 THEN 0.00&#xa;      WHEN coalesce(@map_scale, 1000) >= 8000 THEN 0.45&#xa;      WHEN coalesce(@map_scale, 1000) >= 3000 THEN 0.70&#xa;      ELSE 1.00&#xa;    END&#xa;  ELSE&#xa;    CASE&#xa;      WHEN coalesce(@map_scale, 1000) >= 20000 THEN 0.00&#xa;      WHEN coalesce(@map_scale, 1000) >= 8000 THEN 0.45&#xa;      WHEN coalesce(@map_scale, 1000) >= 3000 THEN 0.85&#xa;      ELSE 1.30&#xa;    END&#xa;END"/>
+                  <Option name="type" type="int" value="3"/>
+                </Option>
+              </Option>
+              <Option name="type" type="QString" value="collection"/>
+            </Option>
+          </data_defined_properties>
+        </layer>
+        <layer id="{59460e32-5489-4642-979f-72143a1f07dd}" locked="0" pass="7" class="MarkerLine" enabled="1">
+          <Option type="Map">
+            <Option name="average_angle_length" type="QString" value="4"/>
+            <Option name="average_angle_map_unit_scale" type="QString" value="3x:0,0,0,0,0,0"/>
+            <Option name="average_angle_unit" type="QString" value="MM"/>
+            <Option name="interval" type="QString" value="18"/>
+            <Option name="interval_map_unit_scale" type="QString" value="3x:0,0,0,0,0,0"/>
+            <Option name="interval_unit" type="QString" value="MM"/>
+            <Option name="offset" type="QString" value="0"/>
+            <Option name="offset_along_line" type="QString" value="0"/>
+            <Option name="offset_along_line_map_unit_scale" type="QString" value="3x:0,0,0,0,0,0"/>
+            <Option name="offset_along_line_unit" type="QString" value="MM"/>
+            <Option name="offset_map_unit_scale" type="QString" value="3x:0,0,0,0,0,0"/>
+            <Option name="offset_unit" type="QString" value="MM"/>
+            <Option name="place_on_every_part" type="bool" value="true"/>
+            <Option name="placements" type="QString" value="Interval"/>
+            <Option name="ring_filter" type="QString" value="0"/>
+            <Option name="rotate" type="QString" value="1"/>
+          </Option>
+          <data_defined_properties>
+            <Option type="Map">
+              <Option name="name" type="QString" value=""/>
+              <Option name="properties"/>
+              <Option name="type" type="QString" value="collection"/>
+            </Option>
+          </data_defined_properties>
+          <symbol clip_to_extent="1" is_animated="0" name="@1@2" frame_rate="10" type="marker" alpha="1" force_rhr="0">
+            <data_defined_properties>
+              <Option type="Map">
+                <Option name="name" type="QString" value=""/>
+                <Option name="properties"/>
+                <Option name="type" type="QString" value="collection"/>
+              </Option>
+            </data_defined_properties>
+            <layer id="{0758f13d-40cd-4238-9c63-e5d97170d4b6}" locked="0" pass="0" class="SvgMarker" enabled="1">
+              <Option type="Map">
+                <Option name="angle" type="QString" value="0"/>
+                <Option name="color" type="QString" value="85,85,85,255,rgb:0.3333333,0.3333333,0.3333333,1"/>
+                <Option name="fixedAspectRatio" type="QString" value="0"/>
+                <Option name="horizontal_anchor_point" type="QString" value="1"/>
+                <Option name="name" type="QString" value="C:/Users/kanal/Projects/leonida_gis/styles/oneway.svg"/>
+                <Option name="offset" type="QString" value="0,0"/>
+                <Option name="offset_map_unit_scale" type="QString" value="3x:0,0,0,0,0,0"/>
+                <Option name="offset_unit" type="QString" value="MM"/>
+                <Option name="outline_color" type="QString" value="85,85,85,255,rgb:0.3333333,0.3333333,0.3333333,1"/>
+                <Option name="outline_width" type="QString" value="0.2"/>
+                <Option name="outline_width_map_unit_scale" type="QString" value="3x:0,0,0,0,0,0"/>
+                <Option name="outline_width_unit" type="QString" value="MM"/>
+                <Option name="parameters"/>
+                <Option name="scale_method" type="QString" value="diameter"/>
+                <Option name="size" type="QString" value="2.8"/>
+                <Option name="size_map_unit_scale" type="QString" value="3x:0,0,0,0,0,0"/>
+                <Option name="size_unit" type="QString" value="MM"/>
+                <Option name="vertical_anchor_point" type="QString" value="1"/>
+              </Option>
+              <data_defined_properties>
+                <Option type="Map">
+                  <Option name="name" type="QString" value=""/>
+                  <Option name="properties" type="Map">
+                    <Option name="angle" type="Map">
+                      <Option name="active" type="bool" value="true"/>
+                      <Option name="expression" type="QString" value="CASE WHEN coalesce(to_string(&quot;oneway&quot;), '') = '-1' THEN 180 ELSE 0 END"/>
+                      <Option name="type" type="int" value="3"/>
+                    </Option>
+                    <Option name="fillColor" type="Map">
+                      <Option name="active" type="bool" value="true"/>
+                      <Option name="expression" type="QString" value="CASE&#xa;  WHEN &quot;highway&quot; IN ('motorway', 'motorway_link') THEN '#741334'&#xa;  WHEN &quot;highway&quot; IN ('trunk', 'trunk_link') THEN '#612617'&#xa;  WHEN &quot;highway&quot; IN ('primary', 'primary_link') THEN '#543800'&#xa;  WHEN &quot;highway&quot; IN ('secondary', 'secondary_link') THEN '#444c03'&#xa;  WHEN &quot;highway&quot; IN ('tertiary', 'tertiary_link') THEN '#424242'&#xa;  WHEN &quot;highway&quot; IN ('residential', 'unclassified', 'road', 'service') THEN '#555555'&#xa;  WHEN &quot;highway&quot; = 'living_street' THEN '#6e6e6e'&#xa;  WHEN &quot;highway&quot; = 'pedestrian' THEN '#4b4b4b'&#xa;  WHEN &quot;highway&quot; = 'track' THEN '#664400'&#xa;  WHEN &quot;highway&quot; IN ('footway', 'path', 'steps') THEN '#b31806'&#xa;  WHEN &quot;highway&quot; = 'cycleway' THEN '#000080'&#xa;  ELSE '#555555'&#xa;END"/>
+                      <Option name="type" type="int" value="3"/>
+                    </Option>
+                    <Option name="outlineColor" type="Map">
+                      <Option name="active" type="bool" value="true"/>
+                      <Option name="expression" type="QString" value="CASE&#xa;  WHEN &quot;highway&quot; IN ('motorway', 'motorway_link') THEN '#741334'&#xa;  WHEN &quot;highway&quot; IN ('trunk', 'trunk_link') THEN '#612617'&#xa;  WHEN &quot;highway&quot; IN ('primary', 'primary_link') THEN '#543800'&#xa;  WHEN &quot;highway&quot; IN ('secondary', 'secondary_link') THEN '#444c03'&#xa;  WHEN &quot;highway&quot; IN ('tertiary', 'tertiary_link') THEN '#424242'&#xa;  WHEN &quot;highway&quot; IN ('residential', 'unclassified', 'road', 'service') THEN '#555555'&#xa;  WHEN &quot;highway&quot; = 'living_street' THEN '#6e6e6e'&#xa;  WHEN &quot;highway&quot; = 'pedestrian' THEN '#4b4b4b'&#xa;  WHEN &quot;highway&quot; = 'track' THEN '#664400'&#xa;  WHEN &quot;highway&quot; IN ('footway', 'path', 'steps') THEN '#b31806'&#xa;  WHEN &quot;highway&quot; = 'cycleway' THEN '#000080'&#xa;  ELSE '#555555'&#xa;END"/>
+                      <Option name="type" type="int" value="3"/>
+                    </Option>
+                    <Option name="size" type="Map">
+                      <Option name="active" type="bool" value="true"/>
+                      <Option name="expression" type="QString" value="CASE&#xa;  WHEN coalesce(to_string(&quot;oneway&quot;), '') IN ('yes', '1', 'true', '-1') THEN&#xa;    CASE&#xa;      WHEN (&quot;highway&quot; LIKE '%_link' OR coalesce(to_string(&quot;link&quot;), '') IN ('yes', '1', 'true')) THEN&#xa;        CASE&#xa;          WHEN coalesce(@map_scale, 1000) &lt;= 2500 THEN 3.3&#xa;          WHEN coalesce(@map_scale, 1000) &lt;= 8000 THEN 2.4&#xa;          WHEN coalesce(@map_scale, 1000) &lt;= 20000 THEN 1.8&#xa;          ELSE 0.0&#xa;        END&#xa;      ELSE&#xa;        CASE&#xa;          WHEN coalesce(@map_scale, 1000) &lt;= 2500 THEN 4.2&#xa;          WHEN coalesce(@map_scale, 1000) &lt;= 8000 THEN 3.0&#xa;          WHEN coalesce(@map_scale, 1000) &lt;= 20000 THEN 2.2&#xa;          ELSE 0.0&#xa;        END&#xa;    END&#xa;  ELSE 0.0&#xa;END"/>
+                      <Option name="type" type="int" value="3"/>
+                    </Option>
+                  </Option>
+                  <Option name="type" type="QString" value="collection"/>
+                </Option>
+              </data_defined_properties>
+            </layer>
+          </symbol>
+        </layer>
+      </symbol>
+      <symbol clip_to_extent="1" is_animated="0" name="2" frame_rate="10" type="line" alpha="1" force_rhr="0">
+        <data_defined_properties>
+          <Option type="Map">
+            <Option name="name" type="QString" value=""/>
+            <Option name="properties"/>
+            <Option name="type" type="QString" value="collection"/>
+          </Option>
+        </data_defined_properties>
+        <layer id="{3be9db56-7fb0-447f-9b1c-e9b3c628b716}" locked="0" pass="0" class="SimpleLine" enabled="1">
+          <Option type="Map">
+            <Option name="align_dash_pattern" type="QString" value="0"/>
+            <Option name="capstyle" type="QString" value="square"/>
+            <Option name="customdash" type="QString" value="2.5;1.5"/>
+            <Option name="customdash_map_unit_scale" type="QString" value="3x:0,0,0,0,0,0"/>
+            <Option name="customdash_unit" type="QString" value="MM"/>
+            <Option name="dash_pattern_offset" type="QString" value="0"/>
+            <Option name="dash_pattern_offset_map_unit_scale" type="QString" value="3x:0,0,0,0,0,0"/>
+            <Option name="dash_pattern_offset_unit" type="QString" value="MM"/>
+            <Option name="draw_inside_polygon" type="QString" value="0"/>
+            <Option name="joinstyle" type="QString" value="bevel"/>
+            <Option name="line_color" type="QString" value="128,128,128,255,rgb:0.5019608,0.5019608,0.5019608,1"/>
+            <Option name="line_style" type="QString" value="solid"/>
+            <Option name="line_width" type="QString" value="1.5"/>
+            <Option name="line_width_unit" type="QString" value="MM"/>
+            <Option name="offset" type="QString" value="0"/>
+            <Option name="offset_map_unit_scale" type="QString" value="3x:0,0,0,0,0,0"/>
+            <Option name="offset_unit" type="QString" value="MM"/>
+            <Option name="ring_filter" type="QString" value="0"/>
+            <Option name="trim_distance_end" type="QString" value="0"/>
+            <Option name="trim_distance_end_map_unit_scale" type="QString" value="3x:0,0,0,0,0,0"/>
+            <Option name="trim_distance_end_unit" type="QString" value="MM"/>
+            <Option name="trim_distance_start" type="QString" value="0"/>
+            <Option name="trim_distance_start_map_unit_scale" type="QString" value="3x:0,0,0,0,0,0"/>
+            <Option name="trim_distance_start_unit" type="QString" value="MM"/>
+            <Option name="tweak_dash_pattern_on_corners" type="QString" value="0"/>
+            <Option name="use_custom_dash" type="QString" value="1"/>
+            <Option name="width_map_unit_scale" type="QString" value="3x:0,0,0,0,0,0"/>
+          </Option>
+          <data_defined_properties>
+            <Option type="Map">
+              <Option name="name" type="QString" value=""/>
+              <Option name="properties" type="Map">
+                <Option name="outlineColor" type="Map">
+                  <Option name="active" type="bool" value="true"/>
+                  <Option name="expression" type="QString" value="CASE&#xa;  WHEN &quot;highway&quot; IN ('motorway', 'motorway_link') THEN '#dc2a67'&#xa;  WHEN &quot;highway&quot; IN ('trunk', 'trunk_link') THEN '#c84e2f'&#xa;  WHEN &quot;highway&quot; IN ('primary', 'primary_link') THEN '#a06b00'&#xa;  WHEN &quot;highway&quot; IN ('secondary', 'secondary_link') THEN '#707d05'&#xa;  WHEN &quot;highway&quot; IN ('tertiary', 'tertiary_link') THEN '#8f8f8f'&#xa;  WHEN &quot;highway&quot; IN ('residential', 'unclassified', 'road') THEN '#999999'&#xa;  WHEN &quot;highway&quot; IN ('living_street', 'pedestrian') THEN '#999999'&#xa;  WHEN &quot;highway&quot; = 'service' THEN '#aaaaaa'&#xa;  WHEN &quot;highway&quot; = 'track' THEN '#996600'&#xa;  ELSE '#999999'&#xa;END"/>
+                  <Option name="type" type="int" value="3"/>
+                </Option>
+                <Option name="outlineWidth" type="Map">
+                  <Option name="active" type="bool" value="true"/>
+                  <Option name="expression" type="QString" value="CASE&#xa;  WHEN &quot;highway&quot; IN ('track', 'footway', 'cycleway', 'path', 'steps') THEN 0.00&#xa;&#xa;  -- LINKS &amp; RAMPS&#xa;  WHEN (&quot;highway&quot; LIKE '%_link' OR coalesce(to_string(&quot;link&quot;), '') IN ('yes', '1', 'true')) THEN&#xa;    CASE&#xa;      WHEN &quot;highway&quot; IN ('motorway', 'motorway_link', 'trunk', 'trunk_link') THEN&#xa;        CASE&#xa;          WHEN coalesce(@map_scale, 1000) >= 35000 THEN 0.00&#xa;          WHEN coalesce(@map_scale, 1000) >= 20000 THEN 1.05&#xa;          WHEN coalesce(@map_scale, 1000) >= 8000 THEN 1.60&#xa;          WHEN coalesce(@map_scale, 1000) >= 3000 THEN 2.25&#xa;          ELSE 3.15&#xa;        END&#xa;      WHEN &quot;highway&quot; IN ('primary', 'primary_link') THEN&#xa;        CASE&#xa;          WHEN coalesce(@map_scale, 1000) >= 35000 THEN 0.00&#xa;          WHEN coalesce(@map_scale, 1000) >= 20000 THEN 1.00&#xa;          WHEN coalesce(@map_scale, 1000) >= 8000 THEN 1.45&#xa;          WHEN coalesce(@map_scale, 1000) >= 3000 THEN 2.10&#xa;          ELSE 2.90&#xa;        END&#xa;      WHEN &quot;highway&quot; IN ('secondary', 'secondary_link') THEN&#xa;        CASE&#xa;          WHEN coalesce(@map_scale, 1000) >= 35000 THEN 0.00&#xa;          WHEN coalesce(@map_scale, 1000) >= 20000 THEN 0.85&#xa;          WHEN coalesce(@map_scale, 1000) >= 8000 THEN 1.30&#xa;          WHEN coalesce(@map_scale, 1000) >= 3000 THEN 1.90&#xa;          ELSE 2.65&#xa;        END&#xa;      WHEN &quot;highway&quot; IN ('tertiary', 'tertiary_link') THEN&#xa;        CASE&#xa;          WHEN coalesce(@map_scale, 1000) >= 20000 THEN 0.00&#xa;          WHEN coalesce(@map_scale, 1000) >= 8000 THEN 1.15&#xa;          WHEN coalesce(@map_scale, 1000) >= 3000 THEN 1.65&#xa;          ELSE 2.35&#xa;        END&#xa;      ELSE&#xa;        CASE&#xa;          WHEN coalesce(@map_scale, 1000) >= 20000 THEN 0.00&#xa;          WHEN coalesce(@map_scale, 1000) >= 8000 THEN 0.90&#xa;          WHEN coalesce(@map_scale, 1000) >= 3000 THEN 1.35&#xa;          ELSE 2.05&#xa;        END&#xa;    END&#xa;&#xa;  -- MAINLINE ROADS&#xa;  WHEN &quot;highway&quot; IN ('motorway', 'trunk') THEN&#xa;    CASE&#xa;      WHEN coalesce(@map_scale, 1000) >= 50000 THEN 1.00&#xa;      WHEN coalesce(@map_scale, 1000) >= 20000 THEN 1.55&#xa;      WHEN coalesce(@map_scale, 1000) >= 8000 THEN 2.30&#xa;      WHEN coalesce(@map_scale, 1000) >= 3000 THEN 3.35&#xa;      ELSE 5.00&#xa;    END&#xa;  WHEN &quot;highway&quot; = 'primary' THEN&#xa;    CASE&#xa;      WHEN coalesce(@map_scale, 1000) >= 50000 THEN 0.85&#xa;      WHEN coalesce(@map_scale, 1000) >= 20000 THEN 1.35&#xa;      WHEN coalesce(@map_scale, 1000) >= 8000 THEN 2.10&#xa;      WHEN coalesce(@map_scale, 1000) >= 3000 THEN 3.05&#xa;      ELSE 4.60&#xa;    END&#xa;  WHEN &quot;highway&quot; = 'secondary' THEN&#xa;    CASE&#xa;      WHEN coalesce(@map_scale, 1000) >= 50000 THEN 0.75&#xa;      WHEN coalesce(@map_scale, 1000) >= 20000 THEN 1.20&#xa;      WHEN coalesce(@map_scale, 1000) >= 8000 THEN 1.95&#xa;      WHEN coalesce(@map_scale, 1000) >= 3000 THEN 2.80&#xa;      ELSE 4.10&#xa;    END&#xa;  WHEN &quot;highway&quot; = 'tertiary' THEN&#xa;    CASE&#xa;      WHEN coalesce(@map_scale, 1000) >= 50000 THEN 0.00&#xa;      WHEN coalesce(@map_scale, 1000) >= 20000 THEN 1.05&#xa;      WHEN coalesce(@map_scale, 1000) >= 8000 THEN 1.70&#xa;      WHEN coalesce(@map_scale, 1000) >= 3000 THEN 2.50&#xa;      ELSE 3.70&#xa;    END&#xa;  WHEN &quot;highway&quot; IN ('residential', 'unclassified', 'road') THEN&#xa;    CASE&#xa;      WHEN coalesce(@map_scale, 1000) >= 50000 THEN 0.00&#xa;      WHEN coalesce(@map_scale, 1000) >= 20000 THEN 0.75&#xa;      WHEN coalesce(@map_scale, 1000) >= 8000 THEN 1.30&#xa;      WHEN coalesce(@map_scale, 1000) >= 3000 THEN 1.90&#xa;      ELSE 2.90&#xa;    END&#xa;  WHEN &quot;highway&quot; IN ('living_street', 'pedestrian') THEN&#xa;    CASE&#xa;      WHEN coalesce(@map_scale, 1000) >= 20000 THEN 0.00&#xa;      WHEN coalesce(@map_scale, 1000) >= 8000 THEN 1.10&#xa;      WHEN coalesce(@map_scale, 1000) >= 3000 THEN 1.70&#xa;      ELSE 2.60&#xa;    END&#xa;  WHEN &quot;highway&quot; = 'service' THEN&#xa;    CASE&#xa;      WHEN coalesce(@map_scale, 1000) >= 20000 THEN 0.00&#xa;      WHEN coalesce(@map_scale, 1000) >= 8000 THEN 0.90&#xa;      WHEN coalesce(@map_scale, 1000) >= 3000 THEN 1.35&#xa;      ELSE 2.00&#xa;    END&#xa;  ELSE&#xa;    CASE&#xa;      WHEN coalesce(@map_scale, 1000) >= 20000 THEN 0.00&#xa;      WHEN coalesce(@map_scale, 1000) >= 8000 THEN 0.75&#xa;      WHEN coalesce(@map_scale, 1000) >= 3000 THEN 1.20&#xa;      ELSE 1.70&#xa;    END&#xa;END"/>
+                  <Option name="type" type="int" value="3"/>
+                </Option>
+              </Option>
+              <Option name="type" type="QString" value="collection"/>
+            </Option>
+          </data_defined_properties>
+        </layer>
+        <layer id="{0f4b6402-0076-4c2d-9855-b0d98ac949ed}" locked="0" pass="1" class="SimpleLine" enabled="1">
+          <Option type="Map">
+            <Option name="align_dash_pattern" type="QString" value="0"/>
+            <Option name="capstyle" type="QString" value="square"/>
+            <Option name="customdash" type="QString" value="5;2"/>
+            <Option name="customdash_map_unit_scale" type="QString" value="3x:0,0,0,0,0,0"/>
+            <Option name="customdash_unit" type="QString" value="MM"/>
+            <Option name="dash_pattern_offset" type="QString" value="0"/>
+            <Option name="dash_pattern_offset_map_unit_scale" type="QString" value="3x:0,0,0,0,0,0"/>
+            <Option name="dash_pattern_offset_unit" type="QString" value="MM"/>
+            <Option name="draw_inside_polygon" type="QString" value="0"/>
+            <Option name="joinstyle" type="QString" value="bevel"/>
+            <Option name="line_color" type="QString" value="242,242,242,255,rgb:0.9490196,0.9490196,0.9490196,1"/>
+            <Option name="line_style" type="QString" value="solid"/>
+            <Option name="line_width" type="QString" value="1.15"/>
+            <Option name="line_width_unit" type="QString" value="MM"/>
+            <Option name="offset" type="QString" value="0"/>
+            <Option name="offset_map_unit_scale" type="QString" value="3x:0,0,0,0,0,0"/>
+            <Option name="offset_unit" type="QString" value="MM"/>
+            <Option name="ring_filter" type="QString" value="0"/>
+            <Option name="trim_distance_end" type="QString" value="0"/>
+            <Option name="trim_distance_end_map_unit_scale" type="QString" value="3x:0,0,0,0,0,0"/>
+            <Option name="trim_distance_end_unit" type="QString" value="MM"/>
+            <Option name="trim_distance_start" type="QString" value="0"/>
+            <Option name="trim_distance_start_map_unit_scale" type="QString" value="3x:0,0,0,0,0,0"/>
+            <Option name="trim_distance_start_unit" type="QString" value="MM"/>
+            <Option name="tweak_dash_pattern_on_corners" type="QString" value="0"/>
+            <Option name="use_custom_dash" type="QString" value="0"/>
+            <Option name="width_map_unit_scale" type="QString" value="3x:0,0,0,0,0,0"/>
+          </Option>
+          <data_defined_properties>
+            <Option type="Map">
+              <Option name="name" type="QString" value=""/>
+              <Option name="properties" type="Map">
+                <Option name="customDash" type="Map">
+                  <Option name="active" type="bool" value="true"/>
+                  <Option name="expression" type="QString" value="CASE WHEN &quot;highway&quot; IN ('track', 'footway', 'cycleway') THEN '2;1.5' ELSE '1;0' END"/>
+                  <Option name="type" type="int" value="3"/>
+                </Option>
+                <Option name="outlineColor" type="Map">
+                  <Option name="active" type="bool" value="true"/>
+                  <Option name="expression" type="QString" value="CASE&#xa;  WHEN &quot;highway&quot; IN ('motorway', 'motorway_link') THEN '#f1b6c0'&#xa;  WHEN &quot;highway&quot; IN ('trunk', 'trunk_link') THEN '#fcd2c4'&#xa;  WHEN &quot;highway&quot; IN ('primary', 'primary_link') THEN '#fde5c4'&#xa;  WHEN &quot;highway&quot; IN ('secondary', 'secondary_link') THEN '#fafcd4'&#xa;  WHEN &quot;highway&quot; IN ('tertiary', 'tertiary_link') THEN '#ffffff'&#xa;  WHEN &quot;highway&quot; IN ('residential', 'unclassified', 'road') THEN '#f2f2f2'&#xa;  WHEN &quot;highway&quot; = 'living_street' THEN '#f5f5f5'&#xa;  WHEN &quot;highway&quot; = 'pedestrian' THEN '#e8e8ef'&#xa;  WHEN &quot;highway&quot; = 'service' THEN '#f5f5f5'&#xa;  WHEN &quot;highway&quot; = 'track' THEN '#996600'&#xa;  WHEN &quot;highway&quot; IN ('footway', 'path', 'steps') THEN '#fa8072'&#xa;  WHEN &quot;highway&quot; = 'cycleway' THEN '#0000ff'&#xa;  ELSE '#f2f2f2'&#xa;END"/>
+                  <Option name="type" type="int" value="3"/>
+                </Option>
+                <Option name="outlineWidth" type="Map">
+                  <Option name="active" type="bool" value="true"/>
+                  <Option name="expression" type="QString" value="CASE&#xa;  -- LINKS &amp; RAMPS (&quot;highway&quot; ends with _link OR &quot;link&quot; = 'yes')&#xa;  WHEN (&quot;highway&quot; LIKE '%_link' OR coalesce(to_string(&quot;link&quot;), '') IN ('yes', '1', 'true')) THEN&#xa;    CASE&#xa;      WHEN &quot;highway&quot; IN ('motorway', 'motorway_link', 'trunk', 'trunk_link') THEN&#xa;        CASE&#xa;          WHEN coalesce(@map_scale, 1000) >= 35000 THEN 0.00&#xa;          WHEN coalesce(@map_scale, 1000) >= 20000 THEN 0.70&#xa;          WHEN coalesce(@map_scale, 1000) >= 8000 THEN 1.15&#xa;          WHEN coalesce(@map_scale, 1000) >= 3000 THEN 1.70&#xa;          ELSE 2.55&#xa;        END&#xa;      WHEN &quot;highway&quot; IN ('primary', 'primary_link') THEN&#xa;        CASE&#xa;          WHEN coalesce(@map_scale, 1000) >= 35000 THEN 0.00&#xa;          WHEN coalesce(@map_scale, 1000) >= 20000 THEN 0.60&#xa;          WHEN coalesce(@map_scale, 1000) >= 8000 THEN 1.00&#xa;          WHEN coalesce(@map_scale, 1000) >= 3000 THEN 1.60&#xa;          ELSE 2.30&#xa;        END&#xa;      WHEN &quot;highway&quot; IN ('secondary', 'secondary_link') THEN&#xa;        CASE&#xa;          WHEN coalesce(@map_scale, 1000) >= 35000 THEN 0.00&#xa;          WHEN coalesce(@map_scale, 1000) >= 20000 THEN 0.55&#xa;          WHEN coalesce(@map_scale, 1000) >= 8000 THEN 0.90&#xa;          WHEN coalesce(@map_scale, 1000) >= 3000 THEN 1.45&#xa;          ELSE 2.10&#xa;        END&#xa;      WHEN &quot;highway&quot; IN ('tertiary', 'tertiary_link') THEN&#xa;        CASE&#xa;          WHEN coalesce(@map_scale, 1000) >= 20000 THEN 0.00&#xa;          WHEN coalesce(@map_scale, 1000) >= 8000 THEN 0.75&#xa;          WHEN coalesce(@map_scale, 1000) >= 3000 THEN 1.20&#xa;          ELSE 1.90&#xa;        END&#xa;      ELSE&#xa;        CASE&#xa;          WHEN coalesce(@map_scale, 1000) >= 20000 THEN 0.00&#xa;          WHEN coalesce(@map_scale, 1000) >= 8000 THEN 0.60&#xa;          WHEN coalesce(@map_scale, 1000) >= 3000 THEN 1.00&#xa;          ELSE 1.60&#xa;        END&#xa;    END&#xa;&#xa;  -- MAINLINE ROADS&#xa;  WHEN &quot;highway&quot; IN ('motorway', 'trunk') THEN&#xa;    CASE&#xa;      WHEN coalesce(@map_scale, 1000) >= 50000 THEN 0.70&#xa;      WHEN coalesce(@map_scale, 1000) >= 20000 THEN 1.15&#xa;      WHEN coalesce(@map_scale, 1000) >= 8000 THEN 1.80&#xa;      WHEN coalesce(@map_scale, 1000) >= 3000 THEN 2.70&#xa;      ELSE 4.20&#xa;    END&#xa;  WHEN &quot;highway&quot; = 'primary' THEN&#xa;    CASE&#xa;      WHEN coalesce(@map_scale, 1000) >= 50000 THEN 0.55&#xa;      WHEN coalesce(@map_scale, 1000) >= 20000 THEN 1.00&#xa;      WHEN coalesce(@map_scale, 1000) >= 8000 THEN 1.60&#xa;      WHEN coalesce(@map_scale, 1000) >= 3000 THEN 2.40&#xa;      ELSE 3.80&#xa;    END&#xa;  WHEN &quot;highway&quot; = 'secondary' THEN&#xa;    CASE&#xa;      WHEN coalesce(@map_scale, 1000) >= 50000 THEN 0.45&#xa;      WHEN coalesce(@map_scale, 1000) >= 20000 THEN 0.85&#xa;      WHEN coalesce(@map_scale, 1000) >= 8000 THEN 1.45&#xa;      WHEN coalesce(@map_scale, 1000) >= 3000 THEN 2.20&#xa;      ELSE 3.40&#xa;    END&#xa;  WHEN &quot;highway&quot; = 'tertiary' THEN&#xa;    CASE&#xa;      WHEN coalesce(@map_scale, 1000) >= 50000 THEN 0.00&#xa;      WHEN coalesce(@map_scale, 1000) >= 20000 THEN 0.70&#xa;      WHEN coalesce(@map_scale, 1000) >= 8000 THEN 1.30&#xa;      WHEN coalesce(@map_scale, 1000) >= 3000 THEN 1.90&#xa;      ELSE 3.00&#xa;    END&#xa;  WHEN &quot;highway&quot; IN ('residential', 'unclassified', 'road') THEN&#xa;    CASE&#xa;      WHEN coalesce(@map_scale, 1000) >= 50000 THEN 0.00&#xa;      WHEN coalesce(@map_scale, 1000) >= 20000 THEN 0.45&#xa;      WHEN coalesce(@map_scale, 1000) >= 8000 THEN 0.90&#xa;      WHEN coalesce(@map_scale, 1000) >= 3000 THEN 1.45&#xa;      ELSE 2.30&#xa;    END&#xa;  WHEN &quot;highway&quot; IN ('living_street', 'pedestrian') THEN&#xa;    CASE&#xa;      WHEN coalesce(@map_scale, 1000) >= 20000 THEN 0.00&#xa;      WHEN coalesce(@map_scale, 1000) >= 8000 THEN 0.80&#xa;      WHEN coalesce(@map_scale, 1000) >= 3000 THEN 1.30&#xa;      ELSE 2.10&#xa;    END&#xa;  WHEN &quot;highway&quot; = 'service' THEN&#xa;    CASE&#xa;      WHEN coalesce(@map_scale, 1000) >= 20000 THEN 0.00&#xa;      WHEN coalesce(@map_scale, 1000) >= 8000 THEN 0.60&#xa;      WHEN coalesce(@map_scale, 1000) >= 3000 THEN 1.00&#xa;      ELSE 1.60&#xa;    END&#xa;  WHEN &quot;highway&quot; IN ('track', 'footway', 'cycleway', 'path', 'steps') THEN&#xa;    CASE&#xa;      WHEN coalesce(@map_scale, 1000) >= 20000 THEN 0.00&#xa;      WHEN coalesce(@map_scale, 1000) >= 8000 THEN 0.45&#xa;      WHEN coalesce(@map_scale, 1000) >= 3000 THEN 0.70&#xa;      ELSE 1.00&#xa;    END&#xa;  ELSE&#xa;    CASE&#xa;      WHEN coalesce(@map_scale, 1000) >= 20000 THEN 0.00&#xa;      WHEN coalesce(@map_scale, 1000) >= 8000 THEN 0.45&#xa;      WHEN coalesce(@map_scale, 1000) >= 3000 THEN 0.85&#xa;      ELSE 1.30&#xa;    END&#xa;END"/>
+                  <Option name="type" type="int" value="3"/>
+                </Option>
+              </Option>
+              <Option name="type" type="QString" value="collection"/>
+            </Option>
+          </data_defined_properties>
+        </layer>
+        <layer id="{79c66493-68e2-49d2-b52a-e0c8d02cfa51}" locked="0" pass="7" class="MarkerLine" enabled="1">
+          <Option type="Map">
+            <Option name="average_angle_length" type="QString" value="4"/>
+            <Option name="average_angle_map_unit_scale" type="QString" value="3x:0,0,0,0,0,0"/>
+            <Option name="average_angle_unit" type="QString" value="MM"/>
+            <Option name="interval" type="QString" value="18"/>
+            <Option name="interval_map_unit_scale" type="QString" value="3x:0,0,0,0,0,0"/>
+            <Option name="interval_unit" type="QString" value="MM"/>
+            <Option name="offset" type="QString" value="0"/>
+            <Option name="offset_along_line" type="QString" value="0"/>
+            <Option name="offset_along_line_map_unit_scale" type="QString" value="3x:0,0,0,0,0,0"/>
+            <Option name="offset_along_line_unit" type="QString" value="MM"/>
+            <Option name="offset_map_unit_scale" type="QString" value="3x:0,0,0,0,0,0"/>
+            <Option name="offset_unit" type="QString" value="MM"/>
+            <Option name="place_on_every_part" type="bool" value="true"/>
+            <Option name="placements" type="QString" value="Interval"/>
+            <Option name="ring_filter" type="QString" value="0"/>
+            <Option name="rotate" type="QString" value="1"/>
+          </Option>
+          <data_defined_properties>
+            <Option type="Map">
+              <Option name="name" type="QString" value=""/>
+              <Option name="properties"/>
+              <Option name="type" type="QString" value="collection"/>
+            </Option>
+          </data_defined_properties>
+          <symbol clip_to_extent="1" is_animated="0" name="@2@2" frame_rate="10" type="marker" alpha="1" force_rhr="0">
+            <data_defined_properties>
+              <Option type="Map">
+                <Option name="name" type="QString" value=""/>
+                <Option name="properties"/>
+                <Option name="type" type="QString" value="collection"/>
+              </Option>
+            </data_defined_properties>
+            <layer id="{75ff1ad5-1f25-4ff0-876d-9a1718f4b267}" locked="0" pass="0" class="SvgMarker" enabled="1">
+              <Option type="Map">
+                <Option name="angle" type="QString" value="0"/>
+                <Option name="color" type="QString" value="85,85,85,255,rgb:0.3333333,0.3333333,0.3333333,1"/>
+                <Option name="fixedAspectRatio" type="QString" value="0"/>
+                <Option name="horizontal_anchor_point" type="QString" value="1"/>
+                <Option name="name" type="QString" value="C:/Users/kanal/Projects/leonida_gis/styles/oneway.svg"/>
+                <Option name="offset" type="QString" value="0,0"/>
+                <Option name="offset_map_unit_scale" type="QString" value="3x:0,0,0,0,0,0"/>
+                <Option name="offset_unit" type="QString" value="MM"/>
+                <Option name="outline_color" type="QString" value="85,85,85,255,rgb:0.3333333,0.3333333,0.3333333,1"/>
+                <Option name="outline_width" type="QString" value="0.2"/>
+                <Option name="outline_width_map_unit_scale" type="QString" value="3x:0,0,0,0,0,0"/>
+                <Option name="outline_width_unit" type="QString" value="MM"/>
+                <Option name="parameters"/>
+                <Option name="scale_method" type="QString" value="diameter"/>
+                <Option name="size" type="QString" value="2.8"/>
+                <Option name="size_map_unit_scale" type="QString" value="3x:0,0,0,0,0,0"/>
+                <Option name="size_unit" type="QString" value="MM"/>
+                <Option name="vertical_anchor_point" type="QString" value="1"/>
+              </Option>
+              <data_defined_properties>
+                <Option type="Map">
+                  <Option name="name" type="QString" value=""/>
+                  <Option name="properties" type="Map">
+                    <Option name="angle" type="Map">
+                      <Option name="active" type="bool" value="true"/>
+                      <Option name="expression" type="QString" value="CASE WHEN coalesce(to_string(&quot;oneway&quot;), '') = '-1' THEN 180 ELSE 0 END"/>
+                      <Option name="type" type="int" value="3"/>
+                    </Option>
+                    <Option name="fillColor" type="Map">
+                      <Option name="active" type="bool" value="true"/>
+                      <Option name="expression" type="QString" value="CASE&#xa;  WHEN &quot;highway&quot; IN ('motorway', 'motorway_link') THEN '#741334'&#xa;  WHEN &quot;highway&quot; IN ('trunk', 'trunk_link') THEN '#612617'&#xa;  WHEN &quot;highway&quot; IN ('primary', 'primary_link') THEN '#543800'&#xa;  WHEN &quot;highway&quot; IN ('secondary', 'secondary_link') THEN '#444c03'&#xa;  WHEN &quot;highway&quot; IN ('tertiary', 'tertiary_link') THEN '#424242'&#xa;  WHEN &quot;highway&quot; IN ('residential', 'unclassified', 'road', 'service') THEN '#555555'&#xa;  WHEN &quot;highway&quot; = 'living_street' THEN '#6e6e6e'&#xa;  WHEN &quot;highway&quot; = 'pedestrian' THEN '#4b4b4b'&#xa;  WHEN &quot;highway&quot; = 'track' THEN '#664400'&#xa;  WHEN &quot;highway&quot; IN ('footway', 'path', 'steps') THEN '#b31806'&#xa;  WHEN &quot;highway&quot; = 'cycleway' THEN '#000080'&#xa;  ELSE '#555555'&#xa;END"/>
+                      <Option name="type" type="int" value="3"/>
+                    </Option>
+                    <Option name="outlineColor" type="Map">
+                      <Option name="active" type="bool" value="true"/>
+                      <Option name="expression" type="QString" value="CASE&#xa;  WHEN &quot;highway&quot; IN ('motorway', 'motorway_link') THEN '#741334'&#xa;  WHEN &quot;highway&quot; IN ('trunk', 'trunk_link') THEN '#612617'&#xa;  WHEN &quot;highway&quot; IN ('primary', 'primary_link') THEN '#543800'&#xa;  WHEN &quot;highway&quot; IN ('secondary', 'secondary_link') THEN '#444c03'&#xa;  WHEN &quot;highway&quot; IN ('tertiary', 'tertiary_link') THEN '#424242'&#xa;  WHEN &quot;highway&quot; IN ('residential', 'unclassified', 'road', 'service') THEN '#555555'&#xa;  WHEN &quot;highway&quot; = 'living_street' THEN '#6e6e6e'&#xa;  WHEN &quot;highway&quot; = 'pedestrian' THEN '#4b4b4b'&#xa;  WHEN &quot;highway&quot; = 'track' THEN '#664400'&#xa;  WHEN &quot;highway&quot; IN ('footway', 'path', 'steps') THEN '#b31806'&#xa;  WHEN &quot;highway&quot; = 'cycleway' THEN '#000080'&#xa;  ELSE '#555555'&#xa;END"/>
+                      <Option name="type" type="int" value="3"/>
+                    </Option>
+                    <Option name="size" type="Map">
+                      <Option name="active" type="bool" value="true"/>
+                      <Option name="expression" type="QString" value="CASE&#xa;  WHEN coalesce(to_string(&quot;oneway&quot;), '') IN ('yes', '1', 'true', '-1') THEN&#xa;    CASE&#xa;      WHEN (&quot;highway&quot; LIKE '%_link' OR coalesce(to_string(&quot;link&quot;), '') IN ('yes', '1', 'true')) THEN&#xa;        CASE&#xa;          WHEN coalesce(@map_scale, 1000) &lt;= 2500 THEN 3.3&#xa;          WHEN coalesce(@map_scale, 1000) &lt;= 8000 THEN 2.4&#xa;          WHEN coalesce(@map_scale, 1000) &lt;= 20000 THEN 1.8&#xa;          ELSE 0.0&#xa;        END&#xa;      ELSE&#xa;        CASE&#xa;          WHEN coalesce(@map_scale, 1000) &lt;= 2500 THEN 4.2&#xa;          WHEN coalesce(@map_scale, 1000) &lt;= 8000 THEN 3.0&#xa;          WHEN coalesce(@map_scale, 1000) &lt;= 20000 THEN 2.2&#xa;          ELSE 0.0&#xa;        END&#xa;    END&#xa;  ELSE 0.0&#xa;END"/>
+                      <Option name="type" type="int" value="3"/>
+                    </Option>
+                  </Option>
+                  <Option name="type" type="QString" value="collection"/>
+                </Option>
+              </data_defined_properties>
             </layer>
           </symbol>
-        </layer>
-      </symbol>
-      <symbol type="line" name="165" alpha="1" force_rhr="0" clip_to_extent="1">
-        <layer pass="1" class="SimpleLine" locked="0">
-          <prop k="line_color" v="177,177,184,255"/>
-          <prop k="line_width" v="0.75"/>
-          <prop k="line_width_unit" v="MM"/>
-        </layer>
-        <layer pass="2" class="SimpleLine" locked="0">
-          <prop k="line_color" v="221,221,232,255"/>
-          <prop k="line_width" v="0.5"/>
-          <prop k="line_width_unit" v="MM"/>
-        </layer>
-      </symbol>
-      <symbol type="line" name="166" alpha="1" force_rhr="0" clip_to_extent="1">
-        <layer pass="1" class="SimpleLine" locked="0">
-          <prop k="line_color" v="250,128,114,255"/>
-          <prop k="line_width" v="0.45"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="customdash" v="1.5;1.5"/>
-          <prop k="use_custom_dash" v="1"/>
-        </layer>
-      </symbol>
-      <symbol type="line" name="167" alpha="1" force_rhr="0" clip_to_extent="1">
-        <layer pass="1" class="SimpleLine" locked="0">
-          <prop k="line_color" v="0,136,204,255"/>
-          <prop k="line_width" v="0.45"/>
-          <prop k="line_width_unit" v="MM"/>
-          <prop k="customdash" v="2.0;1.5"/>
-          <prop k="use_custom_dash" v="1"/>
-        </layer>
-      </symbol>
-      <symbol type="line" name="168" alpha="1" force_rhr="0" clip_to_extent="1">
-        <layer pass="1" class="SimpleLine" locked="0">
-          <prop k="line_color" v="190,190,190,255"/>
-          <prop k="line_width" v="0.6"/>
-          <prop k="line_width_unit" v="MM"/>
-        </layer>
-        <layer pass="2" class="SimpleLine" locked="0">
-          <prop k="line_color" v="255,255,255,255"/>
-          <prop k="line_width" v="0.4"/>
-          <prop k="line_width_unit" v="MM"/>
         </layer>
       </symbol>
     </symbols>
+    <data-defined-properties>
+      <Option type="Map">
+        <Option name="name" type="QString" value=""/>
+        <Option name="properties"/>
+        <Option name="type" type="QString" value="collection"/>
+      </Option>
+    </data-defined-properties>
+    <orderby>
+      <orderByClause asc="1" nullsFirst="0">CASE
+  WHEN "highway" = 'motorway' AND coalesce(to_string("link"), '') NOT IN ('yes', '1') THEN 12
+  WHEN "highway" = 'motorway' THEN 11
+  WHEN "highway" = 'trunk' AND coalesce(to_string("link"), '') NOT IN ('yes', '1') THEN 10
+  WHEN "highway" = 'trunk' THEN 9
+  WHEN "highway" = 'primary' AND coalesce(to_string("link"), '') NOT IN ('yes', '1') THEN 8
+  WHEN "highway" = 'primary' THEN 7
+  WHEN "highway" = 'secondary' THEN 6
+  WHEN "highway" = 'tertiary' THEN 5
+  WHEN "highway" IN ('residential', 'unclassified', 'road') THEN 4
+  WHEN "highway" IN ('living_street', 'pedestrian') THEN 3
+  WHEN "highway" = 'service' THEN 2
+  ELSE 1
+END</orderByClause>
+    </orderby>
   </renderer-v2>
-  <labeling type="simple">
-    <settings fieldName="name">
-      <text-style fontFamily="Segoe UI" fontSize="8" fontSizeUnit="Point" textColor="51,51,51,255" isExpression="0">
-        <text-buffer bufferDraw="1" bufferSize="0.8" bufferColor="255,255,255,230"/>
-      </text-style>
-      <placement placement="3" priority="5" dist="0" linePlacementFlags="2"/>
-      <rendering scaleVisibility="1" scaleMin="1" scaleMax="35000" obstacle="0"/>
-    </settings>
-  </labeling>
+  <selection mode="Default">
+    <selectionColor invalid="1"/>
+  </selection>
+  <customproperties>
+    <Option/>
+  </customproperties>
+  <blendMode>0</blendMode>
+  <featureBlendMode>0</featureBlendMode>
+  <layerOpacity>1</layerOpacity>
+  <geometryOptions geometryPrecision="0" removeDuplicateNodes="0">
+    <activeChecks type="StringList">
+      <Option type="QString" value=""/>
+    </activeChecks>
+    <checkConfiguration/>
+  </geometryOptions>
+  <legend type="default-vector" showLabelLegend="0"/>
   <fieldConfiguration>
-    <field name="id" configurationFlags="None">
+    <field configurationFlags="NoFlag" name="bridge">
+      <editWidget type="CheckBox">
+        <config>
+          <Option type="Map">
+            <Option name="CheckedState" type="QString" value="yes"/>
+            <Option name="UncheckedState" type="QString" value="no"/>
+          </Option>
+        </config>
+      </editWidget>
+    </field>
+    <field configurationFlags="NoFlag" name="highway">
+      <editWidget type="ValueMap">
+        <config>
+          <Option type="Map">
+            <Option name="map" type="List">
+              <Option type="Map">
+                <Option name="Motorway" type="QString" value="motorway"/>
+              </Option>
+              <Option type="Map">
+                <Option name="Motorway Link" type="QString" value="motorway_link"/>
+              </Option>
+              <Option type="Map">
+                <Option name="Trunk" type="QString" value="trunk"/>
+              </Option>
+              <Option type="Map">
+                <Option name="Trunk Link" type="QString" value="trunk_link"/>
+              </Option>
+              <Option type="Map">
+                <Option name="Primary" type="QString" value="primary"/>
+              </Option>
+              <Option type="Map">
+                <Option name="Primary Link" type="QString" value="primary_link"/>
+              </Option>
+              <Option type="Map">
+                <Option name="Secondary" type="QString" value="secondary"/>
+              </Option>
+              <Option type="Map">
+                <Option name="Secondary Link" type="QString" value="secondary_link"/>
+              </Option>
+              <Option type="Map">
+                <Option name="Tertiary" type="QString" value="tertiary"/>
+              </Option>
+              <Option type="Map">
+                <Option name="Tertiary Link" type="QString" value="tertiary_link"/>
+              </Option>
+              <Option type="Map">
+                <Option name="Unclassified" type="QString" value="unclassified"/>
+              </Option>
+              <Option type="Map">
+                <Option name="Residential" type="QString" value="residential"/>
+              </Option>
+              <Option type="Map">
+                <Option name="Living Street" type="QString" value="living_street"/>
+              </Option>
+              <Option type="Map">
+                <Option name="Service" type="QString" value="service"/>
+              </Option>
+              <Option type="Map">
+                <Option name="Track" type="QString" value="track"/>
+              </Option>
+              <Option type="Map">
+                <Option name="Pedestrian" type="QString" value="pedestrian"/>
+              </Option>
+              <Option type="Map">
+                <Option name="Footway" type="QString" value="footway"/>
+              </Option>
+              <Option type="Map">
+                <Option name="Cycleway" type="QString" value="cycleway"/>
+              </Option>
+            </Option>
+          </Option>
+        </config>
+      </editWidget>
+    </field>
+    <field configurationFlags="NoFlag" name="id">
       <editWidget type="Range">
         <config>
           <Option type="Map">
-            <Option type="bool" name="AllowNull" value="false"/>
-            <Option type="int" name="Max" value="2147483647"/>
-            <Option type="int" name="Min" value="1"/>
-            <Option type="int" name="Step" value="1"/>
+            <Option name="AllowNull" type="bool" value="false"/>
+            <Option name="Max" type="int" value="2147483647"/>
+            <Option name="Min" type="int" value="1"/>
+            <Option name="Step" type="int" value="1"/>
           </Option>
         </config>
       </editWidget>
     </field>
-    <field name="ref_id" configurationFlags="None">
-      <editWidget type="TextEdit">
-        <config>
-          <Option type="Map">
-            <Option type="bool" name="IsMultiline" value="false"/>
-            <Option type="bool" name="UseHtml" value="false"/>
-          </Option>
-        </config>
-      </editWidget>
-    </field>
-    <field name="highway" configurationFlags="None">
-      <editWidget type="ValueMap">
-        <config>
-          <Option type="Map">
-            <Option type="List" name="map">
-              <Option type="Map"><Option type="QString" name="Motorway (Freeway)" value="motorway"/></Option>
-              <Option type="Map"><Option type="QString" name="Motorway Link (Ramp)" value="motorway_link"/></Option>
-              <Option type="Map"><Option type="QString" name="Trunk (Expressway)" value="trunk"/></Option>
-              <Option type="Map"><Option type="QString" name="Trunk Link (Ramp)" value="trunk_link"/></Option>
-              <Option type="Map"><Option type="QString" name="Primary (Arterial)" value="primary"/></Option>
-              <Option type="Map"><Option type="QString" name="Primary Link (Ramp)" value="primary_link"/></Option>
-              <Option type="Map"><Option type="QString" name="Secondary (Collector)" value="secondary"/></Option>
-              <Option type="Map"><Option type="QString" name="Secondary Link (Ramp)" value="secondary_link"/></Option>
-              <Option type="Map"><Option type="QString" name="Tertiary (Local Arterial)" value="tertiary"/></Option>
-              <Option type="Map"><Option type="QString" name="Tertiary Link (Ramp)" value="tertiary_link"/></Option>
-              <Option type="Map"><Option type="QString" name="Residential (Neighborhood)" value="residential"/></Option>
-              <Option type="Map"><Option type="QString" name="Living Street" value="living_street"/></Option>
-              <Option type="Map"><Option type="QString" name="Unclassified (Rural Road)" value="unclassified"/></Option>
-              <Option type="Map"><Option type="QString" name="Service (Alley, Parking, Driveway)" value="service"/></Option>
-              <Option type="Map"><Option type="QString" name="Track (Dirt/Agricultural)" value="track"/></Option>
-              <Option type="Map"><Option type="QString" name="Pedestrian (Walkway)" value="pedestrian"/></Option>
-              <Option type="Map"><Option type="QString" name="Footway / Path / Trail" value="footway"/></Option>
-              <Option type="Map"><Option type="QString" name="Cycleway (Bike Path)" value="cycleway"/></Option>
-            </Option>
-          </Option>
-        </config>
-      </editWidget>
-    </field>
-    <field name="name" configurationFlags="None">
-      <editWidget type="TextEdit">
-        <config>
-          <Option type="Map">
-            <Option type="bool" name="IsMultiline" value="false"/>
-            <Option type="bool" name="UseHtml" value="false"/>
-          </Option>
-        </config>
-      </editWidget>
-    </field>
-    <field name="ref" configurationFlags="None">
-      <editWidget type="TextEdit">
-        <config>
-          <Option type="Map">
-            <Option type="bool" name="IsMultiline" value="false"/>
-            <Option type="bool" name="UseHtml" value="false"/>
-          </Option>
-        </config>
-      </editWidget>
-    </field>
-    <field name="oneway" configurationFlags="None">
-      <editWidget type="ValueMap">
-        <config>
-          <Option type="Map">
-            <Option type="List" name="map">
-              <Option type="Map"><Option type="QString" name="Two-Way Traffic (no / null)" value=""/></Option>
-              <Option type="Map"><Option type="QString" name="Oneway Forward (v0 -> vn)" value="yes"/></Option>
-              <Option type="Map"><Option type="QString" name="Oneway Reverse (vn -> v0)" value="-1"/></Option>
-            </Option>
-          </Option>
-        </config>
-      </editWidget>
-    </field>
-    <field name="lanes" configurationFlags="None">
+    <field configurationFlags="NoFlag" name="lanes">
       <editWidget type="Range">
         <config>
           <Option type="Map">
-            <Option type="bool" name="AllowNull" value="true"/>
-            <Option type="int" name="Max" value="12"/>
-            <Option type="int" name="Min" value="1"/>
-            <Option type="int" name="Step" value="1"/>
+            <Option name="AllowNull" type="bool" value="true"/>
+            <Option name="Max" type="int" value="16"/>
+            <Option name="Min" type="int" value="1"/>
+            <Option name="Step" type="int" value="1"/>
           </Option>
         </config>
       </editWidget>
     </field>
-    <field name="bridge" configurationFlags="None">
+    <field configurationFlags="NoFlag" name="layer">
       <editWidget type="ValueMap">
         <config>
           <Option type="Map">
-            <Option type="List" name="map">
-              <Option type="Map"><Option type="QString" name="None (At Grade)" value=""/></Option>
-              <Option type="Map"><Option type="QString" name="Bridge (yes)" value="yes"/></Option>
-              <Option type="Map"><Option type="QString" name="Viaduct" value="viaduct"/></Option>
+            <Option name="map" type="List">
+              <Option type="Map">
+                <Option name="-2 (Deep Subterranean)" type="QString" value="-2"/>
+              </Option>
+              <Option type="Map">
+                <Option name="-1 (Subterranean / Underpass)" type="QString" value="-1"/>
+              </Option>
+              <Option type="Map">
+                <Option name="0 (Ground Level)" type="QString" value="0"/>
+              </Option>
+              <Option type="Map">
+                <Option name="1 (Overpass / Bridge)" type="QString" value="1"/>
+              </Option>
+              <Option type="Map">
+                <Option name="2 (High-Level Flyover)" type="QString" value="2"/>
+              </Option>
+              <Option type="Map">
+                <Option name="3 (Multi-Tier Interchange)" type="QString" value="3"/>
+              </Option>
             </Option>
           </Option>
         </config>
       </editWidget>
     </field>
-    <field name="tunnel" configurationFlags="None">
+    <field configurationFlags="NoFlag" name="link">
+      <editWidget type="CheckBox">
+        <config>
+          <Option type="Map">
+            <Option name="CheckedState" type="QString" value="yes"/>
+            <Option name="UncheckedState" type="QString" value="no"/>
+          </Option>
+        </config>
+      </editWidget>
+    </field>
+    <field configurationFlags="NoFlag" name="maxspeed">
       <editWidget type="ValueMap">
         <config>
           <Option type="Map">
-            <Option type="List" name="map">
-              <Option type="Map"><Option type="QString" name="None (At Grade)" value=""/></Option>
-              <Option type="Map"><Option type="QString" name="Tunnel (yes)" value="yes"/></Option>
-              <Option type="Map"><Option type="QString" name="Culvert" value="culvert"/></Option>
+            <Option name="map" type="List">
+              <Option type="Map">
+                <Option name="15 mph" type="QString" value="15"/>
+              </Option>
+              <Option type="Map">
+                <Option name="20 mph" type="QString" value="20"/>
+              </Option>
+              <Option type="Map">
+                <Option name="25 mph" type="QString" value="25"/>
+              </Option>
+              <Option type="Map">
+                <Option name="30 mph" type="QString" value="30"/>
+              </Option>
+              <Option type="Map">
+                <Option name="35 mph" type="QString" value="35"/>
+              </Option>
+              <Option type="Map">
+                <Option name="40 mph" type="QString" value="40"/>
+              </Option>
+              <Option type="Map">
+                <Option name="45 mph" type="QString" value="45"/>
+              </Option>
+              <Option type="Map">
+                <Option name="50 mph" type="QString" value="50"/>
+              </Option>
+              <Option type="Map">
+                <Option name="55 mph" type="QString" value="55"/>
+              </Option>
+              <Option type="Map">
+                <Option name="60 mph" type="QString" value="60"/>
+              </Option>
+              <Option type="Map">
+                <Option name="65 mph" type="QString" value="65"/>
+              </Option>
+              <Option type="Map">
+                <Option name="70 mph" type="QString" value="70"/>
+              </Option>
+              <Option type="Map">
+                <Option name="75 mph" type="QString" value="75"/>
+              </Option>
             </Option>
           </Option>
         </config>
       </editWidget>
     </field>
-    <field name="surface" configurationFlags="None">
+    <field configurationFlags="NoFlag" name="name">
+      <editWidget type="">
+        <config>
+          <Option/>
+        </config>
+      </editWidget>
+    </field>
+    <field configurationFlags="NoFlag" name="oneway">
       <editWidget type="ValueMap">
         <config>
           <Option type="Map">
-            <Option type="List" name="map">
-              <Option type="Map"><Option type="QString" name="Asphalt" value="asphalt"/></Option>
-              <Option type="Map"><Option type="QString" name="Concrete" value="concrete"/></Option>
-              <Option type="Map"><Option type="QString" name="Paved" value="paved"/></Option>
-              <Option type="Map"><Option type="QString" name="Gravel" value="gravel"/></Option>
-              <Option type="Map"><Option type="QString" name="Dirt / Ground" value="dirt"/></Option>
-              <Option type="Map"><Option type="QString" name="Sand" value="sand"/></Option>
-              <Option type="Map"><Option type="QString" name="Unpaved" value="unpaved"/></Option>
+            <Option name="map" type="List">
+              <Option type="Map">
+                <Option name="Two-Way" type="QString" value="no"/>
+              </Option>
+              <Option type="Map">
+                <Option name="One-Way (Forward)" type="QString" value="yes"/>
+              </Option>
+              <Option type="Map">
+                <Option name="One-Way (Reverse)" type="QString" value="-1"/>
+              </Option>
             </Option>
           </Option>
         </config>
       </editWidget>
     </field>
-    <field name="maxspeed" configurationFlags="None">
+    <field configurationFlags="NoFlag" name="ref_id">
+      <editWidget type="">
+        <config>
+          <Option/>
+        </config>
+      </editWidget>
+    </field>
+    <field configurationFlags="NoFlag" name="surface">
       <editWidget type="ValueMap">
         <config>
           <Option type="Map">
-            <Option type="List" name="map">
-              <Option type="Map"><Option type="QString" name="Unspecified" value=""/></Option>
-              <Option type="Map"><Option type="QString" name="15 mph" value="15"/></Option>
-              <Option type="Map"><Option type="QString" name="20 mph" value="20"/></Option>
-              <Option type="Map"><Option type="QString" name="25 mph" value="25"/></Option>
-              <Option type="Map"><Option type="QString" name="30 mph" value="30"/></Option>
-              <Option type="Map"><Option type="QString" name="35 mph" value="35"/></Option>
-              <Option type="Map"><Option type="QString" name="40 mph" value="40"/></Option>
-              <Option type="Map"><Option type="QString" name="45 mph" value="45"/></Option>
-              <Option type="Map"><Option type="QString" name="50 mph" value="50"/></Option>
-              <Option type="Map"><Option type="QString" name="55 mph" value="55"/></Option>
-              <Option type="Map"><Option type="QString" name="65 mph" value="65"/></Option>
-              <Option type="Map"><Option type="QString" name="70 mph" value="70"/></Option>
+            <Option name="map" type="List">
+              <Option type="Map">
+                <Option name="Asphalt" type="QString" value="asphalt"/>
+              </Option>
+              <Option type="Map">
+                <Option name="Concrete" type="QString" value="concrete"/>
+              </Option>
+              <Option type="Map">
+                <Option name="Paved" type="QString" value="paved"/>
+              </Option>
+              <Option type="Map">
+                <Option name="Paving Stones" type="QString" value="paving_stones"/>
+              </Option>
+              <Option type="Map">
+                <Option name="Gravel" type="QString" value="gravel"/>
+              </Option>
+              <Option type="Map">
+                <Option name="Compacted" type="QString" value="compacted"/>
+              </Option>
+              <Option type="Map">
+                <Option name="Dirt" type="QString" value="dirt"/>
+              </Option>
+              <Option type="Map">
+                <Option name="Ground" type="QString" value="ground"/>
+              </Option>
+              <Option type="Map">
+                <Option name="Sand" type="QString" value="sand"/>
+              </Option>
             </Option>
           </Option>
         </config>
       </editWidget>
     </field>
-    <field name="layer" configurationFlags="None">
-      <editWidget type="Range">
+    <field configurationFlags="NoFlag" name="tunnel">
+      <editWidget type="CheckBox">
         <config>
           <Option type="Map">
-            <Option type="bool" name="AllowNull" value="false"/>
-            <Option type="int" name="Max" value="5"/>
-            <Option type="int" name="Min" value="-5"/>
-            <Option type="int" name="Step" value="1"/>
+            <Option name="CheckedState" type="QString" value="yes"/>
+            <Option name="UncheckedState" type="QString" value="no"/>
           </Option>
         </config>
       </editWidget>
     </field>
-    <field name="junction" configurationFlags="None">
-      <editWidget type="ValueMap">
+    <field configurationFlags="NoFlag" name="turn_lanes">
+      <editWidget type="">
         <config>
-          <Option type="Map">
-            <Option type="List" name="map">
-              <Option type="Map"><Option type="QString" name="None (Standard Way)" value=""/></Option>
-              <Option type="Map"><Option type="QString" name="Roundabout (One-Way Loop)" value="roundabout"/></Option>
-              <Option type="Map"><Option type="QString" name="Circular Junction" value="circular"/></Option>
-            </Option>
-          </Option>
+          <Option/>
         </config>
       </editWidget>
     </field>
   </fieldConfiguration>
   <aliases>
-    <alias field="id" index="0" name="Feature ID"/>
-    <alias field="ref_id" index="1" name="Road Ref ID (e.g. R_0190)"/>
-    <alias field="highway" index="2" name="Highway Classification"/>
-    <alias field="name" index="3" name="Street / Road Name"/>
-    <alias field="ref" index="4" name="Route Reference (e.g. US 1, I-95)"/>
-    <alias field="oneway" index="5" name="One-Way Direction"/>
-    <alias field="lanes" index="6" name="Lane Count"/>
-    <alias field="bridge" index="7" name="Bridge Structure"/>
-    <alias field="tunnel" index="8" name="Tunnel Structure"/>
-    <alias field="surface" index="9" name="Surface Material"/>
-    <alias field="maxspeed" index="10" name="Speed Limit (mph)"/>
-    <alias field="layer" index="11" name="Z-Level Stacking (-1 tunnel, 0 ground, 1 bridge)"/>
-    <alias field="junction" index="12" name="Junction Geometry"/>
+    <alias field="bridge" index="0" name="Bridge"/>
+    <alias field="highway" index="1" name="Highway Class"/>
+    <alias field="id" index="2" name="Road ID"/>
+    <alias field="lanes" index="3" name="Lanes"/>
+    <alias field="layer" index="4" name="Layer"/>
+    <alias field="link" index="5" name="Link Ramp"/>
+    <alias field="maxspeed" index="6" name="Speed Limit"/>
+    <alias field="name" index="7" name="Street Name"/>
+    <alias field="oneway" index="8" name="One-Way Flow"/>
+    <alias field="ref_id" index="9" name="Reference ID"/>
+    <alias field="surface" index="10" name="Surface"/>
+    <alias field="tunnel" index="11" name="Tunnel"/>
+    <alias field="turn_lanes" index="12" name="Turn Lanes"/>
   </aliases>
-  <editforminit/>
-  <editforminitcodesource>0</editforminitcodesource>
-  <featformsuppress>0</featformsuppress>
-  <editorlayout>generatedlayout</editorlayout>
-  <editable>
-    <field name="id" editable="1"/>
-    <field name="ref_id" editable="1"/>
-    <field name="highway" editable="1"/>
-    <field name="name" editable="1"/>
-    <field name="ref" editable="1"/>
-    <field name="oneway" editable="1"/>
-    <field name="lanes" editable="1"/>
-    <field name="bridge" editable="1"/>
-    <field name="tunnel" editable="1"/>
-    <field name="surface" editable="1"/>
-    <field name="maxspeed" editable="1"/>
-    <field name="layer" editable="1"/>
-    <field name="junction" editable="1"/>
-  </editable>
   <defaults>
-    <default field="id" expression="coalesce(maximum(&quot;id&quot;) + 1, count(1) + 1)" applyOnUpdate="0"/>
-    <default field="ref_id" expression="'R_' || lpad(coalesce(maximum(to_int(replace(&quot;ref_id&quot;, 'R_', ''))) + 1, count(1) + 1), 4, '0')" applyOnUpdate="0"/>
-    <default field="highway" expression="" applyOnUpdate="0"/>
-    <default field="name" expression="" applyOnUpdate="0"/>
-    <default field="ref" expression="" applyOnUpdate="0"/>
-    <default field="oneway" expression="" applyOnUpdate="0"/>
-    <default field="lanes" expression="" applyOnUpdate="0"/>
-    <default field="bridge" expression="" applyOnUpdate="0"/>
-    <default field="tunnel" expression="" applyOnUpdate="0"/>
-    <default field="surface" expression="" applyOnUpdate="0"/>
-    <default field="maxspeed" expression="" applyOnUpdate="0"/>
-    <default field="layer" expression="CASE WHEN &quot;bridge&quot; IN ('yes', 'viaduct') THEN 1 WHEN &quot;tunnel&quot; IN ('yes', 'culvert') THEN -1 ELSE NULL END" applyOnUpdate="1"/>
-    <default field="junction" expression="" applyOnUpdate="0"/>
+    <default applyOnUpdate="0" field="bridge" expression=""/>
+    <default applyOnUpdate="0" field="highway" expression=""/>
+    <default applyOnUpdate="0" field="id" expression="coalesce(maximum(&quot;id&quot;) + 1, count(1) + 1)"/>
+    <default applyOnUpdate="0" field="lanes" expression=""/>
+    <default applyOnUpdate="1" field="layer" expression="CASE WHEN &quot;bridge&quot; IN ('yes', 'viaduct') THEN 1 WHEN &quot;tunnel&quot; IN ('yes', 'culvert') THEN -1 ELSE NULL END"/>
+    <default applyOnUpdate="0" field="link" expression=""/>
+    <default applyOnUpdate="0" field="maxspeed" expression=""/>
+    <default applyOnUpdate="0" field="name" expression=""/>
+    <default applyOnUpdate="0" field="oneway" expression=""/>
+    <default applyOnUpdate="0" field="ref_id" expression="'R_' || lpad(coalesce(maximum(to_int(replace(&quot;ref_id&quot;, 'R_', ''))) + 1, count(1) + 1), 4, '0')"/>
+    <default applyOnUpdate="0" field="surface" expression=""/>
+    <default applyOnUpdate="0" field="tunnel" expression=""/>
+    <default applyOnUpdate="0" field="turn_lanes" expression=""/>
   </defaults>
   <constraints>
-    <constraint field="id" constraints="0" exp_strength="0" notnull_strength="0" unique_strength="0"/>
-    <constraint field="ref_id" constraints="0" exp_strength="0" notnull_strength="0" unique_strength="0"/>
-    <constraint field="highway" constraints="0" exp_strength="0" notnull_strength="0" unique_strength="0"/>
-    <constraint field="name" constraints="0" exp_strength="0" notnull_strength="0" unique_strength="0"/>
-    <constraint field="ref" constraints="0" exp_strength="0" notnull_strength="0" unique_strength="0"/>
-    <constraint field="oneway" constraints="0" exp_strength="0" notnull_strength="0" unique_strength="0"/>
-    <constraint field="lanes" constraints="0" exp_strength="0" notnull_strength="0" unique_strength="0"/>
-    <constraint field="bridge" constraints="0" exp_strength="0" notnull_strength="0" unique_strength="0"/>
-    <constraint field="tunnel" constraints="0" exp_strength="0" notnull_strength="0" unique_strength="0"/>
-    <constraint field="surface" constraints="0" exp_strength="0" notnull_strength="0" unique_strength="0"/>
-    <constraint field="maxspeed" constraints="0" exp_strength="0" notnull_strength="0" unique_strength="0"/>
-    <constraint field="layer" constraints="0" exp_strength="0" notnull_strength="0" unique_strength="0"/>
-    <constraint field="junction" constraints="0" exp_strength="0" notnull_strength="0" unique_strength="0"/>
+    <constraint unique_strength="0" exp_strength="0" notnull_strength="0" field="bridge" constraints="0"/>
+    <constraint unique_strength="0" exp_strength="0" notnull_strength="0" field="highway" constraints="0"/>
+    <constraint unique_strength="0" exp_strength="0" notnull_strength="0" field="id" constraints="0"/>
+    <constraint unique_strength="0" exp_strength="0" notnull_strength="0" field="lanes" constraints="0"/>
+    <constraint unique_strength="0" exp_strength="0" notnull_strength="0" field="layer" constraints="0"/>
+    <constraint unique_strength="0" exp_strength="0" notnull_strength="0" field="link" constraints="0"/>
+    <constraint unique_strength="0" exp_strength="0" notnull_strength="0" field="maxspeed" constraints="0"/>
+    <constraint unique_strength="0" exp_strength="0" notnull_strength="0" field="name" constraints="0"/>
+    <constraint unique_strength="0" exp_strength="0" notnull_strength="0" field="oneway" constraints="0"/>
+    <constraint unique_strength="0" exp_strength="0" notnull_strength="0" field="ref_id" constraints="0"/>
+    <constraint unique_strength="0" exp_strength="0" notnull_strength="0" field="surface" constraints="0"/>
+    <constraint unique_strength="0" exp_strength="0" notnull_strength="0" field="tunnel" constraints="0"/>
+    <constraint unique_strength="0" exp_strength="0" notnull_strength="0" field="turn_lanes" constraints="0"/>
   </constraints>
   <constraintExpressions>
-    <constraint desc="" exp="" field="id"/>
-    <constraint desc="" exp="" field="ref_id"/>
-    <constraint desc="" exp="" field="highway"/>
-    <constraint desc="" exp="" field="name"/>
-    <constraint desc="" exp="" field="ref"/>
-    <constraint desc="" exp="" field="oneway"/>
-    <constraint desc="" exp="" field="lanes"/>
-    <constraint desc="" exp="" field="bridge"/>
-    <constraint desc="" exp="" field="tunnel"/>
-    <constraint desc="" exp="" field="surface"/>
-    <constraint desc="" exp="" field="maxspeed"/>
-    <constraint desc="" exp="" field="layer"/>
-    <constraint desc="" exp="" field="junction"/>
+    <constraint exp="" field="bridge" desc=""/>
+    <constraint exp="" field="highway" desc=""/>
+    <constraint exp="" field="id" desc=""/>
+    <constraint exp="" field="lanes" desc=""/>
+    <constraint exp="" field="layer" desc=""/>
+    <constraint exp="" field="link" desc=""/>
+    <constraint exp="" field="maxspeed" desc=""/>
+    <constraint exp="" field="name" desc=""/>
+    <constraint exp="" field="oneway" desc=""/>
+    <constraint exp="" field="ref_id" desc=""/>
+    <constraint exp="" field="surface" desc=""/>
+    <constraint exp="" field="tunnel" desc=""/>
+    <constraint exp="" field="turn_lanes" desc=""/>
   </constraintExpressions>
+  <expressionfields/>
+  <attributeactions/>
+  <attributetableconfig sortExpression="" sortOrder="0" actionWidgetStyle="dropDown">
+    <columns/>
+  </attributetableconfig>
+  <conditionalstyles>
+    <rowstyles/>
+    <fieldstyles/>
+  </conditionalstyles>
+  <storedexpressions/>
+  <editform tolerant="1"></editform>
+  <editforminit/>
+  <editforminitcodesource>0</editforminitcodesource>
+  <editforminitfilepath></editforminitfilepath>
+  <editforminitcode><![CDATA[]]></editforminitcode>
+  <featformsuppress>0</featformsuppress>
+  <editorlayout>generatedlayout</editorlayout>
+  <editable/>
+  <labelOnTop/>
+  <reuseLastValue/>
+  <dataDefinedFieldProperties/>
+  <widgets/>
+  <previewExpression></previewExpression>
+  <mapTip enabled="1"></mapTip>
+  <layerGeometryType>1</layerGeometryType>
 </qgis>

@@ -501,8 +501,8 @@
         <config>
           <Option type="Map">
             <Option type="List" name="map">
-              <Option type="Map"><Option type="QString" name="None / Unset" value=""/></Option>
-              <Option type="Map"><Option type="QString" name="Aerodrome / Airport" value="aerodrome"/></Option>
+              <Option type="Map"><Option type="QString" name="None" value=""/></Option>
+              <Option type="Map"><Option type="QString" name="Aerodrome" value="aerodrome"/></Option>
               <Option type="Map"><Option type="QString" name="Helipad" value="helipad"/></Option>
               <Option type="Map"><Option type="QString" name="Terminal" value="terminal"/></Option>
               <Option type="Map"><Option type="QString" name="Apron" value="apron"/></Option>
@@ -518,11 +518,25 @@
         <config>
           <Option type="Map">
             <Option type="List" name="map">
-              <Option type="Map"><Option type="QString" name="None / Unset" value=""/></Option>
-              <Option type="Map"><Option type="QString" name="University / College" value="university"/></Option>
+              <Option type="Map"><Option type="QString" name="None" value=""/></Option>
+              <Option type="Map"><Option type="QString" name="University" value="university"/></Option>
               <Option type="Map"><Option type="QString" name="School" value="school"/></Option>
               <Option type="Map"><Option type="QString" name="Hospital" value="hospital"/></Option>
               <Option type="Map"><Option type="QString" name="Parking" value="parking"/></Option>
+              <Option type="Map"><Option type="QString" name="Prison" value="prison"/></Option>
+            </Option>
+          </Option>
+        </config>
+      </editWidget>
+    </field>
+    <field name="layer" configurationFlags="None">
+      <editWidget type="ValueMap">
+        <config>
+          <Option type="Map">
+            <Option type="List" name="map">
+              <Option type="Map"><Option type="QString" name="-1 (Underground)" value="-1"/></Option>
+              <Option type="Map"><Option type="QString" name="0 (Ground Level)" value="0"/></Option>
+              <Option type="Map"><Option type="QString" name="1 (Elevated)" value="1"/></Option>
             </Option>
           </Option>
         </config>
@@ -530,13 +544,14 @@
     </field>
   </fieldConfiguration>
   <aliases>
-    <alias field="id" index="0" name="Feature ID"/>
-    <alias field="ref_id" index="1" name="Area Ref ID (e.g. A_0001)"/>
-    <alias field="name" index="2" name="Area / Facility Name"/>
-    <alias field="landuse" index="3" name="Landuse Zoning"/>
-    <alias field="leisure" index="4" name="Leisure / Recreation"/>
-    <alias field="aeroway" index="5" name="Aviation / Aeroway"/>
-    <alias field="amenity" index="6" name="Civic Amenity"/>
+    <alias field="id" index="0" name="ID"/>
+    <alias field="ref_id" index="1" name="Reference ID"/>
+    <alias field="name" index="2" name="Name"/>
+    <alias field="landuse" index="3" name="Landuse"/>
+    <alias field="leisure" index="4" name="Leisure"/>
+    <alias field="aeroway" index="5" name="Aeroway"/>
+    <alias field="amenity" index="6" name="Amenity"/>
+    <alias field="layer" index="7" name="Layer"/>
   </aliases>
   <defaults>
     <default field="id" expression="coalesce(maximum(&quot;id&quot;) + 1, count(1) + 1)" applyOnUpdate="0"/>
@@ -546,6 +561,7 @@
     <default field="leisure" expression="" applyOnUpdate="0"/>
     <default field="aeroway" expression="" applyOnUpdate="0"/>
     <default field="amenity" expression="" applyOnUpdate="0"/>
+    <default field="layer" expression="0" applyOnUpdate="0"/>
   </defaults>
   <constraints>
     <constraint field="id" constraints="0" exp_strength="0" notnull_strength="0" unique_strength="0"/>
@@ -555,6 +571,7 @@
     <constraint field="leisure" constraints="0" exp_strength="0" notnull_strength="0" unique_strength="0"/>
     <constraint field="aeroway" constraints="0" exp_strength="0" notnull_strength="0" unique_strength="0"/>
     <constraint field="amenity" constraints="0" exp_strength="0" notnull_strength="0" unique_strength="0"/>
+    <constraint field="layer" constraints="0" exp_strength="0" notnull_strength="0" unique_strength="0"/>
   </constraints>
   <editforminit/>
   <editforminitcodesource>0</editforminitcodesource>
@@ -568,5 +585,6 @@
     <field name="leisure" editable="1"/>
     <field name="aeroway" editable="1"/>
     <field name="amenity" editable="1"/>
+    <field name="layer" editable="1"/>
   </editable>
 </qgis>

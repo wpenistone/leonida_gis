@@ -451,6 +451,49 @@
         </config>
       </editWidget>
     </field>
+    <field name="confidence" configurationFlags="None">
+      <editWidget type="ValueMap">
+        <config>
+          <Option type="Map">
+            <Option type="List" name="map">
+              <Option type="Map"><Option type="QString" name="Level 1" value="l1"/></Option>
+              <Option type="Map"><Option type="QString" name="Level 2" value="l2"/></Option>
+              <Option type="Map"><Option type="QString" name="Level 3" value="l3"/></Option>
+              <Option type="Map"><Option type="QString" name="Level 4" value="l4"/></Option>
+              <Option type="Map"><Option type="QString" name="Level 5" value="l5"/></Option>
+            </Option>
+          </Option>
+        </config>
+      </editWidget>
+    </field>
+    <field name="status" configurationFlags="None">
+      <editWidget type="ValueMap">
+        <config>
+          <Option type="Map">
+            <Option type="List" name="map">
+              <Option type="Map"><Option type="QString" name="Confirmed" value="confirmed"/></Option>
+              <Option type="Map"><Option type="QString" name="Unconfirmed" value="unconfirmed"/></Option>
+              <Option type="Map"><Option type="QString" name="Under Construction" value="construction"/></Option>
+              <Option type="Map"><Option type="QString" name="Demolished" value="demolished"/></Option>
+              <Option type="Map"><Option type="QString" name="To Do" value="todo"/></Option>
+            </Option>
+          </Option>
+        </config>
+      </editWidget>
+    </field>
+    <field name="layer" configurationFlags="None">
+      <editWidget type="ValueMap">
+        <config>
+          <Option type="Map">
+            <Option type="List" name="map">
+              <Option type="Map"><Option type="QString" name="-1 (Underground)" value="-1"/></Option>
+              <Option type="Map"><Option type="QString" name="0 (Ground Level)" value="0"/></Option>
+              <Option type="Map"><Option type="QString" name="1 (Elevated)" value="1"/></Option>
+            </Option>
+          </Option>
+        </config>
+      </editWidget>
+    </field>
     <field name="neighborhood" configurationFlags="None">
       <editWidget type="TextEdit"><config><Option type="Map"><Option type="bool" name="IsMultiline" value="false"/><Option type="bool" name="UseHtml" value="false"/></Option></config></editWidget>
     </field>
@@ -459,13 +502,16 @@
     </field>
   </fieldConfiguration>
   <aliases>
-    <alias field="id" index="0" name="POI Identifier"/>
-    <alias field="name" index="1" name="Landmark Name"/>
-    <alias field="category" index="2" name="Broad Category"/>
+    <alias field="id" index="0" name="ID"/>
+    <alias field="name" index="1" name="Name"/>
+    <alias field="category" index="2" name="Category"/>
     <alias field="osm_type" index="3" name="OSM Key"/>
-    <alias field="osm_value" index="4" name="OSM Tag Value"/>
-    <alias field="neighborhood" index="5" name="Neighborhood / Suburb"/>
-    <alias field="location_city" index="6" name="City / Municipality"/>
+    <alias field="osm_value" index="4" name="OSM Value"/>
+    <alias field="confidence" index="5" name="Confidence"/>
+    <alias field="status" index="6" name="Status"/>
+    <alias field="layer" index="7" name="Layer"/>
+    <alias field="neighborhood" index="8" name="Neighborhood"/>
+    <alias field="location_city" index="9" name="City"/>
   </aliases>
   <defaults>
     <default field="id" expression="" applyOnUpdate="0"/>
@@ -473,6 +519,9 @@
     <default field="category" expression="" applyOnUpdate="0"/>
     <default field="osm_type" expression="" applyOnUpdate="0"/>
     <default field="osm_value" expression="" applyOnUpdate="0"/>
+    <default field="confidence" expression="" applyOnUpdate="0"/>
+    <default field="status" expression="" applyOnUpdate="0"/>
+    <default field="layer" expression="0" applyOnUpdate="0"/>
     <default field="neighborhood" expression="" applyOnUpdate="0"/>
     <default field="location_city" expression="" applyOnUpdate="0"/>
   </defaults>
@@ -482,6 +531,9 @@
     <constraint field="category" constraints="0" exp_strength="0" notnull_strength="0" unique_strength="0"/>
     <constraint field="osm_type" constraints="0" exp_strength="0" notnull_strength="0" unique_strength="0"/>
     <constraint field="osm_value" constraints="0" exp_strength="0" notnull_strength="0" unique_strength="0"/>
+    <constraint field="confidence" constraints="0" exp_strength="0" notnull_strength="0" unique_strength="0"/>
+    <constraint field="status" constraints="0" exp_strength="0" notnull_strength="0" unique_strength="0"/>
+    <constraint field="layer" constraints="0" exp_strength="0" notnull_strength="0" unique_strength="0"/>
     <constraint field="neighborhood" constraints="0" exp_strength="0" notnull_strength="0" unique_strength="0"/>
     <constraint field="location_city" constraints="0" exp_strength="0" notnull_strength="0" unique_strength="0"/>
   </constraints>
@@ -495,6 +547,9 @@
     <field name="category" editable="1"/>
     <field name="osm_type" editable="1"/>
     <field name="osm_value" editable="1"/>
+    <field name="confidence" editable="1"/>
+    <field name="status" editable="1"/>
+    <field name="layer" editable="1"/>
     <field name="neighborhood" editable="1"/>
     <field name="location_city" editable="1"/>
   </editable>

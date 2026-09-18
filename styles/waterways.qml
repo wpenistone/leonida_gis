@@ -93,10 +93,10 @@
         <config>
           <Option type="Map">
             <Option type="List" name="map">
-              <Option type="Map"><Option type="QString" name="River (Major Navigable Waterway)" value="river"/></Option>
-              <Option type="Map"><Option type="QString" name="Canal (Artificial Waterway)" value="canal"/></Option>
-              <Option type="Map"><Option type="QString" name="Stream (Natural Watercourse)" value="stream"/></Option>
-              <Option type="Map"><Option type="QString" name="Drain / Ditch" value="drain"/></Option>
+              <Option type="Map"><Option type="QString" name="River" value="river"/></Option>
+              <Option type="Map"><Option type="QString" name="Canal" value="canal"/></Option>
+              <Option type="Map"><Option type="QString" name="Stream" value="stream"/></Option>
+              <Option type="Map"><Option type="QString" name="Drain" value="drain"/></Option>
             </Option>
           </Option>
         </config>
@@ -107,9 +107,9 @@
         <config>
           <Option type="Map">
             <Option type="List" name="map">
-              <Option type="Map"><Option type="QString" name="None (Open Water)" value=""/></Option>
-              <Option type="Map"><Option type="QString" name="Culvert (Underground Pipe/Box)" value="culvert"/></Option>
-              <Option type="Map"><Option type="QString" name="Tunnel (Covered Canal)" value="yes"/></Option>
+              <Option type="Map"><Option type="QString" name="None" value=""/></Option>
+              <Option type="Map"><Option type="QString" name="Culvert" value="culvert"/></Option>
+              <Option type="Map"><Option type="QString" name="Tunnel" value="yes"/></Option>
             </Option>
           </Option>
         </config>
@@ -121,31 +121,30 @@
     <field name="width" configurationFlags="None">
       <editWidget type="Range"><config><Option type="Map"><Option type="bool" name="AllowNull" value="true"/><Option type="int" name="Max" value="500"/><Option type="int" name="Min" value="1"/><Option type="int" name="Step" value="1"/></Option></config></editWidget>
     </field>
+    <field name="flow_direction" configurationFlags="None">
+      <editWidget type="ValueMap">
+        <config>
+          <Option type="Map">
+            <Option type="List" name="map">
+              <Option type="Map"><Option type="QString" name="Forward (Downstream)" value="forward"/></Option>
+              <Option type="Map"><Option type="QString" name="Backward (Upstream)" value="backward"/></Option>
+              <Option type="Map"><Option type="QString" name="Reversible (Tidal)" value="either"/></Option>
+              <Option type="Map"><Option type="QString" name="None (Stagnant)" value="no"/></Option>
+            </Option>
+          </Option>
+        </config>
+      </editWidget>
+    </field>
   </fieldConfiguration>
   <aliases>
-    <alias field="id" index="0" name="Feature ID"/>
-    <alias field="name" index="1" name="Waterway Name"/>
-    <alias field="waterway" index="2" name="Waterway Type"/>
-    <alias field="tunnel" index="3" name="Tunnel / Culvert"/>
-    <alias field="layer" index="4" name="Z-Level Stacking (-1 culvert, 0 surface)"/>
-    <alias field="width" index="5" name="Channel Width (m)"/>
+    <alias field="id" index="0" name="ID"/>
+    <alias field="name" index="1" name="Name"/>
+    <alias field="waterway" index="2" name="Waterway"/>
+    <alias field="tunnel" index="3" name="Tunnel"/>
+    <alias field="layer" index="4" name="Layer"/>
+    <alias field="width" index="5" name="Width"/>
+    <alias field="flow_direction" index="6" name="Flow Direction"/>
   </aliases>
-  <defaults>
-    <default field="id" expression="coalesce(maximum(&quot;id&quot;) + 1, count(1) + 1)" applyOnUpdate="0"/>
-    <default field="name" expression="" applyOnUpdate="0"/>
-    <default field="waterway" expression="" applyOnUpdate="0"/>
-    <default field="tunnel" expression="" applyOnUpdate="0"/>
-    <default field="layer" expression="CASE WHEN &quot;tunnel&quot; IN ('yes', 'culvert') THEN -1 ELSE NULL END" applyOnUpdate="1"/>
-    <default field="width" expression="" applyOnUpdate="0"/>
-  </defaults>
-  <constraints>
-    <constraint field="id" constraints="0" exp_strength="0" notnull_strength="0" unique_strength="0"/>
-    <constraint field="name" constraints="0" exp_strength="0" notnull_strength="0" unique_strength="0"/>
-    <constraint field="waterway" constraints="0" exp_strength="0" notnull_strength="0" unique_strength="0"/>
-    <constraint field="tunnel" constraints="0" exp_strength="0" notnull_strength="0" unique_strength="0"/>
-    <constraint field="layer" constraints="0" exp_strength="0" notnull_strength="0" unique_strength="0"/>
-    <constraint field="width" constraints="0" exp_strength="0" notnull_strength="0" unique_strength="0"/>
-  </constraints>
   <editforminit/>
   <editforminitcodesource>0</editforminitcodesource>
   <featformsuppress>0</featformsuppress>
