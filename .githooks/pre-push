@@ -14,5 +14,12 @@ python qgis_plugin/test_store_headless.py || {
   exit 1
 }
 
+echo ">>> [Pre-push] Uploading Git LFS objects..."
+command -v git-lfs >/dev/null 2>&1 || {
+  echo "[FAIL] This repository uses Git LFS but 'git-lfs' was not found on PATH."
+  exit 2
+}
+git lfs pre-push "$@"
+
 echo ">>> [Pre-push] All validation checks passed. Proceeding with push."
 exit 0
