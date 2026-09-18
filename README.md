@@ -1,5 +1,9 @@
 # State of Leonida GIS
 
+> [!IMPORTANT]
+> ### 🚧 Work in Progress
+> **State of Leonida GIS** is an active, ongoing cartographic reconstruction. Vector networks (roads, rail, waterways), administrative subdivisions, zoning boundaries, points of interest, and visual styles are under continuous development and refinement. Feature alignments, geometry coordinates, and tagging attributes are subject to frequent updates.
+
 Collaborative GIS mapping project for the State of Leonida (GTA 6). 
 Includes vector networks for roads, railways, waterways, administrative sections, and landmarks.
 
@@ -58,22 +62,36 @@ While editing on the map canvas:
 
 ## Editing Controls & Keybinds Cheat Sheet
 
-| Action | Shortcut / Control | Notes |
+> [!TIP]
+> Keyboard shortcuts in QGIS are managed at the user profile level (**Settings → Keyboard Shortcuts...**). Below are the native default controls and recommended bindings for QGIS 3.28 LTR / 3.34 LTR / 3.36+:
+
+| Action | Native Control / Shortcut | Context & Notes |
 | --- | --- | --- |
-| **Toggle Editing** | `Ctrl + E` | Enables/disables edit mode on active layer (prompts to save layer edits when turning off) |
-| **Save Layer Edits** | Digitizing toolbar icon / `Layer -> Save Layer Edits` | Writes in-memory geometry edits from RAM buffer down to `.geojson` file on disk |
-| **Save Project** | `Ctrl + S` | Saves QGIS project state, layer tree, and styles (`.qgz` file only) |
-| **Add Line / Point Feature** | `Ctrl + .` | Starts drawing a new road, track, or landmark |
-| **Place Vertex** | `Left Click` | Adds a node along the line |
-| **Undo Last Vertex** | `Backspace` or `Delete` | Removes the most recent vertex while drawing |
-| **Finish Feature** | `Right Click` | Completes the geometry and opens the attribute form |
-| **Vertex Tool** | `V` | Move, insert, or delete vertices on existing geometries |
-| **Toggle Snapping** | `S` | Turns snapping to nearby vertices/edges on and off |
-| **Toggle Tracing** | `T` | Snaps line drawing along an existing edge |
-| **Pan Canvas** | `Space + Click & Drag` (or Middle Mouse) | Moves map view |
-| **Zoom Canvas** | `Mouse Wheel` (or `Ctrl +` / `Ctrl -`) | Zooms in/out |
-| **Refresh Canvas** | `F5` | Forces QGIS to reload layer data from disk |
-| **Undo / Redo** | `Ctrl + Z` / `Ctrl + Y` | Standard undo/redo buffer |
+| **Toggle Editing** | Pencil Icon / `Layer → Toggle Editing` | Enables/disables editing on the active layer *(tip: assign `Ctrl + E` in Settings → Keyboard Shortcuts)* |
+| **Save Layer Edits** | Save Layer Edits Icon / `Layer → Save Layer Edits` | **Persists geometry & attribute changes from memory to `.geojson` files on disk** |
+| **Save Project** | `Ctrl + S` | Saves `.qgz` display settings, viewport extent, and layer states *(does **not** save vector edits)* |
+| **Add Line / Point / Polygon Feature** | `Ctrl + .` | Starts drawing a new feature on the active editable layer |
+| **Place Vertex** | `Left Click` | Places a vertex node at cursor position |
+| **Undo Last Vertex** | `Backspace` or `Delete` | Removes the most recently placed vertex while actively drawing |
+| **Finish Feature** | `Right Click` | Completes geometry creation and prompts the feature attribute form |
+| **Cancel Feature Digitizing** | `Escape` | Discards current in-progress feature without saving |
+| **Vertex Tool (Current Layer)** | `V` | Manipulate, insert, or delete nodes on existing geometries in active layer |
+| **Vertex Tool (All Layers)** | Vertex Tool Dropdown / Right-Click | Move shared topological vertices across all editable layers |
+| **Toggle Snapping** | `S` | Turns snapping to nearby vertices and segments on/off |
+| **Suspend Snapping (Temporary)** | Hold `Ctrl` | Hold while placing a vertex to temporarily bypass snapping |
+| **Toggle Tracing** | `T` | Automatically traces along adjacent road/rail/boundary geometries |
+| **Delete Selected Feature(s)** | `Delete` or `Backspace` | Deletes selected features while in edit mode (confirm via Save Layer Edits) |
+| **Deselect All Features** | `Ctrl + Alt + A` | Clears active feature selection across all layers |
+| **Undo / Redo** | `Ctrl + Z` / `Ctrl + Shift + Z` | Standard QGIS undo/redo buffer (`Ctrl + Shift + Z` is native QGIS redo) |
+| **Pan Canvas** | `Space + Drag` (or Middle Mouse Drag) | Moves map canvas view |
+| **Zoom In / Zoom Out** | `+` / `-` (or `Mouse Wheel`) | Native canvas zoom keys (also `Ctrl + +` / `Ctrl + -`) |
+| **Zoom Full Extent** | `Ctrl + Shift + F` | Zooms canvas to fit all project layers |
+| **Zoom to Selection** | `Ctrl + J` | Zooms canvas to currently selected feature(s) |
+| **Refresh Canvas** | `F5` | Forces canvas re-render and re-reads layer data from disk |
+| **Open Attribute Table** | `F6` | Opens full attribute table for active layer (`Shift + F6` for selected only) |
+
+> [!TIP]
+> For step-by-step walkthroughs of common mapping scenarios (the 5-second rapid road digitizing workflow, vertex curvature editing, cutting ways for bridges/tunnels, batch attribute editing, and contour mitigation), see the [Practical Digitizing Workflows in MAPPING_GUIDE.md](MAPPING_GUIDE.md#3-practical-digitizing-workflows-real-world-scenarios).
 
 ---
 
@@ -228,6 +246,13 @@ python scripts/run_pipeline.py
 ```
 ---
 
+## Known Issues
+
+* Figma community map derived layers have substantial issues waiting to be fixed.
+* GTADB is yet to be fully integrated.
+
+---
+
 ## Contributing
 
 Edits to roads, railways, water bodies, or landmarks can be submitted via GitHub or Discord:
@@ -235,7 +260,7 @@ Edits to roads, railways, water bodies, or landmarks can be submitted via GitHub
 ### Option A: GitHub Pull Request
 1. Fork the repository and create a branch (`git checkout -b feat/my-edits`).
 2. Edit the target layer in QGIS under `layers/` (e.g. `layers/roads.geojson`).
-3. Save **Layer Edits** to disk: toggle off editing (`Ctrl + E` and click **Save**), or click the **Save Layer Edits** icon on the Digitizing toolbar. *(Note: `Ctrl + S` only saves the QGIS project file, not the underlying `.geojson` vector data).*
+3. Save **Layer Edits** to disk: click the **Save Layer Edits** icon on the Digitizing toolbar, or toggle off editing (pencil icon, or press `Ctrl + E` if assigned) and click **Save**. *(Note: `Ctrl + S` only saves the QGIS project display settings, not the underlying `.geojson` vector data).*
 4. Run the formatting tool:
    ```bash
    python scripts/format.py
@@ -244,7 +269,7 @@ Edits to roads, railways, water bodies, or landmarks can be submitted via GitHub
 
 ### Option B: Discord Submission (No Git Required)
 If you do not use Git:
-1. Open `leonida_map_project.qgz` in QGIS, digitize your changes, and save **layer edits** to disk (toggle off `Ctrl + E` and click **Save**).
+1. Open `leonida_map_project.qgz` in QGIS, digitize your changes, and save **layer edits** to disk (toggle off editing with the pencil icon and click **Save**).
 2. Send the modified `.geojson` file from your local `layers/` folder directly to **`@wpenistone`** on Discord. The maintainer will run the formatting linter, validate the changes, and commit them to the project.
 ---
 

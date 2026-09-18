@@ -53,7 +53,7 @@ git checkout -b feat/describe-your-change
 ### 3. Digitize in QGIS
 1. Open `leonida_map_project.qgz` in QGIS 3.x.
 2. Select your target layer under **Active Work Layers (Editable `layers/`)**.
-3. Toggle edit mode (**`Ctrl + E`**).
+3. Toggle edit mode (click the **Toggle Editing** pencil icon, or press `Ctrl + E` if assigned).
 4. Follow the topological standards in **[MAPPING_GUIDE.md](MAPPING_GUIDE.md)**:
    * Snap at-grade intersections (key **`S`**, $15\text{ m}$ tolerance).
    * Do not snap grade-separated overpasses (hold **`Ctrl`** to suspend snapping).
@@ -63,7 +63,7 @@ git checkout -b feat/describe-your-change
 
 ### 4. Save Layer Edits to Disk
 * Click the **Save Layer Edits** icon on the Digitizing toolbar, **OR**
-* Press **`Ctrl + E`** (Toggle Editing) and click **Save** when prompted.
+* Toggle off editing (pencil icon / `Ctrl + E`) and click **Save** when prompted.
 * *Note*: Standard `Ctrl + S` only saves QGIS project display settings to `.qgz`, not your vector edits to disk.
 
 ### 5. Format and Lint

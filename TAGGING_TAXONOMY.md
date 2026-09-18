@@ -161,12 +161,12 @@ Polygons defining zoning, natural landcover, sports amenities, public institutio
 | `highway=secondary_link` | Collector Slip Lanes | `#707d05` | `#f7fabf` | `1.05 mm` | `0.70 mm` |
 | `highway=tertiary` | Neighborhood Connectors | `#8f8f8f` | `#ffffff` | `1.20 mm` | `0.80 mm` |
 | `highway=tertiary_link` | Sub-collector Links | `#8f8f8f` | `#ffffff` | `0.90 mm` | `0.60 mm` |
-| `highway=unclassified` | Rural Through-Roads | `#b0b0b0` | `#ffffff` | `1.05 mm` | `0.70 mm` |
-| `highway=residential` | Neighborhood Streets | `#b0b0b0` | `#ffffff` | `1.05 mm` | `0.70 mm` |
-| `highway=living_street` | Pedestrian-Priority Streets | `#b0b0b0` | `#ededed` | `0.95 mm` | `0.60 mm` |
+| `highway=unclassified` | Rural Through-Roads | `#c6c6c6` | `#ffffff` | `1.05 mm` | `0.70 mm` |
+| `highway=residential` | Neighborhood Streets | `#c6c6c6` | `#ffffff` | `1.05 mm` | `0.70 mm` |
+| `highway=living_street` | Pedestrian-Priority Streets | `#c6c6c6` | `#ededed` | `0.95 mm` | `0.60 mm` |
 | `highway=service` | Driveways & Parking Aisles | `#cfcfcf` | `#ffffff` | `0.80 mm` | `0.50 mm` |
-| `highway=track` | Unpaved Dirt / Farm Roads | None | `#996600` (dash)| — | `0.50 mm` |
-| `highway=pedestrian` | Pedestrian Plazas | `#b1b1b8` | `#dddde8` | `0.75 mm` | `0.50 mm` |
+| `highway=track` | Unpaved Dirt / Farm Roads | None | `#996600` (dash)| — | `0.55 mm` |
+| `highway=pedestrian` | Pedestrian Plazas | `#999999` | `#dddde8` | `0.95 mm` | `0.60 mm` |
 | `highway=footway` | Walkways & Sidewalks | None | `#fa8072` (dash)| — | `0.45 mm` |
 | `highway=cycleway` | Dedicated Bike Paths | None | `#0088cc` (dash)| — | `0.45 mm` |
 

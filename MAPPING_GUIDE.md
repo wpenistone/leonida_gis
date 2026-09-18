@@ -30,43 +30,90 @@ A routable GIS network relies on a strict graph model composed of **edges** (roa
    * This immediately displays directional arrows along every segment on the map canvas.
 
 ### How to Reverse a Line in QGIS
-1. Select the layer and press **`Ctrl + E`** (Toggle Editing).
+1. Select the layer and toggle editing (click the **Toggle Editing** pencil icon on the Digitizing toolbar, or press **`Ctrl + E`** if assigned).
 2. Enable the **Advanced Digitizing Toolbar** (`View` -> `Toolbars` -> `Advanced Digitizing Toolbar`).
 3. Click the **"Reverse Line"** tool (icon showing two opposing horizontal arrows), or press the vertex tool and right-click the line feature -> **Reverse line direction**.
 4. Click on the line you wish to reverse. The directional arrows will flip instantly.
-5. Save layer edits: click the **Save Layer Edits** icon on the Digitizing toolbar, or press **`Ctrl + E`** and confirm Save.
+5. Save layer edits: click the **Save Layer Edits** icon on the Digitizing toolbar, or toggle off editing and confirm Save.
 
 ---
 
-## 3. Splitting Lines
+## 3. Practical Digitizing Workflows: Real-World Scenarios
 
-A single road or railway segment must be split into two separate features when attributes change along its length.
+### 3.1 The 5-Second Rapid Road Digitizing Workflow
+Digitizing new road corridors from aerial basemap imagery is straightforward and fast:
+1. **Select Layer**: In the Layers panel, click on **`roads`** (under `Active Work Layers`).
+2. **Toggle Edit Mode**: Click the **Toggle Editing** pencil icon on the Digitizing toolbar.
+3. **Start Drawing (`Ctrl + .`)**: Click the **Add Line Feature** icon.
+4. **Place Nodes**: Left-click sequentially along the centerline of the roadway following the aerial basemap.
+5. **Commit Geometry**: When you reach an intersection node or the end of the road, **Right-click**.
+6. **Pre-Configured Attribute Form Template**: 
+   * Instead of blank or raw free-form typing, QGIS opens the customized attribute form template.
+   * You only need to pick your options from the dropdown selectors:
+     * **Highway Class**: Pick the functional tier (e.g. `motorway`, `primary`, `secondary`, `residential`).
+     * **One-Way Flow**: Pick `Two-Way`, `One-Way (Forward)`, or `One-Way (Reverse)`.
+     * **Bridge / Tunnel**: Pick structure state (`No`, `Yes`, `Viaduct`, `Culvert`).
+     * **Speed Limit** & **Surface**: Select posted speed and paving material.
+   * `Road ID` and `Reference ID` (`R_####`) are calculated automatically. Click **OK** to save the feature.
 
-### When to Split
-| Condition | Trigger | Action |
+---
+
+### 3.2 Normal Vertex Editing & Curvature Refinement
+To refine curves, adjust street alignments, or realign intersections:
+1. Activate the **Vertex Tool (`V`)** on the Digitizing toolbar.
+2. Hover the cursor over any existing road line:
+   * **Move a Node**: Click directly on a vertex (red circular crosshair appears), move it to match the imagery, and click again to set the new position.
+   * **Insert a Node**: Hover over the small **`+`** icon at the midpoint between two vertices, click and drag outward to create a new intermediate bend node for smooth curvature.
+   * **Delete a Node**: Click once on an unnecessary vertex (it turns blue/selected), then press **`Delete`** or **`Backspace`**.
+   * **Move Multiple Nodes**: Click and drag a selection rectangle with the Vertex Tool across a cluster of nodes, then drag any of the selected nodes to move the whole group together.
+
+---
+
+### 3.3 Cutting / Splitting Ways for Bridges, Tunnels, and Grade Transitions
+A continuous road line must be cut into separate features when part of it becomes an overpass, bridge, or tunnel:
+1. Make sure **`roads`** is editable (pencil icon active).
+2. Activate the **Split Features** tool on the Advanced Digitizing Toolbar (`Edit → Split Features`).
+3. **Draw the Cut Line Across the Road**:
+   * Click once on one side of the road line where the bridge abutment begins.
+   * Drag the cursor across the road line (a red dashed cutting line will extend across the feature).
+   * **Right-click** to commit the cut.
+   * Repeat at the opposite end of the bridge span where the road returns to ground grade.
+4. The road is now split into three independent physical segments: the approach road, the elevated bridge span, and the departure road.
+
+| Split Condition | Trigger Location | Target Attribute Change on Bridge/Tunnel Segment |
 |---|---|---|
-| **Lane Drop / Addition** | Road widens or narrows | Split at transition node; update `lanes` on the wider/narrower segment |
-| **Bridge Transition** | Surface road elevates onto an overpass | Split at abutments; tag bridge segment with `layer: 1`, `bridge: "yes"` |
-| **Tunnel Transition** | Surface road enters subterranean bore | Split at portals; tag tunnel segment with `layer: -1`, `tunnel: "yes"` |
-| **One-Way Start / End** | Two-way street becomes one-way | Split at junction; set `oneway: "yes"` on the one-way segment |
-| **Speed Limit Change** | Highway enters urban zone | Split at posted sign location; update `maxspeed` |
-| **Surface Change** | Pavement ends | Split at transition; set `surface: "dirt"` or `"gravel"` |
+| **Bridge Overpass** | Abutments where road elevates | `bridge: "yes"`, `layer: 1` |
+| **Tunnel Bore** | Portals where road goes underground | `tunnel: "yes"`, `layer: -1` |
+| **Speed Limit Zone** | City limit or posted speed sign | `maxspeed: 35` (or posted value) |
+| **Surface Change** | Pavement ends onto dirt/gravel | `surface: "dirt"` or `"gravel"` |
+| **Lane Drop / Add** | Road expands or drops a lane | `lanes: 4` -> `lanes: 2` |
 
-**Do NOT split for**:
-* Crossing a county boundary or municipality line.
-* Arbitrary distance limits.
+---
 
-### Step-by-Step: How to Split in QGIS
-1. Enable editing on the layer (**`Ctrl + E`**).
-2. Select the line feature using the **Select Features** tool (`V` or selection box).
-3. Activate the **"Split Features"** tool (located on the Advanced Digitizing Toolbar, or menu: `Edit` -> `Split Features`).
-4. Click once on one side of the road line.
-5. Move the cursor across the road to the other side (a red split line will appear across the segment).
-6. **Right-click** to commit the split.
-7. The line is now two independent features:
-   * Both segments initially inherit the original attributes.
-   * Open the Attribute Table or Feature Form for the segment that changed and update its specific attributes (`layer`, `bridge`, `lanes`, etc.).
-8. Save layer edits: click the **Save Layer Edits** icon on the Digitizing toolbar, or press **`Ctrl + E`** and confirm Save.
+### 3.4 Selecting Features & Deleting Unwanted Geometry
+When cleaning up network cuts, trimming overshoots, or removing erroneous ways:
+1. Activate the **Select Features by Area or Single Click** tool (`Ctrl + Alt + A` to clear any existing selection).
+2. Click directly on the unwanted road segment, or drag a selection box across it (selected lines turn bright yellow).
+3. Press **`Delete`** on your keyboard to instantly remove the feature.
+4. Click **Save Layer Edits** to persist the deletion.
+
+---
+
+### 3.5 Batch Multi-Feature Attribute Editing (Simultaneous Bridge Tagging)
+When cutting multiple lanes or spans (e.g. both directions of a divided highway crossing a river):
+1. Use the **Select Features** tool to select all the newly cut bridge segments together (drag a box over them or hold `Shift` while clicking each one).
+2. Open the **Attribute Table (`F6`)**.
+3. Click the **Toggle Multi-Edit Mode** icon at the top of the attribute table window (icon showing a pencil over stacked rows).
+4. Select the **Bridge** field and choose **`Yes`**.
+5. Select the **Layer** field and choose **`1`**.
+6. Click **Apply Changes**. All selected road segments are updated simultaneously in one click, without needing to open separate dialog forms for each segment.
+
+---
+
+### 3.6 Canvas Visibility Tip: Managing Contour Interference
+Dense elevation contours (`contours` / `Elevation Contours`) provide valuable terrain context, but their dense polylines can get in the way during fast network digitizing by capturing cursor snaps or obscuring road centerlines:
+* **Temporarily Hide Contours While Digitizing**: In the Layers panel, uncheck `Elevation Contours` and `Bathymetry Contours` so the map canvas displays only the satellite basemap and active roads.
+* **Lock Snapping to Active Layer**: On the Snapping Toolbar, set snapping mode to **"Active Layer"** rather than "All Layers". This forces QGIS to snap only to other roads, completely ignoring contour and landcover lines even if they are visible.
 
 ---
 
@@ -76,7 +123,7 @@ A single road or railway segment must be split into two separate features when a
 When drawing an elevated bridge, flyover ramp, or overpass, QGIS snapping may accidentally snap to the surface road passing underneath, binding both roads to a shared vertex. This creates a false at-grade intersection where cars could illegally turn from a freeway bridge onto a local street below.
 
 ### How to Disconnect in QGIS
-1. Enable editing on the layer (**`Ctrl + E`**).
+1. Enable editing on the layer (**Toggle Editing** pencil icon, or `Ctrl + E` if assigned).
 2. On the Snapping Toolbar, **uncheck "Topological Editing"** temporarily. (If topological editing is active, moving a vertex moves all snapped features together).
 3. Activate the **Vertex Tool (`V`)**.
 4. Hover over the shared junction node. QGIS displays vertex markers for all lines connected at that point.
@@ -163,7 +210,7 @@ Linear waterways represent navigable channels, river centerlines, bayous, and dr
 ## 8. Quality Assurance & Pre-Commit Verification
 Before committing edits:
 
-1. **Save Layer Edits to Disk**: Click the **Save Layer Edits** icon on the Digitizing toolbar, or toggle off editing (**`Ctrl + E`**) and click **Save** when prompted. *(Do not rely solely on Project -> Save / `Ctrl + S`, which only saves `.qgz` project display settings rather than committing vector edits to `.geojson` files on disk).*
+1. **Save Layer Edits to Disk**: Click the **Save Layer Edits** icon on the Digitizing toolbar, or toggle off editing (pencil icon / `Ctrl + E` if assigned) and click **Save** when prompted. *(Do not rely solely on Project -> Save / `Ctrl + S`, which only saves `.qgz` project display settings rather than committing vector edits to `.geojson` files on disk).*
 2. **Run the Formatter**:
    ```bash
    python scripts/format.py
