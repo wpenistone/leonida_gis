@@ -216,7 +216,6 @@ Before committing edits:
    python scripts/format.py
    ```
    * Verifies coordinate precision (rounded to $1\text{ cm}$).
-   * Purges stray auto-derived attributes (`county`, `county_slug`, `length_m`) to enforce layer purity.
    * Formats features onto single lines to guarantee clean Git diffs.
 3. **Verify Git Diff**:
    ```bash

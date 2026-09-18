@@ -99,7 +99,7 @@ While editing on the map canvas:
 
 Two automated gates protect the layers. Both run in the pre-commit hook and in CI:
 
-1. **`python scripts/format.py`** — *formatting & schema enforcement*. Enforces canonical one-feature-per-line serialization, sorted keys, quantized coordinates ($1\text{ cm}$ precision), per-layer `ref_id` prefixes (`R_` roads, `T_` rail, `A_` areas), strict JSON (no `NaN` literals — they become `null`), and purges any stray auto-derived fields (`county`, `length_m`, etc.) to keep canonical work layers pure OpenStreetMap schema.
+1. **`python scripts/format.py`** — *formatting & schema enforcement*. Enforces canonical one-feature-per-line serialization, sorted keys, quantized coordinates ($1\text{ cm}$ precision), per-layer `ref_id` prefixes (`R_` roads, `T_` rail, `A_` areas), and strict JSON (no `NaN` literals — they become `null`).
 2. **`python scripts/validate.py`** — *semantic correctness*. Checks tag values against the taxonomy (highway, railway, admin_level, place, restriction, natural/water, waterway), unique ids & correctly prefixed ref_ids, county ↔ county_slug consistency, strict JSON, coordinate extents, and turn-restriction integrity (`from_way`/`to_way` must resolve to real road ref_ids; the via Point must sit on the from-way). Add `--strict` to fail on warnings too.
 
 Run them any time:
@@ -186,7 +186,7 @@ leonida_gis/
 │   ├── run_pipeline.py               # Master pipeline runner (executes all steps in ~25s)
 │   ├── render_all_layers.py          # Comprehensive multi-layer visualization renderer
 │   ├── sync_sources.py               # Pulls latest GTADB & upstream drops
-│   ├── format.py                     # Deterministic formatter, float rounding & schema purger
+│   ├── format.py                     # Deterministic formatter & float rounding
 │   ├── validate.py                   # Semantic validator (tag domains, ids, bounds, restrictions)
 │   └── setup_hooks.py                # Installs Git pre-commit hook
 │
@@ -278,7 +278,6 @@ If you do not use Git:
 * **Coordinate System**: Planar Equirectangular projection (`+proj=eqc +lat_ts=0 +lat_0=0 +lon_0=0 +x_0=0 +y_0=0 +datum=WGS84 +units=m +no_defs`).
 * **Units**: Meters ($1\text{ unit} = 1.0\text{ meter}$, origin $(0, 0)$ at map center).
 * **Bounds**: Southwest $(-10721.65, -8557.13)\text{ m}$, Northeast $(+3876.15, +9704.21)\text{ m}$.
-* **Strict Layer Purity**: Work layers under `layers/` are kept as pure OpenStreetMap schemas without auto-derived attributes (no `county`, `county_slug`, or `length_m` attributes). `scripts/format.py` automatically purges any stray derived keys. County-split networks and spatial metrics are generated downstream into `derived/` by the build pipeline. Contributors only need to fill in semantic tags (`highway`, `name`, `lanes`, `layer`, `bridge`, `tunnel`).
 
 ---
 

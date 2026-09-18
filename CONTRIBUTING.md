@@ -59,7 +59,7 @@ git checkout -b feat/describe-your-change
    * Do not snap grade-separated overpasses (hold **`Ctrl`** to suspend snapping).
    * Do not split lines at county borders.
    * Digitize one-way roads and rivers in the direction of flow.
-5. Enter required semantic tags (`highway`, `name`, `lanes`, `layer`, `bridge`, `tunnel`). Do not add auto-calculated fields like `county` or `length_m`—canonical work layers must remain pure OpenStreetMap schema.
+5. Enter required semantic tags (`highway`, `name`, `lanes`, `layer`, `bridge`, `tunnel`). Do not add auto-calculated fields—canonical work layers must remain pure OpenStreetMap schema.
 
 ### 4. Save Layer Edits to Disk
 * Click the **Save Layer Edits** icon on the Digitizing toolbar, **OR**
@@ -73,7 +73,6 @@ python scripts/format.py
 ```
 This performs:
 * Quantization of coordinates to 2 decimal places ($1\text{ cm}$ precision).
-* Purging of any stray auto-derived attributes (`county`, `county_slug`, `length_m`, etc.) to enforce strict layer purity.
 * Assignment and normalization of prefixed `ref_id`s (`R_####`, `T_####`, `A_####`).
 * Serialization of each feature onto exactly one single line with sorted keys.
 

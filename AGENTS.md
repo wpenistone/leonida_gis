@@ -93,11 +93,9 @@ leonida_gis/
 └── leonida_map_project.qgs           # Master QGIS project XML
 ```
 
-### Strict Layer Purity Guidelines (`layers/`)
-1. **Single Source of Truth:** Files in `layers/*.geojson` are hand-edited in QGIS. They must remain pure OpenStreetMap schema.
-2. **STRICT PROHIBITION ON AUTO-DERIVED ATTRIBUTES IN NETWORK & POI LAYERS:**
-   * Do **NOT** inject auto-calculated fields into network and landmark layers (`roads.geojson`, `rail.geojson`, `landmarks.geojson`, `waterways.geojson`) such as `county`, `county_slug`, `length_m`, `bearing`, `cardinal`, `vert_cnt`, or `gta_flags`. Administrative sections (`sections.geojson`) represent human ground truth and explicitly retain `county` and `county_slug` to derive county boundaries.
-   * `scripts/format.py` automatically purges stray keys from non-administrative work layers and formats GeoJSON to strict 1-line-per-feature serialization.
+### Work Layer Purity (`layers/`)
+1. **Single Source of Truth:** Files in `layers/*.geojson` are hand-edited in QGIS. They carry pure OpenStreetMap schema only.
+2. **No Auto-Derived Attributes:** Contributors add semantic tags only (`highway`, `name`, `lanes`, `layer`, `bridge`, `tunnel`, `railway`, `water`). Spatial metrics and county attribution are computed downstream into `derived/` by the build pipeline and must never be written back into `layers/`. The sole exception is `sections.geojson`, whose `county` and `county_slug` are human ground truth used to derive county boundaries.
 3. **Safety Protection:** Automated scripts must **NEVER** overwrite files in `layers/` unless an explicit `--overwrite-work` flag is supplied by the user.
 
 ---
@@ -242,5 +240,5 @@ python scripts/validate.py --strict
 ```
 
 ### Pre-Commit Code Quality
-* `python scripts/format.py`: Formats GeoJSON to 1 feature per line, 2-decimal coordinates, sorted keys, and strips stray derived keys.
+* `python scripts/format.py`: Formats GeoJSON to 1 feature per line, 2-decimal coordinates, and sorted keys.
 * `python scripts/validate.py`: Validates ID prefixes, tag domains, bounds, and turn-restriction topology. Must pass with **0 errors**.

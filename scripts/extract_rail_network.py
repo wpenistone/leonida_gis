@@ -12,6 +12,7 @@ Coordinate transformation to in-game metric space:
 import os
 import sys
 import json
+import copy
 import xml.etree.ElementTree as ET
 from shapely.geometry import LineString, mapping
 import geopandas as gpd
@@ -25,7 +26,7 @@ CMD_TRANS = str.maketrans({
     ',': ' '
 })
 
-# County slug map (kept in sync with scripts/format.py)
+# County slug map (kept in sync with scripts/validate.py)
 COUNTY_SLUG_MAP = {
     "Vice-Dale County": "vice_dale",
     "Kelly County": "kelly",
@@ -33,6 +34,11 @@ COUNTY_SLUG_MAP = {
     "Lummox County": "lummox",
     "Mariana County": "mariana"
 }
+
+# Derived properties that must never reach layers/rail.geojson: work layers carry
+# pure OpenStreetMap schema, while metrics and county attribution belong to the
+# derived/ outputs.
+DERIVED_PROP_KEYS = ("length_m", "county", "county_slug")
 
 
 def parse_rail_svg_path(d_str: str, bezier_steps: int = 4) -> list[list[tuple[float, float]]]:
@@ -228,11 +234,20 @@ def extract_rail_network():
     }
 
     out_rail = os.path.join(DERIVED_DIR, "rail_extracted.geojson")
-    if "--overwrite-work" in sys.argv:
+    is_work_layer = "--overwrite-work" in sys.argv
+    if is_work_layer:
         out_rail = WORK_RAIL_PATH
 
+    # The work layer is written from a stripped copy so the derived/ outputs
+    # below keep their metrics and county attribution.
+    out_fc = copy.deepcopy(fc) if is_work_layer else fc
+    if is_work_layer:
+        for feat in out_fc["features"]:
+            for k in DERIVED_PROP_KEYS:
+                feat["properties"].pop(k, None)
+
     with open(out_rail, "w", encoding="utf-8") as f:
-        json.dump(fc, f, indent=2)
+        json.dump(out_fc, f, indent=2)
 
     prj_path = os.path.splitext(out_rail)[0] + ".prj"
     with open(prj_path, "w", encoding="utf-8") as f:
@@ -249,7 +264,7 @@ def extract_rail_network():
         f.write(CRS_WKT)
 
     total_km = sum(f["properties"]["length_m"] for f in features) / 1000.0
-    print(f"  Extracted {len(features)} total rail segments ({total_km:.2f} km) -> {WORK_RAIL_PATH}")
+    print(f"  Extracted {len(features)} total rail segments ({total_km:.2f} km) -> {out_rail}")
     print(f"            Heavy rail: {len(hr_features)} segments | Light rail: {len(lr_features)} segments")
 
 

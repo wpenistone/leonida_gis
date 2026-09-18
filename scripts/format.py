@@ -4,7 +4,6 @@ Format and Lint Work Layers
 ===========================
 Formatting tool for layers.
 - Formats 1 feature per line in GeoJSON
-- Strips derived attributes (length, county, bearing) from work layers
 - Rounds coordinates to 2 decimal places (1 cm precision)
 - Normalizes and sorts dictionary keys deterministically
 - Sorts features by stable ID
@@ -21,10 +20,6 @@ from shapely.geometry import shape
 
 PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 LAYERS_DIR = os.path.join(PROJECT_ROOT, "layers")
-
-DERIVED_KEYS_TO_STRIP = {
-    "county", "county_slug", "length_m", "bearing", "cardinal", "vert_cnt", "gta_flags"
-}
 
 def round_coords(coords, precision=2):
     if isinstance(coords, (float, int)):
@@ -120,8 +115,6 @@ def format_geojson_file(filepath):
     # Sort features deterministically by stable ID
     features.sort(key=extract_sort_key)
 
-    is_admin_layer = "section" in file_slug or "admin" in file_slug
-
     # Standard ref_id (prefix enforced per layer: roads R_, rail T_, areas A_)
     ref_prefix = None
     if "road" in file_slug or "road" in fc_name.lower():
@@ -151,11 +144,6 @@ def format_geojson_file(filepath):
         if geom and "coordinates" in geom:
             rounded = round_coords(geom["coordinates"], precision=2)
             geom["coordinates"] = dedup_consecutive_coords(rounded, geom.get("type"))
-
-        # Strip derived attributes from non-administrative work layers
-        if not is_admin_layer:
-            for k in DERIVED_KEYS_TO_STRIP:
-                props.pop(k, None)
 
         # Resolve ID and ref_id collisions deterministically across concurrent edits
         fid = props.get("id")
