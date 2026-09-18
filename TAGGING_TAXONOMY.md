@@ -11,7 +11,7 @@
 6. [Turn Restrictions & Routing Relations](#6-turn-restrictions--routing-relations-layersrestrictionsgeojson)
 7. [Landmarks & Points of Interest](#7-landmarks--points-of-interest-layerslandmarksgeojson)
 8. [Topography & Coastlines](#8-topography--coastlines-derivedcontoursgeojson--gpkg-derivedcoastlinegeojson)
-9. [JOSM Presets & OpenStreetMap Porting Workflow](#9-josm-presets--openstreetmap-porting-workflow)
+9. [OpenStreetMap Porting Workflow](#9-openstreetmap-porting-workflow)
 
 ---
 
@@ -285,15 +285,9 @@ Direct translation between GTADB POI types and OpenStreetMap feature tags:
 
 ---
 
-## 9. JOSM Presets & OpenStreetMap Porting Workflow
+## 9. OpenStreetMap Porting Workflow
 
-### 9.1 Using `josm_presets_leonida.xml` in JOSM
-1. Open **JOSM** -> **Preferences** (`F12`).
-2. Navigate to **Map Settings** -> **Tagging Presets**.
-3. Click **+** (Add Preset) -> select **From File** -> browse to `josm_presets_leonida.xml` in this repository.
-4. Click **OK**. The **Leonida Roads**, **Leonida Administrative**, **Leonida Landuse**, and **Leonida Waterways** toolbars and menus will appear automatically with pre-configured tagging buttons.
-
-### 9.2 Coordinate Reprojection (In-Game Meters $\leftrightarrow$ WGS 84)
+### 9.1 Coordinate Reprojection (In-Game Meters $\leftrightarrow$ WGS 84)
 * **Projection**: Equirectangular (`EPSG:4087`).
 * Reprojection to WGS 84 (`EPSG:4326` Latitude / Longitude) is performed automatically by `scripts/04_build_publication.py` and QGIS via standard PROJ transformation pipelines:
   $$\text{Lon} = \frac{X}{R \cdot \cos(\text{lat\_ts})}, \quad \text{Lat} = \frac{Y}{R}$$
