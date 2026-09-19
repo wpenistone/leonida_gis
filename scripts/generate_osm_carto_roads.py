@@ -32,10 +32,16 @@ Key Architectural Features:
 5. Seamless Junction Merging:
    - symbollevels="1" for clean casing/fill fusion across intersections.
    - enableorderby="1" ensuring mainline motorways cleanly prioritize over ramps.
+
+6. Close-Zoom Width Tapering (below 1:3,000):
+   - Ribbon, casing and chevron ladders thin out at 1:2,000, 1:1,500, 1:1,200 and
+     below so the centre-line stays visible while digitizing.
+   - Tiers at or above 1:3,000 are untouched, so distant views are unchanged.
 """
 
 import sys
 import os
+import re
 import subprocess
 
 PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
@@ -162,7 +168,54 @@ END"""
 # Full-Scale Parametric Width Expressions with Dedicated Link Ramp Hierarchy
 # =============================================================================
 
-FILL_WIDTH_EXPR = """CASE
+# =============================================================================
+# Close-Zoom Width Tapering (applies below 1:3,000 only)
+# =============================================================================
+# Every ladder below stops at a 1:3,000 tier and then falls through to a single
+# ELSE catch-all, so all deeper scales - 1:1,863 and 1:931 included - rendered at
+# the full 1:3,000 weight. At mapping zooms that ribbon covers the centre-line and
+# the vertex handles, which makes precise digitizing awkward.
+#
+# CLOSE_ZOOM_TAPER subdivides that catch-all into close-zoom tiers: each entry is
+# a scale denominator and the factor applied to the original sub-1:3,000 width.
+# Nothing at or above 1:3,000 is touched, so distant views render exactly as
+# before; only closer scales thin out. Tune the factors here to change how fast
+# the network narrows when zooming in.
+CLOSE_ZOOM_TAPER = (
+    (2000, 0.86),
+    (1500, 0.74),
+    (1200, 0.64),
+    (None, 0.55),
+)
+
+CLOSE_ZOOM_TIER_RE = re.compile(
+    r"(?P<head>WHEN coalesce\(@map_scale, 1000\) >= 3000 THEN [\d.]+)"
+    r"\n(?P<indent>[ \t]*)ELSE (?P<base>[\d.]+)"
+)
+
+
+def add_close_zoom_tiers(expr):
+    """Turn every sub-1:3,000 catch-all in a width ladder into tapered tiers.
+
+    ``>= 3000 ... ELSE w`` becomes
+    ``>= 3000 ... >= 2000 ... >= 1500 ... >= 1200 ... ELSE w * factor``.
+    """
+    def _expand(match):
+        indent = match.group("indent")
+        base = float(match.group("base"))
+        tiers = []
+        for denominator, factor in CLOSE_ZOOM_TAPER:
+            value = f"{round(base * factor, 2):.2f}"
+            if denominator is None:
+                tiers.append(f"{indent}ELSE {value}")
+            else:
+                tiers.append(f"{indent}WHEN coalesce(@map_scale, 1000) >= {denominator} THEN {value}")
+        return "{}\n{}".format(match.group("head"), "\n".join(tiers))
+
+    return CLOSE_ZOOM_TIER_RE.sub(_expand, expr)
+
+
+FILL_WIDTH_EXPR = add_close_zoom_tiers("""CASE
   -- LINKS & RAMPS ("highway" ends with _link OR "link" = 'yes')
   WHEN ("highway" LIKE '%_link' OR coalesce(to_string("link"), '') IN ('yes', '1', 'true')) THEN
     CASE
@@ -275,9 +328,9 @@ FILL_WIDTH_EXPR = """CASE
       WHEN coalesce(@map_scale, 1000) >= 3000 THEN 0.85
       ELSE 1.30
     END
-END"""
+END""")
 
-CASING_WIDTH_EXPR = """CASE
+CASING_WIDTH_EXPR = add_close_zoom_tiers("""CASE
   WHEN "highway" IN ('track', 'footway', 'cycleway', 'path', 'steps') THEN 0.00
 
   -- LINKS & RAMPS
@@ -385,7 +438,7 @@ CASING_WIDTH_EXPR = """CASE
       WHEN coalesce(@map_scale, 1000) >= 3000 THEN 1.20
       ELSE 1.70
     END
-END"""
+END""")
 
 # (Bridge parapet width constant removed: bridges now use the OSM Carto black
 # casing ring formula instead of dual railing lines.)
@@ -406,8 +459,43 @@ ORDER_BY_EXPR = """CASE
   ELSE 1
 END"""
 
+CHEVRON_TIER_RE = re.compile(
+    r"(?P<indent>[ \t]*)WHEN coalesce\(@map_scale, 1000\) <= 2500 THEN (?P<base>[\d.]+)"
+)
+
+
+def apply_close_zoom_chevrons(expr):
+    """Subdivide the ``<= 2500`` chevron tier so far zoom sits inside the ribbon.
+
+    The ribbon ladders are macro-first with an ``ELSE`` floor, while chevrons are
+    sized micro-first with ``<=``, so each chevron threshold takes the taper
+    factor of the band just inside it (and 1:2,500 keeps the widest band).
+    """
+    entries = list(CLOSE_ZOOM_TAPER)
+
+    def _expand(match):
+        indent = match.group("indent")
+        base = float(match.group("base"))
+        bands = []
+        for index, (denominator, _) in enumerate(entries):
+            if denominator is None:
+                continue
+            factor = entries[min(index + 1, len(entries) - 1)][1]
+            bands.append((denominator, factor))
+        bands.reverse()
+        lines = [
+            f"{indent}WHEN coalesce(@map_scale, 1000) <= {denominator} THEN {round(base * factor, 2):.1f}"
+            for denominator, factor in bands
+        ]
+        widest = round(base * entries[0][1], 2)
+        lines.append(f"{indent}WHEN coalesce(@map_scale, 1000) <= 2500 THEN {widest:.1f}")
+        return "\n".join(lines)
+
+    return CHEVRON_TIER_RE.sub(_expand, expr)
+
+
 # Dynamic oneway chevron size (proportional for mainlines and narrow link ramps)
-SIZE_EXPR = """CASE
+SIZE_EXPR = apply_close_zoom_chevrons("""CASE
   WHEN coalesce(to_string("oneway"), '') IN ('yes', '1', 'true', '-1') THEN
     CASE
       WHEN ("highway" LIKE '%_link' OR coalesce(to_string("link"), '') IN ('yes', '1', 'true')) THEN
@@ -426,7 +514,7 @@ SIZE_EXPR = """CASE
         END
     END
   ELSE 0.0
-END"""
+END""")
 
 
 def make_oneway_marker_layer(pass_num=7):

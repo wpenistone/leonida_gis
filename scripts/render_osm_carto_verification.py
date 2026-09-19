@@ -7,6 +7,9 @@ Generates multi-scale QA renders to verify:
 2. 1:1 OSM Carto colors, casings, widths, and symbol levels.
 3. Scale-adaptive 1:1 SVG oneway chevrons.
 4. Clean, seamless junction merging.
+Views are specified as (name, width_px, height_px, extent) or via extent_for_scale()
+so that a render lands on an exact scale denominator (e.g. 1:931) for close-zoom
+digitizing QA.
 """
 
 import os
@@ -50,6 +53,19 @@ from qgis.core import (
 )
 from PyQt5.QtCore import QSize
 from PyQt5.QtGui import QColor
+
+
+def extent_for_scale(scale, width_px, height_px, center_pt, out_dpi=96):
+    """Return the map extent (meters) whose render at the given pixel size and DPI
+    lands on exactly 1:`scale`.
+
+    map units per pixel = scale * 25.4 / (dpi * 1000)
+    """
+    mupp = scale * 25.4 / (out_dpi * 1000.0)
+    half_w = width_px * mupp / 2.0
+    half_h = height_px * mupp / 2.0
+    return QgsRectangle(center_pt.x() - half_w, center_pt.y() - half_h,
+                        center_pt.x() + half_w, center_pt.y() + half_h)
 
 
 def run_verification():
@@ -99,7 +115,10 @@ def run_verification():
             ("metro_vice_city", 1200, 1000, QgsRectangle(pt.x() - 3500, pt.y() - 3000, pt.x() + 3500, pt.y() + 3000)),
             ("interchange_oneway_detail", 1200, 800, QgsRectangle(pt.x() - 400, pt.y() - 250, pt.x() + 400, pt.y() + 250)),
             ("bridge_overpass_detail", 1000, 800, QgsRectangle(-3160, 140, -2990, 276)),
-            ("rail_transit_detail", 1000, 800, QgsRectangle(-1130, -530, -530, -30))
+            ("rail_transit_detail", 1000, 800, QgsRectangle(-1130, -530, -530, -30)),
+            # Close-zoom digitizing QA: exact mapping scales used for editing.
+            ("scale_1863_mapping", 1200, 800, extent_for_scale(1863, 1200, 800, pt)),
+            ("scale_931_mapping", 1200, 800, extent_for_scale(931, 1200, 800, pt))
         ]
 
         for v_name, w, h, ext in views:

@@ -64,7 +64,7 @@ LAYER_CONFIG = {
 }
 
 # Predefined project zoom scales (snaps Leonida scale bar in QGIS)
-PREDEFINED_SCALES = [500, 1000, 2500, 5000, 10000, 20000, 35000, 75000, 100000]
+PREDEFINED_SCALES = [500, 750, 1000, 1200, 1500, 2000, 2500, 5000, 10000, 20000, 35000, 75000, 100000]
 
 EPSG_4087_WKT = (
     'PROJCRS["WGS 84 / World Equidistant Cylindrical",'

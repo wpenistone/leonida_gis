@@ -17,16 +17,22 @@ Key Architectural Features:
    - Yards & sidings: Subordinate, lighter grey, and hidden at >= 1:35,000 to prevent yard bloat.
    - Light rail & metro transit: Sleek #666666 line, distinct from heavy rail tie pattern.
 
-3. OSM Carto 1:1 Bridge Casings:
+3. Close-Zoom Width Tapering (below 1:3,000):
+   - Trackbed and tie ladders thin out at 1:2,000, 1:1,500, 1:1,200 and below so
+     the centre-line stays visible while digitizing.
+   - Tiers at or above 1:3,000 are untouched, so distant views are unchanged.
+
+4. OSM Carto 1:1 Bridge Casings:
    - Bridges draw a solid black ring (@bridge-casing) wider than the trackbed.
    - Tunnel dashed casings with proper scale-adaptive widths.
 
-4. Form field aliases and defaults:
+5. Form field aliases and defaults:
    - Automatic incrementing ID, ref_id (T_0001..), and layer derivation.
 """
 
 import sys
 import os
+import re
 import subprocess
 
 PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
@@ -88,8 +94,55 @@ RAIL_TUNNEL_BED_COLOR_EXPR = """CASE
   ELSE '#787878'
 END"""
 
+# =============================================================================
+# Close-Zoom Width Tapering (applies below 1:3,000 only)
+# =============================================================================
+# Every ladder below stops at a 1:3,000 tier and then falls through to a single
+# ELSE catch-all, so all deeper scales - 1:1,863 and 1:931 included - rendered at
+# the full 1:3,000 weight. At mapping zooms that trackbed covers the centre-line
+# and the vertex handles, which makes precise digitizing awkward.
+#
+# CLOSE_ZOOM_TAPER subdivides that catch-all into close-zoom tiers: each entry is
+# a scale denominator and the factor applied to the original sub-1:3,000 width.
+# Nothing at or above 1:3,000 is touched, so distant views render exactly as
+# before; only closer scales thin out. Tune the factors here to change how fast
+# the network narrows when zooming in.
+CLOSE_ZOOM_TAPER = (
+    (2000, 0.86),
+    (1500, 0.74),
+    (1200, 0.64),
+    (None, 0.55),
+)
+
+CLOSE_ZOOM_TIER_RE = re.compile(
+    r"(?P<head>WHEN coalesce\(@map_scale, 1000\) >= 3000 THEN [\d.]+)"
+    r"\n(?P<indent>[ \t]*)ELSE (?P<base>[\d.]+)"
+)
+
+
+def add_close_zoom_tiers(expr):
+    """Turn every sub-1:3,000 catch-all in a width ladder into tapered tiers.
+
+    ``>= 3000 ... ELSE w`` becomes
+    ``>= 3000 ... >= 2000 ... >= 1500 ... >= 1200 ... ELSE w * factor``.
+    """
+    def _expand(match):
+        indent = match.group("indent")
+        base = float(match.group("base"))
+        tiers = []
+        for denominator, factor in CLOSE_ZOOM_TAPER:
+            value = f"{round(base * factor, 2):.2f}"
+            if denominator is None:
+                tiers.append(f"{indent}ELSE {value}")
+            else:
+                tiers.append(f"{indent}WHEN coalesce(@map_scale, 1000) >= {denominator} THEN {value}")
+        return "{}\n{}".format(match.group("head"), "\n".join(tiers))
+
+    return CLOSE_ZOOM_TIER_RE.sub(_expand, expr)
+
+
 # Scale-adaptive trackbed width (full scale, yard-aware)
-RAIL_BED_WIDTH_EXPR = """CASE
+RAIL_BED_WIDTH_EXPR = add_close_zoom_tiers("""CASE
   -- 1. Minor Rail (Yards, Sidings, Spurs)
   WHEN coalesce("service", '') IN ('yard', 'siding', 'spur', 'crossover') THEN
     CASE
@@ -119,10 +172,10 @@ RAIL_BED_WIDTH_EXPR = """CASE
       WHEN coalesce(@map_scale, 1000) >= 3000 THEN 1.75
       ELSE 2.20
     END
-END"""
+END""")
 
 # White dashed crossties width (visible only on heavy rail at >= z12)
-RAIL_TIE_WIDTH_EXPR = """CASE
+RAIL_TIE_WIDTH_EXPR = add_close_zoom_tiers("""CASE
   -- Light rail has no ties (solid transit track)
   WHEN "railway" = 'light_rail' THEN 0.00
 
@@ -146,21 +199,24 @@ RAIL_TIE_WIDTH_EXPR = """CASE
       WHEN coalesce(@map_scale, 1000) >= 3000 THEN 0.75
       ELSE 1.00
     END
-END"""
+END""")
 
 # Dynamic tie dash pattern (custom dash 1.8;1.8 mm on screen)
 RAIL_TIE_DASH_EXPR = """CASE
   WHEN "railway" = 'light_rail' OR coalesce(@map_scale, 1000) >= 35000 THEN '1;0'
+  -- Close zoom: ties shorten with the trackbed so the sleeper pattern stays legible
+  WHEN coalesce(@map_scale, 1000) <= 1200 THEN '1.1;1.0'
+  WHEN coalesce(@map_scale, 1000) <= 2000 THEN '1.4;1.3'
   ELSE '1.8;1.8'
 END"""
 
 # Scale-adaptive bridge parapet thickness
-RAIL_BRIDGE_CASING_BAND_EXPR = """CASE
+RAIL_BRIDGE_CASING_BAND_EXPR = add_close_zoom_tiers("""CASE
   WHEN coalesce(@map_scale, 1000) >= 20000 THEN 0.30
   WHEN coalesce(@map_scale, 1000) >= 8000 THEN 0.45
   WHEN coalesce(@map_scale, 1000) >= 3000 THEN 0.55
   ELSE 0.70
-END"""
+END""")
 
 # Hierarchical drawing order: Mainline rail on top of yards/sidings
 RAIL_ORDER_BY_EXPR = """CASE
